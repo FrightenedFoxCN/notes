@@ -1,0 +1,76 @@
+site_name: FFox's Notes
+site_url: https://frightenedfoxcn.github.io/notes/
+
+theme: 
+  name: 'material'
+  language: 'zh'
+  icon: 
+    logo: material/notebook-outline
+  custom_dir: overrides
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+  font: false
+  palette:
+    - scheme: slate
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - css/stylesheet.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js
+  - js/katex.js
+
+plugins:
+  - changelog
+  - search
+
+nav:
+  - Home:
+    - index.md
+    - 更新记录: changelog.md
+    - 友链: links.md
+    - 待办事项: todo.md
+  - Technology:
+    - tech/index.md
+  - Mathematics:
+    - math/index.md
+    - Theory of Computation Overview:
+      - 01A：有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
