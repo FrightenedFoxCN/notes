@@ -1,0 +1,1295 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/math/toc-notes/01A/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>01A：有限自动机和正则语言 Finite Automata & Regular Languages - FFox's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#problems-languages" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FFox's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01A：有限自动机和正则语言 Finite Automata & Regular Languages
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tech/" class="md-tabs__link">
+        Technology
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Mathematics
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    FFox's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        更新记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links/" class="md-nav__link">
+        友链
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../todo/" class="md-nav__link">
+        待办事项
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/">Technology</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Technology" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Technology
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Mathematics</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Theory of Computation Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Theory of Computation Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Theory of Computation Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          01A：有限自动机和正则语言 Finite Automata & Regular Languages
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        01A：有限自动机和正则语言 Finite Automata & Regular Languages
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problems-languages" class="md-nav__link">
+    问题和语言 Problems &amp; Languages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finite-automata" class="md-nav__link">
+    有限状态机 Finite Automata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimization" class="md-nav__link">
+    简化 Minimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locality" class="md-nav__link">
+    *局部性 Locality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-language" class="md-nav__link">
+    正则语言 Regular Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kleene-kleenes-theorem-language-versus-automata" class="md-nav__link">
+    Kleene 定理：语言对自动机 Kleene's Theorem: Language versus Automata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pumping-lemma" class="md-nav__link">
+    泵引理 Pumping Lemma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-grammar" class="md-nav__link">
+    *正则语法 Regular Grammar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#star-free-language" class="md-nav__link">
+    *无星语言 Star-free Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-algebraic-approach" class="md-nav__link">
+    *代数刻画 An Algebraic Approach
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    总结 Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    参考资料 References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problems-languages" class="md-nav__link">
+    问题和语言 Problems &amp; Languages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finite-automata" class="md-nav__link">
+    有限状态机 Finite Automata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimization" class="md-nav__link">
+    简化 Minimization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locality" class="md-nav__link">
+    *局部性 Locality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-language" class="md-nav__link">
+    正则语言 Regular Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kleene-kleenes-theorem-language-versus-automata" class="md-nav__link">
+    Kleene 定理：语言对自动机 Kleene's Theorem: Language versus Automata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pumping-lemma" class="md-nav__link">
+    泵引理 Pumping Lemma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-grammar" class="md-nav__link">
+    *正则语法 Regular Grammar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#star-free-language" class="md-nav__link">
+    *无星语言 Star-free Language
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-algebraic-approach" class="md-nav__link">
+    *代数刻画 An Algebraic Approach
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    总结 Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    参考资料 References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>01A：有限自动机和正则语言 Finite Automata & Regular Languages</h1>
+
+<p>从这里开始，我们要进入计算理论的世界。计算理论（theory of computation）研究的核心问题就是计算（computation）。我们需要思考的问题是：什么是计算；什么可以计算或不可以计算；如果可以计算，这个问题有多难计算；如果不可以计算，这个问题不可以计算的程度有多少。这个系列（前半部分的）主要框架来自于浙江大学计算理论课程毛宇尘老师的授课，其中插入了大量笔者个人的想法和来源于其他参考资料的结论和思路，应当完全覆盖并超越这门课程本身。这门课程事实上只部分地回答了前两个问题，对于第三个问题一带而过，而对于第四个问题几乎完全没有讨论，但是在这个系列里，我会尽可能完整地展现整个理论从新生到现代的全貌。笔者才疏学浅，如有疏漏，望指正。</p>
+<p>为了讨论计算，我们首先需要有一个计算问题（problem）。为了定义计算问题，我们需要引入语言（language）的概念。而要解决这个问题，我们需要有一个计算设备（computation device），这又使得我们引入自动机（automata）的概念。在这一节中，我们讨论的对象是这两类中最简单的形式：正则语言（regular language）和有限状态机（finite automata）。本文作为 A 面讲的是基础部分，基本上已经完全覆盖了课程内容，以后可能会写的 B 面则更偏重更多理论发展和更现代化的理论。而在 B 面中，我们会假定读者已经具备了足够的数学能力，因为在那里我们会更多地使用代数（以及可能的拓扑）来解决计算理论相关的问题。</p>
+<p>注意，在拓展内容中，因为笔者个人的兴趣以及体现理论整体美感的需要，哪怕在 A 面中也会涉及一些需要代数基础的内容，我将尽可能将其讲的足够明白；但是对于计算理论这门课程而言，能否理解这一部分应当是无足轻重的。</p>
+<h2 id="problems-languages">问题和语言 Problems &amp; Languages<a class="headerlink" href="#problems-languages" title="Permanent link">&para;</a></h2>
+<p>回忆一下我们迄今为止碰到过的计算问题。我们会问：一个图（graph）是否是一棵树（tree），一个逻辑表达式是否是可满足的（satisfiable）或者一个表达式（expression）是否是最简的（simplified）。我们将这种判断是或否的问题称为决策问题（decision problem）。这种问题是计算理论研究最主要的对象，也是在我们这个系列前半部分我们会主要讨论的问题。</p>
+<p>是/否的判断事实上是一个取值为 0/1 的函数，我们可以将其视为一个集合的示性函数（characteristic function）：</p>
+<div class="arithmatex">\[
+\chi_S(x) = \begin{cases}
+0, x \not\in S\\
+1, x \in S
+\end{cases}
+\]</div>
+<p>这样的表示使得我们将一个问题转化为一个集合。下一个问题是，我们要怎样来表述这个集合？我们知道，我们可以用二进制表示一个整数，也可以用十进制表示一个整数，这些方法在我们判断一个数是奇数还是偶数的问题本身看来没有什么影响，但是它可能会影响计算过程。为了清晰地描述对一个问题的计算过程，我们需要定义某种“编码方式”作为讨论的对象，也就是说，我们要有一个字母表（alphabet）。字母表 <span class="arithmatex">\(\Sigma\)</span> 是一个由<strong>有限个</strong>符号（symbol）组成的集合，在某个字母表上的字符串（string over an alphabet）<span class="arithmatex">\(w\)</span> 是<strong>有限个</strong>字母表中的符号组成的序列（sequence），这个字符串的长度就是字符串中符号的个数，记作 <span class="arithmatex">\(\vert w \vert\)</span>。当然，这里我们似乎没有定义什么叫符号，因为它事实上没啥影响，你可以用 0, 1, 2, 3，也可以用甲乙丙丁，甚至如果你乐意的话，也可以用不同的 emoji 表情，这种等价性是显而易见的（我们确实可以用复杂的数学语言去描述它，但是在没有必要的情况下，不会有人喜欢这么干的吧，不会吧不会吧）。</p>
+<p>需要额外说明，我们的字符串长度可以为 0，这个字符串被我们称为空字符串（empty string，或字，word，本文会混用这两个术语），在同一个字母表上，有且仅有一个空串，记作 <span class="arithmatex">\(e\)</span>。当然，我们可以定义字符串上的运算，都很常规：</p>
+<ul>
+<li>衔接（concatenation），<span class="arithmatex">\(vw\)</span> 就是前半段是 <span class="arithmatex">\(v\)</span> 的内容，后半段是 <span class="arithmatex">\(w\)</span> 的内容；</li>
+<li>幂次（exponentiation），<span class="arithmatex">\(w^i\)</span> 就是把字符串 <span class="arithmatex">\(w\)</span> 重复 <span class="arithmatex">\(i\)</span> 次；我们定义 <span class="arithmatex">\(\forall w, w^0=e\)</span>；</li>
+<li>翻转（reverse），<span class="arithmatex">\(w^R\)</span> 就是把字符串 <span class="arithmatex">\(w\)</span> 倒过来；我们定义 <span class="arithmatex">\(e^R=e\)</span>；</li>
+</ul>
+<p>注意看！衔接操作作为运算（operation），空串作为单位元（identity），我们可以从一个字母表生成一个自由幺半群（free monoid）。这是为后面的补充内容做铺垫：对于正则语言（regular language），它的句法幺半群（syntactic monoid）的结构可以直接导出判断一个语言是否正则的充要条件：Myhill-Nerode 定理。</p>
+<p>在继续之前，我们再引入一些记号来表示从字母表到字符串集合的映射。</p>
+<ul>
+<li><span class="arithmatex">\(\Sigma^i\)</span> 指字母表中所有长度为 <span class="arithmatex">\(i\)</span> 的字符串的集合；</li>
+<li><span class="arithmatex">\(\Sigma^+\)</span> 指字母表中所有<strong>非空</strong>字符串的集合：<span class="arithmatex">\(\Sigma^+ = \cup_{i=1}^\infty \Sigma^i\)</span>；</li>
+<li><span class="arithmatex">\(\Sigma^\ast\)</span> 指字母表中所有字符串的集合：<span class="arithmatex">\(\Sigma^\ast = \Sigma^+ \cup \{e\}\)</span>，事实上这就是前面的生成的自由幺半群；</li>
+</ul>
+<p>接下来对语言的定义也就顺理成章了：一个字母表 <span class="arithmatex">\(\Sigma\)</span> 上的语言 <span class="arithmatex">\(L\)</span> 就是 <span class="arithmatex">\(\Sigma^\ast\)</span> 的一个子集。当然，它可以是全集，也可以是空集。在这种情况下，我们的问题就变成了：给定 <span class="arithmatex">\(x \in \Sigma^\ast\)</span>，计算 <span class="arithmatex">\(\chi_L(x)\)</span> 的值。这样，我们就完成了从问题到语言的转化。语言之间的运算除了集合运算之外，常见的还有衔接、幂次和星（star）：</p>
+<ul>
+<li><span class="arithmatex">\(L_1L_2 = \{uv: u\in L_1, v\in L_2\}\)</span>；</li>
+<li><span class="arithmatex">\(L^i = \{w_1w_2\cdots w_i: w_j \in L\}\)</span>，<span class="arithmatex">\(L^0 = \{e\}\)</span>；</li>
+<li><span class="arithmatex">\(L^\ast = \cup_{i=0}^\infty L^i\)</span>；</li>
+</ul>
+<p>我们可以明确地看到衔接和乘积之间的关系。但是，仅此而已吗？注意，我们还有集合的并操作，它可以在某种意义上被与一个加法等同，如果记其为 <span class="arithmatex">\(L_1 + L_2\)</span>，那么，我们容易发现，<span class="arithmatex">\(\mathcal{P}(\Sigma^\ast)\)</span> 上的所有元素在并和衔接（和交，但这不重要）下封闭，而且存在结合律：</p>
+<div class="arithmatex">\[
+L(L_1 + L_2) = LL_1 + LL_2,\quad(L_1 + L_2)L = L_1L+L_2L
+\]</div>
+<p>诶，看我们发现了什么？又是一个代数结构！我们在这上边定义了一个加法半群和一个乘法半群，两者都有单位元，加法乘法有结合律，加法有交换律，具备分配律，而且加法单位元 <span class="arithmatex">\(\varnothing\)</span> 与所有其他元素的乘积都是 <span class="arithmatex">\(\varnothing\)</span>，不等于乘法单位元 <span class="arithmatex">\(\{e\}\)</span>。好，这时候半环（semiring）就出现了。以下我们会混用 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(\varnothing\)</span> 以及 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(\{e\}\)</span>，前者一般会在代数视角中更常用，后者则直接地对应到语言上。这个时候我们自然而然地会想到想办法做一个商：</p>
+<div class="arithmatex">\[
+u^{-1}L = \{v\in \Sigma^\ast:uv\in L\}, \quad Lu^{-1} = \{v \in\Sigma^\ast:vu\in L \}
+\]</div>
+<p>很直观，是吧？这里我们很不幸不能用局部化（localization）的想法去做进一步的操作，因为加法同样也是半群，而且乘法不交换。但是我们一样可以整出语言之间的左商（left quotient）和右商（right quotient）：</p>
+<div class="arithmatex">\[
+L_1^{-1}L_2 = \bigcup_{u \in L_1}u^{-1}L_2, \quad L_1L_2^{-1} = \bigcup_{u \in L_2}L_1u^{-1}
+\]</div>
+<p>同样很和善，对吧？下面几个等式的证明很简单，留作读者练习：</p>
+<ul>
+<li><span class="arithmatex">\((L_1 + L_2)^{-1}L = L_1^{-1}L + L_2^{-1}L\)</span>；</li>
+<li><span class="arithmatex">\((L_1L_2)^{-1}L = L_2^{-1}(L_1^{-1}L)\)</span>；</li>
+</ul>
+<p>你以为就到此为止了吗？难道你没有发现有什么东西被忘记了？是的，我们的星号还在苦苦等待。对于它我们最适合的归宿是先给出下面两个结论，同样留给读者自己证明：</p>
+<ul>
+<li><span class="arithmatex">\((L_1 + L_2)^\ast = L_1^\ast(L_2 L_1^\ast)^\ast\)</span>：和-星规则（sum star rule）；</li>
+<li><span class="arithmatex">\((L_1L_2)^\ast = 1 + L_1(L_2L_1)^\ast L_2\)</span>：积-星规则（product star rule）；</li>
+</ul>
+<p>满足这两条规则的带星操作的半环被称为 Conway 半环。下面一个推论在所有 Conway 半环中都适用：</p>
+<div class="arithmatex">\[
+x^\ast = 1+ xx^\ast
+\]</div>
+<p>被称为不动点定理（fixed point theorem），请读者自行证明之。注意，一个任意的 Conway 半环中的星操作只是一个满足这两条规则的从自身到自身的映射。</p>
+<p>这些代数结构的引入在现在看来好像还有点突兀。但是，在后面，我们会尝试表明，Conway 半环的规则事实上对于 Kleene 定理来讲已经足够了。</p>
+<p>我们最后给出一个语言的线性方程（linear equation）的定义。既然加法乘法都有了，那线性性看起来就是理所应当的了。我们暂时只考虑方程 <span class="arithmatex">\(X = KX + L\)</span>，其中 <span class="arithmatex">\(L, K\)</span> 都已知，<span class="arithmatex">\(X\)</span> 未知，我们在某些情形下可以给出它的解，这个引理是属于 Arden 的：当 <span class="arithmatex">\(e\not \in K\)</span> 时，<span class="arithmatex">\(X = KX+L\)</span> 具备唯一解 <span class="arithmatex">\(X = K^\ast L\)</span>。这个结果直观地看上去很像线性方程组的结果，我们下面来严格证明一下。</p>
+<p>首先，我们很容易表明这就是这个方程的解：</p>
+<div class="arithmatex">\[
+K(K^\ast L) + L = KK^\ast L +L = (KK^\ast + \{e\})L = K^\ast L
+\]</div>
+<p>嘿！我们看到了不动点定理在这里发挥了作用。现在我们更加明白为什么它被叫做不动点了。因为我们事实上是表明了 <span class="arithmatex">\(x^\ast\)</span> 是函数 <span class="arithmatex">\(y = 1 + xt\)</span> 的不动点，而 Arden 引理做的是对它进行了推广。</p>
+<p>然后我们要表明唯一性，这一步看起来可能就会有点复杂了。依然是很直接的，我们假设它有两个不相同的解 <span class="arithmatex">\(X_1, X_2\)</span>，接下来由于对称性，我们只需要表明一个单侧的包含关系 <span class="arithmatex">\(X_1 \subset X_2\)</span> 就行，也就是说，<span class="arithmatex">\(\forall u \in X_1, u \in X_2\)</span>。我们通过对 <span class="arithmatex">\(u\)</span> 的长度做归纳来完成这个步骤。</p>
+<p>如果 <span class="arithmatex">\(\vert u \vert = 0\)</span>，<span class="arithmatex">\(u\)</span> 是空字且 <span class="arithmatex">\(u \in X_1\)</span>，那么 <span class="arithmatex">\(u \in KX_1 + L\)</span>。因为 <span class="arithmatex">\(K\)</span> 中不含空字，所以 <span class="arithmatex">\(u \in L\)</span>。这样的话，也就有 <span class="arithmatex">\(u \in X_2\)</span>。</p>
+<p>接下来我们考虑长为 <span class="arithmatex">\(n + 1\)</span> 的字 <span class="arithmatex">\(u\)</span>，假定 <span class="arithmatex">\(X_1\)</span> 中所有长度小于等于 <span class="arithmatex">\(n\)</span> 的字都在 <span class="arithmatex">\(X_2\)</span> 中。那么我们有两种选择：<span class="arithmatex">\(u\)</span> 要么在 <span class="arithmatex">\(KX_1\)</span> 中，要么在 <span class="arithmatex">\(L\)</span> 中。如果它在 <span class="arithmatex">\(L\)</span> 中，那它显然也就在 <span class="arithmatex">\(X_2\)</span> 中了。如果它在 <span class="arithmatex">\(KX_1\)</span> 中，那么存在 <span class="arithmatex">\(k \in K, x \in X_1\)</span> 使得 <span class="arithmatex">\(kx=u\)</span>。因为 <span class="arithmatex">\(k\)</span> 不是空字，所以 <span class="arithmatex">\(x\)</span> 的长度一定小于等于 <span class="arithmatex">\(n\)</span>，由归纳假设得 <span class="arithmatex">\(x \in X_2\)</span>，因此 <span class="arithmatex">\(u = kx \in KX_2\)</span>，<span class="arithmatex">\(u \in X_2\)</span>。</p>
+<p>好，证完了，下面一个推论则留给读者了：如果 <span class="arithmatex">\(K\)</span> 中含有空字，那么这个方程的解就是 <span class="arithmatex">\(K^\ast M\)</span> 的形式，且 <span class="arithmatex">\(L \subset M\)</span>。这事实上也表明，这个方程是有一个极小解（minimal solution）的。</p>
+<p>接下来我们可以正式开始考虑线性方程组了。我们的方程组长这样：</p>
+<div class="arithmatex">\[
+\begin{array}{cc}
+X_1 &amp;= K_{11}X_1 + K_{12}X_2 + \cdots + K_{1n}X_n + L_1\\
+X_2 &amp;= K_{21}X_1 + K_{22}X_2 + \cdots + K_{2n}X_n + L_2\\
+\vdots &amp; \vdots\\
+X_n &amp;= K_{n1}X_1 + K_{22}X_2 + \cdots + K_{nn}X_n + L_n\\
+\end{array}
+\]</div>
+<p>当然咯，敏锐的读者应当已经发现了，这似乎也是一个求解不动点的问题，我们完全可以把它表示成 <span class="arithmatex">\(\boldsymbol X = \boldsymbol K \boldsymbol X + \boldsymbol L\)</span>。我们接下来要表明，如果 <span class="arithmatex">\(K_{ij}\)</span> 均不含空字，则这个方程组也能给出一个唯一解。在 Arden 引理之后表明这一点是相当轻松的。我们只需要表明递归下去就可以了。由最后一条方程结合 Arden 引理，我们知道：</p>
+<div class="arithmatex">\[
+X_n = K_{nn}^\ast(K_{n1}X_1 + \cdots + K_{n(n-1)}X_{n-1} + L_n)
+\]</div>
+<p>然后将其代入到倒数第二条方程中，一直递归到求解出每一个 <span class="arithmatex">\(X_i\)</span> 就完成了。</p>
+<p>那么，这种方程组有什么含义呢？我们马上要引入的有限状态机事实上就是这样一种方程组的表现。</p>
+<h2 id="finite-automata">有限状态机 Finite Automata<a class="headerlink" href="#finite-automata" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>注意：本节中会引入很多定义，与课本/课件中的定义有些不相同之处，但是它们都是等价的。我们这里的定义和课程中的定义表列如下：</p>
+<ul>
+<li>
+<p>本文中的有限状态机就是 NFA，DFA 是 NFA 的一个特殊情形，而 NFA-<span class="arithmatex">\(e\)</span> 则是 NFA 的推广情形；除了 DFA 以外，我们都不要求初始状态唯一。</p>
+</li>
+<li>
+<p>课程中的有限状态机指的是我们的 DFA，课程中的 DFA 和本文中的 DFA 相同，课程中的 NFA 指的是本文中初始状态唯一的 NFA-<span class="arithmatex">\(e\)</span>。 </p>
+</li>
+</ul>
+</blockquote>
+<p>有限状态机的引入看起来就要容易地多。假设我们有一个门，它可以开，可以关。那么“开”和“关”就是它的两个状态，而开关的过程就是状态之间的转换，这很好理解。接下来我们要把这种想法形式化，于是我们给出这样的定义（注意，这里定义的引入和授课的顺序有所不同，笔者认为这是一个更方便建立形式化描述的思路，整体参考的是 <em>Mathematical Foundations of Automata Theory</em>, Jean-Éric Pin, Version of 18th Feb. 2022）</p>
+<p>一个有限状态机（finite automata，或 finite state machine）是一个五元组 <span class="arithmatex">\((K, \Sigma, \Delta, S, F)\)</span>，其中：</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> 是一个有限的集合，其中的元素被称为状态（states），因为状态数有限所以我们才称之为有限状态机；</li>
+<li><span class="arithmatex">\(\Sigma\)</span> 是一个字母表；</li>
+<li><span class="arithmatex">\(\Delta\)</span> 是 <span class="arithmatex">\(K \times \Sigma \times K\)</span> 的子集，称为状态转移函数（transition function），记作 <span class="arithmatex">\(q_1 \stackrel a \rightarrow q_2\)</span>；为什么将其称为一个函数呢？因为它可以被看成 <span class="arithmatex">\(K \times \Sigma \rightarrow \mathcal{P}(K)\)</span> 的一个函数，记作 <span class="arithmatex">\(\delta\)</span>。</li>
+<li><span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(F\)</span> 都是 <span class="arithmatex">\(K\)</span> 的子集，称为起始状态（initial state）和终止状态（final state）；</li>
+</ul>
+<p>看起来好像一头雾水，对吗？我们来看几个例子。前面提到了门，那就从这里开始吧。门的状态如上所述有两种，因此我们考虑它的状态集合 <span class="arithmatex">\(K = \{\mathrm{Open}, \mathrm{Closed}\}\)</span>。当然，我们只有开关两种操作反复循环，所以我们约定 <span class="arithmatex">\(0\)</span> 表示开，<span class="arithmatex">\(1\)</span> 表示关，字母表 <span class="arithmatex">\(\Sigma = \{0, 1\}\)</span> 组成的字符串就是我们对门的操作，比如 <span class="arithmatex">\(1100\)</span> 表示关、关、开、开。然后状态转移函数就很简单了：如果门是开着的，那开就是保持不变，关就是把它关上；如果门是关着的，那开就是把它打开，关就是保持不变，也就是说，我们有</p>
+<div class="arithmatex">\[
+\Delta = \{\mathrm{Open}\stackrel 0\rightarrow \mathrm{Open}, \mathrm{Open}\stackrel 1\rightarrow \mathrm{Closed}, \mathrm{Closed}\stackrel 0\rightarrow \mathrm{Open}, \mathrm{Closed}\stackrel 1\rightarrow \mathrm{Closed}\}
+\]</div>
+<p>然后我们假设门开始是开着的，那就是说 <span class="arithmatex">\(S = \{\mathrm{Open}\}\)</span>，而门最终可以是关着的或者开着的，那就是说 <span class="arithmatex">\(F = \{\mathrm{Open}, \mathrm{Closed}\}\)</span>。注意到在这里，我们的起始状态只有一个，而且对于任意一个 <span class="arithmatex">\(q \in K, a \in \Sigma\)</span>，<strong>最多</strong>只有一个 <span class="arithmatex">\(q^\prime \in K\)</span> 使得 <span class="arithmatex">\(q\stackrel a \rightarrow q^\prime \in \Delta\)</span>，也就是说，<span class="arithmatex">\(\text{Im }\delta\)</span> 中的元素全都是单元素集 。这种情况下，我们只要给定一串操作，我们得到的结果就是完全确定的。我们称这种状态机为确定性的有限状态机（deterministic finite automata, DFA）。</p>
+<p>我们可以很容易地用图像来表明这个状态机：</p>
+<p align="center"><img src="./door_dfa.png" width="300" /></p>
+
+<p>嗯，手工画的有点难看就是了。我们用三角形指向某个状态表示起始状态，双圆圈表示终止状态，单圆圈表示一般的状态，箭头和箭头上的字母则表示状态转移函数。这是一个非常简单的 DFA，简单到不用解释就能看明白它在干什么。</p>
+<p>继续，我们来把它弄复杂一点。现在我们这个自动机和语言看起来毫无关系，任何一个字符串都能让它从起始状态到达终止状态，现在，我们要规定，打开的门不能被再次打开，关掉的门也不能被再次关上，这样的限制看起来也是很合理的，不是吗？</p>
+<p>那么我们就要从我们的状态转移函数里删掉 <span class="arithmatex">\(\mathrm{Open}\stackrel 0\rightarrow \mathrm{Open}\)</span> 和 <span class="arithmatex">\(\mathrm{Closed}\stackrel 1\rightarrow \mathrm{Closed}\)</span>。注意，这时候对于任意的 <span class="arithmatex">\(q \in K, a \in \Sigma\)</span>，不一定都有下一个状态了。我们把这种自动机称为不完备的（incomplete）自动机，原来那种则被称为完备的（complete）。接下来直觉上讲这个自动机不能随意接受字符串了。当然，我们还需要一些澄清来表明什么叫自动机接受一个字符串：</p>
+<ul>
+<li>自动机中的一个路径（path）是一串状态转移函数 <span class="arithmatex">\(\{q_i \stackrel {a_i} \rightarrow q_i^\prime\}_{i=0}^n\)</span>，使得 <span class="arithmatex">\(\forall i, q_i^\prime = q_{i+1}\)</span>；我们称 <span class="arithmatex">\(a_i\)</span> 组成的字符串是这个路径的一个标号（label）；称 <span class="arithmatex">\(q_0\)</span> 为路径的源（origin），<span class="arithmatex">\(q_n^\prime\)</span> 为路径的尾（end）；</li>
+<li>如果一个路径的源 <span class="arithmatex">\(q_0 \in S\)</span>，尾 <span class="arithmatex">\(q_n^\prime \in F\)</span>，则称它是接受的/成功的（accepting/successful）；</li>
+<li>如果一个字符串是<strong>至少一个</strong>成功的路径的标号，则称这个自动机接受（accept）这个字符串；</li>
+<li>一个自动机接受的所有字符串构成的语言称为这个自动机接受的语言；</li>
+</ul>
+<p>顺便补充一个说明，在这种定义下，不完备的自动机碰到没法走下去的地方当然就直接停机了，它不能接受这样的字符串。</p>
+<p>好，接下来让我们看看这个自动机接受什么语言了。首先，因为它最开始是开着的，所以第一步操作一定是关上它，否则就不能继续了；然后，我们可以开、关、开、关发生任意次，但一定是交替进行的。也就是说，它接受的字符串是 <span class="arithmatex">\(101\cdots 010\)</span> 或 <span class="arithmatex">\(101\cdots 01\)</span>。我们会在下一节讨论怎么方便的表示这种东西。</p>
+<p>接下来看一个更加麻烦的例子。这下我们的自动机要不做门了，它给了一个非常自由放纵的状态图：</p>
+<p align="center"><img src="nfa_incomplete.drawio.png" width="300" /></p>
+
+<p>很诡异，很奇妙是吧？我们来看看它能接受怎样的语言。我们一开始在状态 <span class="arithmatex">\(A\)</span>，然后只能接受 <span class="arithmatex">\(0\)</span>，然后……等等！这个东西没有门那么友好了，它接受一个 <span class="arithmatex">\(0\)</span> 之后有两条路可以走：可以回到状态 <span class="arithmatex">\(A\)</span>，也可以去往状态 <span class="arithmatex">\(B\)</span>。</p>
+<p>我们首先考虑第一种情形。如果它回到状态 <span class="arithmatex">\(A\)</span>，那输入的下一个字符就是 <span class="arithmatex">\(0\)</span>，否则它就不能继续下去，那我们记下来：任意前缀的 <span class="arithmatex">\(0\)</span> 个数都可以；甚至可以说，如果回到 <span class="arithmatex">\(A\)</span>，那么它接下来就可以接受任意个 <span class="arithmatex">\(0\)</span>。这是有限状态机的一个特点：接下来的执行过程只和当前状态和剩余的输入有关，与已经经历过的路径无关，因此它才被称为“状态”机。所以，我们可以这样来记它在中途的一个配置（configuration）和一步的运行过程：设自动机为 <span class="arithmatex">\(\mathcal{M}\)</span>，<span class="arithmatex">\(q, q^\prime \in K\)</span> 且 <span class="arithmatex">\(w, w^\prime \in \Sigma^\ast\)</span>，则：</p>
+<div class="arithmatex">\[
+(q, w) \vdash_{\mathcal{M}}(q^\prime, w^\prime)
+\]</div>
+<p>若 <span class="arithmatex">\(\exists a\in \Sigma\)</span> 使得 <span class="arithmatex">\(w = aw^\prime\)</span>，且 <span class="arithmatex">\(q\stackrel a\rightarrow q^\prime\in \Delta\)</span>。如果是任意步转移（包括 <span class="arithmatex">\(0\)</span> 步），则记为 <span class="arithmatex">\((q, w) \vdash_\mathcal{M}^\ast (q^\prime, w^\prime)\)</span>。</p>
+<p>第二种情形，如果它到达状态 <span class="arithmatex">\(B\)</span>，那么输入的下一个字符就是 <span class="arithmatex">\(1\)</span>，然后它可以接受任意个数的 <span class="arithmatex">\(1\)</span> 之后终止或者回到 <span class="arithmatex">\(A\)</span>。总结一下，我们现在有的信息是：</p>
+<ul>
+<li>第一个字符必须是 <span class="arithmatex">\(0\)</span>；</li>
+<li>接下来可以接受任意个（包括 <span class="arithmatex">\(0\)</span> 个）<span class="arithmatex">\(0\)</span> 到达状态 <span class="arithmatex">\(B\)</span>；</li>
+<li>到达状态 <span class="arithmatex">\(B\)</span> 后可以结束，也可以接受任意个（包括 <span class="arithmatex">\(0\)</span> 个）<span class="arithmatex">\(1\)</span> 之后结束或者到达状态 <span class="arithmatex">\(A\)</span>；</li>
+</ul>
+<p>观察一下，这不就是第一个字符为 <span class="arithmatex">\(0\)</span> 的任意字符串吗？折腾了这么半天，我们发现它事实上并不是多么复杂的东西。它接受的语言是任意一个首字符为 <span class="arithmatex">\(0\)</span> 的字符串，不管后面是什么，它都能终止。</p>
+<p>因此我们称上面定义的有限状态机为非确定性的有限状态机（non-deterministic finite automata, NFA），因为对于每一步输入，我们有可能获得不同的输出。注意，我们课程中提到的 NFA 是我在下面要讲的只有一个起始状态的 NFA-<span class="arithmatex">\(e\)</span>。另一个说明是，在很多文献中，更常用的记号是 <span class="arithmatex">\(\varepsilon\)</span> 而不是 <span class="arithmatex">\(e\)</span>，因此下面所有带 <span class="arithmatex">\(e\)</span> 的名词都可以把它换成 <span class="arithmatex">\(\varepsilon\)</span>。</p>
+<p>对于这个定义，我们可能还有很多顾虑。我们下面想要说明的事情是：对于这个定义的很多改造而言，它的“能力”都是不变的。当然，现在这个定义还是很难处理，看看上面的第二个例子就知道了，而我们又发现，DFA 往往是很好处理的。因此，我们下面的议程就是证明一大堆等价性：</p>
+<ol>
+<li>DFA 和 NFA 是等价的；</li>
+<li>NFA 和 NFA-<span class="arithmatex">\(e\)</span> 是等价的；</li>
+<li>完备的 DFA 和 DFA 也是等价的；</li>
+<li>完备的 NFA 和 NFA 也是等价的；</li>
+<li>完备的 NFA-<span class="arithmatex">\(e\)</span> 和 NFA-<span class="arithmatex">\(e\)</span> 也是等价的；</li>
+<li>只有一个初始状态的 NFA 和 NFA 等价；</li>
+<li>只有一个初始状态的 NFA-<span class="arithmatex">\(e\)</span> 和 NFA-<span class="arithmatex">\(e\)</span> 等价；</li>
+</ol>
+<p>当然，在此之前，我们先介绍等价的概念。我们说两个自动机等价，如果它们接受相同的语言。两类自动机等价，就是说 A 种自动机中的每个自动机都可以与 B 中自动机中的某个自动机等价。可以验证，它从集合的相等定义继承了自反性、传递性、对称性，是一种等价关系。</p>
+<p>那么我们首先要证明的是第二条，因为我们用 NFA-<span class="arithmatex">\(e\)</span> 来处理问题会比用 NFA 来处理更方便一些，而且这也是我们课程中的做法。首先我们叙述一下 NFA-<span class="arithmatex">\(e\)</span> 的形式化定义：</p>
+<p>一个 NFA-<span class="arithmatex">\(e\)</span> 是一个五元组 <span class="arithmatex">\((K, \Sigma, \Delta, S, F)\)</span>，其中：</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> 是一个有限的集合，其中的元素被称为状态（states），因为状态数有限所以我们才称之为有限状态机；</li>
+<li><span class="arithmatex">\(\Sigma\)</span> 是一个字母表；</li>
+<li><span class="arithmatex">\(\Delta\)</span> 是 <span class="arithmatex">\(K \times (\Sigma\cup \{e\}) \times K\)</span> 的子集，称为状态转移函数（transition function），记作 <span class="arithmatex">\(q_1 \stackrel a \rightarrow q_2\)</span>；</li>
+<li><span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(F\)</span> 都是 <span class="arithmatex">\(K\)</span> 的子集，称为起始状态（initial state）和终止状态（final state）；</li>
+</ul>
+<p>注意到，我们的定义中它和 NFA 只差了一条，也就是说，我们在字母表中引进了空字 <span class="arithmatex">\(e\)</span>，它的含义是，这里无需输入，可以直接发生转移。我们看一个例子：</p>
+<p align="center"><img src="nfa_e.drawio.png" width="300" /></p>
+
+<p>看起来很眼熟对吧？这就是两个折磨了我们挺久的 NFA 的一个组合。我们来看看它接受什么语言。再次强调，状态机的特点就是只要管状态和接下来的输入是什么就行，所以只要到了 <span class="arithmatex">\(S1\)</span> 或者 <span class="arithmatex">\(S3\)</span>，接下来会发生什么我们已经考虑完了。</p>
+<p>我们首先进入 <span class="arithmatex">\(S0\)</span>，现在我们碰到了一个 <span class="arithmatex">\(e\)</span>-转移（<span class="arithmatex">\(e\)</span>-transition，或 <span class="arithmatex">\(e\)</span>-move），也就是说，我们可以<strong>不读入输入</strong>直接从 <span class="arithmatex">\(S0\)</span> 跳到 <span class="arithmatex">\(S1\)</span> 或者 <span class="arithmatex">\(S3\)</span>。接下来就会读入：</p>
+<ul>
+<li>任意一个 <span class="arithmatex">\(0\)</span> 开头的字符串（<span class="arithmatex">\(S1\)</span> 和 <span class="arithmatex">\(S2\)</span>）；</li>
+<li>任意一个 <span class="arithmatex">\(1\)</span> 开头的字符串（<span class="arithmatex">\(S3\)</span> 和 <span class="arithmatex">\(S4\)</span>）；</li>
+</ul>
+<p>诶，又绕回来了，我们现在这个 NFA-<span class="arithmatex">\(e\)</span> 接受的语言就是任意字符串……对吗？注意，这里有一个小细节，我们接受的是长度至少为 <span class="arithmatex">\(1\)</span> 的任意字符串，这在后面是极容易犯错的！我们在这里事实上看到了两个 NFA 是怎么被“并”起来的，它的语言也是两个语言的并。当然，在证明 NFA-<span class="arithmatex">\(e\)</span> 和 NFA 等价之前，我们还不能这么说。接下来我们就先直觉地说明这件事情，然后再给出规范的证明。</p>
+<p>我们注意到，NFA 和 NFA-<span class="arithmatex">\(e\)</span> 的区别就在于状态转移函数。而且 NFA 可以看成一种特殊的 NFA-<span class="arithmatex">\(e\)</span>，因此，我们只要考虑怎么把 NFA-<span class="arithmatex">\(e\)</span> 的状态转移函数“转换”成 NFA 的状态转移函数。我们注意到，NFA-<span class="arithmatex">\(e\)</span> 的状态转移函数事实上就是出现了一次无输入的跳跃，而 NFA 则要求每一次跳跃都有对应的输入。一个显而易见的想法是：为什么不把这一次转移和下一次转移合并到一起呢？例如，对于前面的例子，我们有以下几种可能的 <span class="arithmatex">\(e\)</span>-转移及其下一步转移：</p>
+<ul>
+<li><span class="arithmatex">\(S0 \stackrel e \rightarrow S1 \stackrel 0 \rightarrow S1\)</span></li>
+<li><span class="arithmatex">\(S0 \stackrel e \rightarrow S1 \stackrel 0 \rightarrow S2\)</span></li>
+<li><span class="arithmatex">\(S0 \stackrel e \rightarrow S3 \stackrel 1 \rightarrow S3\)</span></li>
+<li><span class="arithmatex">\(S0 \stackrel e \rightarrow S3 \stackrel 1 \rightarrow S4\)</span></li>
+</ul>
+<p>因此，我们把所有这两步操作合并成一步，这样我们的自动机就变成了这样：</p>
+<p align="center"><img src="nfa_e_2_nfa.drawio.png" width="300" /></p>
+
+<p>看起来似乎完成了，是吧？在这个例子里，我们确实已经完成了改造，这个 NFA 显然不是最简单的，但是简化是我们在下一节才会去讨论的内容。但是，对于任意自动机，只要完成这样的<strong>合并</strong>就可以了吗？烦请读者再阅读一遍上面的叙述，思考三分钟，这里的叙述是有问题的，但是这个问题并不难补上。</p>
+<p>想必机敏的读者现在已经发现了，首先，我们有可能发生连续的 <span class="arithmatex">\(e\)</span>-转移。这使得我们不能简单合并两步，应该允许多步的合并，这个修补是很轻松的。</p>
+<p>第二个问题更加关键：我们说的是把“这一次转移”和“<strong>下一次</strong>转移”合并在一起，但是没有确保说，一定存在下一次转移。如果我们的一次 <span class="arithmatex">\(e\)</span>-转移把我们带到了终止状态，那么我们就找不到这样的下一次转移了。那么，怎么办？</p>
+<p>我们思考一下，如果我们的一次 <span class="arithmatex">\(e\)</span>-转移能够将我们带到终止状态，这意味着在上一个状态我们随时可以终止，因为只要到了上一个状态，那么我们在<strong>任何</strong>时候都可以到下一个状态去宣告终止。这里我们第三次强调状态机的概念：状态，状态，还是状态！因此，一个自然而然的想法是，把它向前“传播”，让我们的上一个状态变成终止状态。这样，我们就可以保证它能够正确地终止。</p>
+<p>这里留给读者一个思考题：为什么不把“上一次转移”和“这一次 <span class="arithmatex">\(e\)</span>-转移”合并起来，然后特殊处理起始状态的情形？或者如同 Wikipedia(<a href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton#NFA_with_%CE%B5-moves">Nondeterministic finite automaton - Wikipedia</a>) 上一样，只特殊处理起始状态和终止状态被 <span class="arithmatex">\(e\)</span>-转移连接起来的情形？在我们的定义下，这事实上是可行的，但是对于以后说明“只有一个起始状态”和“具备多个起始状态”的 NFA 相同来说，这会带来额外的麻烦。在这里的构造我们其实已经保证：任何一个有唯一起始状态的 NFA-<span class="arithmatex">\(e\)</span> 都等价于一个有唯一起始状态的 NFA，希望你已经意识到了这点，如果没有，请看下面对这个证明的形式化叙述。</p>
+<p>我们在这里涉及了两步操作：首先，找到一个状态通过 <span class="arithmatex">\(e\)</span>-转移能到达的所有状态；然后，完成终止状态的传播和转移函数的重新构造。那么自然而然地，我们需要引入 <span class="arithmatex">\(e\)</span>-闭包（<span class="arithmatex">\(e\)</span>-closure）的概念。一个状态 <span class="arithmatex">\(q\)</span> 的 <span class="arithmatex">\(e\)</span>-闭包 <span class="arithmatex">\(E(q)\)</span> 是指所有可以通过 <span class="arithmatex">\(e\)</span>-转移抵达的那些状态的集合。也就是说，<span class="arithmatex">\(E(q)\)</span> 中的元素 <span class="arithmatex">\(q^\prime\)</span> 满足：存在一条以 <span class="arithmatex">\(q\)</span> 为源、以 <span class="arithmatex">\(q^\prime\)</span> 为尾的通路，使得其标号为空字符串。一个说明是，我们约定 <span class="arithmatex">\(q \in E(q)\)</span>，这会使得我们下面的证明看起来简单得多。</p>
+<p>接下来我们来形式化后面的操作。首先是传播，我们需要拓展终止状态的集合。设原来的 NFA-<span class="arithmatex">\(e\)</span> 为 <span class="arithmatex">\(\mathcal{M} = (K, \Sigma, \delta, S, F)\)</span>，其等价的 NFA 为 <span class="arithmatex">\(\mathcal{M^\prime} = (K^\prime, \Sigma, \delta^\prime, S, F)\)</span>。这里记成 <span class="arithmatex">\(\delta\)</span> 的意思是我们要按照转移函数的函数视角来处理这个问题，这样书写的记号会简单一些。终止状态的拓展发生在一次 <span class="arithmatex">\(e\)</span>-转移使得自动机达到了终止状态的情形下，也就是说：</p>
+<div class="arithmatex">\[
+F^\prime = F \cup \{q:E(q)\cap F \ne \varnothing\}
+\]</div>
+<p>接下来处理状态转移函数。对于任意一个 <span class="arithmatex">\(q \in K, a \in \Sigma\)</span>，我们给出：</p>
+<div class="arithmatex">\[
+\delta^\prime(q, a) = \bigcup_{r \in E(q)}\delta(r, a)
+\]</div>
+<p>也就是说，它是所有原来就有的状态转移函数可能转移到的状态与当前状态的 <span class="arithmatex">\(e\)</span>-闭包中的状态经过这个字符之后可能转移到的状态之并。</p>
+<p>然后我们要干的事情是验证这样的定义是正确的。首先我们很容易验证，这样得到的 NFA 中绝对没有 <span class="arithmatex">\(e\)</span>-转移，因为我们在定义状态转移函数的时候根本没有引入 <span class="arithmatex">\(e\)</span>；然后，我们需要验证，对于任意一个 NFA-<span class="arithmatex">\(e\)</span> 接受的字符串 <span class="arithmatex">\(w\)</span>，NFA 都可以同样接受它，反之亦然。</p>
+<p>我们对 <span class="arithmatex">\(w\)</span> 的长度做讨论：</p>
+<p>如果 <span class="arithmatex">\(w\)</span> 是空串，说明在 NFA-<span class="arithmatex">\(e\)</span> 中，有一个标号为空字符串的接受路径。也就是说，存在一个起始状态 <span class="arithmatex">\(s \in S\)</span>，<span class="arithmatex">\(E(s) \cap F \ne \varnothing\)</span>。这意味着 <span class="arithmatex">\(s \in F^\prime\)</span>，也就是说，在 NFA 中也有一个标号为空字符串的接受路径。反过来，如果在 NFA 中有一个标号为空字符串的接受路径，那么存在 <span class="arithmatex">\(s \in S\)</span> 使得 <span class="arithmatex">\(s \in F^\prime\)</span>。因此，<span class="arithmatex">\(s\)</span> 可能在原来的 <span class="arithmatex">\(F\)</span> 中，这时当然 NFA-<span class="arithmatex">\(e\)</span> 接受空串；它也有可能是一个使得 <span class="arithmatex">\(E(s) \cap F \ne \varnothing\)</span> 的状态，那当然 NFA-<span class="arithmatex">\(e\)</span> 也接受空串。</p>
+<p>如果字符串 <span class="arithmatex">\(wa, a \in \Sigma\)</span> 的长度至少为 <span class="arithmatex">\(1\)</span>，在 NFA-<span class="arithmatex">\(e\)</span> 中有一个以其为标号的接受路径，那么一定存在状态 <span class="arithmatex">\(q_1\)</span> 使得</p>
+<div class="arithmatex">\[
+\bigcup_{s \in \delta(q_1, a)}E(s) \cap F \ne \varnothing
+\]</div>
+<p>这里的意思是，从 <span class="arithmatex">\(q_1\)</span> 可能读取一次 <span class="arithmatex">\(a\)</span> 到达状态 <span class="arithmatex">\(s\)</span>，然后有可能经历一系列 <span class="arithmatex">\(e\)</span>-转移最后到达一个终止状态。当然咯，这个式子就等价于：</p>
+<div class="arithmatex">\[
+\exists s \in \delta(q_1, a),E(s)\cap F \ne \varnothing \Rightarrow \exists s \in \delta^\prime(q_1, a),E(s)\cap F \ne \varnothing
+\]</div>
+<p>这也就是说 <span class="arithmatex">\(s \in F^\prime\)</span>，因此 <span class="arithmatex">\(\delta^\prime(q_1, a) \cap F^\prime \ne \varnothing\)</span>，我们表明了这个 NFA 接受字符串 <span class="arithmatex">\(wa\)</span>。反过来，如果这个 NFA 接受字符串 <span class="arithmatex">\(wa\)</span>，我们也可以一步一步反推回去，因为每一步变换都是按照我们的构造方式等价的。</p>
+<p>为了方便起见，我们以后记 <span class="arithmatex">\(\cup_{s \in S}E(s) = E(S)\)</span>。如果我们容许对初始状态做出改变，那么我们的构造就会变得特别简单。只要让新的初始状态 <span class="arithmatex">\(S^\prime = E(S)\)</span>，新的状态转移函数 <span class="arithmatex">\(\delta^\prime(q, a) = E(\delta(q, a))\)</span> 即可。这个过程的正确性应当不难验证。</p>
+<p>折腾了半天我们证明完了第二个命题，接下来我们考虑第六个命题。这个过程就很简单了，对于一个 NFA 在前面添加一个状态，用 <span class="arithmatex">\(e\)</span>-转移将其与所有原来的起始状态连接作为新的起始状态。然后，因为我们在上面的转化过程中没有改变 <span class="arithmatex">\(S\)</span>，我们可以将这个只有一个起始状态的 NFA-<span class="arithmatex">\(e\)</span> 转化成只有一个起始状态的 NFA，它与原来的 NFA 等价。这里的形式化写法不复杂，留给读者自行补充。</p>
+<p>下一步事实上才是我们的重点，证明第一个命题。这个命题要求我们证明 DFA 和 NFA 等价，和上面的第二个命题一样，因为我们知道 DFA 就是一种特殊的 NFA，所以我们要给出的就是把一个 NFA 转化成等价的 DFA 的方法。这个证明经常被称为 Rabin-Scott 幂集构造（Rabin-Scott powerset construction，或 Rabin-Scott 子集构造，Rabin-Scott subset construction）。这个构造应用非常广泛，在下一节以及以后对于更复杂的计算模型的类似构造过程中，我们都会反复看到它的影子。</p>
+<p>基本的想法是这样的：我们知道，NFA 和 DFA 的区别就在于，一个 NFA 的运行过程是有可能出现“分支”的。也就是说，它有可能出现 <span class="arithmatex">\(\delta(q, a)\)</span> 不是单元素集的情形。在这种情况下，我们的想法就是，去构造 NFA 的状态集合的一个幂集，使得这个 DFA 完美模拟 NFA 的运行。这次我们直接写形式化的结果：设 NFA <span class="arithmatex">\(\mathcal{M} = (K, \Sigma, \delta, S, F)\)</span> 对应的 DFA 为 <span class="arithmatex">\(\mathcal{M^\prime} = (K^\prime, \Sigma, \delta^\prime, S^\prime, F^\prime)\)</span>，我们首先写出状态集合：</p>
+<div class="arithmatex">\[
+K^\prime = \mathcal{P}(K)
+\]</div>
+<p>也就是说，状态集合是它的幂集。这里不失一般性地我们沿用证明第二个命题的结果，令 <span class="arithmatex">\(S\)</span> 为单元素集，所以它就直接取成单元素集的集合：</p>
+<div class="arithmatex">\[
+S^\prime = \{S\}
+\]</div>
+<p>终止状态就是那些其中至少有一个状态是原来的终止状态的集合：</p>
+<div class="arithmatex">\[
+F^\prime = \{q \in K^\prime:q\cap F \ne \varnothing\}
+\]</div>
+<p>而转移函数稍微复杂一点，它就是从一个集合 <span class="arithmatex">\(q\)</span> 经过输入 <span class="arithmatex">\(a\)</span> 之后所有其中的元素可能到达的状态的集合：</p>
+<div class="arithmatex">\[
+\delta^\prime(q, a) = \bigcup_{r \in q}\delta(r, a)
+\]</div>
+<p>好了，这样我们就成功构造出了一个 DFA。这样构造的 DFA 当然和原来的 NFA 等价，验证也与上面第二个命题的证明差不多，读者不妨自行完成。</p>
+<p>但是我们考虑，这样一个 DFA 是不是足够好的？当然，这个构造很直接，作为证明而言很简洁，但是我们事实上经历了三个步骤：先转换到一个只有一个起始状态的 NFA-<span class="arithmatex">\(e\)</span>，然后<strong>全局性</strong>地消除 <span class="arithmatex">\(e\)</span>-转移，再消除不确定性。这样的过程直觉上会引入更多的冗余状态。因此，我们给出其他更加精巧的想法。</p>
+<p>首先，我们可以注意到，转换到只有一个起始状态的 NFA-<span class="arithmatex">\(e\)</span> 不是必须的。我们只需要把初始状态定为所有可能的初始状态的集合就行。对于上面这个构造，我们甚至不用改变任何一个符号。这样，我们就得到了一个从 NFA 到 DFA 的直接方法。</p>
+<p>但是，我们在将 NFA-<span class="arithmatex">\(e\)</span> 转化成 NFA 的过程中，需要做一次全局性的对 <span class="arithmatex">\(e\)</span>-转移的消除。哪怕使用我们讲的不保持起始状态的构造方式，它直觉上似乎也并没有那么好。因此，我们下面介绍两种更加直接的从 NFA-<span class="arithmatex">\(e\)</span> 转化成 DFA 的方式，分别是逐集合计算 <span class="arithmatex">\(e\)</span>-闭包和逐状态计算 <span class="arithmatex">\(e\)</span>-闭包。首先是逐集合的方式，这要求我们把计算 <span class="arithmatex">\(e\)</span>-闭包整合进计算转移函数的过程当中。</p>
+<p>首先对起始状态稍作修改，这和第二个命题的证明过程中的第二种构造是类似的，使得：</p>
+<div class="arithmatex">\[
+S^\prime = E(S)
+\]</div>
+<p>这当然没什么问题。然后是在计算转移函数的过程中，引入同样类似的构造：</p>
+<div class="arithmatex">\[
+\delta^\prime(q, a) = \bigcup_{r \in q} E(\delta(r,a))
+\]</div>
+<p>这种方法事实上可以看成是那个构造的直接应用，不同的是，我们不再需要经过一个 NFA 作为中间产物了。而逐状态计算的想法则更加简单：我们事实上只需要计算 <span class="arithmatex">\(K\)</span> 中所有状态的闭包而不用计算 <span class="arithmatex">\(\mathcal{P}(K)\)</span> 中所有状态的闭包，这样我们就能减少对闭包的计算，然后在转移函数的计算过程中再去取并集。</p>
+<p>经过实验，我们发现逐状态计算的性能事实上是最差的，因为它计算并集的次数太多了；而逐集合计算往往在跳跃较多时有优势，全局计算往往在跳跃较少时有优势。</p>
+<p>最后我们还需要注意到一个现象：在把 NFA 转变为 DFA 的过程中，我们的状态从 <span class="arithmatex">\(n\)</span> 个扩增到了 <span class="arithmatex">\(2^n\)</span> 个。这个过程被形象地称为确定性爆炸（deterministic blow-up）。这个界已被李雅普诺夫证明为最优的。我们可以给出一个很简单的例子：一个起始状态一个终止状态，而且字母表中只有两个字母的 NFA，它转变过去的 DFA 至少有 <span class="arithmatex">\(2^n\)</span> 个状态，这个例子是 F. R. Moore 的构造，证明其转变过去的 DFA 不能被简化将在下一节后留作读者练习。同时，也可以证明这个爆炸可以取到 <span class="arithmatex">\(n\)</span> 到 <span class="arithmatex">\(2^n\)</span> 中的任意一个整数，参见 J. Jirásek, G. Jirásková, and A. Szabari. <em>Deterministic blow-up of minimal nondeterministic finite automata over a fixed alphabet.</em> In J. Karhumäki and A. Lepistö, editors, <em>Developments in Language Theory</em>, volume 4588 of <em>Lecture Notes in Comput. Sci.</em>, pages 254–265. Springer-Verlag, 2007.</p>
+<p>这个 NFA 的字母表记为 <span class="arithmatex">\(\{0, 1\}\)</span>，状态记作 <span class="arithmatex">\({1, 2, \cdots, n}\)</span>，我们让起始状态为 <span class="arithmatex">\(1\)</span>，终止状态为 <span class="arithmatex">\(n\)</span>。当输入 <span class="arithmatex">\(0\)</span> 时，状态 <span class="arithmatex">\(i &lt; n\)</span> 转移到 <span class="arithmatex">\(i + 1\)</span>，状态 <span class="arithmatex">\(n\)</span> 转移到 <span class="arithmatex">\(1\)</span> 或者 <span class="arithmatex">\(2\)</span>；当输入 <span class="arithmatex">\(1\)</span> 时，状态 <span class="arithmatex">\(1 &lt; i &lt; n\)</span> 转移到 <span class="arithmatex">\(i + 1\)</span>，状态 <span class="arithmatex">\(1\)</span> 转移到自身而状态 <span class="arithmatex">\(n\)</span> 不转移（指状态转移函数为空）。也就是说：</p>
+<div class="arithmatex">\[
+\delta(i, 0) = \begin{cases}
+\{i + 1\}, i &lt; n\\
+\{1, 2\}, i = n
+\end{cases},\quad
+\delta(i, 1) = \begin{cases}
+\{1\}, i = 1\\
+\varnothing, i = n\\
+\{i + 1\},\text{ otherwise}
+\end{cases}
+\]</div>
+<p>我们可以进一步将这种状态数抽象为状态复杂度（state complexity）的概念，它考察的是一个语言可以产生的最小 DFA 的状态数，以及状态机之间进行种类转变、各种操作对状态数造成的改变。这个方向的研究目前看来不是太多，我们将在介绍为整个经典的理论框架之后再做阐述。剩下的几个命题比较简单，留给读者自行完成。</p>
+<p>现在，我们来填上在上一节最后埋下的一个坑：为什么说有限状态机就是一组这样的线性方程组？想必有些敏锐的同学已经发现了。如果没有的话，再思考几分钟，然后往下看。</p>
+<p>在我们定义有限状态机接受的语言的过程中，大家应该已经注意到了，我们用的是路径（path）这个术语，这个术语很容易让人联想到图论（graph theory）。直觉地说，我们要找的可能的标号就是当前状态转移到终止状态的可能的字符串的标号。也就是说，如果我们当前的状态是 <span class="arithmatex">\(q\)</span>，剩余的字串是 <span class="arithmatex">\(X_q\)</span>，那么从当前状态出发能通过一条标号为 <span class="arithmatex">\(X_q\)</span> 中的元素的路径达到终点，因此，我们对中间状态做分类讨论：</p>
+<div class="arithmatex">\[
+X_q = K_{q1}X_1 + K_{q2}X_2 +\cdots + K_{qn}X_n + L_q
+\]</div>
+<p>这个式子的意思就是说，从 <span class="arithmatex">\(q\)</span> 出发，到达终点的所有路径的标号的集合为 <span class="arithmatex">\(X_q\)</span>。其中 <span class="arithmatex">\(K_{qi}\)</span> 指的是从状态 <span class="arithmatex">\(q\)</span> 出发到状态 <span class="arithmatex">\(i\)</span> 的路径的标号，<span class="arithmatex">\(X_i\)</span> 指的是从 <span class="arithmatex">\(i\)</span> 出发到达终点的路径的标号的集合。因此，把所有经过状态 <span class="arithmatex">\(i=1, 2, \cdots, n\)</span> 的从 <span class="arithmatex">\(q\)</span> 出发到达终点的路径并起来，就能得到所有从 <span class="arithmatex">\(q\)</span> 出发到达终点的路径。而如果 <span class="arithmatex">\(q\)</span> 自己就是终点，那当然 <span class="arithmatex">\(L_q\)</span> 要置为 <span class="arithmatex">\(\{e\}\)</span>，这意味着不经历其他任何状态到达终点。注意，我们在这里用的是 NFA 来构造这个东西，如果要用 NFA-<span class="arithmatex">\(e\)</span>，这里的处理会变得更加复杂。</p>
+<p>那么这样的构造给出之后，<span class="arithmatex">\(K_{pq}\)</span> 也就不难定义了。我们定义 <span class="arithmatex">\(K_{pq} = \{a \in \Sigma: (p, a, q) \in \Delta\}\)</span>。它就是每次转移过程要加上的字符串。最后一步是，对于 <span class="arithmatex">\(L_q\)</span>，如果 <span class="arithmatex">\(q\)</span> 不是终止状态，那么置它为空集。这样我们就可以很明确地说，这个方程组已经被完整的定义了。</p>
+<p>下一步是定义语言。很显然，语言就是 <span class="arithmatex">\(\sum_{q \in S}X_q\)</span>，所有能从初始状态到达最终状态的字符串，这是良定的，因为我们已经表明 <span class="arithmatex">\(K_{qn}\)</span> 在 NFA 中是不含空串的，所以这个方程组是有唯一解的。在将正则语言和 NFA 进行转换的过程中，我们会再次用到这个结论。</p>
+<p>对于 NFA-<span class="arithmatex">\(e\)</span> 往方程系统的转化，当然它显得就没那么容易了，因为 <span class="arithmatex">\(K_{ij}\)</span> 可能出现空串了。这时事实上我们的极小解就派上用场了，它是我们的 NFA-<span class="arithmatex">\(e\)</span> 得到的结果。这个结果的验证并不困难，不妨留作练习。我们还会留下一个问题：如何用方程系统表示 NFA 到 DFA 的转化？在这里请读者先作一番思索。</p>
+<p>最后再挖一个坑：还记得幺半群吗？我们在讨论语言的时候已经提到了一个自由幺半群，而在自动机中，我们也能再抓到一个幺半群。下面我们记 <span class="arithmatex">\(\mu(w)\)</span> 为所有令 <span class="arithmatex">\(p, q\)</span> 之间有一条标号为 <span class="arithmatex">\(w\)</span> 的路径的 <span class="arithmatex">\((p, q) \in K\times K\)</span> 组成的集合。这是我们的核心命题：</p>
+<p><span class="arithmatex">\(\mu(w)\)</span> 是一个从 <span class="arithmatex">\(\Sigma^\ast\)</span> 到 <span class="arithmatex">\(\mathcal{P}(K \times K)\)</span> 的幺半群同态（monoid homomorphism）。</p>
+<p>我们接下来慢慢解释这句话。首先，我们应该给 <span class="arithmatex">\(\mathcal{P}(K \times K)\)</span> 赋予一个乘法结构。当然，我们是有一个很自然的定义的，那就是将其中元素看成关系（relations），将乘法看成关系的复合。也就是说，<span class="arithmatex">\(AB = \{(p, r) \in K \times K: \exists q \in K,(p, q)\in A \wedge (q, r) \in B\}\)</span>。这是很自然的。</p>
+<p>下一步是证明一个幺半群同态。幺半群同态的意思是一个保乘法、保单位元的映射。原来的单位元当然是空串，它映到平凡的关系 <span class="arithmatex">\(\{(a, a): a \in K\}\)</span>，很容易表明这是关系构成的幺半群的单位元。而保持乘法的性质也很简单：直观地，从 <span class="arithmatex">\(p\)</span> 到 <span class="arithmatex">\(q\)</span> 如果有一条标号 <span class="arithmatex">\(v\)</span> 的路径，从 <span class="arithmatex">\(q\)</span> 到 <span class="arithmatex">\(r\)</span> 有一条标号 <span class="arithmatex">\(w\)</span> 的路径，那么当然从 <span class="arithmatex">\(p\)</span> 到 <span class="arithmatex">\(r\)</span> 有一条标号 <span class="arithmatex">\(vw\)</span> 的路径，反之也一定能找到这样的 <span class="arithmatex">\(q\)</span> 使得前面的性质成立。也就是说 <span class="arithmatex">\(\mu(v)\mu(w) = \mu(vw)\)</span>。</p>
+<p>接下来我们不加证明地声称，任何一个幺半群同态的像也是一个幺半群，任何一本代数课本都不可能没有介绍这个结论。我们称这样定义的幺半群为自动机的状态转移幺半群（transition monoid）。它在本章最后的高潮部分会得到淋漓尽致的应用，从而将语言、自动机和幺半群完美地融为一体。</p>
+<h2 id="minimization">简化 Minimization<a class="headerlink" href="#minimization" title="Permanent link">&para;</a></h2>
+<p>在上一届我们已经提到，不同的自动机可以表示相同的语言。这里我们要考虑怎么去简化一个自动机。在本文中，我们会主要考虑 DFA 的简化，介绍相应的几种方法并分析其复杂度，这并不困难。而 NFA 的简化相比起来要复杂得多。事实上，可以证明它是 <span class="arithmatex">\(\mathsf{PSPACE}\)</span>-完备的，目前已知的最快算法为 Kameda-Weiner 算法。关于这个问题复杂度的证明则会留在以后介绍了复杂度理论之后，作为 <span class="arithmatex">\(\mathsf{PSPACE}\)</span>-完备的一个例子来作叙述，暂且按下不表。</p>
+<p>我们首先来直觉地讨论 DFA 简化的问题。第一步，我们要移除所有已经没法到达终点或者本身就不能被抵达的状态，这些状态当然是不可能抵达终点的，可以被删掉。第二步，我们需要把“相同”的状态删掉一个，因为这些状态删不删掉不影响最终的结果。</p>
+<p>在继续之前，我们先必须确定，对于一个语言，在接受它的自动机当中，存在最简的一类自动机，它们在状态名字发生交换之后相同。这个结论的严格证明会在 Myhill-Nerode 定理之后给出，也就是本章最后。在这里，我们暂且承认这个结论。</p>
+<p>好，我们继续。第一步是非常简单的步骤，基本上就是一个图论问题，在这里因为与主题关系不大就直接跳过了。第二步则是最关键的一步，各种算法也就是在这里发生了分歧。但是在继续之前，我们需要思考一个问题：什么样的状态是相同的状态？直观的想法就是，从这里出发向后取走，我们发现到达终点之前的路径的标号构成的集合完全一样了。这个时候我们只要把一个状态的历史复制一份，指向另一个状态，再把另一个状态删掉，那就完成了。</p>
+<p>嗯，这样说可能还是有点抽象。我们还是要回到在上面已经强调了三次的状态机的概念。如果两个状态的未来相同，也就是说从这个状态往后的输入相同时它都能给出相同的结果，我们已经讲过，状态机没有“记忆”，决定它的运行的就是现在的状态和将来的输入，那这两个状态当然就是相同的。好，如果还不明白，看形式化的表述。</p>
+<p>我们考虑状态 <span class="arithmatex">\(q\)</span>，我们知道，我们可以很容易地定义出从它出发到达终点的路径的标号的集合，还记得吗，我们在方程组那里把它记成 <span class="arithmatex">\(X_q\)</span>。这里我们为了强调它是一个语言，我们就将其记作 <span class="arithmatex">\(L_q\)</span>，这都无关紧要。我们称这是它的未来（future，如果要看起来高级一点，也可以叫右语言 right language）。我们称一个自动机是最简的，如果 <span class="arithmatex">\(\forall p, q \in K, L_p \ne L_q\)</span>。当然，我们也可以定义一个状态的过去（past，左语言 left language），就是从起始状态到达这个状态经过的路径的字符串构成的集合，记作 <span class="arithmatex">\(_qL\)</span>。</p>
+<p>好了，定义很简单咯。接下来我们考虑怎么去求这个东西。看到那个不等号没？我们自然就要联想到等价关系了，在代数里这是一个非常常用的手段。我们定义状态之间的 Nerode 等价关系（Nerode equivalence）：</p>
+<div class="arithmatex">\[
+p \sim_N q \iff L_p = L_q
+\]</div>
+<p>可能有人会说，这不是废话吗？你下一步是不是要说我们的最简自动机就是等价关系对于任意两个状态都不成立？是，但不完全是。等价关系最常用的一个操作是作商（quotient），一个集合对等价关系作商得到的是一组等价类（equivalence classes），它们不重不漏地把原来的集合划分成了一系列子集，在一个子集内部的所有元素等价，而不在同一个子集中的元素两两不等价。那么我们要求的极小自动机就是状态集合做的商，我们写成：</p>
+<div class="arithmatex">\[
+\mathcal{M}/\sim_N = (K/\sim_N, \Sigma, \delta^\prime, q_0, F/\sim_N)
+\]</div>
+<p>注意，我们特别强调了终止状态也要做一个商，因为我们要尽可能减少终止状态。状态转移函数则被定义为 <span class="arithmatex">\(\delta^\prime([p], a) = [\delta(p, a)]\)</span>，其中 <span class="arithmatex">\([p]\)</span> 指包含状态 <span class="arithmatex">\(p\)</span> 的等价类。对一个集合，我们将它的一族不重不漏的子集称为它的一个划分（partition）</p>
+<p>等价类会让人联想到什么？还记得我们上面做的语言的商吗？我们一直还没用它呢。这下它要派上用场了，因为我们知道作商在一般的代数结构中都能拿到一个等价类。这里我们稍微操作一下，将其转化成状态的语言：给定状态构成的集合 <span class="arithmatex">\(P \subset K\)</span> 和字母 <span class="arithmatex">\(a\in \Sigma\)</span>，我们记 <span class="arithmatex">\(a^{-1}P = \{q \in K: \delta(q, a) \in P\}\)</span>。再次强调一下，我们做的是 DFA，所以我们干脆就把 <span class="arithmatex">\(\delta\)</span> 的取值定义在 <span class="arithmatex">\(K\)</span> 上了，这样来写能够避免很多麻烦事。</p>
+<p>接下来我们看这是怎么拿到一个划分的。给定集合 <span class="arithmatex">\(R \subset K\)</span>，我们要通过 <span class="arithmatex">\((P, a)\)</span> 将它划分成两个集合。很显然的划分方法就是：<span class="arithmatex">\(\{R\cap a^{-1}P, R - a^{-1}P\}\)</span>。其中 <span class="arithmatex">\(-\)</span> 表示集合之间作差。也就是：</p>
+<div class="arithmatex">\[
+R\cap a^{-1}P = \{q \in R: \delta(q, a) \in P\}, \quad R - a^{-1}P = \{q \in R: \delta(q, a) \not\in P\}
+\]</div>
+<p>这当然是个划分，也是个等价类，我们将其记为 <span class="arithmatex">\((P, a)\vert R\)</span>。当然，<span class="arithmatex">\((P,a)\vert R = (P^c, a) \vert R\)</span>，其中 <span class="arithmatex">\(P^c\)</span> 表示 <span class="arithmatex">\(P\)</span> 在 <span class="arithmatex">\(K\)</span> 中的补。我们把 <span class="arithmatex">\((P,a)\)</span> 称为分裂子（splitter），如果 <span class="arithmatex">\((P, a)\vert R\)</span> 中有两个元素，也就是说 <span class="arithmatex">\(R\cap a^{-1}P\)</span> 和 <span class="arithmatex">\(R - a^{-1}P\)</span> <strong>两者均不为空</strong>，则我们称 <span class="arithmatex">\((P, a)\)</span> 分裂（splits）集合 <span class="arithmatex">\(R\)</span>。当然，把 <span class="arithmatex">\(a\)</span> 推广到 <span class="arithmatex">\(w \in \Sigma^\ast\)</span> 是自然的，我们很早就做出了关于商掉一个字的定义。</p>
+<p>那么什么时候 <span class="arithmatex">\((P, a)\)</span> 不能分裂集合 <span class="arithmatex">\(R\)</span> 呢？同样不难判断。我们记 <span class="arithmatex">\(\delta(R, a) = \{\delta(q, a): q \in R\}\)</span>，如果它被包含于 <span class="arithmatex">\(P\)</span> 或者 <span class="arithmatex">\(P^c\)</span>，那当然 <span class="arithmatex">\((P, a)\)</span> 就不能分裂 <span class="arithmatex">\(R\)</span> 了。接下来我们要说明的是下面这个定理，它将分裂子和 Nerode 等价关系联系在了一起：</p>
+<p>Nerode 等价关系对应的等价类是集合 <span class="arithmatex">\(K\)</span> 最粗糙的满足以下条件的划分 <span class="arithmatex">\(\mathcal{P}\)</span>：任意 <span class="arithmatex">\(P, R \in \mathcal{P}, a \in \Sigma\)</span>，<span class="arithmatex">\((P, a)\)</span> 不能分裂集合 <span class="arithmatex">\(R\)</span>。</p>
+<p>我们要说明一下什么叫一个划分比另一个划分粗糙（coarser）。给定集合 <span class="arithmatex">\(K\)</span> 的划分 <span class="arithmatex">\(\mathcal{P}\)</span> 和 <span class="arithmatex">\(\mathcal{Q}\)</span>，我们称 <span class="arithmatex">\(\mathcal{P}\)</span> 比 <span class="arithmatex">\(\mathcal{Q}\)</span> 粗糙，如果任意一个 <span class="arithmatex">\(\mathcal Q\)</span> 中的集合都被包含于 <span class="arithmatex">\(\mathcal P\)</span> 中的一个集合。直观地说，这就像用刀切一块五花肉，如果是切成东坡肉，那当然要比把这些肉细细剁作臊子要来的粗糙。下面我们来快速描述一下这个结论怎么证明。</p>
+<p>我们先思考，一个集合 <span class="arithmatex">\((P, a)\)</span> 能不能分裂集合 <span class="arithmatex">\(R\)</span> 到底有什么意义？如果 <span class="arithmatex">\((P, a)\)</span> 分裂集合 <span class="arithmatex">\(R\)</span>，那么 <span class="arithmatex">\(\delta(R, a)\)</span> 不包含于 <span class="arithmatex">\(P\)</span> 或者 <span class="arithmatex">\(P^c\)</span>，也就是说，从 <span class="arithmatex">\(R\)</span> 出发经过 <span class="arithmatex">\(a\)</span> 之后不能确定它到达的是 <span class="arithmatex">\(P\)</span> 还是 <span class="arithmatex">\(P^c\)</span>。如果能确定它到达 <span class="arithmatex">\(P\)</span> 或者 <span class="arithmatex">\(P^c\)</span>，事实上我们就可以把它里面的元素对 <span class="arithmatex">\(a\)</span> 这个下一步输入看成相同的状态了，因为它们的下一步全都跑到了一个集合里去。更加严格的说法需要用到归纳法去证明，首先把终止状态的划分建立起来，然后再往前一层一层推进，严格的证明请读者自行完成。</p>
+<p>好，乏味的理论时间到此为止，我们要开始讲算法了。最简单的一个算法是 Brzozowski 算法，准确的说，它是一个想法很简单、实现很简单的算法，唯一的缺点就是复杂度有可能很高。</p>
+<p>首先，我们知道，把一个 DFA 起始终止状态换一下，然后翻转所有箭头可以得到一个 DFA，我们称之为一个翻转操作。要清理掉一个 DFA 或者 NFA 里面没用的状态很容易，只要从前往后进行一次遍历，从起始状态不能走到的地方都删掉，再从后往前进行一次遍历，从终止状态不能走到的状态都删掉。这也是很常规的套路，我们把它称作剪枝操作。然后，Brzozowski 的发现是，先剪枝、翻转，然后再通过幂集构造做成 DFA，再翻转，这样就能把原来的 DFA 最简化。神奇吗？</p>
+<p>神奇的东西背后往往会蕴藏着深刻的东西。比如在这个观察之中，我们会发现代数-余代数对偶性（algebra-coalgebra duality）的影子。别慌，我们在这里不打算把它详细讲清楚，这是我们在 B 面会讲的问题。我们先来看看怎么说明这个算法是对的。</p>
+<p>下面我们要说明的是一个更强的版本：对于一个 NFA，我们可以用类似的方法做到其对应的 DFA 的简化。假定原来的 NFA 为 <span class="arithmatex">\(\mathcal{M}\)</span>，我们记 <span class="arithmatex">\(\mathcal{M}_D\)</span> 为它通过标准的幂集构造转为 DFA 的结果，记 <span class="arithmatex">\(\mathcal{M}^R\)</span> 为一个自动机翻转之后的结果，<span class="arithmatex">\(\mathcal{M}^\sim\)</span> 为一个自动机剪枝之后的结果，这三个操作就是我们算法所需要的全部了。 </p>
+<p>我们按照如下操作来完成转换：首先将其翻转得到 <span class="arithmatex">\(\mathcal{M}^R\)</span>，那么很自然地，我们知道它接受的语言就是原来的语言的翻转：里面的每个字都被反转了。然后我们将其转为 DFA 再剪枝，得到 <span class="arithmatex">\(((\mathcal{M}^R)_D)^\sim\)</span>。然后再反转并转为 DFA，再剪枝，得到 <span class="arithmatex">\((((((\mathcal{M}^R)_D)^\sim)^R)_D)^\sim\)</span>。括号很多，很烦，所以我们记 <span class="arithmatex">\(M^\dagger = ((\mathcal{M}^R)_D)^\sim\)</span>，得到的结果就是 <span class="arithmatex">\((M^\dagger)^\dagger\)</span> 很显然，我们的剪枝和反转操作都不会影响自动机接受的语言，所以我们最终的这一个自动机就是一个与原来的自动机等价的自动机。</p>
+<p>然后我们去想，为什么这个新的自动机就是最简的自动机了呢？我们需要追随它的每个状态的来源。我们的 <span class="arithmatex">\(\mathcal{M}^\dagger\)</span> 是一个确定性的自动机，这意味着它从起始状态出发，同一个词都会使得它到达同一个状态，也就是说，一次 <span class="arithmatex">\(\dagger\)</span> 操作事实上就是把原来自动机的每个状态的未来转变为过去（past，或者左语言，与未来定义对应）并且唯一化了这种过去。然后我们的第二次 <span class="arithmatex">\(\dagger\)</span> 操作使得唯一化的过去变成未来，并且又唯一化过去使得它变成一个真正的 DFA。</p>
+<p>更加形式化一点，我们关注 <span class="arithmatex">\(\mathcal{M}^\dagger\)</span> 中的一个状态 <span class="arithmatex">\(q\)</span>。它是一个 DFA 就意味着对于任意一个 <span class="arithmatex">\(_qL\)</span> 中的字符串 <span class="arithmatex">\(s\)</span>，不存在状态 <span class="arithmatex">\(p\)</span> 使得 <span class="arithmatex">\(s \in\ _pL\)</span>。当我们把它翻转过来之后，<span class="arithmatex">\(_qL\)</span> 变成 <span class="arithmatex">\(L_q\)</span>，<span class="arithmatex">\(_pL\)</span> 变成 <span class="arithmatex">\(L_p\)</span>，但是在翻转前没有唯一化的未来使得其中每个状态的过去不是唯一化的，因此我们要做第二次 <span class="arithmatex">\(\dagger\)</span> 操作让它变成 DFA。准此思路可以完成严格的证明。我们可以说，这个过程事实上就是两次“时间反演”的操作。因为 NFA 到 DFA 的转化是对过去的唯一化，所以利用它就可以完成整个操作。</p>
+<p>好，下面我们来看其他算法。它们看起来没有这么简单，但是复杂度会比上面的算法低。Brzozowski 算法的复杂度最坏情况下会到达指数级，因为它引入了两次倒霉的幂集构造，我想这不是什么难以发现的事情。而后面的几个算法则都是多项式级别的复杂度，但是要求更加精巧的想法和构造。</p>
+<p>注意，在 Brzozowski 算法中我们没有用到 Nerode 等价关系，但是在这里，我们要开始利用它了。我们知道，等价类就是等价关系，那么我们要从一个最开始的等价类出发，逐步细化得 Nerode 等价关系对应的等价类，这就是我们的 Moore 算法的灵感来源。</p>
+<p>我们要考虑，一个怎样的等价类既好算又能够逐渐趋近于 Nerode 等价关系对应的等价类呢？注意我们的 <span class="arithmatex">\(L_q\)</span>，它是一个对<strong>所有</strong>从 <span class="arithmatex">\(q\)</span> 出发能够到达终止状态的字符串的刻画。因此我们不妨对其做一个限制：毕竟我们的输入是有限的，那就按照长度划分这样的字符串。我们定义一个在状态集 <span class="arithmatex">\(K\)</span> 上的等价关系，<span class="arithmatex">\(k\)</span> 阶的 Moore 等价关系 <span class="arithmatex">\(\sim_M^k\)</span> 为：</p>
+<div class="arithmatex">\[
+p \sim_M^k q \iff L_p^k = L_q^k
+\]</div>
+<p>其中 <span class="arithmatex">\(L_q^k\)</span> 指状态 <span class="arithmatex">\(q\)</span> 的未来中长度小于等于 <span class="arithmatex">\(k\)</span> 的字符串。下一步我们能够用 Moore 等价关系来表达 Nerode 等价关系：当 <span class="arithmatex">\(\sim_M^k = \sim_M^{k+1}\)</span> 时，<span class="arithmatex">\(\sim_N = \sim_M^k\)</span>。根据上面提到的直觉，这是很显然的。我们称最小的这个值为 Moore 算法的深度（depth）。</p>
+<p>因此，我们只要计算什么时候 <span class="arithmatex">\(\sim_M^k = \sim_M^{k+1}\)</span> 就行，而我们又可以很轻松地根据 <span class="arithmatex">\(\sim_M^k\)</span> 计算出 <span class="arithmatex">\(\sim_M^{k+1}\)</span>：</p>
+<div class="arithmatex">\[
+p \sim_M^{k+1} q \iff p \sim_M^{k} q \wedge \forall a\in \Sigma,\delta(p, a)\sim_M^k \delta(q, a)
+\]</div>
+<p>但是，我们要计算的是等价类。所以我们用等价类来表达等价关系，记 <span class="arithmatex">\(\mathcal{M}_k\)</span> 为 <span class="arithmatex">\(\sim_M^k\)</span> 对应的等价类，在考虑 <span class="arithmatex">\(\mathcal{M}_{k+1}\)</span> 时，很直观的想法，也是上面这个式子告诉我们的就是，把 <span class="arithmatex">\(\mathcal{M}_k\)</span> 中的东西继续细分。对于 <span class="arithmatex">\(\mathcal{M}_k\)</span> 中的任意集合 <span class="arithmatex">\(R\)</span>，取其中的任意集合 <span class="arithmatex">\(P\)</span> 和字母表中的任意字母 <span class="arithmatex">\(a\)</span>，如果 <span class="arithmatex">\((P, a)\)</span> 分裂 <span class="arithmatex">\(R\)</span>，那就把分裂的结果放进 <span class="arithmatex">\(\mathcal{M}_{k+1}\)</span> 中。这样，我们就构造完了 Moore 算法。</p>
+<p>当然，我们的复杂度就是 <span class="arithmatex">\(O(lkn)\)</span>，其中 <span class="arithmatex">\(l\)</span> 为 Moore 算法的深度，<span class="arithmatex">\(k\)</span> 为字母表的元素个数，<span class="arithmatex">\(n\)</span> 为状态的总数。这是因为在求解 <span class="arithmatex">\(\mathcal{M}_{k+1}\)</span> 的过程中，我们每一步都可以使用一次基排序（radix sort）来使得已经完成的划分中，同一集合内的元素相互邻近。<span class="arithmatex">\(l\)</span> 的最坏结果，很容易发现就是 <span class="arithmatex">\(n-2\)</span>。在最糟糕的情况下，我们会把所有的状态都分开，也就是说，发现它完全就已经是最简的了。这时，我们必须进行 <span class="arithmatex">\(n-2\)</span> 次计算才能得到循环终止的信号。我们称这样的自动机是对 Moore 算法慢的（slow for Moore）。</p>
+<p>那么平均复杂度呢？我们这里不给出证明，因为这不是我们关注的重点。只要注意到，如果我们的输入在所有可能的 <span class="arithmatex">\(n\)</span> 状态完备 DFA 中均匀分布，那么 Moore 算法的平均复杂度是 <span class="arithmatex">\(O(n\log n\log n)\)</span>。这个结论的证明可以参看 J. David. <em>The average complexity of Moore’s state minimization algorithm is <span class="arithmatex">\(o(n \log \log n)\)</span></em>. In P. Hlinený and A. Kucera, editors, <em>Mathematical Foundations of Computer Science 2010, 35th International Symposium, MFCS 2010</em>, volume 6281 of Lecture Notes in Comput. Sci., pages 318–329. Springer-Verlag, 2010。</p>
+<p>好，下面我们给出最后一个经典算法：Hopcraft 算法。我们同样是通过逐步细化的方法来得到最终的结果，不同的是我们现在的出发点是 <span class="arithmatex">\(\{F, F^c\}\)</span>，也就是说，先把终止不终止分成两堆。然后我们每一次把其中的一些一分为二。注意，在 Moore 算法中，我们不可能通过数据结构之类的优化降低它的复杂度了，为了做到更好，我们必须对这个构造动刀子。</p>
+<p>我们首先观察一下 Moore 算法给出的构造模式。还记得怎么从 <span class="arithmatex">\(\sim_M^k\)</span> 计算出 <span class="arithmatex">\(\sim_M^{k+1}\)</span> 吗？根据这个式子，可以注意到 <span class="arithmatex">\(\sim_M^k \ne \sim_M^{k+1}\)</span> 的条件就是：</p>
+<div class="arithmatex">\[
+\exists a \in \Sigma, p, q\in K, p\sim_M^k q \wedge \delta(p, a) \sim_M^k \delta(q, a)
+\]</div>
+<p>用划分的语言重新表述它：</p>
+<div class="arithmatex">\[
+\exists a \in \Sigma, P, Q \in K/\sim_M^k, \delta(P, a) \cap Q \ne \varnothing \wedge \delta(P, a)\not \subset Q
+\]</div>
+<p>也就是说，从 <span class="arithmatex">\(\sim_M^k\)</span> 到 <span class="arithmatex">\(\sim_M^{k+1}\)</span> 本质上就是一系列划分，把 <span class="arithmatex">\(P\)</span> 划分成 <span class="arithmatex">\(P\cap a^{-1}Q\)</span> 和 <span class="arithmatex">\(P - a^{-1}Q\)</span>。这是什么？没错这就是 <span class="arithmatex">\((Q, a)\vert P\)</span>。因此，在这里我们需要对 <span class="arithmatex">\(P\)</span> 一分为二，裂开成它对于 <span class="arithmatex">\((Q, a)\)</span> 这个分裂子的划分。</p>
+<p>下面我们来描述一个基本的算法，这个算法本质上和 Moore 算法没什么差别，而且显得更加抽象了。但是它多了更重要的东西：优化空间。</p>
+<p>我们的出发点是 <span class="arithmatex">\(\{F, F^c\}\)</span>，那就意味着我们所有可能的分裂子就是 <span class="arithmatex">\(\{F, F^c\} \times \Sigma\)</span>。现在要记下所有可能的分裂子，将其记作 <span class="arithmatex">\(W\)</span>，有些文献里会叫它等待集（waiting set）。接下来，对于每个等待集中的分裂子，我们要将其能分裂的集合进行分裂。分裂完成之后，更新 <span class="arithmatex">\(W\)</span> 和已经做好的划分。如果被分裂的集合在 <span class="arithmatex">\(W\)</span> 中有一席之地，我们要更新它，如果没有，我们要把新的集合加入进去。</p>
+<p>很简单，对吧？但是这里还需要一些澄清。下面我们就来规范地描述一下这个算法。
+1. 置 <span class="arithmatex">\(R \leftarrow \{F, F^c\}, W \leftarrow R \times \Sigma\)</span>；
+2. 如果 <span class="arithmatex">\(W\)</span> 不为空，那么从中取出一个分裂子 <span class="arithmatex">\((P, a)\)</span>；
+3. 接下来拿着 <span class="arithmatex">\((P, a)\)</span> 寻找 <span class="arithmatex">\(R\)</span> 中它可以分裂的集合，对于每个可以分裂的集合 <span class="arithmatex">\(B\)</span>，在 <span class="arithmatex">\(R\)</span> 中将其替换成 <span class="arithmatex">\((P, a)\vert B\)</span> 中的两个元素；
+4. 再遍历字母表 <span class="arithmatex">\(\Sigma\)</span>，对其中的任意字母 <span class="arithmatex">\(x\)</span>，如果 <span class="arithmatex">\((B, x) \in W\)</span>，那么把 <span class="arithmatex">\((B, x)\)</span> 换成 <span class="arithmatex">\((B^\prime, x)\)</span> 和 <span class="arithmatex">\((B^{\prime\prime}, x)\)</span>；否则将 <span class="arithmatex">\((B^\prime, x)\)</span> 和 <span class="arithmatex">\((B^{\prime\prime}, x)\)</span> 添加到 <span class="arithmatex">\(W\)</span> 中；
+5. 回到步骤 2，直到 <span class="arithmatex">\(W\)</span> 为空。
+这个算法当然会停机，这是我们一开始从 Moore 等价关系推到这里就已经表明了的，那么它的复杂度呢？很显然，<span class="arithmatex">\(W\)</span> 中的元素最多有 <span class="arithmatex">\(O(kn)\)</span> 个，而且其中的每个元素都会带来 <span class="arithmatex">\(k\)</span> 重循环，所以现在我们的复杂度还是 <span class="arithmatex">\(O(k^2n)\)</span>，这个结果和之前的 Moore 算法比起来只能说不分伯仲。</p>
+<p>接下来我们要考虑怎么来优化这个玩意。直觉是这样的：只需要两刀就可以把一个蛋糕切成三块，但是在我们的算法里会出现三次切割。对于一个集合 <span class="arithmatex">\(D \in R\)</span>，我们使用 <span class="arithmatex">\((B, a)\)</span> 切完之后，还可能会需要用 <span class="arithmatex">\((B^\prime, a)\)</span> 和 <span class="arithmatex">\((B^{\prime\prime}, a)\)</span> 对这个集合做切割，最终的结果却是把它切成三个部分，所以里面有一步肯定多余了。</p>
+<p>为什么这样说呢？我们按照上面的直觉给出这个引理：考虑 <span class="arithmatex">\(D \in R\)</span>，<span class="arithmatex">\((B, x) \in W\)</span>，<span class="arithmatex">\(B\)</span> 可以被细分为 <span class="arithmatex">\(B^\prime\)</span> 和 <span class="arithmatex">\(B^{\prime\prime}\)</span>，那么用 <span class="arithmatex">\((B, x)\)</span>、<span class="arithmatex">\((B^\prime, x)\)</span> 和 <span class="arithmatex">\((B^{\prime\prime}, x)\)</span> 三者之二分裂 <span class="arithmatex">\(D\)</span> 得到的结果是相同的。这个引理的证明很简单，因为 <span class="arithmatex">\(D\)</span> 总共能被分成的只有三块：去到 <span class="arithmatex">\(B\)</span> 之外的，去到 <span class="arithmatex">\(B^\prime\)</span> 的，去到 <span class="arithmatex">\(B^{\prime\prime}\)</span> 的。这三部分会把 <span class="arithmatex">\(D\)</span> 细分为 <span class="arithmatex">\(D_1, D_2, D_3\)</span>，而如上所述，切成这三块只需要两刀，这一步的形式化说明留给读者自行补全。</p>
+<p>不仅如此，我们还可以表明，如果 <span class="arithmatex">\((B, x)\)</span> 和 <span class="arithmatex">\((B^\prime, x)\)</span> 都不能分裂某个集合，那么 <span class="arithmatex">\((B^{\prime\prime}, x)\)</span> 也不行，这也是很简单的切蛋糕问题，证明不妨留作练习。最后一个点在初始化的地方，用 <span class="arithmatex">\((F, x)\)</span> 或 <span class="arithmatex">\((F^c, x)\)</span> 去切得到的结果也是完全相同的，因此二选一就行。</p>
+<p>在这里，我们碰到了好多次选择：二选一或者三选二。怎么去选是一个计算问题，按照 Hopcraft 的原始论文，我们选择的就是较小的那一个集合。</p>
+<p>这样我们就拿到了一个更优化的算法流程：
+1. 置 <span class="arithmatex">\(R \leftarrow \{F, F^c\}, W \leftarrow {\min(F, F^c)} \times \Sigma\)</span>；
+2. 如果 <span class="arithmatex">\(W\)</span> 不为空，那么从中取出一个分裂子 <span class="arithmatex">\((P, a)\)</span>；
+3. 接下来拿着 <span class="arithmatex">\((P, a)\)</span> 寻找 <span class="arithmatex">\(R\)</span> 中它可以分裂的集合，对于每个可以分裂的集合 <span class="arithmatex">\(B\)</span>，在 <span class="arithmatex">\(R\)</span> 中将其替换成 <span class="arithmatex">\((P, a)\vert B\)</span> 中的两个元素；
+4. 再遍历字母表 <span class="arithmatex">\(\Sigma\)</span>，对其中的任意字母 <span class="arithmatex">\(x\)</span>，如果 <span class="arithmatex">\((B, x) \in W\)</span>，那么把 <span class="arithmatex">\((B, x)\)</span> 换成 <span class="arithmatex">\((B^\prime, x)\)</span> 和 <span class="arithmatex">\((B^{\prime\prime}, x)\)</span>；否则将 <span class="arithmatex">\((\min(B^\prime, B^{\prime\prime}), x)\)</span> 添加到 <span class="arithmatex">\(W\)</span> 中；
+5. 回到步骤 2，直到 <span class="arithmatex">\(W\)</span> 为空。
+其中 <span class="arithmatex">\(\min(P, Q)\)</span> 表示集合 <span class="arithmatex">\(P, Q\)</span> 中较小的一个。</p>
+<p>这个算法的最坏复杂度为 <span class="arithmatex">\(O(kn\log n)\)</span>，它的推导就比较复杂了。在 David 的那篇论文中，他还证明了如果我们的输入在所有可能的 <span class="arithmatex">\(n\)</span> 状态完备 DFA 中均匀分布，那么 Hopcraft 算法的平均复杂度也达到 <span class="arithmatex">\(O(n\log n\log n)\)</span>。关于这个算法的复杂度推导，参看 Knuutila, T.: <em>Re-describing an Algorithm by Hopcroft</em>. <em>Theoret. Computer Science</em> 250 (2001) 333–363. 我们称一个自动机对于 Hopcraft 是慢的（slow for Hopcraft），如果 Hopcraft 算法不管怎么选择，在每一步执行的时候，当前的划分中只有一个集合被裂开了。</p>
+<p>注意到，我们这里事实上还是要对字母表进行遍历。这是一个很麻烦的操作，因为我们可以往字母表里面塞很多没有用的东西。所以事实上我们可以说，Hopcraft 算法的复杂度界的前提是这个 DFA 是完备的。这实际上是一个很糟糕的假设。Antti Valmari 和 Petri Lehtinen 在 2008 年提出了一个不完备情形下的算法，它的时间复杂度是 <span class="arithmatex">\(O(m\log n)\)</span>，其中 <span class="arithmatex">\(m\)</span> 是状态转移函数的个数，但是代价是增加了一个保存状态转移函数的分划的数据结构，见 A. Valmari and P. Lehtinen. <em>Efficient minimization of DFAs with partial transition</em>. In S. Albers and P. Weil, editors, STACS 2008, Proc. 25th Symp. <em>Theoretical Aspects of Comp. Sci.</em>, volume 08001 of <em>Dagstuhl Seminar Proceedings</em>, pages 645–656. Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik, 2008。同年，Marie-Pierre Béal 和 Maxime Crochemore 也提出了一个 <span class="arithmatex">\(O(m\log n)\)</span> 的算法，它们主要的改进在推广了取较小集合的想法、标记状态出边以及弱排序（weak sorting），见 M.-P. Béal and M. Crochemore. <em>Minimizing incomplete automata</em>. In <em>Workshop on Finite State Methods and Natural Language Processing 2008</em>. Ispra, september 2008.。</p>
+<p>那么能不能直接计算一个语言对应的最简 DFA 呢？其实也可以。但是我们会把它留在我们最后一节 Myhill-Nerode 定理之后再作介绍。这里我们先提示一下，作商的作用远不止这点，商的结果事实上就预示了这个语言能否被一个 DFA 所识别。</p>
+<p>诶，在这里我们停一下。我们已经有了三个算法，除了 Brzozowski 有些奇怪之后，其他的算法都是尝试从粗到细地切蛋糕。然而，为什么我们不选择用融合的方法来处理这个问题呢？也就是说，我们尝试逐步把相同的状态切掉或者融合到一起。这种方法的探索绝非罕见，但是暂时我们只有对于一些特定种类的有限状态机有所进展。要么我们要考虑无环或者只有简单环路的自动机，例如著名的 Revuz 算法受限于无环；要么我们就考虑下面的条件：局部性（locality）。</p>
+<h2 id="locality">*局部性 Locality<a class="headerlink" href="#locality" title="Permanent link">&para;</a></h2>
+<p>在这一节中，我们会首先探索对局部自动机的定义及其简化，然后我们引入局部语言和线性表达式的概念。这将首次将我们引入到语言、自动机和表达式千丝万缕的等价关系中来，尽管这个等价关系早已在前面无数次被暗示了。</p>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="regular-language">正则语言 Regular Language<a class="headerlink" href="#regular-language" title="Permanent link">&para;</a></h2>
+<p>接下来我们介绍语言这一条线上最重要的模型之一：正则语言（regular language）。它又被称为有理语言（rational language），在强调代数阐释的地方，我会充分解释这个名字到底表达了什么以及它有什么意义。先看它的定义，我们用递归的方式去定义它：</p>
+<ul>
+<li>任何有限的语言都是正则语言；</li>
+<li><strong>两个</strong>正则语言的并和衔接都是正则语言；</li>
+<li>任意正则语言的星都是正则语言；</li>
+</ul>
+<p>发现了什么？回忆一下在讨论语言那一节最后的定义，我们不难证明，正则语言事实上就是有限语言生成的 Conway 半环，也就是说，它是最小的包含所有有限语言的 Conway 半环。这当然是一个非常好的性质。注意，我们说的是<strong>两个</strong>正则语言的并和衔接，这意味着<strong>有限个</strong>正则语言的并和衔接都是正则语言，但不是可数个，也不是任意个，这是一个非常关键的点。</p>
+<p>从这里出发，我们要去叙述正则语言的性质，但是现在我们先从最简单的地方开始，怎么去表达一个正则语言？从定义中很容易获得这样的灵感：只要表达出组成它的任何一个有限语言就可以了。而有限语言当然又可以看成单元素集的有限并，因此我们首先把一个单元素集表达出来，我们令 <span class="arithmatex">\(\{w\} = w\)</span>，这样的记号应当不致混淆，如果我们坚持用小写字母表示字符串，大写字母表示语言的集合。然后我们用这样的方式往下进行，只使用并、衔接和星，我们可以得到类似这样的东西，我们称之为正则表达式（regular expression）：</p>
+<ul>
+<li><span class="arithmatex">\(0(0\cup 1)^\ast\)</span> 所有以 <span class="arithmatex">\(0\)</span> 开头的字符串；</li>
+<li><span class="arithmatex">\(0(01)^\ast\)</span> 所有以 <span class="arithmatex">\(0\)</span> 开头，后面都是 <span class="arithmatex">\(01\)</span> 交替的字符串组成的字符串；</li>
+<li><span class="arithmatex">\((0(0\cup 1)^\ast) \cup (1(0\cup 1)^\ast)\)</span> 至少有一个元素的零一字符串；</li>
+<li><span class="arithmatex">\((0 \cup 1)(0 \cup 1)^\ast\)</span> 至少有一个元素的零一字符串；</li>
+</ul>
+<p>注意，第三条和第四条表达的东西是一样的。这是因为我们前面对于一般语言已经给出了几条结论，它们在正则表达式的语境下依然成立：</p>
+<ul>
+<li><span class="arithmatex">\(a\cup b = b \cup a\)</span>；“加法交换律”</li>
+<li><span class="arithmatex">\((a\cup b)\cup c = a \cup (b\cup c)\)</span>；“加法结合律”</li>
+<li><span class="arithmatex">\(ea = ae = a\)</span>；“乘法单位元”</li>
+<li><span class="arithmatex">\((ab)c = a(bc)\)</span> “乘法结合律”</li>
+<li><span class="arithmatex">\(a(b \cup c) = ab \cup ac\)</span>；“左分配律”</li>
+<li><span class="arithmatex">\((a\cup b)c = ac \cup bc\)</span>；“右分配律”</li>
+<li><span class="arithmatex">\((a + b)^\ast = a^\ast(ba^\ast)^\ast\)</span>；“和-星规则”</li>
+<li><span class="arithmatex">\((ab)^\ast = e + a(ba)^\ast a\)</span>；“积-星规则”</li>
+<li><span class="arithmatex">\(x^\ast = e + xx^\ast\)</span>；“不动点定理”</li>
+</ul>
+<p>看起来到此为止了？啊哈，没那么简单。我们要问的问题是：是否存在一组有限的、完备的公理系统，使得它们能够推出所有关于正则语言的恒等式？答案是否定的。例如上面这组规则就没法推出星运算的幂等性 <span class="arithmatex">\((a^\ast)^\ast = a^\ast\)</span>。这是一个发端于 Conway 的研究，他和 Redko 分别证明了它的不存在性。可能的无限公理系统的构造也是困难重重的，在 1966 年，Salomma （不完整地）表明存在两条公理和一组公理；Pilling 简化修正了他的结果并给出了一个对交换的正则表达式完备的系统；Redko 成功构造了单字母字母表情形下的完备公理系统；Conway 提出了一个可能的通用公理体系，最后由 D. Krob 在 1988 年将其证明。这部分证明令人惊异地用到了有限单群相关的发展，我们把它暂且留到 B 面去细讲。</p>
+<p>这里我们还要声明一点：正则表达式事实上不等于正则语言。虽然我们在上面和下面都会不断地混同使用这两个概念，但是这两个概念在本质上是不用的，正则表达式之于正则语言就像代数表达式之于数本身。这里最简单的例子就是，两个不同的正则表达式可能对应相同的正则语言，而且由上一段介绍的结论，我们没有什么能够被称为最简的正则表达式这一说。一个正则表达式事实上是一个由 <span class="arithmatex">\(\Sigma \cup \{e, \varnothing, (, ), +,^\ast\}\)</span> 构成的良定（well-formed）的式子，在 01B 我们提到逻辑（logic）和理论（theory）这些概念时，这种定义将称为我们手中的一根救命稻草。</p>
+<p>然后我们考察正则语言对于各种操作的封闭性。还记得吗？在第一节我们就定义了语言的各种操作，接下来我们要考虑，正则语言对于这些操作是否封闭。但是，这个过程事实上是困难的，因为集合的操作很不直观而且容易导致混乱，有些构造的式子可能会很长。因此，我们将在完成 Kleene 定理的证明之后再来处理这个问题，届时我们将用有限自动机来构造出这些操作。在这里，我们只要记住，正则语言在交、补、商下都是封闭的即可。</p>
+<h2 id="kleene-kleenes-theorem-language-versus-automata">Kleene 定理：语言对自动机 Kleene's Theorem: Language versus Automata<a class="headerlink" href="#kleene-kleenes-theorem-language-versus-automata" title="Permanent link">&para;</a></h2>
+<p>接下来我们就要进入本章的一个小高潮了。在前文中已经无数次提及 Kleene 定理，它的叙述事实上是非常简单的：所有可以被有限状态机识别的语言都是正则语言，所有正则语言都可以被有限状态机识别。</p>
+<p>我们先来看前半句话，所有可以被有限状态机识别的语言都是正则语言。事实上证明现在已经非常简单了。还记得我们在前面引入的线性方程组吗？我们已经说了，NFA 就是一个线性方程组。对于这种线性方程组，我们同样已经找到了它的解。那么，因为我们方程组里的 <span class="arithmatex">\(K_{ij}\)</span> 和 <span class="arithmatex">\(L_{ij}\)</span> 都是有限的、线性方程组的个数是有限的、求解每个方程的过程中的操作数也是有限的，当然，我们的线性方程组的解就是正则语言，这是直接由定义获得的。这是由 NFA 计算它所识别的语言的一个很好办法。</p>
+<p>后半句话的证明要相对麻烦一点点，但是只要利用 Conway 半环的性质，我们的证明也是理所应当的。在这里我们将列出一个大致思路，具体细节请读者自行填充。</p>
+<p>首先我们知道，所有有限语言都可以被一个 NFA 识别（为什么？只需要构造一个无环的 NFA 就可以了）。然后，如果两个语言都能被 NFA 识别，它们的并也能被一个 NFA 识别（为什么？构造一个 NFA-<span class="arithmatex">\(e\)</span>！），同样它们的衔接也能被一个 NFA 识别（为什么？自己构造一下！）。最后，如果一个语言能被 NFA 识别，它的星也能被 NFA 识别（也是构造 NFA-<span class="arithmatex">\(e\)</span>！）</p>
+<p>好，完成了。这里我们看起来讲的十分粗略，但其实它应该是挺顺理成章的。这些构造一个一个的都不困难也很直接，麻烦的反向证明则被我们用线性方程组解决掉了。所以，Kleene 定理的证明只占这么小的篇幅还是很合理的。</p>
+<p>这样的话，上一节留下的问题也很快解决了。怎么构造交和补？这应该很显然。我们这里以商作为例子，因为课程中没讲这个。同样，我们也要展示一下怎么将这种构造性证明形式化地写出来。</p>
+<p>设 <span class="arithmatex">\(\mathcal M = (K, \Sigma, \delta, q_0, F)\)</span> 是一个识别某语言 <span class="arithmatex">\(L\)</span> 的 DFA，那么下面说明，对于任意 <span class="arithmatex">\(u \in \Sigma^\ast\)</span>，<span class="arithmatex">\(u^{-1}L\)</span> 可以被 <span class="arithmatex">\(\mathcal{M}^\prime = (K, \Sigma, \delta, Q, F)\)</span> 这个 NFA 识别。注意，我们既然已经讲了 DFA，NFA，NFA-<span class="arithmatex">\(e\)</span> 的等价性，自然我们也就可以直接取用和构造三种中的任意一种，只要方便就行。</p>
+<p>好，接下来的想法就是怎么构造了。我们上面的定义已经说明了问题，令：</p>
+<div class="arithmatex">\[
+Q=\delta(q_0, u)
+\]</div>
+<p>问题就解决了。当然，其实这是一个 DFA 而不是 NFA，但假设的时候宽泛一点总没错。接下来我们要证明，如果还有任意 <span class="arithmatex">\(\Sigma\)</span> 上的语言 <span class="arithmatex">\(P\)</span>（它甚至不一定要正则，因为商特殊的不对称性），那么我们也能类似构造 <span class="arithmatex">\(\mathcal M^\prime\)</span> 识别 <span class="arithmatex">\(P^{-1}L\)</span>。</p>
+<p>这里的关键在于，我们不需要一台自动机来判定 <span class="arithmatex">\(P\)</span>，因为 <span class="arithmatex">\(P\)</span> 是我们已经有的，它在构造的时候被“硬编码”进了新的自动机。想必大家已经有想法了，我们新的起始状态就是所有从 <span class="arithmatex">\(q_0\)</span> 出发经过一个标号为 <span class="arithmatex">\(K\)</span> 中的元素的路径到达的状态构成的集合。</p>
+<p>我们既然声称这样的自动机识别语言 <span class="arithmatex">\(P^{-1}L\)</span>，那么当然需要证明它。首先，任取 <span class="arithmatex">\(u \in K^{-1}L\)</span>，由商的定义，存在 <span class="arithmatex">\(x \in P\)</span> 使得 <span class="arithmatex">\(xu \in L\)</span>。所以，在自动机 <span class="arithmatex">\(\mathcal M\)</span> 中有一条接受路径的标号是 <span class="arithmatex">\(xu\)</span>，这就意味着存在状态 <span class="arithmatex">\(q\)</span> 和终止状态 <span class="arithmatex">\(r\)</span>，使得 <span class="arithmatex">\(q_0 \stackrel x \rightarrow q \stackrel u \rightarrow r\)</span>。那么根据我们的构造，<span class="arithmatex">\(q\)</span> 是自动机 <span class="arithmatex">\(\mathcal{M}^\prime\)</span> 的起始状态，<span class="arithmatex">\(r\)</span> 是自动机 <span class="arithmatex">\(\mathcal M^\prime\)</span> 的终止状态，我们自然也就获得了一条 <span class="arithmatex">\(\mathcal M^\prime\)</span> 中的接受路径。</p>
+<p>反过来，任取一个被 <span class="arithmatex">\(\mathcal M^\prime\)</span> 接受的字符串 <span class="arithmatex">\(u\)</span>，它的接受路径为 <span class="arithmatex">\(q\stackrel u \rightarrow r\)</span>。而根据我们对 <span class="arithmatex">\(\mathcal M^\prime\)</span> 的构造，我们知道 <span class="arithmatex">\(\exists x \in P, q_0 \stackrel x \rightarrow q\)</span>。这就意味着 <span class="arithmatex">\(u \in P^{-1}L\)</span>。</p>
+<p>我们给出最后一个封闭性相关的结论：一个正则语言被一个幺半群同态映过去的语言还是正则语言。我们的幺半群同态指的是 <span class="arithmatex">\(\Sigma^\ast\)</span> 到 <span class="arithmatex">\(\Sigma^{\prime\ast}\)</span> 的同态，幺半群同态的概念在上面已经讲过了。但是在这里，我们还只能证明正则语言对同态的逆映射封闭，也就是说，我们将一个语言同态地映到另一个语言，如果映射的结果是正则语言，那原来的语言也是正则语言。这个证明可以由自动机完成，留给读者作为练习。</p>
+<p>结束了。接下来我们用最后几句话来给这半部分收个尾：给定正则语言 <span class="arithmatex">\(L\)</span>，我们根据它对应的自动机可以判断一个语言是否属于它，它是否为空，它是否有限或无限。在最后的一节中，我们将回收简化那一节最后的一个坑：如何将一个正则语言转化为识别它的最简自动机。</p>
+<h2 id="pumping-lemma">泵引理 Pumping Lemma<a class="headerlink" href="#pumping-lemma" title="Permanent link">&para;</a></h2>
+<p>这是我们课上讲的最后一部分内容了。这里要研究的是，怎么单从字符串的角度去识别一个语言是不是正则语言？在这里，事实上我们只能给出一个必要条件：我们知道正则语言一定长什么样，但我们不确定满足这个条件的一定是正则语言。</p>
+<p>在这里我们需要提醒一件事情：哪怕只是研究字符串，我们也能得出很多好玩的结论，它们很多看起来比较显然，但可能也有很多不那么显然的东西。在这里我要举一些例子，它们在某种意义上可以看成泵定理的前身。但是为了简明起见，这里仅罗列结论，证明留给读者，应当都是“非常显然的”。</p>
+<ul>
+<li>Levi 引理：字符串 <span class="arithmatex">\(u, v, x, y \in \Sigma^\ast\)</span> 满足 <span class="arithmatex">\(uv=xy\)</span>。若 <span class="arithmatex">\(\vert u \vert \geqslant \vert x \vert\)</span>，则存在 <span class="arithmatex">\(t \in \Sigma^\ast\)</span> 使得 <span class="arithmatex">\(u=xt\)</span> 且 <span class="arithmatex">\(y=tv\)</span>。若 <span class="arithmatex">\(\vert u \vert &lt; \vert x\vert\)</span>，那么存在 <span class="arithmatex">\(t \in \Sigma^+\)</span> 使得 <span class="arithmatex">\(x=ut\)</span> 且 <span class="arithmatex">\(v=ty\)</span>。</li>
+<li>Lyndon-Schützenberger 第一定理：设 <span class="arithmatex">\(y \in \Sigma^\ast\)</span>，<span class="arithmatex">\(x, z \in \Sigma^+\)</span>。则 <span class="arithmatex">\(xy=yz\)</span> 当且仅当存在 <span class="arithmatex">\(u, v \in \Sigma^\ast\)</span> 和正整数 <span class="arithmatex">\(e\)</span> 使得 <span class="arithmatex">\(x=uv, z=vu, y=(uv)^eu=u(vu)^e\)</span>。</li>
+<li>Lyndon-Schützenberger 第二定理：设 <span class="arithmatex">\(x, y \in \Sigma^+\)</span>，则以下三个条件等价：
+  1. <span class="arithmatex">\(xy=yx\)</span>；
+  2. 存在正整数 <span class="arithmatex">\(i, j\)</span> 使得 <span class="arithmatex">\(x^i = y^j\)</span>；
+  3. 存在 <span class="arithmatex">\(z \in \Sigma^+\)</span> 和正整数 <span class="arithmatex">\(k, l\)</span> 使得 <span class="arithmatex">\(x=z^k, y=z^l\)</span>。</li>
+<li>Fine-Wilf 定理：设 <span class="arithmatex">\(a, b\)</span> 为两个无限长字符串，周期分别为 <span class="arithmatex">\(m, n \geqslant 1\)</span>，如果两者在长度 <span class="arithmatex">\(m + n - \text{gcd}(m, n)\)</span> 的前缀上相同，那么 <span class="arithmatex">\(a=b\)</span>。</li>
+</ul>
+<p>简单吧？看上去都是显然的结果，后面的内容不会显式地用到这些东西，毕竟我们这是计算理论而不是字符串学（stringology）。但是我们会发现，这些东西都会在我们后面的证明中如同草蛇灰线一般贯穿始终，当我们说某件事情显然时，往往就会用到其中的某些东西，它们可以被直觉所肯定，但是要寻求详细证明的话还得回到这里。</p>
+<p>好，回归正题，我们来讨论泵引理。泵引理最重要的意义就在于它能告诉你正则语言到底长啥样。事实上，不仅正则语言如此，后面谈到 CFG 时也会有它的一个对应版本。设 <span class="arithmatex">\(L\)</span> 为一正则语言，那么存在正整数 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(\forall u \in L, \vert u \vert \geqslant n\)</span> 都可以被表示成 <span class="arithmatex">\(u=xyz\)</span>，其中 <span class="arithmatex">\(x, y, z \in \Sigma^\ast\)</span>，<span class="arithmatex">\(\vert xy\vert \leqslant n\)</span>，<span class="arithmatex">\(y \ne e\)</span> 且 <span class="arithmatex">\(\forall k \geqslant 0, xy^kz \in L\)</span>。这个长度 <span class="arithmatex">\(n\)</span> 往往也被我们称为一个语言的泵长度（pumping length）。</p>
+<p>很显然，对吧？嗯，在上一节的基础上这确实是显然的。因为上一节末尾我们说了，一个无限的语言在自动机中的表现是环路。我们只要找到第一个环路的地方，环路前面的串是 <span class="arithmatex">\(x\)</span>，环路中的是 <span class="arithmatex">\(y\)</span>，而出环之后的任意路径都可以为 <span class="arithmatex">\(z\)</span>。当然，我们还可以很轻松搞出一个变体：找一个 <span class="arithmatex">\(yz\)</span> 长度受限的分解也是可以的嘛。诶，那为什么 <span class="arithmatex">\(y\)</span> 不能是空串呢？我们知道，对于无环的自动机，当然它对应的语言就是有限的，这时候它的泵长度就是这个语言中最长串的长度加一：没有这样的词也是可以的嘛。</p>
+<p>注意，这个定理的核心是什么？它的核心就是有限状态机的有限性。也就是说，它不能有无穷多个状态。这个观点在 01B 中可以给我们另外一个判断一个语言是不是正则的标准：直接算它的单词的 Kolmogorov 复杂度界。</p>
+<p>这个引理最常用的作用就是证明一个语言<strong>不是</strong>正则的。这当然是一个很常用的套路，也有一个很标准的例子：证明 <span class="arithmatex">\(\{0^n1^n:n\geqslant 0\}\)</span> 不是正则的。</p>
+<p>解决这种问题的方法也很简单，反证。假设它是正则的，我们去套泵引理。存在正整数 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(\forall u \in L, \vert u \vert \geqslant n\)</span> 都可以被表示成 <span class="arithmatex">\(u=xyz\)</span>，其中 <span class="arithmatex">\(x, y, z \in \Sigma^\ast\)</span>，<span class="arithmatex">\(\vert xy\vert \leqslant n\)</span>，<span class="arithmatex">\(y \ne e\)</span> 且 <span class="arithmatex">\(\forall k \geqslant 0, xy^kz \in L\)</span>。既然它是任意的，我们就取一个 <span class="arithmatex">\(u\)</span> 来分析。最单纯的想法就是找个 <span class="arithmatex">\(u=0^n1^n\)</span>，我们把它分解成 <span class="arithmatex">\(xyz\)</span>。既然 <span class="arithmatex">\(\vert xy \vert \leqslant n\)</span> 那么当然 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 都是一串 <span class="arithmatex">\(0\)</span>。记 <span class="arithmatex">\(x = 0^r, y=0^s\)</span>，<span class="arithmatex">\(r\)</span> 为非负数，<span class="arithmatex">\(s\)</span> 为正整数。注意，这里用了 <span class="arithmatex">\(y \ne e\)</span> 的条件。然后呢，我们去构造 <span class="arithmatex">\(xy^kz\)</span>。同样是任意的，那我们就取一个 <span class="arithmatex">\(k\)</span> 来分析。设 <span class="arithmatex">\(k=2\)</span>，很显然 <span class="arithmatex">\(0\)</span> 的个数就比 <span class="arithmatex">\(1\)</span> 的个数多 <span class="arithmatex">\(s\)</span> 了，那就错了，<span class="arithmatex">\(xy^2z \not \in L\)</span>，不满足泵引理，说明它不是正则的。</p>
+<p>下面我们来举一个失败的例子：一个语言它符合泵引理，但是他不是正则的。我们的语言长这样：<span class="arithmatex">\(L=\{(ab)^nc^n:n&gt;0\} \cup ((a\cup b\cup c)^\ast bb(a\cup b\cup c)^\ast )\cup ((a\cup b\cup c)^\ast aa (a\cup b\cup c)^\ast)\)</span>。呼诶，这玩意看上去不太好惹。我们这里只表明它符合泵引理，证明它不是正则要留到以后我们有了更趁手的工具之后再来干。直觉地说，证明它不是正则就是没有哪个自动机能保证我在一段任意长的单词之中都会有一个 <span class="arithmatex">\(aa\)</span> 或者 <span class="arithmatex">\(bb\)</span>。</p>
+<p>来吧，我们看看这玩意为什么不能用泵引理。从后面两个集合出发显然不是明智的，因为既然它有一段 <span class="arithmatex">\(\Sigma^\ast\)</span> 的东西，那么这段东西里什么都可以有。从第一个集合出发呢？很不幸，我们第一个集合出发构造任意长度的字符串都会被包含在后面两个字符串中。准此思路，我们可以对泵长度完成递归来证明随便取什么泵长度，我们都能找到这种分解，这个过程有些繁杂，不妨由读者来自行完成。</p>
+<p>看起来这一节要结束了是吧？我们已经叙述完了泵引理，讲完了怎么用它证明一个语言不是正则的，并且说明了它不是个充要条件。接下来还能讲什么呢？</p>
+<p>到现在为止，我们真的只有这一个办法证明语言不是正则的吗？事实上不止。接下来的一个方法是，利用正则语言的定义。一个非常简单的例子是，证明由所有 <span class="arithmatex">\(01\)</span> 个数相同的 <span class="arithmatex">\(01\)</span> 字符串构成的语言不是正则的。很简单，很友好，和 <span class="arithmatex">\(0^\ast 1^\ast\)</span> 交一下，交出来的东西不是正则的，所以它就不是正则的。</p>
+<p>还有一个很有用的封闭性，我们在上面讲到了反同态的封闭性，这个东西也是可以利用的。我们这里只能给一个看起来不那么漂亮的例子，它用泵引理也能证明：<span class="arithmatex">\(\{(01)^n 2^n:n&gt;0\}\)</span>。我们把定义同态 <span class="arithmatex">\(h(a)=01, h(b)=2\)</span>，然后得到反同态为 <span class="arithmatex">\(\{a^nb^n:n&gt;0\}\)</span>，这个东西显然不是正则的。思考，怎么直接用泵引理证明这个东西不是正则的？</p>
+<p>最后，我们给出一个泵引理相关的充要条件，这是 J. Jeffe 在 1978 年提出的，不知道为什么现在还没有进入教科书……哦我们的教科书也是这个年代的，那没事了。</p>
+<p><span class="arithmatex">\(L\)</span> 为一正则语言当且仅当存在正整数 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(\forall u \in L, \vert u \vert = n\)</span> 都可以被表示成 <span class="arithmatex">\(u=xyz\)</span>，其中 <span class="arithmatex">\(x, y, z \in \Sigma^\ast\)</span>，<span class="arithmatex">\(y \ne e\)</span> 且 <span class="arithmatex">\(\forall k \geqslant 0, v \in \Sigma^\ast\)</span>，我们有：
+- <span class="arithmatex">\(uv \in L \Rightarrow xy^kzv\in L\)</span>；
+- <span class="arithmatex">\(uv\not \in L \Rightarrow xy^kzv \not \in L\)</span>。</p>
+<p>很简单的条件，对吧？这个定理的证明甚至不需要用到 Myhill-Nerode 定理。很直觉的想法就是，依然把它切成第一个环和前面以及第一个环之后的部分，第一个环之后的部分需要我们做出更加细致的描述。第一个环无论重复多少遍都不影响它后面的任何改动，这又是状态机这个概念带给我们的自信。详细的证明留给读者，应当不难。</p>
+<p>最后我们将罗列一些还没讲到的证明方式，我们会在本文后面讲到的有：</p>
+<ul>
+<li>Myhill-Nerode 定理：代数方法给出的充要条件；</li>
+<li>生成函数法：分析组合学视角；</li>
+<li>基于转导（transduction）的方法：更多的矩阵运算和交换图；</li>
+</ul>
+<p>在 02B 及以后的内容中会讲到的：</p>
+<ul>
+<li>Büchi-Elgot-Trakhtenbrot 定理、Rabin 树定理：一元二阶逻辑给出的充要条件；</li>
+<li>基于准序（quasi-order）的方法；</li>
+<li>基于 Kolmogorov 复杂度界的方法：信息论视角。</li>
+</ul>
+<p>以及以后 CFG 和线性语言（linear language）讲完之后会出现的新必要条件。</p>
+<h2 id="regular-grammar">*正则语法 Regular Grammar<a class="headerlink" href="#regular-grammar" title="Permanent link">&para;</a></h2>
+<p>有语言，那自然可以有语法。在泵定理一节中，我们已经探索了一种表达模式。接下来，我们将尝试形式化一个语言的“形成过程”。这一节更多地是为后面两三章的内容做一个简单的铺垫而不是后面几节，可以看成一个插曲，但是其中遇到的一些思想还是很有意思的。</p>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="star-free-language">*无星语言 Star-free Language<a class="headerlink" href="#star-free-language" title="Permanent link">&para;</a></h2>
+<p>接下来我们要进入下半部分的讨论。我们上面讨论的正则语言对于开头来讲还是太复杂了，因此我们再将其简化，把星这个看起来很麻烦的运算去掉，得到无星语言（star-free language）的概念。然后我们将引入无周期性的幺半群（aperiodic monoid）的概念，最后由句法幺半群（syntactic monoid）这个我们铺垫了很久的概念来把它们联系起来，从而给出 Schützenberger 定理。</p>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="an-algebraic-approach">*代数刻画 An Algebraic Approach<a class="headerlink" href="#an-algebraic-approach" title="Permanent link">&para;</a></h2>
+<p>这一节将会成为整篇文章最后的高潮。我们将会给出幺半群和自动机关系的完整刻画，进而给出 Myhill-Nerode 定理作为正则语言的一个充要条件，进而将语言、自动机、幺半群三个概念彻底融合在一起。最后，我们将引入句法代数（syntactic algebra）的概念并且讨论一些关于有理性（rationality）的结论，这将为我们在 01B 的讨论打下坚实的基础。</p>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="conclusion">总结 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="references">参考资料 References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO：细化，分类，标准化，补充完整</p>
+</blockquote>
+<p><em>Mathematical Foundations of Automata Theory</em>, Jean-Éric Pin, Version of 18th Feb. 2022</p>
+<p><em>Verification of Reactive Systems: Formal Methods and Algorithms</em>, Prof. Dr. Klaus Schneider (auth.), 2004, Springer, <em>Texts in Theoretical Computer Science. An EATCS Series</em></p>
+<p><em>Treatment of <span class="arithmatex">\(\varepsilon\)</span>-Moves in Subset Construction</em>, 2000, Van Noord, Gertjan, <em>Computational Linguistics</em>. <strong>26</strong> (1): 61–76.</p>
+<p><em>On the bounds for state-set size in the proofs of equivalence between deterministic, nondeterministic, and two-way finite automata</em>, 1971, Moore, Frank R.</p>
+<p><em>Regular Algebra and Finite Machines</em>, 1971, John H. Conway, Chapman &amp; Hall</p>
+<p><em>On rational series and rational languages</em>, 1998, HuaXiong Wang, Theoretical Computer Science 205 (1998) 329-336</p>
+<p><em>Partial Conway and iteration semirings</em>, 2007, S. L. Bloom, Z. Ésik, W. Kuich</p>
+<p><em>Some remarks on semirings and their ideals</em>, 2018, Peyman Nasehpour, Asian-European Journal of Mathematics 12(07)</p>
+<p><em>A complete system of B-rational identities</em>,1990, Krob, D. In: Paterson, M.S. (eds) Automata, Languages and Programming. ICALP 1990. Lecture Notes in Computer Science, vol 443. Springer, Berlin, Heidelberg. </p>
+<p><em>Minimization of automata</em>, 2011, Jean Berstel, Luc Boasson, Olivier Carton, Isabelle Fagnot</p>
+<p><em>Elements of automata theory</em>, 2009, J. Sakarovitch, Cambridge</p>
+<p><em>Algebra-Coalgebra Duality in Brzozowski’s Minimization Algorithm</em>, 2014, Bonchi, Bonsangue, Rutten and Silva, ACM Transactions on Computational Logic 15, vol 1</p>
+<p>J. Jaffe, <em>A necessary and sufficient pumping lemma for regular languages</em>, <em>Sigact News - SIGACT</em> <strong>10</strong> (1978) 48-49.</p>
+<p>Jean-Eric Pin, Jacques Sakarovitch. <em>Some operations and transductions that preserve rationality</em>. <em>6th GI Conference</em>, 1983, Berlin, Germany. pp.277-288.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Index" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Index
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+    
+  </body>
+</html>
