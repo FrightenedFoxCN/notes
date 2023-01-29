@@ -15,7 +15,7 @@
     
     
       
-        <title>01A：有限自动机和正则语言 Finite Automata & Regular Languages - FFox's Notes</title>
+        <title>01A 有限自动机和正则语言 Finite Automata & Regular Languages - FFox's Notes</title>
       
     
     
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              01A：有限自动机和正则语言 Finite Automata & Regular Languages
+              01A 有限自动机和正则语言 Finite Automata & Regular Languages
             
           </span>
         </div>
@@ -370,12 +370,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../tech/">Technology</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -386,6 +392,69 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Vulkan Tutorial with Rust" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vulkan Tutorial with Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+        01 计算流水线 Compute Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -457,13 +526,23 @@
       
         
           
+            
+          
+        
+          
         
       
       
-        <label class="md-nav__link" for="__nav_3_2">
-          Theory of Computation Overview
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Theory of Computation Overview</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Theory of Computation Overview" data-md-level="2">
         <label class="md-nav__title" for="__nav_3_2">
@@ -471,6 +550,8 @@
           Theory of Computation Overview
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -486,12 +567,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          01A：有限自动机和正则语言 Finite Automata & Regular Languages
+          01A 有限自动机和正则语言 Finite Automata & Regular Languages
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        01A：有限自动机和正则语言 Finite Automata & Regular Languages
+        01A 有限自动机和正则语言 Finite Automata & Regular Languages
       </a>
       
         
@@ -736,11 +817,9 @@
                   
 
 
-  <h1>01A：有限自动机和正则语言 Finite Automata & Regular Languages</h1>
+  <h1>01A 有限自动机和正则语言 Finite Automata & Regular Languages</h1>
 
-<p>从这里开始，我们要进入计算理论的世界。计算理论（theory of computation）研究的核心问题就是计算（computation）。我们需要思考的问题是：什么是计算；什么可以计算或不可以计算；如果可以计算，这个问题有多难计算；如果不可以计算，这个问题不可以计算的程度有多少。这个系列（前半部分的）主要框架来自于浙江大学计算理论课程毛宇尘老师的授课，其中插入了大量笔者个人的想法和来源于其他参考资料的结论和思路，应当完全覆盖并超越这门课程本身。这门课程事实上只部分地回答了前两个问题，对于第三个问题一带而过，而对于第四个问题几乎完全没有讨论，但是在这个系列里，我会尽可能完整地展现整个理论从新生到现代的全貌。笔者才疏学浅，如有疏漏，望指正。</p>
 <p>为了讨论计算，我们首先需要有一个计算问题（problem）。为了定义计算问题，我们需要引入语言（language）的概念。而要解决这个问题，我们需要有一个计算设备（computation device），这又使得我们引入自动机（automata）的概念。在这一节中，我们讨论的对象是这两类中最简单的形式：正则语言（regular language）和有限状态机（finite automata）。本文作为 A 面讲的是基础部分，基本上已经完全覆盖了课程内容，以后可能会写的 B 面则更偏重更多理论发展和更现代化的理论。而在 B 面中，我们会假定读者已经具备了足够的数学能力，因为在那里我们会更多地使用代数（以及可能的拓扑）来解决计算理论相关的问题。</p>
-<p>注意，在拓展内容中，因为笔者个人的兴趣以及体现理论整体美感的需要，哪怕在 A 面中也会涉及一些需要代数基础的内容，我将尽可能将其讲的足够明白；但是对于计算理论这门课程而言，能否理解这一部分应当是无足轻重的。</p>
 <h2 id="problems-languages">问题和语言 Problems &amp; Languages<a class="headerlink" href="#problems-languages" title="Permanent link">&para;</a></h2>
 <p>回忆一下我们迄今为止碰到过的计算问题。我们会问：一个图（graph）是否是一棵树（tree），一个逻辑表达式是否是可满足的（satisfiable）或者一个表达式（expression）是否是最简的（simplified）。我们将这种判断是或否的问题称为决策问题（decision problem）。这种问题是计算理论研究最主要的对象，也是在我们这个系列前半部分我们会主要讨论的问题。</p>
 <p>是/否的判断事实上是一个取值为 0/1 的函数，我们可以将其视为一个集合的示性函数（characteristic function）：</p>
@@ -1164,9 +1243,11 @@ Q=\delta(q_0, u)
 <p>到现在为止，我们真的只有这一个办法证明语言不是正则的吗？事实上不止。接下来的一个方法是，利用正则语言的定义。一个非常简单的例子是，证明由所有 <span class="arithmatex">\(01\)</span> 个数相同的 <span class="arithmatex">\(01\)</span> 字符串构成的语言不是正则的。很简单，很友好，和 <span class="arithmatex">\(0^\ast 1^\ast\)</span> 交一下，交出来的东西不是正则的，所以它就不是正则的。</p>
 <p>还有一个很有用的封闭性，我们在上面讲到了反同态的封闭性，这个东西也是可以利用的。我们这里只能给一个看起来不那么漂亮的例子，它用泵引理也能证明：<span class="arithmatex">\(\{(01)^n 2^n:n&gt;0\}\)</span>。我们把定义同态 <span class="arithmatex">\(h(a)=01, h(b)=2\)</span>，然后得到反同态为 <span class="arithmatex">\(\{a^nb^n:n&gt;0\}\)</span>，这个东西显然不是正则的。思考，怎么直接用泵引理证明这个东西不是正则的？</p>
 <p>最后，我们给出一个泵引理相关的充要条件，这是 J. Jeffe 在 1978 年提出的，不知道为什么现在还没有进入教科书……哦我们的教科书也是这个年代的，那没事了。</p>
-<p><span class="arithmatex">\(L\)</span> 为一正则语言当且仅当存在正整数 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(\forall u \in L, \vert u \vert = n\)</span> 都可以被表示成 <span class="arithmatex">\(u=xyz\)</span>，其中 <span class="arithmatex">\(x, y, z \in \Sigma^\ast\)</span>，<span class="arithmatex">\(y \ne e\)</span> 且 <span class="arithmatex">\(\forall k \geqslant 0, v \in \Sigma^\ast\)</span>，我们有：
-- <span class="arithmatex">\(uv \in L \Rightarrow xy^kzv\in L\)</span>；
-- <span class="arithmatex">\(uv\not \in L \Rightarrow xy^kzv \not \in L\)</span>。</p>
+<p><span class="arithmatex">\(L\)</span> 为一正则语言当且仅当存在正整数 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(\forall u \in L, \vert u \vert = n\)</span> 都可以被表示成 <span class="arithmatex">\(u=xyz\)</span>，其中 <span class="arithmatex">\(x, y, z \in \Sigma^\ast\)</span>，<span class="arithmatex">\(y \ne e\)</span> 且 <span class="arithmatex">\(\forall k \geqslant 0, v \in \Sigma^\ast\)</span>，我们有：</p>
+<ul>
+<li><span class="arithmatex">\(uv \in L \Rightarrow xy^kzv\in L\)</span>；</li>
+<li><span class="arithmatex">\(uv\not \in L \Rightarrow xy^kzv \not \in L\)</span>。</li>
+</ul>
 <p>很简单的条件，对吧？这个定理的证明甚至不需要用到 Myhill-Nerode 定理。很直觉的想法就是，依然把它切成第一个环和前面以及第一个环之后的部分，第一个环之后的部分需要我们做出更加细致的描述。第一个环无论重复多少遍都不影响它后面的任何改动，这又是状态机这个概念带给我们的自信。详细的证明留给读者，应当不难。</p>
 <p>最后我们将罗列一些还没讲到的证明方式，我们会在本文后面讲到的有：</p>
 <ul>
@@ -1243,7 +1324,7 @@ Q=\delta(q_0, u)
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Index" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 计算理论笔记 Theory of Computation Overview" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1252,7 +1333,7 @@ Q=\delta(q_0, u)
               <span class="md-footer__direction">
                 上一页
               </span>
-              Index
+              计算理论笔记 Theory of Computation Overview
             </div>
           </div>
         </a>

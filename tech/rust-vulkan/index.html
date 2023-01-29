@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/links/">
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/tech/rust-vulkan/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>友链 - FFox's Notes</title>
+        <title>使用 Rust 语言的 Vulkan 教程 - FFox's Notes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../css/timeline.css">
+      <link rel="stylesheet" href="../../css/timeline.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
     
@@ -41,9 +41,9 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="../css/stylesheet.css">
+      <link rel="stylesheet" href="../../css/stylesheet.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#rust-vulkan" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +86,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+    <a href="../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -100,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              友链
+              使用 Rust 语言的 Vulkan 教程
             
           </span>
         </div>
@@ -170,15 +175,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -188,13 +191,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../tech/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Technology
       </a>
     </li>
@@ -210,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../math/" class="md-tabs__link">
+      <a href="../../math/" class="md-tabs__link">
         Mathematics
       </a>
     </li>
@@ -238,7 +243,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+    <a href="../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -255,14 +260,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -282,7 +285,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="..">Home</a>
+          <a href="../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -305,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
+      <a href="../../changelog/" class="md-nav__link">
         更新记录
       </a>
     </li>
@@ -317,19 +320,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
         友链
       </a>
-      
     </li>
   
 
@@ -341,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../todo/" class="md-nav__link">
+      <a href="../../todo/" class="md-nav__link">
         待办事项
       </a>
     </li>
@@ -361,12 +356,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -382,7 +379,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../tech/">Technology</a>
+          <a href="../">Technology</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -403,12 +400,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -423,8 +422,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Vulkan Tutorial with Rust</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -447,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+      <a href="01ComputePipeline/" class="md-nav__link">
         01 计算流水线 Compute Pipeline
       </a>
     </li>
@@ -495,7 +494,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../math/">Mathematics</a>
+          <a href="../../math/">Mathematics</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -537,7 +536,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../math/toc-notes/">Theory of Computation Overview</a>
+          <a href="../../math/toc-notes/">Theory of Computation Overview</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -560,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/toc-notes/01A/" class="md-nav__link">
+      <a href="../../math/toc-notes/01A/" class="md-nav__link">
         01A 有限自动机和正则语言 Finite Automata & Regular Languages
       </a>
     </li>
@@ -598,6 +597,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -612,9 +613,15 @@
                   
 
 
-  <h1>友链</h1>
-
-
+<h1 id="rust-vulkan">使用 Rust 语言的 Vulkan 教程<a class="headerlink" href="#rust-vulkan" title="Permanent link">&para;</a></h1>
+<p>在这里，我们将使用 Rust 作为主要的编程语言开始对 Vulkan API (<a href="https://www.vulkan.org/">Home | Vulkan | Cross platform 3D Graphics</a>) 的介绍。当然，许多其他语言都是可用的，例如更古老的 C++ + OpenGL/Vulkan 等等， Python + ModernGL 也是一个非常常见且易学的组合。这里之所以使用 Rust 是因为我喜欢，而且它的许多语言特性使得我们可以更少被语言本身的表达方式所限制，同时减少出错的可能。关于 Rust 的资料不多，可供参考的有 <a href="https://doc.rust-lang.org/book/title-page.html">The Rust Programming Language - The Rust Programming Language (rust-lang.org)</a> 以及 <a href="https://web.stanford.edu/class/cs110l/">CS 110L: Safety in Systems Programming (stanford.edu)</a> 等。在前几篇文章中，我们将首先使用 Vulkano 库 (<a href="https://docs.rs/vulkano/0.32.3/vulkano/index.html">vulkano - Rust (docs.rs)</a>) 来引入对基本流程的介绍，并且完成两个小例子作为开胃小菜。然后，我们将从 Vulkano 库深挖下去，一方面分析它的原始代码，另一方面尝试引入更多图形学的概念来实现更加复杂的任务。前者更加偏向于底层架构，而后者更加偏向于上层的代码实现。</p>
+<p>接下来，我们将假定读者已经对 Rust 的基础语法有所了解，并且已经完成了对 Vulkan SDK 的安装。我们使用的 rustc 版本为 1.66.2，Vulkano 版本为 0.32.3，Vulkan SDK 版本为 1.3.236，均为笔者写作时的最新版本。</p>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>作者也是初学者，所以出现错误在所难免，希望大家在看的过程中多参考其他资料，如果发现错误，敬请指正！另外，本文中涉及的专有名词很多事实上没有官方的翻译，看个乐就行，重要的地方应该都已经注上英文了。</p>
+</details>
+<p>下面是我们的主要流程，源于 <a href="https://gpuopen.com/learn/understanding-vulkan-objects/">Understanding Vulkan® Objects - GPUOpen</a>。</p>
+<p align="center"><img src="overview_full.png" width="300" /></p>
 
 
 
@@ -640,7 +647,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../changelog/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 更新记录" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Index" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -649,20 +656,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              更新记录
+              Index
             </div>
           </div>
         </a>
       
       
         
-        <a href="../todo/" class="md-footer__link md-footer__link--next" aria-label="下一页: 待办事项" rel="next">
+        <a href="01ComputePipeline/" class="md-footer__link md-footer__link--next" aria-label="下一页: 01 计算流水线 Compute Pipeline" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              待办事项
+              01 计算流水线 Compute Pipeline
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -693,14 +700,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
       
-        <script src="../js/katex.js"></script>
+        <script src="../../js/katex.js"></script>
       
     
   </body>

@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-01-29":
+    - newpage:
+        text: 迁移 Rust-Vulkan 教程
+        href: /notes/tech/rust-vulkan/01ComputePipeline
   - "2023-01-28":
     - newpage: 开始更新！
     - newpage:
