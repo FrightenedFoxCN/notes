@@ -70,7 +70,11 @@ nav:
     - 待办事项: todo.md
   - Technology:
     - tech/index.md
+    - Vulkan Tutorial with Rust:
+      - tech/rust-vulkan/index.md
+      - 01 计算流水线 Compute Pipeline: tech/rust-vulkan/01ComputePipeline.md
   - Mathematics:
     - math/index.md
     - Theory of Computation Overview:
-      - 01A：有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
+      - math/toc-notes/index.md
+      - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
