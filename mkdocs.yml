@@ -52,10 +52,12 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - https://tikzjax.com/v1/fonts.css
   - css/stylesheet.css
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js
+  - https://tikzjax.pages.dev/tikzjax.js
   - js/katex.js
 
 plugins:
@@ -78,3 +80,11 @@ nav:
     - Theory of Computation Overview:
       - math/toc-notes/index.md
       - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
+  - Exercises:
+    - exercises/index.md
+    # - 李文威《代数学方法》卷一：基本架构: 
+    #   - exercises/wwli-aljabr-1/index.md
+    #   - 第四章：群论: exercises/wwli-aljabr-1/ch4.md
+  - Quick Notes:
+    - qnotes/index.md
+    - Theorem Proving in Lean 4: qnotes/theorem_proving_in_lean_4.md
