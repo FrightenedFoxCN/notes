@@ -1,0 +1,1046 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/qnotes/theorem_proving_in_lean_4/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Theorem Proving in Lean 4 - FFox's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://tikzjax.com/v1/fonts.css">
+    
+      <link rel="stylesheet" href="../../css/stylesheet.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dependent-type-theory" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FFox's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Theorem Proving in Lean 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tech/" class="md-tabs__link">
+        Technology
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../math/" class="md-tabs__link">
+        Mathematics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../exercises/" class="md-tabs__link">
+        Exercises
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Quick Notes
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    FFox's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        更新记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links/" class="md-nav__link">
+        友链
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../todo/" class="md-nav__link">
+        待办事项
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../tech/">Technology</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Technology" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Technology
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Vulkan Tutorial with Rust" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vulkan Tutorial with Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+        01 计算流水线 Compute Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../math/">Mathematics</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../math/toc-notes/">Theory of Computation Overview</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Theory of Computation Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Theory of Computation Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/toc-notes/01A/" class="md-nav__link">
+        01A 有限自动机和正则语言 Finite Automata & Regular Languages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../exercises/">Exercises</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Exercises" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Quick Notes</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Quick Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Quick Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Theorem Proving in Lean 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Theorem Proving in Lean 4
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependent-type-theory" class="md-nav__link">
+    Dependent Type Theory 依赖类型论
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependent-type-theory" class="md-nav__link">
+    Dependent Type Theory 依赖类型论
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Theorem Proving in Lean 4</h1>
+
+<p>原文链接：<a href="https://leanprover.github.io/theorem_proving_in_lean4/introduction.html">Theorem Proving in Lean 4 (leanprover.github.io)</a></p>
+<h2 id="dependent-type-theory">Dependent Type Theory 依赖类型论<a class="headerlink" href="#dependent-type-theory" title="Permanent link">&para;</a></h2>
+<p>类型论（type theory）给每个表达式以一个关联的类型。例如，自然数（<code>Nat</code>），从自然数到自然数的函数（<code>Nat → Nat</code>），它们都是类型。在 Lean 4 中，一个自然数是一个任意精度的无符号整数。</p>
+<p>使用 <code>def</code> 关键字在 Lean 中声明对象（object），语法为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>def m: Nat := 1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ^  ^^^    ^ value of the object
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    |  associated type
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    object name
+</code></pre></div>
+<p>可以用 <code>#check</code> 命令来检查一个对象或对象构成的表达式的类型，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#check m
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>       ^ the name of the object
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>#check m + 0
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>       ^^^^^ or the expression
+</code></pre></div>
+<p>可以用 <code>#eval</code> 命令来检查一个表达式的值，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#eval m + 2
+</code></pre></div>
+<p>??? info 评论（comment）
+    <code>/- -/</code> 表示评论块，<code>--</code> 表示行末评论，例如：
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/- this is a comment -/
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>#eval m + 2 -- and this is also one
+</code></pre></div></p>
+<p>可以使用已有的类型来组合成新的类型。一种方式是定义函数类型（function）：如果 <code>a</code> 和 <code>b</code> 都是类型，那么 <code>a → b</code> 也是类型。当然，这样的方式是可以嵌套的，例如 <code>Nat → (Nat → Nat)</code> 表示一个定义在自然数上的函数，它的值是一个自然数到自然数的函数。当然，它是右结合的，也就是说，上面那个表达式等价于 <code>Nat → Nat → Nat</code>，而 <code>(Nat → Nat) → Nat</code> 是一个定义域为函数的函数，我们称之为一个泛函（functional）。</p>
+<p>另一种组合方式是类型之间的笛卡尔积（Cartesian product）：如果 <code>a</code> 和 <code>b</code> 都是类型，那么 <code>a × b</code> 也是类型。这个类型中的元素则被表示成一个有序对（ordered pair），例如 <code>(5, 9)</code> 是 <code>Nat × Nat</code> 类型的。我们可以使用 <code>.</code> 来访问某个有序对中的一个元素，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#eval (5, 9).1 -- output 5
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>#eval (5, 9).2 -- output 9
+</code></pre></div>
+<details class="danger 下标越界">
+<summary>Danger</summary>
+<p>注意，Lean 4 中的有序对下标的方式不同于很多编程语言中的数组，它是从 1 开始的。下标越界一般会报 invalid projection，但是如果把 0 当作下标，报错则是 invalid field notation。</p>
+</details>
+<p>注意到，<code>→</code> 和 <code>×</code> 都是 Unicode 字符，也可以使用 <code>-&gt;</code> 和 <code>Prod</code>（前缀式）来代替，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>#check Nat → Nat     -- this line is equivalent to
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>#check Nat -&gt; Nat    -- this line
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>#check Nat × Nat     -- and this one to
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>#check Prod Nat Nat  -- this one
+</code></pre></div>
+<details class="info unicode 符号的输入">
+<summary>Info</summary>
+<p>在 Lean 4 编辑器里（笔者用的是 VSCode），可以使用 <code>\to</code> 来打出 <code>→</code>，用 <code>\times</code> 打出 <code>×</code> 。我们以后会使用希腊字母表示类型，输入命令和 LaTeX 相同，特别地，用 <code>\a</code> 表示 <code>α</code>，用 <code>\b</code> 表示 <code>β</code>，用 <code>\g</code> 表示 <code>γ</code>。</p>
+</details>
+<p>使用 <code>f x</code> 这样的语法来表示 <code>f</code> 对值 <code>x</code> 的应用，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>#eval Nat.succ 2 -- 3
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>#eval Nat.add 5 2 -- 7
+</code></pre></div>
+<p>注意，像 <code>Nat.add</code> 这类类型为 <code>Nat → Nat → Nat</code> 的函数是可以做到部分应用（partial application）的，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>def add_five: Nat → Nat := Nat.add 5
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#eval add_five 2
+</code></pre></div>
+<p>不如说，不把它定义成一个形如 <code>(Nat × Nat) → Nat</code> 的函数就是为了方便进行部分应用。</p>
+<p>开篇我们就提到，要给每个表达式一个关联的类型。那么我们当然也可以给类型以它们所关联的类型。我们前面看到的自定类型都是 <code>Type</code> 类型的成员，它们的积以及它们组成的函数都是 <code>Type</code> 类型的，可以通过 <code>#check</code> 命令验证这一点。</p>
+<p>当然，也可以声明新的类型，语法与上面一样，只不过我们将类型也视为一种对象：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>def α: Type := Nat
+</code></pre></div>
+<p>当然咯，我们也就有类型上的函数和类型的积，那么问题来了，<code>Type</code> 以及它的组合又都是什么类型的呢？使用 <code>#check</code> 验证可以发现它是 <code>Type 1</code> 类型的，而 <code>Type 1</code> 又是 <code>Type 2</code> 类型的，等等，而且每个层级当中的函数和积类型都是封闭的。因此，我们将这种方式称为可数的非层叠宇宙（countable hierachy of  non-cumulative universe）。可数意味着它的层数与自然数等价，非层叠意味着我们不会将下面的层级视作上面层级的子集，例如，<code>Nat</code> 是 <code>Type</code> 类型的不意味着它是 <code>Type 1</code> 类型的，当然，这些细节可能对于程序员而言只有一些理论趣味。<code>Type</code> 类型事实上是 <code>Type 0</code> 类型的，我们将它所属的层级的序号称为它的度（degree）。两个不同度数类型组成的函数属于两者中度较高者所属的层级，积也同理。</p>
+<p>但是，在类型宇宙中有些操作可能是多态的（polymorphic）。例如，<code>List</code> 函数属于 <code>Type u_1 → Type u_1</code> 类型，其中 <code>u_1</code> 可以是任意层级，它给出一个类型的对象组成的一个列表。<code>Prod</code> 函数也同理，它是 <code>Type u_1 → Type u_2 → Type (max u_1 u_2)</code> 类型的。</p>
+<p>可以使用 <code>universe</code> 关键字来指明一个宇宙变量，从而定义这种函数，例如，我们定义一个从 <code>Type u</code> 到 <code>Type u</code> 的函数 <code>f</code> ：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>universe u
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>def F (α: Type u): Type u := Prod α α
+</code></pre></div>
+<p>这也可以被简单地写成：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>def F.{u} (α: Type u): Type u := Prod α α
+</code></pre></div>
+<p>另一种定义函数的方式是使用关键字 <code>fun</code> 或者 <code>λ</code>，这种方式被称为 λ-抽象（lambda abstraction）。例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>def add_five: Nat → Nat := fun (x: Nat) =&gt; x + 5
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>def add_five: Nat → Nat := λ (x: Nat) =&gt; x + 5
+</code></pre></div>
+<p>其中括号可以省略。我们可以看出，<code>λ x: Nat =&gt; x + 5</code> 本来就是一个 <code>Nat → Nat</code> 类型的函数对象，因此可以将其直接应用于 <code>Nat</code> 型的对象来求值。</p>
+<p>还可以定义更加复杂的函数，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>def plus_one_or_two: Nat → Bool → Nat := fun x: Nat =&gt; fun y: Bool =&gt; if not y then x + 2 else x + 1
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>#eval plus_one_or_two 2 True
+</code></pre></div>
+<p>其中用到了 <code>if</code> 语句，它的语义是显然的。注意，这个例子表明应用过程也是从前往后的，这符合上面提到的 <code>→</code> 的结合性。我们还可以把它定义成：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>def plus_one_or_two := fun (x: Nat) (y: Bool) =&gt; if not y then x + 2 else x + 1 -- type annotation of the function can be omitted
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>def plus_one_or_two := fun x y =&gt; if not y then x + 2 else x + 1 -- even the type annotation of the variables, if can be inferred
+</code></pre></div>
+<p>当然，类型变量和函数也可以是函数的参数。事实上，还有更简单的写法：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>def plus_one_or_two (x) (y) := if not y then x + 2 else x + 1
+</code></pre></div>
+<p>其中的类型说明（type annotation）全部省略了，完全体应该是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>def plus_one_or_two (x: Nat) (y: Bool): Nat := if not y then x + 2 else x + 1
+</code></pre></div>
+<p>再来写一个更抽象的函数：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>def compose (α β γ: Type) (g: β → γ) (f: α → β) (x: α): γ := g (f x)
+</code></pre></div>
+<p>这个函数首先接受三个类型作为第一组参数，然后根据这三个参数决定后面接受的参数的类型，最后返回函数复合之后的计算结果，比如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>def f (n : Nat) : String := toString n
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>def g (s : String) : Bool := s.length &gt; 0
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>#check compose Nat String Bool g f
+</code></pre></div>
+<p>这样得到的结果类型为 <code>Nat → Bool</code> ，应当不难验证。我们把这种一个项的“计算过程”称为正规化（normalization）过程，两个被化作同样的值的项被称为定义等价的（definitionally equal）。</p>
+<p>可以使用 <code>let</code> 关键字定义在同一块表达式里面的局部定义（local definition）。它可以被视作一种“简写”，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>def t (x: Nat): Nat := 
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    let y := x + x 
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    y * y
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>/- or like this -/
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>def t (x: Nat): Nat := let y := x + x; y * y
+</code></pre></div>
+<p>可以使用 <code>variable</code> 关键字定义变量，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>variable (α β γ : Type) 
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>variable (g : β → γ) (f : α → β) (h : α → α) 
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>variable (x : α) 
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>def compose := g (f x) 
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>def doTwice := h (h x) 
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>def doThrice := h (h (h x))
+</code></pre></div>
+<p>这样可以省去很多类型说明，让代码变得更加简洁。在函数定义中，用到的变量会被自然地当成函数自变量来处理，进而自动计算出函数的类型。</p>
+<p>但是，这样定义的变量是全局的，我们可以用 <code>section</code> 开启一个节，让变量只在节中发挥作用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>section useful1
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    variable (α β γ : Type) 
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    variable (g : β → γ) (f : α → β) (h : α → α) 
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    variable (x : α) 
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    def compose := g (f x) 
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    def doTwice := h (h x) 
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    def doThrice := h (h (h x))
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>end useful1
+</code></pre></div>
+<p>节中的变量在节外就没有定义了（unknown identifier），但是其他定义还可以留下来。节的名字不是必须的。</p>
+<p>同样的，定义也可以用名称空间分组。关键词 <code>namespace</code> 定义一个名称空间，<code>end</code> 结束一个名称空间。在名称空间之外，访问名称空间中的定义要用 <code>.</code> 运算符，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>namespace ns
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  def a: Nat := 10
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>end ns
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>#check ns.a
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>open ns
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>#check a
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>#check ns.a
+</code></pre></div>
+<p><code>open</code> 关键字可以将名称空间中的东西暴露出来，它可以受到 <code>section</code> 的范围限制。名称空间可以嵌套，也和 <code>section</code> 一样具备限制范围的一些作用。</p>
+<p>回到上面定义的的 <code>compose</code> 函数，这个函数的类型是什么？如果使用 <code>#check</code> 命令，我们将得到的结果是 <code>(α β γ : Type) → (β → γ) → (α → β) → α → γ</code>，这是个什么东西？</p>
+<p>下面用一个更简单的例子来说明这一点。<code>List α</code> 返回一个类型的列表类型，我们尝试定义一个函数来做到对这个列表完成头插：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>def cons (α: Type) (a: α) (as: List α): List α := List.cons a as
+</code></pre></div>
+<p>这里直接调用了标准库中写好的函数来完成这个操作，但是它的类型是什么？使用 <code>#check</code> 命令的结果为 <code>(α : Type) → α → List α → List α</code> ，但是为什么？</p>
+<p>注意到，尽管一开始我们会觉得它的类型是 <code>Type → α → List α → List α</code> ，但这并不正确。后面的 <code>α</code> 事实上是前面 <code>Type</code> 类型中的东西，也就是说，后面的类型推算是依赖于第一个“参数”的，这时我们必须在类型中说明它是如此。这种函数被称为依赖函数类型（dependent function type，或依赖箭头类型，dependent arrow type），它们的存在事实上表明了依赖类型论这个名字中依赖二字的由来。</p>
+<p>对于任意的 <code>α</code> 和 <code>β</code>，定义 <code>(a: α) → β</code> 总是可能的。但是，当 <code>β</code> 与 <code>α</code> 无关时，它和 <code>α → β</code> 没什么区别。毋宁说，在依赖类型论中，<code>α → β</code> 只是 <code>(a: α) → β</code> 在 <code>β</code> 与 <code>α</code> 无关时的一种简写。</p>
+<p>当然，定义依赖笛卡尔积类型（dependent Cartesian product type）也是可能的，形如 <code>(a: α) × β</code> 的类型和函数有着一样的解释。这也被称为 Σ-类型（sigma types）。我们也可以将其写作 <code>Σ a: α, β a</code>，也可以用 <code>⟨a, b⟩</code> 或 <code>Sigma.mk</code> 来构造积类型，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>def f.{u, v} (α : Type u) (β : α → Type v) (a : α) (b : β a) : Σ a, β a := Sigma.mk a b
+</code></pre></div>
+<p>在上面的定义里，<code>.{u, v}</code> 可以省略，因为 Lean 4 可以推断出它们都是宇宙。</p>
+<p>最后，在上面定义 <code>cons</code> 时，我们用到了标准库函数。用 <code>#check List.cons</code> 查看它的类型为 <code>?m.758 → List ?m.758 → List ?m.758</code>，这是为什么？</p>
+<p>注意到，对于 <code>cons</code> 函数，<code>α</code> 的类型信息可以被看成是多余的。因为它可以由给出的参数的类型直接推断出来。这里的一种方法是使用下划线来表明一个类型可以从定义中推断出来：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>#check cons _ 5 -- output: cons Nat 5 : List Nat → List Nat
+</code></pre></div>
+<p>但这还是很麻烦，虽然我们不需要写 <code>Nat</code> 类型，但还是要打下划线。因此，我们可以在函数定义的时候就说明，这个类型由后面的参数可以直接推断出来：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>def cons {α: Type} (a: α) (as: List α): List α := List.cons a as
+</code></pre></div>
+<p>这时这个函数的类型就变成了 <code>?m.703 → List ?m.703 → List ?m.703</code>，和标准库函数的类型完全一致。如果我们查看 <code>cons 5</code> 的类型，就会发现它已经是 <code>List Nat → List Nat</code> 了。也可以通过 <code>variable {α: Type}</code> 这样的语法指定省略类型的变量。</p>
+<p>事实上，我们也可以直接指定它的类型，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>#check (cons: Nat → List Nat → List Nat)
+</code></pre></div>
+<p>给出的结果就是 <code>Nat → List Nat → List Nat</code> 。当数字的类型不能被推断时，它默认会使用 <code>Nat</code> 类型，虽然有时 <code>Int</code> 也是可行的。</p>
+<p>如果我们需要充分说明所有的参数，那么就需要使用 <code>@</code> 前缀。它指的是和其标识的函数名完全一样的函数，但其中所有隐藏的参数都被显式地要求了，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>#check @cons -- output: @cons : {α : Type} → α → List α → List α
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>#check @cons Nat -- output: cons : Nat → List Nat → List Nat
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Quick Notes" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Quick Notes
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+      
+        <script src="https://tikzjax.pages.dev/tikzjax.js"></script>
+      
+        <script src="../../js/katex.js"></script>
+      
+    
+  </body>
+</html>

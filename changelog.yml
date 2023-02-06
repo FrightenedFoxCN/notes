@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-02-06":
+    - newpage:
+        text: 增加 Theorem Proving in Lean 4 的读书笔记
+        href: /notes/qnotes/theorem_proving_in_lean_4/
   - "2023-02-01":
     - pageupdate:
         text: 增加计算理论部分目录
