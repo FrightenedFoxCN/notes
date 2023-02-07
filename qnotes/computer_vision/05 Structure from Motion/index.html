@@ -1,0 +1,1365 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/qnotes/computer_vision/05%20Structure%20from%20Motion/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>05 Structure from Motion - FFox's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#camera-model" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FFox's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05 Structure from Motion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tech/" class="md-tabs__link">
+        Technology
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../math/" class="md-tabs__link">
+        Mathematics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../exercises/" class="md-tabs__link">
+        Exercises
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Quick Notes
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    FFox's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        更新记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links/" class="md-nav__link">
+        友链
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../todo/" class="md-nav__link">
+        待办事项
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/">Technology</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Technology" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Technology
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Vulkan Tutorial with Rust" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vulkan Tutorial with Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+        01 计算流水线 Compute Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../math/">Mathematics</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../math/toc-notes/">Theory of Computation Overview</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Theory of Computation Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Theory of Computation Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/toc-notes/01A/" class="md-nav__link">
+        01A 有限自动机和正则语言 Finite Automata & Regular Languages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../exercises/">Exercises</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Exercises" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Quick Notes</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Quick Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Quick Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theorem_proving_in_lean_4/" class="md-nav__link">
+        Theorem Proving in Lean 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Computer Vision</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Computer Vision" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Computer Vision
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20Image%20Formation/" class="md-nav__link">
+        01 Image Formation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
+        03 Image Matching & Motion Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          05 Structure from Motion
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        05 Structure from Motion
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#camera-model" class="md-nav__link">
+    相机模型（camera model）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-calibration" class="md-nav__link">
+    相机标定（camera calibration）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-localization" class="md-nav__link">
+    视觉定位（visual localization）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-from-motion" class="md-nav__link">
+    运动恢复结构（structure from motion）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
+        06 Depth Estimation & Dense Reconstruction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07%20Recognition/" class="md-nav__link">
+        07 Recognition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08%203D%20Deep%20Learning/" class="md-nav__link">
+        08 3D Deep Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09%20Computational%20Photography/" class="md-nav__link">
+        09 Computational Photography
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10%20Image-based%20Rendering/" class="md-nav__link">
+        10 Image-based Rendering
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#camera-model" class="md-nav__link">
+    相机模型（camera model）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-calibration" class="md-nav__link">
+    相机标定（camera calibration）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-localization" class="md-nav__link">
+    视觉定位（visual localization）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-from-motion" class="md-nav__link">
+    运动恢复结构（structure from motion）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>05 Structure from Motion</h1>
+
+<p>从这里开始，我们的任务就是从运动中还原结构。这个过程就被称为 运动恢复结构（Structure from Motion, SfM）。这里提到的 motion 是相机的运动。使用相机从各个角度拍摄图像，我们希望计算出这些图像拍摄时相机在三维空间中的位置和朝向，或者称之为相机的位姿。</p>
+<p>相关的问题主要有几种拓展。一方面是多视图立体匹配（Multi-view Stereo, MVS），它帮助我们构建一种稠密点云；一方面是视觉定位（Visual Localization），它要求我们定位拍照的范围。另一个重要应用是实时定位与映射（Simultaneous Localization and Mapping, SLAM），它要求实时完成重建和定位。</p>
+<p>在这个问题上，我们需要明确几个问题：
+1. 相机怎么将三维的点映射到二维平面（相机模型）
+2. 如何计算相机的位置和方向（相机标定和位姿估计）
+3. 如何重建未知的三维模型
+接下来我们注意考察这些方面。</p>
+<h2 id="camera-model">相机模型（camera model）<a class="headerlink" href="#camera-model" title="Permanent link">&para;</a></h2>
+<p>我们知道，在图像形成过程中，我们把相机放在某个位置，然后按下快门，通过光电转换来实现最后的成像，如下图：</p>
+<p><img alt="image_formation.png" src="image_formation.png" /></p>
+<p>在这个过程中，每一步都发生了一个变换：
+1. 将世界坐标系转换到世界坐标系；
+2. 投影到图像平面；
+3. 图像平面上的物理坐标往像素坐标的映射。
+这三步构成了一个完整的相机模型。第一个变换对应的矩阵被称为外参矩阵（extrinsic matrix），它只与相机的位姿有关；第二第三个变换对应的矩阵被称为内参矩阵（intrinsic matrix），它只与相机的内部参数有关。</p>
+<p>第一步是一个坐标系的转换。我们首先需要知道相机在世界坐标系中的位置与朝向，我们将前者用一个向量 <span class="arithmatex">\(c_w\)</span> 表示，将后者用一个旋转矩阵 <span class="arithmatex">\(R\)</span> 表示，它们被统称为外参（extrinsic parameters），如下图：</p>
+<p><img alt="world_camera.png" src="world_camera.png" /></p>
+<p>这个三维空间中的旋转矩阵的概念如下图：</p>
+<p><img alt="rotation_3D.png" src="rotation_3D.png" /></p>
+<p>当然，它也是一个正交矩阵，也就是说，<span class="arithmatex">\(R^TR=I\)</span>。于是，我们得到的变换就是：</p>
+<div class="arithmatex">\[
+x_c = R(x_w - c_w) = Rx_w - Rc_w = Rx_w + t
+\]</div>
+<p>其中 <span class="arithmatex">\(t = -Rc_w\)</span>。</p>
+<p>在齐次坐标系下，它就可以被表达成一个线性的形式，记：</p>
+<div class="arithmatex">\[
+M_{\mathrm{ext}} = \begin{bmatrix}
+R &amp; t\\
+0 &amp; 1
+\end{bmatrix}
+\]</div>
+<p>称为外参矩阵（extrinsic matrix），我们就有：</p>
+<div class="arithmatex">\[
+\tilde x_c = M_{\mathrm{ext}}\tilde x_w
+\]</div>
+<p>投影矩阵我们已经知道了：</p>
+<div class="arithmatex">\[
+x_i = f\hat x_c
+\]</div>
+<p>其中 <span class="arithmatex">\(\hat x_c\)</span> 为最后一维被归一化的齐次坐标。</p>
+<p>在第三步中，我们需要注意一次平移操作，将图像中心平移，如下图：</p>
+<p><img alt="image_to_sensor.png" src="image_to_sensor.png" /></p>
+<p>在齐次坐标系中，我们就有内参矩阵：</p>
+<div class="arithmatex">\[
+M_{\mathrm{int}} = \begin{bmatrix}
+f_x &amp; 0 &amp; c_x &amp; 0\\
+0 &amp; f_y &amp; c_y &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{bmatrix}
+\]</div>
+<p>其中 <span class="arithmatex">\(f_x = m_x f\)</span>，<span class="arithmatex">\(f_y = m_y f\)</span>，它们可以被理解为以像素计算的焦距。</p>
+<p>综合上面两个矩阵，我们就能获得：</p>
+<div class="arithmatex">\[
+\tilde u = M_{\mathrm{int}}M_{\mathrm{ext}}\tilde x_w = P\tilde x_w
+\]</div>
+<p>这时我们就得到了一个完整的相机模型。比起最开始的相机模型，它只是增加了一些更加细节的参数。我们的下一个问题是，怎么获得这些所需的参数？这时我们就需要用到相机标定（camera calibration）技术。</p>
+<h2 id="camera-calibration">相机标定（camera calibration）<a class="headerlink" href="#camera-calibration" title="Permanent link">&para;</a></h2>
+<p>当然，我们的内参可以是已知的，也就是相机的出厂参数，但是，这个参数可能并不标准。但是，外参一定是未知的，必须从图像去反求出来，这个过程就称为相机标定。</p>
+<p>在相机标定的过程中，我们首先假定我们拍摄的物体结构是已知的。例如，使用一块标定板（calibration board），如下图：</p>
+<p><img alt="calibration_board.png" src="calibration_board.png" /></p>
+<p>通过这样一块标定板上的点和图像坐标系之间的映射，就可以求出相机的内外参矩阵。</p>
+<p>对于每个匹配点，我们都有：</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+u^{(i)}\\v^{(i)}\\1
+\end{bmatrix}
+\equiv
+\begin{bmatrix}
+p_{11} &amp; p_{12} &amp; p_{13} &amp; p_{14}\\
+p_{21} &amp; p_{22} &amp; p_{23} &amp; p_{24}\\
+p_{31} &amp; p_{32} &amp; p_{33} &amp; p_{34}
+\end{bmatrix}
+\begin{bmatrix}
+x_w^{(i)}\\
+y_w^{(i)}\\
+z_w^{(i)}\\
+1
+\end{bmatrix}
+\]</div>
+<p>然后将其展开成线性方程：</p>
+<div class="arithmatex">\[
+\begin{array}{cc}
+u^{(i)} &amp;= \dfrac{p_{11}x_w^{(i)} + p_{12}y_w^{(i)} + p_{13}z_w^{(i)} + p_{14}}{p_{31}x_w^{(i)} + p_{32}y_w^{(i)} + p_{33}z_w^{(i)} + p_{34}}\\
+v^{(i)} &amp;= \dfrac{p_{21}x_w^{(i)} + p_{22}y_w^{(i)} + p_{23}z_w^{(i)} + p_{24}}{p_{31}x_w^{(i)} + p_{32}y_w^{(i)} + p_{33}z_w^{(i)} + p_{34}}
+\end{array}
+\]</div>
+<p>重排之后得到：</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+x_w^{(1)} &amp; y_w^{(1)} &amp; z_w^{(1)} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -u_1x_w^{(1)} &amp; -u_1y_w^{(1)} &amp; -u_1z_w^{(1)} &amp; -u_1\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; x_w^{(1)} &amp; y_w^{(1)} &amp; z_w^{(1)} &amp; 1 &amp; -v_1x_w^{(1)} &amp; -v_1y_w^{(1)} &amp; -v_1z_w^{(1)} &amp; -v_1\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+x_w^{(i)} &amp; y_w^{(i)} &amp; z_w^{(i)} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -u_ix_w^{(i)} &amp; -u_iy_w^{(i)} &amp; -u_iz_w^{(i)} &amp; -u_i\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; x_w^{(i)} &amp; y_w^{(i)} &amp; z_w^{(i)} &amp; 1 &amp; -v_ix_w^{(i)} &amp; -v_iy_w^{(i)} &amp; -v_iz_w^{(i)} &amp; -v_i\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+x_w^{(n)} &amp; y_w^{(n)} &amp; z_w^{(n)} &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -u_nx_w^{(n)} &amp; -u_ny_w^{(n)} &amp; -u_nz_w^{(n)} &amp; -u_n\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; x_w^{(n)} &amp; y_w^{(n)} &amp; z_w^{(n)} &amp; 1 &amp; -v_nx_w^{(n)} &amp; -v_ny_w^{(n)} &amp; -v_nz_w^{(n)} &amp; -v_n
+\end{bmatrix}
+\begin{bmatrix}
+p_{11} \\ p_{12} \\ p_{13} \\ p_{14}\\
+p_{21} \\ p_{22} \\ p_{23} \\ p_{24}\\
+p_{31} \\ p_{32} \\ p_{33} \\ p_{34}
+\end{bmatrix}
+= 0
+\]</div>
+<p>也就是要解一个方程</p>
+<div class="arithmatex">\[
+Ap=0
+\]</div>
+<p>但是，稍等，我们发现这玩意是多解的！从齐次坐标系的角度，乘以一个系数并不会改变投影的结果，也就是说，所有 <span class="arithmatex">\(kP\)</span> 和 <span class="arithmatex">\(P\)</span> 得出的结果都是等价的，我们说，这个 <span class="arithmatex">\(P\)</span> 是 defined only up to a scale，因此，我们还需要添加额外的约束。这个问题也可以形象地描述，同时对相机坐标系和世界坐标系进行拉伸不会影响结果，如图：</p>
+<p><img alt="simultaneous_scale.png" src="simultaneous_scale.png" /></p>
+<p>那么，添加什么约束呢？我们可以令 <span class="arithmatex">\(p_{34} = 1\)</span>，也可以令 <span class="arithmatex">\(\Vert p \Vert^2 = 1\)</span>，这样都能起到好的效果，而后者往往是更常用的。因此，我们就可以把求解转化成一个优化问题：</p>
+<div class="arithmatex">\[
+\min_p\Vert Ap\Vert^2 \text{ s.t. } \Vert p \Vert^2 = 1
+\]</div>
+<p>通过简单的奇异值分解，我们可以证明，<span class="arithmatex">\(p\)</span> 就是矩阵 <span class="arithmatex">\(A^TA\)</span> 的最小特征值对应的特征向量时，这个条件可以被满足。然后我们将 <span class="arithmatex">\(p\)</span> 重排一下，得到所需的矩阵 <span class="arithmatex">\(P\)</span>。</p>
+<p>接下来，我们需要将 <span class="arithmatex">\(P\)</span> 解耦合成内参矩阵和外参矩阵，注意到，我们的矩阵可以表达成：</p>
+<div class="arithmatex">\[
+\begin{bmatrix}
+p_{11} &amp; p_{12} &amp; p_{13}\\
+p_{21} &amp; p_{22} &amp; p_{23}\\
+p_{31} &amp; p_{32} &amp; p_{33}
+\end{bmatrix}
+=
+\begin{bmatrix}
+f_x &amp; 0 &amp; c_x\\
+0 &amp; f_y &amp; c_y\\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+r_{11} &amp; r_{12} &amp; r_{13}\\
+r_{21} &amp; r_{22} &amp; r_{23}\\
+r_{31} &amp; r_{32} &amp; r_{33}
+\end{bmatrix}
+=KR
+\]</div>
+<p>也就是说，我们把一个方阵分解成了一个上三角矩阵和一个正规矩阵。这也就是一个 QR 分解（QR factorization），这样得到的结果总是唯一的。</p>
+<p>然后，我们求解平移，得到的结果就是：</p>
+<div class="arithmatex">\[
+t = K^{-1}\begin{bmatrix}
+p_{14} \\ p_{24} \\ p_34
+\end{bmatrix}
+\]</div>
+<p>当然，我们相机镜头可能会引起径向和切向的畸变，这些畸变会反映在相机的内参中，在这里则已经被我们忽略了。通过同时优化这些畸变的参数，我们也可以在标定的过程中相应得到这些参数，这样会让问题变得更加复杂，但是方法是类似的。</p>
+<h2 id="visual-localization">视觉定位（visual localization）<a class="headerlink" href="#visual-localization" title="Permanent link">&para;</a></h2>
+<p>我们知道，在视觉定位的过程中，我们的三维模型是一致的，因此，我们只需要使用类似的方法完成相机的定位就可以了。但是，我们的对应点并没有那么好求解，因此，我们首先需要求解三维到二维的对应关系，我们同样也使用特征匹配的方法。因为三维模型往往是从二维图像重建出来的，我们往往都有对应的二维图像。通过对数据库图像的匹配，就能得到三维到二维的对应关系。</p>
+<p>接下来，我们就需要求解相机的外参。这时我们的相机内参往往是已知的，这个问题被称为定位问题，它与相机标定的差异就是相机内参已知。对于这样的问题，我们称为 Perspective n-Point 问题，简称 PnP 问题。这是一个纯粹的几何问题。</p>
+<p>当然，我们的未知参数事实上是六个：三个旋转参数、三个平移参数，因此，我们通常称之为 6 个自由度的（6 Degrees of Freedom, 6DoF）位姿估计问题。原则上讲，只需要三对点就可以完成定位操作，但实践上，三对点是不够的。</p>
+<p>当然，最简单的解法就是完全类比相机标定过程，求解投影矩阵。这个操作被称为直接线性映射方法（direct linear transform, DLT），这种方法事实上不常用，因为它浪费了已知的内参，也要求了更多的对应点。</p>
+<p>另一种直观的方法当然就是 P3P，通过三个点来求解变换关系，也就是说，我们需要求下图中 <span class="arithmatex">\(OA, OB, OC\)</span> 的长度。</p>
+<p><img alt="p3p_solution.png" src="p3p_solution.png" /></p>
+<p>那么，我们开始列方程。我们知道余弦定理：</p>
+<div class="arithmatex">\[
+\begin{array}{cc}
+OA^2 + OB^2 - 2OA\cdot OB\cos\langle a, b \rangle = AB^2\\
+OB^2 + OC^2 - 2OB\cdot OC\cos\langle b, c \rangle = BC^2\\
+OC^2 + OA^2 - 2OC\cdot OA\cos\langle c, a \rangle = AC^2\\
+\end{array}
+\]</div>
+<p>然后两边同时除 <span class="arithmatex">\(OC^2\)</span>，记 <span class="arithmatex">\(x = \dfrac{OA}{OC}, y = \dfrac{OB}{OC}\)</span>，得到：</p>
+<div class="arithmatex">\[
+\begin{array}{cc}
+x^2 + u^2 - 2xy\cos\langle a, b \rangle - v &amp;= 0\\
+y^2 + 1 - 2y\cos\langle b, c \rangle - uv &amp;= 0\\
+x^2 + 1 - 2x\cos\langle c, a \rangle - wv &amp;= 0\\
+\end{array}
+\]</div>
+<p>其中 <span class="arithmatex">\(v = \dfrac{AB^2}{OC^2}, u = \dfrac{BC^2}{AB^2}, w = \dfrac{AC^2}{AB^2}\)</span></p>
+<p>然后把 <span class="arithmatex">\(v\)</span> 消掉，得到的最终结果是：</p>
+<div class="arithmatex">\[
+\begin{array}{cc}
+(1-u)y^2 - ux^2 - y\cos\langle b, c \rangle + 2uxy\cos\langle a, b \rangle + 1 = 0\\
+(1-w)y^2 - wx^2 - y\cos\langle c, a \rangle + 2wxy\cos\langle a, b \rangle + 1 = 0\\
+\end{array}
+\]</div>
+<p>这是一个二元二次方程组，很容易看出，它事实上有四组解。因此，我们还需要一个额外的点来确定最为可能的一组解是什么。</p>
+<p>当然，为了处理错误匹配，我们可以使用 RANSAC 配合 P3P 来求解。</p>
+<p>更一般地，我们可以把 PnP 问题写成优化问题，最小化重投影误差（reprojection error），也就是说：</p>
+<div class="arithmatex">\[
+\min_{R, t} \sum_i\Vert p_i - K(RP_i + t)\Vert^2
+\]</div>
+<p>用 P3P 求解的结果作为初值，然后用 Gauss-Newton 法去进一步求解。注意，<span class="arithmatex">\(R\)</span> 要用三个自由度去表示，这样才能保证它的正规性约束。当然，还有一些加速算法来加快这个过程。</p>
+<p>另一个与之相关的问题就是物体位姿估计（object pose estimation），我们要求算的就是物体在相机坐标系下的位姿，这个过程与上面提到的求解问题是完全等价的。</p>
+<h2 id="structure-from-motion">运动恢复结构（structure from motion）<a class="headerlink" href="#structure-from-motion" title="Permanent link">&para;</a></h2>
+<p>直到现在，我们已经有了相机的内参。我们的步骤还是类似的：
+1. 找到点到点之间的对应关系；
+2. 求解两张图片之间相机之间相对的位姿；
+3. 通过三角化（triangulation）找到三维点云。</p>
+<p>当然，相对位姿的求解是一个比较麻烦的问题，我们重点来处理这个问题。也就是说，我们要探究的就是两张图像之间对应点的几何关系，这个关系由对极几何（epipolat geometry）来描述。它的基本设定如下图：</p>
+<p><img alt="epipolar_scene.png" src="epipolar_scene.png" /></p>
+<p>在这里，我们需要界定一些概念。极点（epipole）是一个相机在另一个相机中的投影平面中的像点，也就是上图中的 <span class="arithmatex">\(e_l\)</span> 和 <span class="arithmatex">\(e_r\)</span>，它们的连线被称为基线（baseline），两个相机和场景中的点 <span class="arithmatex">\(P\)</span> 构成的平面被称为极平面（epipolar plane），为了描述 <span class="arithmatex">\(u_l\)</span> 和 <span class="arithmatex">\(u_r\)</span> 的关系，我们需要引入极线约束（epipolar constraint），在这里，我们给出一种推导方式。</p>
+<p>首先，我们引入极平面的法向量 <span class="arithmatex">\(\boldsymbol n = \boldsymbol t \times \boldsymbol x_l\)</span> ，我们知道：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l \cdot(\boldsymbol t \times \boldsymbol x_l) = 0
+\]</div>
+<p>也就是说：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l^TT_\times\boldsymbol x_l = 0
+\]</div>
+<p>其中：</p>
+<div class="arithmatex">\[
+T_\times = \begin{bmatrix}
+0 &amp; -t_z &amp; t_y\\
+t_z &amp; 0 &amp; -t_x\\
+-t_y &amp; t_x &amp; 0
+\end{bmatrix}
+\]</div>
+<p>而我们又知道两个相机之间的关系：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l = R\boldsymbol x_r + \boldsymbol t
+\]</div>
+<p>我们将这个式子带入到上面的方程中，得到：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l^TT_\times(R\boldsymbol x_r + \boldsymbol t) = 0
+\]</div>
+<p>展开：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l^T(T_\times R\boldsymbol x_r + T_\times \boldsymbol t) = 0
+\]</div>
+<p>注意到 <span class="arithmatex">\(T_\times \boldsymbol t = t\times t = 0\)</span>，我们有：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l^TT_\times R\boldsymbol x_r = 0
+\]</div>
+<p>于是我们记 <span class="arithmatex">\(E = T_\times R\)</span>，称其为本质矩阵（essential matrix），它也就是平移向量对应的矩阵和旋转矩阵的乘积，它取决于我们的相机之间的相对位姿。而通过奇异值分解，我们可以从 <span class="arithmatex">\(E\)</span> 分解出平移矩阵和旋转矩阵。</p>
+<p>接下来，我们研究怎么求到本质矩阵 <span class="arithmatex">\(E\)</span>。如果我知道 <span class="arithmatex">\(\boldsymbol x_l\)</span> 和 <span class="arithmatex">\(\boldsymbol x_r\)</span>，那么我们就能知道 <span class="arithmatex">\(E\)</span>。但是，我们知道在图像坐标系中的对应点。对于左边的相机，我们有：</p>
+<div class="arithmatex">\[
+z_l \hat {\boldsymbol u}_l = K_l \boldsymbol x_l 
+\]</div>
+<p>也就是说：</p>
+<div class="arithmatex">\[
+\boldsymbol x_l^T = K_l^{-1}z_l \hat{\boldsymbol u}_l
+\]</div>
+<p>右侧同理，我们就有：</p>
+<div class="arithmatex">\[
+\hat{\boldsymbol u}_l^T(K_l^{-1})^TEK_r^{-1}\hat {\boldsymbol{u}}_r = 0
+\]</div>
+<p>记 <span class="arithmatex">\(F = (K_l^{-1})^TEK_r^{-1}\)</span> 为基础矩阵（fundamental matrix），当然，它也是 defined up to scale 的，因此，我们同样加上约束条件 <span class="arithmatex">\(\Vert F \Vert^2 = 1\)</span>。因此，我们用类似的方式求解一个方程 <span class="arithmatex">\(Af=0\)</span> 即可得到基础矩阵的值。注意，这里每一对点只能给出一个方程，因此，我们至少需要八对点才能得到这样的解。</p>
+<p>接下来，我们就可以顺理成章地获得 <span class="arithmatex">\(E, T, R\)</span>，进而得到相机之间相对的平移与旋转。下一步就是进行三角化了。这时我们只需要求两个射线的交点，同样通过求解方程组的方式来实现。</p>
+<p>但是这是最理想的情况。我们会注意到，这个方程组不一定有解，因为两条射线不一定有交点。因此，我们使用最小二乘解，或者使用最小化重投影误差的方法来处理：</p>
+<div class="arithmatex">\[
+\min \Vert \boldsymbol u_l - \hat{\boldsymbol u}_l\Vert^2 + \Vert \boldsymbol u_r - \hat{\boldsymbol u}_r\Vert^2
+\]</div>
+<p>接下来，我们把两张图的情形推广到多张图上去。我们随常用的方法就是序贯式的求解方法（sequential SfM）。对于每张新的图，我们首先进行视觉定位，然后计算出新的三维点，重新优化已知的三维点中在这张图片中能够被看到的点。最后，因为存在累计误差，而且我们估计出的点都是两点处理的，所以我们需要进行一次集束调整（bundle adjustment）的操作。这时，我们使用的思路仍然是最小化重投影误差：</p>
+<div class="arithmatex">\[
+\min\sum_{i=1}^m\sum_{j=1}^n \Vert u_j^{(i)} - P_{\mathrm{proj}}^{(i)}\boldsymbol P_j\Vert^2
+\]</div>
+<p>如图：</p>
+<p><img alt="bundle_adjustment.png" src="bundle_adjustment.png" /></p>
+<p>我们在这一步做的就是对每个点、每个相机位置，都进行重投影，然后优化总的误差，当然，这又是一个非线性的优化问题，可以用 Levenberg-Marquardt 之类的算法进行求解。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 03 Image Matching &amp; Motion Estimation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              03 Image Matching & Motion Estimation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-footer__link md-footer__link--next" aria-label="下一页: 06 Depth Estimation &amp; Dense Reconstruction" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              06 Depth Estimation & Dense Reconstruction
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+    
+  </body>
+</html>

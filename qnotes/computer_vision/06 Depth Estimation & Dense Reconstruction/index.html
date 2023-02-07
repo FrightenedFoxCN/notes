@@ -1,0 +1,1203 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>06 Depth Estimation & Dense Reconstruction - FFox's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#stereo-matching" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FFox's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              06 Depth Estimation & Dense Reconstruction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tech/" class="md-tabs__link">
+        Technology
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../math/" class="md-tabs__link">
+        Mathematics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../exercises/" class="md-tabs__link">
+        Exercises
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Quick Notes
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    FFox's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        更新记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links/" class="md-nav__link">
+        友链
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../todo/" class="md-nav__link">
+        待办事项
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/">Technology</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Technology" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Technology
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Vulkan Tutorial with Rust" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vulkan Tutorial with Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+        01 计算流水线 Compute Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../math/">Mathematics</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../math/toc-notes/">Theory of Computation Overview</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Theory of Computation Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Theory of Computation Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/toc-notes/01A/" class="md-nav__link">
+        01A 有限自动机和正则语言 Finite Automata & Regular Languages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../exercises/">Exercises</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Exercises" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Quick Notes</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Quick Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Quick Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theorem_proving_in_lean_4/" class="md-nav__link">
+        Theorem Proving in Lean 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Computer Vision</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Computer Vision" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Computer Vision
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20Image%20Formation/" class="md-nav__link">
+        01 Image Formation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
+        03 Image Matching & Motion Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20Structure%20from%20Motion/" class="md-nav__link">
+        05 Structure from Motion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          06 Depth Estimation & Dense Reconstruction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        06 Depth Estimation & Dense Reconstruction
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stereo-matching" class="md-nav__link">
+    立体视觉匹配（stereo matching）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-view-stereo" class="md-nav__link">
+    多视图立体匹配（multi-view stereo）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3d-reconstruction" class="md-nav__link">
+    三维重建（3D reconstruction）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07%20Recognition/" class="md-nav__link">
+        07 Recognition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08%203D%20Deep%20Learning/" class="md-nav__link">
+        08 3D Deep Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09%20Computational%20Photography/" class="md-nav__link">
+        09 Computational Photography
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10%20Image-based%20Rendering/" class="md-nav__link">
+        10 Image-based Rendering
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stereo-matching" class="md-nav__link">
+    立体视觉匹配（stereo matching）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-view-stereo" class="md-nav__link">
+    多视图立体匹配（multi-view stereo）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3d-reconstruction" class="md-nav__link">
+    三维重建（3D reconstruction）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>06 Depth Estimation & Dense Reconstruction</h1>
+
+<p>在上一次，我们已经得到了一个稀疏点云，这一次我们需要考虑怎么建立一个稠密表面，而不是一个稀疏点云，深度估计在其中就是非常重要的一个步骤。</p>
+<p>我们说，图像的深度就是图像的某个像素离相机中心的距离。这个距离可以用深度图（depth map）来表征。注意，我们一般讲的是垂直距离，但是有的传感器给出的是斜边距离，这里在实际应用中需要特别注意。</p>
+<p>深度估计在很多应用中都是十分重要的。例如避障过程中，深度图是一个非常重要的障碍物信息；人脸识别中，也需要深度来识别区分真正的人脸和人脸的照片。为了获取深度信息，我们的第一种方式是直接通过传感器去获取，这种方式称为主动式的深度感知（active depth sensing）。</p>
+<p>这种传感器一般使用对环境的干涉实现。一个经典的方式是 LiDAR （light detection and ranging），通过激光的飞行时间（time of flight, ToF）来实现测距，它很贵，但是能获得非常精确的深度信息，具备高分辨率和 360 度的可见性。当然，还有结构光（structured light）和主动式的立体视觉（active stereo）。</p>
+<p>被动式的深度感知（passive dept sensing）或者立体视觉（stereo）也是一种重要的方式。当然，后面我们会提到，单目视觉（monocular）也可以通过深度学习的一些方法去估计不精确的三维图像（[[09 3D Deep Learning]]）。这里我们主要讲立体视觉。</p>
+<h2 id="stereo-matching">立体视觉匹配（stereo matching）<a class="headerlink" href="#stereo-matching" title="Permanent link">&para;</a></h2>
+<p>我们已经提到，最基本的方式就是首先进行匹配，然后进行三角化。这样获得的就是一个稀疏的对应关系。而如果我们想要求解一个稠密的对应关系，那么我们想到的第一个方法就是光流（optical flow），但是光流显然是不够好的，因为极线约束完全被忽略了。</p>
+<p>最简单的情形是平行图像，如下图。其中相机的相平面互相平行，与基线也平行，同时，相机中心等高、焦距也相等，这样的话，极线就落在图像的所有水平扫描线上。这个时候的求解是简单的。</p>
+<p><img alt="simple_parallel.png" src="simple_parallel.png" /></p>
+<p>我们只需要求算两个像之间的视差。设相机间距离为 <span class="arithmatex">\(B\)</span>，焦距为 <span class="arithmatex">\(f\)</span>，那么我们用相似关系就能获得：</p>
+<div class="arithmatex">\[
+x - x' = \frac{Bf}{z}
+\]</div>
+<p>其中 <span class="arithmatex">\(z\)</span> 为我们想求的深度值。对于不平行的情况下，我们的想法就是对图像进行重投影，使用两个单映变换（homography）来将图像投影到同一个满足这些条件的平面上，从而计算结果。</p>
+<p>下一个问题是，找到这样的矩形免职后，我们怎么找到左边图像在右边图像上的对应点呢？我们首先假定亮度不变。当然咯，对于同一条线上的点，我们只需要最小化不相似性即可。那么，我们可选的标准有哪些呢？最基本的形式是 SSD (Sum of Squared Differences)：</p>
+<div class="arithmatex">\[
+\sum_{x, y} \vert W_1(x, y) - W_2(x, y) \vert^2
+\]</div>
+<p>和 SAD (Sum of Absolute Differences)：</p>
+<div class="arithmatex">\[
+\sum_{x, y}\vert W_1(x, y) - W_2(x, y)\vert
+\]</div>
+<p>但最常用的形式是 ZNCC (Zero-mean Normalized Cross Correlation)</p>
+<div class="arithmatex">\[
+\frac{\sum_{x, y}(W_1(x, y) - \bar W_1)(W_2(x, y) - \bar W_2)}{\sigma_{W_1}\sigma_{W_2}}
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+\bar W_i = \frac 1 n \sum_{x, y}W_i(x, y), \sigma_{W_i} = \sqrt{\frac 1 n \sum_{x, y}(W_i(x, y) - \bar W_i)^2}
+\]</div>
+<p>这种形式降低了亮度的影响。但是，我们的窗口越小，结果中的噪声就会越多。对于这种形式，我们就需要使用前面提到的 Markov 随机场的方法，引入这种优化形式：</p>
+<div class="arithmatex">\[
+E(d) = E_d(d) + \lambda E_s(d)
+\]</div>
+<p>其中 <span class="arithmatex">\(E_d(d)\)</span> 是匹配误差，取用前面提到的所有方法，<span class="arithmatex">\(E_s(d)\)</span> 是光滑度度量，定义为 <span class="arithmatex">\(\sum_{(p, q) \in N}V(d_p, d_q)\)</span>，其中 <span class="arithmatex">\(N\)</span> 为邻域，<span class="arithmatex">\(V\)</span> 为像素间的差异函数。当然，我们的 <span class="arithmatex">\(V\)</span> 也有多种形式，例如 <span class="arithmatex">\(L_1\)</span> 距离：</p>
+<div class="arithmatex">\[
+V(d_p, d_q) = |d_p - d_q|
+\]</div>
+<p>或者 Potts model：</p>
+<div class="arithmatex">\[
+V(d_p, d_q) = \begin{cases}
+0\text{, if }d_p = d_q\\
+1\text{, if }d_p \ne d_q
+\end{cases}
+\]</div>
+<p>这是一个离散优化的问题，对于一条线上的情形，我们可以使用动态规划的方式求解，但是对于二维的马尔科夫随机场，我们的求解方法一般是 graph cut 或者 belief propagation 来近似求解。</p>
+<p>这样我们就有了一个立体视觉重建的流水线：
+1. 标定相机
+2. 矫正图像
+3. 计算视差
+4. 估计深度
+当然，还有一个问题是相机中心之间的距离，也就是基线的大小。如果它太小，那么深度估计的误差会很大；如果它太大，那么图像之间的匹配就会变得困难，因为两张图之间的差异就会越大。</p>
+<p>反思这个流水线，在哪些地方容易引入误差？
+1. 相机标定误差
+2. 图像分辨率低
+3. 遮挡（occlusion）
+4. 镜面反射（specular reflection）导致的亮度一致性被破坏
+5. 无纹理区域（textureless regions）导致的匹配困难</p>
+<p>那么，我们需要想一些办法来降低匹配的难度。一种方式就是结构光（structured light），如下图，这是一种主动的深度感知。一般地，我们都会使用红外光和红外相机来做这一件事情，而且，一个相机就已经可以胜任这个任务，因为投影仪本身就可以被理解为一个相机。</p>
+<p><img alt="structured_light.png" src="structured_light.png" /></p>
+<h2 id="multi-view-stereo">多视图立体匹配（multi-view stereo）<a class="headerlink" href="#multi-view-stereo" title="Permanent link">&para;</a></h2>
+<p>在多个视图的情况下，我们可以使用多于一组图像来匹配窗口，这样我们可以获得更强的约束；同时，我们可以把各个视角融合成为一个完整的三维模型。这就是我们接下来讨论的任务。</p>
+<p>当然，我们的想法也是一样的。对于每一张图，我们都可以得到对某个像素的一些深度估计，我们将其视作一条射线。然后，将其上的每个点都投影到其它视角上，如果这个深度估计是正确的，那么重投影误差就会比较小，这是我们基本的想法。</p>
+<p>那么，我们怎么去很好地计算这样的误差呢？我们事实上就是要计算每个像素对应的误差曲线。我们认为，<span class="arithmatex">\((X, Y, D)\)</span> 构成了一个体，我们称之为 cost volume，我们需要计算这个体上误差的取值。我们使用 plane-sweep 的方法，也就是说，我们关于等深平面进行投影，这样的投影是一个单映，于是就可以得到这样一个体上误差的取值。直观地用图像表示如下：</p>
+<p><img alt="plane_sweep.png" src="plane_sweep.png" /></p>
+<p>这种方法事实上得到的是 Markov 随机场的第一项。通过补上相邻像素之间的光滑程度衡量，就能求解 Markov 随机场得到一个好的深度图。但是，这种方法本质上还是一种穷举，其效率并不高。我们还需要思考更加高效的方法。</p>
+<p>我们考虑 PatchMatch 的方法。前面我们对每个点都做了一次搜索，这是比较慢的，但是，我们可以引入两个假设，大量随机取样总能给出好的结果，而相邻像素块往往有相近的偏移量。基于这些假设，我们可以给出 PatchMatch 方法：</p>
+<p><img alt="patch_match.png" src="patch_match.png" /></p>
+<p>首先，我们需要计算 A 图中的三个图像块在 B 图中的位置，我们按照这样的步骤进行计算：</p>
+<ol>
+<li>随机初始化，对每个块给出一个随机偏移量；</li>
+<li>传播，选取相邻的图像块按照相应位置得到的结果，如果误差减小了，就把对应的偏移量赋给另一个值：例如途中我们根据红色的偏移量更新蓝色的偏移量，发现误差变小了，因此我们把红色偏移量赋给蓝色；这样我们相当于是把正确的解“扩散”出去，传播给相邻的块；</li>
+<li>对于每一个点在现在的偏移量周边做一些局部搜索，看有没有更好的解；否则的话我们得到的解就只是初始随机的结果了</li>
+<li>回到步骤 2，直到收敛。
+对于深度估计，我们只需要将偏移量替换成深度值即可。</li>
+</ol>
+<p>求出深度图之后，下一步我们就需要来将其重建成三维模型了。</p>
+<h2 id="3d-reconstruction">三维重建（3D reconstruction）<a class="headerlink" href="#3d-reconstruction" title="Permanent link">&para;</a></h2>
+<p>为了完成重建，我们首先需要考虑三维数据在计算机中的表示（3D representations）。常见的三维数据表示有以下几种：</p>
+<p><img alt="3d_representation.png" src="3d_representation.png" /></p>
+<ul>
+<li>点云（point cloud），就是一组点。</li>
+<li>体素的表示（volume），包括 occupancy 和 signed distance function (SDF)。occupancy 为每个体素（voxel）赋予一个 1 或者 0 的值表示它是否在里面，signed distance function 则给每个体素赋予距离物体表面的距离。当然，还有截断距离场（truncated SDF, TSDF），使得距离较远的地方直接设置成一个恒定值，这是更加常用的表示。但是，这种方式事实上非常占空间，因此我们一般不会使用它来构造比较精细的表示。</li>
+<li>多边形网格（polygon mesh），最常用的是三角网格（triangle mesh），每个面都是三条边，这是现在最常用的一种表示，我们得到的三维模型都是这种形式的。这种表示方式可以很好地把纹理（texture）贴上去，参考 [[10 Texture]] 。</li>
+</ul>
+<p>但是，在三维表面重建的过程中，我们往往通过泊松重建（Poisson reconstruction）或者 KinectFusion 的方式首先得到一个体素的表示，因为这样的表示是规则的，降噪比较方便。然后，再根据这个表示来转化成三角网格的形式。</p>
+<p>我们首先讨论泊松重建的过程。首先，我们可以通过把深度图中的二维像素反投影到三维坐标中的方式得到一个点云，这并不困难；下一步，我们需要计算每个点的法向量，也就是说垂直于我们想要得到的表面的法向量。这一步往往是根据每个点以及其周围的点的位置来表明的，我们假设它和它周围的点可以用小的平面去拟合，然后表示出这个平面的法向量，这个过程事实上类似于主成分分析的过程，我们要求的东西可以被看成三维空间中三个主成分中较小的那一个。</p>
+<p>接下来，我们希望把这些三维的点转化为一个三维的体素表示。我们需要构造一个示性函数 <span class="arithmatex">\(\chi_M(p)\)</span>，也就是一个 occupancy。接下来我们需要用这个函数去逼近这堆点，首先定义目标函数：</p>
+<div class="arithmatex">\[
+\min_\chi \Vert \nabla \chi - V\Vert
+\]</div>
+<p>也就是说让这个函数对应的梯度等于我们前面算出来的法向量。注意到，这个方程事实上就是一个泊松方程（poisson equation），接下来就可以用对应的方法（比如变分法）求解。</p>
+<p>下一步我们考虑怎么提取出多边形网格。我们最主流的方法是 marching cubes。首先，我们考虑立方体中那些顶点值出现了征服变化的棱。然后，我们将这些棱中间插入顶点，并且把这些顶点连接成不相交的三角形。这个时候我们往往会用查找表来处理这种问题。因为最多只有 256 种类型，考虑对称性，我们事实上只要构造 15 种可能，如下图：</p>
+<p><img alt="marching_cube_3d_conf.png" src="marching_cube_3d_conf.png" /></p>
+<p>这个过程往往是相当快速的。</p>
+<p>KinectFusion 主要解决的是实时的深度图融合问题。这时我们使用的是 TSDF 作为体素表示，对于每个体素 <span class="arithmatex">\(p\)</span> ，我们需要求算它对应的 TSDF，我们首先计算它离相机的距离，这样能将这个体素投影到像素 <span class="arithmatex">\(u\)</span>，而我们又有在像素 <span class="arithmatex">\(u\)</span> 处的深度值 <span class="arithmatex">\(D_k(u)\)</span>，那么 <span class="arithmatex">\(D_k(u) - d_p\)</span> 就是我们最终求得的距离。</p>
+<p>最关键的事实上就是一个更新过程。我们考虑一个线性组合来处理这个问题：</p>
+<div class="arithmatex">\[
+F_k(p) = \frac{W_{k-1}(p)F_k(p) + W_{D_k}(p)F_{D_k}(p)}{W_{k-1}(p) + W_{D_k}(p)}
+\]</div>
+<p>其中 <span class="arithmatex">\(W\)</span> 是线性组合的权重，<span class="arithmatex">\(F_k(p)\)</span> 为累积的 TSDF，<span class="arithmatex">\(F_{D_k}(p)\)</span> 是从第 <span class="arithmatex">\(k\)</span> 个增加的深度图得到的 TSDF。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../05%20Structure%20from%20Motion/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 05 Structure from Motion" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              05 Structure from Motion
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../07%20Recognition/" class="md-footer__link md-footer__link--next" aria-label="下一页: 07 Recognition" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              07 Recognition
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+    
+  </body>
+</html>
