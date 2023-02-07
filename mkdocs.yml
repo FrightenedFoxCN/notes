@@ -52,12 +52,10 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
-  - https://tikzjax.com/v1/fonts.css
   - css/stylesheet.css
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js
-  - https://tikzjax.pages.dev/tikzjax.js
   - js/katex.js
 
 plugins:
@@ -88,3 +86,13 @@ nav:
   - Quick Notes:
     - qnotes/index.md
     - Theorem Proving in Lean 4: qnotes/theorem_proving_in_lean_4.md
+    - Computer Vision: 
+      - qnotes/computer_vision/index.md
+      - 01 Image Formation: qnotes/computer_vision/01 Image Formation.md
+      - 03 Image Matching & Motion Estimation: qnotes/computer_vision/03 Image Matching & Motion Estimation.md
+      - 05 Structure from Motion: qnotes/computer_vision/05 Structure from Motion.md
+      - 06 Depth Estimation & Dense Reconstruction: qnotes/computer_vision/06 Depth Estimation & Dense Reconstruction.md
+      - 07 Recognition: qnotes/computer_vision/07 Recognition.md
+      - 08 3D Deep Learning: qnotes/computer_vision/08 3D Deep Learning.md
+      - 09 Computational Photography: qnotes/computer_vision/09 Computational Photography.md
+      - 10 Image-based Rendering: qnotes/computer_vision/10 Image-based Rendering.md
