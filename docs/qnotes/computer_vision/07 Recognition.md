@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## Semantic Segmentation 语义分割
 
 我们希望得到图像中每个像素的类别，如下图：

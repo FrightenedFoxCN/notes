@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 原文链接：[Theorem Proving in Lean 4 (leanprover.github.io)](https://leanprover.github.io/theorem_proving_in_lean4/introduction.html)
 
 ## Dependent Type Theory 依赖类型论

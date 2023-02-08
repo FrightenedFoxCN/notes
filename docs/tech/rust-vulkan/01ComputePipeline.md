@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 在这一节教程中，我们将尝试建立一个计算流水线。本文的主要参考资料来自 Vulkano 的官方文档：[Vulkano](https://vulkano.rs/guide/introduction)，将涉及到下图中所有画了蓝色方框的部分。
 
 <p align="center"><img src="overview.png" width="300" /></p>

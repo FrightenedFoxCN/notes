@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 从这里开始，我们的任务就是从运动中还原结构。这个过程就被称为 运动恢复结构（Structure from Motion, SfM）。这里提到的 motion 是相机的运动。使用相机从各个角度拍摄图像，我们希望计算出这些图像拍摄时相机在三维空间中的位置和朝向，或者称之为相机的位姿。
 
 相关的问题主要有几种拓展。一方面是多视图立体匹配（Multi-view Stereo, MVS），它帮助我们构建一种稠密点云；一方面是视觉定位（Visual Localization），它要求我们定位拍照的范围。另一个重要应用是实时定位与映射（Simultaneous Localization and Mapping, SLAM），它要求实时完成重建和定位。
