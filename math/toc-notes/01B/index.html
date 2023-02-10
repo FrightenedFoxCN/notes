@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/todo/">
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/math/toc-notes/01B/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>待办事项 - FFox's Notes</title>
+        <title>01B 范畴化的自动机 Automata in Category Context - FFox's Notes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../css/timeline.css">
+      <link rel="stylesheet" href="../../../css/timeline.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -41,9 +41,9 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="../css/stylesheet.css">
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,11 +71,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -86,7 +81,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -105,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              待办事项
+              01B 范畴化的自动机 Automata in Category Context
             
           </span>
         </div>
@@ -175,15 +170,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -199,7 +192,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../tech/" class="md-tabs__link">
+      <a href="../../../tech/" class="md-tabs__link">
         Technology
       </a>
     </li>
@@ -209,13 +202,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../math/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Mathematics
       </a>
     </li>
@@ -231,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../exercises/" class="md-tabs__link">
+      <a href="../../../exercises/" class="md-tabs__link">
         Exercises
       </a>
     </li>
@@ -247,7 +242,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../qnotes/" class="md-tabs__link">
+      <a href="../../../qnotes/" class="md-tabs__link">
         Quick Notes
       </a>
     </li>
@@ -275,7 +270,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -292,14 +287,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -319,7 +312,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="..">Home</a>
+          <a href="../../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -342,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         更新记录
       </a>
     </li>
@@ -356,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../links/" class="md-nav__link">
+      <a href="../../../links/" class="md-nav__link">
         友链
       </a>
     </li>
@@ -368,21 +361,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../todo/" class="md-nav__link">
         待办事项
       </a>
-      
     </li>
   
 
@@ -421,7 +404,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../tech/">Technology</a>
+          <a href="../../../tech/">Technology</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -463,7 +446,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+          <a href="../../../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -486,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+      <a href="../../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
         01 计算流水线 Compute Pipeline
       </a>
     </li>
@@ -513,12 +496,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -534,7 +519,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../math/">Mathematics</a>
+          <a href="../../">Mathematics</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -555,12 +540,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -578,7 +565,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../math/toc-notes/">Theory of Computation Overview</a>
+          <a href="../">Theory of Computation Overview</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -601,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/toc-notes/01A/" class="md-nav__link">
+      <a href="../01A/" class="md-nav__link">
         01A 有限自动机和正则语言 Finite Automata & Regular Languages
       </a>
     </li>
@@ -613,11 +600,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../math/toc-notes/01B/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         01B 范畴化的自动机 Automata in Category Context
       </a>
+      
     </li>
   
 
@@ -661,7 +656,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../exercises/">Exercises</a>
+          <a href="../../../exercises/">Exercises</a>
           
         </div>
       
@@ -709,7 +704,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../qnotes/">Quick Notes</a>
+          <a href="../../../qnotes/">Quick Notes</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -732,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
+      <a href="../../../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
         Theorem Proving in Lean 4
       </a>
     </li>
@@ -779,7 +774,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../qnotes/computer_vision/">Computer Vision</a>
+          <a href="../../../qnotes/computer_vision/">Computer Vision</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -802,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
         01 Image Formation
       </a>
     </li>
@@ -816,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
         03 Image Matching & Motion Estimation
       </a>
     </li>
@@ -830,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
         05 Structure from Motion
       </a>
     </li>
@@ -844,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
         06 Depth Estimation & Dense Reconstruction
       </a>
     </li>
@@ -858,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
         07 Recognition
       </a>
     </li>
@@ -872,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
         08 3D Deep Learning
       </a>
     </li>
@@ -886,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
         09 Computational Photography
       </a>
     </li>
@@ -900,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
         10 Image-based Rendering
       </a>
     </li>
@@ -938,8 +933,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -954,64 +947,15 @@
                   
 
 
-<h1 id="_1">待办事项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>别的坑基本上都已经丢到对应的模块上去了，这里主要是建站相关：</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 写一下 Lean 4 对应的 Linter</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 字数统计功能加入</li>
-</ul>
+  <h1>01B 范畴化的自动机 Automata in Category Context</h1>
+
+<p>在上一节中，我们主要跟随的是 Conway 在 1960s 左右开始的路径，讨论了自动机作为一种代数构造的可能，并利用这种代数构造解决了一些问题。在这一节中，我们将跟随同时代的 S. Eilenberg 和 R. Kalman 等人的视角，尝试去讨论自动机的范畴视角，以及从系统论角度去讨论自动机，并在最后通过系统论中的对偶性揭示自动机构造中的对偶性，也就是上一节中提到的 Brzozowski 算法的深层原理。</p>
+<p>S. Eilenberg 主要的研究方向在代数拓扑，与 S. MacLane 一起创立了范畴论。但是他对自动机理论贡献也非常卓越，主要的材料是 1967 年的论文 <em>Automata in General Algebras</em> 和 1974 年的专著 <em>Automata, Languages and Machines</em>。他提出的 X-Machine 我们在下一节中也会述及；R. E. Kalman 最著名的创造则是 Kalman 滤波器，他是控制系统的严格理论发展初期的重要领导者。在本节中涉及到的主要材料来自 1968 年的专著 <em>Lectures on controllability and observability</em> 和 1969 年的专著 <em>Topics in Mathematical System Theory</em>，后者的合作者之一 M. A. Arbib 则是我们这篇文章主要的发展来源之一，他和 E. G. Manes 在 1974 年到 1980 年的一系列论文彻底地将自动机范畴化这个论题带到学者的事业中来。另一份不可不提的文献来自于 H. Ehrig 和 M. Pfender，1972 年出版的 <em>Kategorien und Automate</em>。这本书虽然至今（在笔者所知范围内）没有英文译本，但确是比较早地提出自动机范畴化的概念的理论专著，事实上，我们也会大量引述这本专著中的一些内容，尤其是关于自动机和范畴极限的关联的部分。从本世纪初开始，更多这个方向的论文逐渐问世，主要讨论的是范畴化在自动机的简化方面的应用，虽然这个论题早已在 1972 年就被 J. Goguen 探讨过。本文最终部分关于 Brzozowski 算法的讨论，就大部分源于 F. Bonchi 等人在 2014 年的洞见。2008 年左右，A. Kurz 和 M. Gehrke 等人将 Conway 那种代数的对正则语言和正则语言恒等式、正则语言方程的讨论也纳入了范畴论的视域下。</p>
+<p>讨论范畴论的中文书籍主要是李文威老师的《代数学方法》，在他的主页上可以获得电子版本，本文的记号和基本概念应当都与他的书一致。较新的英文书籍应当是 N. N. Jacobson 的 <em>Basic Algebra</em> 第二卷。很多引论则是作为代数几何的一个前置知识被书写的，例如 R. Vakil 著名的 <a href="http://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf"><em>The Rising Sea</em></a> 中的第一章，以及哥伦比亚大学组织的 <a href="https://stacks.math.columbia.edu/tag/0011">The Stacks project 的第四章</a>；在数理逻辑中范畴学的应用也是非常重要的，我们在后面也会加以讨论，并利用这套语言统一不完备性定理、停机问题等等自指涉（self-referential）类型的问题。对于计算机专业的学生而言，<a href="https://github.com/hmemcpy/milewski-ctfp-pdf/releases/download/v1.3.0/category-theory-for-programmers.pdf">Bartosz Milewski 的引论</a>也是相当有益的，当然，并不足够。本系列中除一些特定问题外，所用到的范畴学不会超过 The Stacks project 中的内容，但李文威的书第一卷的内容及其他大部分这里列出的参考书都尚有一点不足。虽然笔者将对很多基本概念进行介绍，但因为篇幅及主题所限，不会给出很多很充分的例子，而范畴学本身又是极为抽象的数学领域，因此将这些参考文献列出，以备读者参考。如果需要更充分的资源，而且你也已经理解了足够多的基本概念，那么 <a href="https://ncatlab.org/nlab/show/HomePage">nLab</a> 也是很好的线上资源。</p>
 
 
 
 
-
-  <h2 id="__comments">评论</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-        data-repo="frightenedfoxcn/notes"
-        data-repo-id="R_kgDOI23RIA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOI23RIM4CUEOA"
-        data-mapping="pathname"
-        data-strict="1"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
               </article>
@@ -1033,7 +977,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../links/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 友链" rel="prev">
+        <a href="../01A/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 01A 有限自动机和正则语言 Finite Automata &amp; Regular Languages" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1042,20 +986,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              友链
+              01A 有限自动机和正则语言 Finite Automata & Regular Languages
             </div>
           </div>
         </a>
       
       
         
-        <a href="../tech/" class="md-footer__link md-footer__link--next" aria-label="下一页: Technology" rel="next">
+        <a href="../../../exercises/" class="md-footer__link md-footer__link--next" aria-label="下一页: Exercises" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Technology
+              Exercises
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1086,14 +1030,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
       
-        <script src="../js/katex.js"></script>
+        <script src="../../../js/katex.js"></script>
       
     
   </body>
