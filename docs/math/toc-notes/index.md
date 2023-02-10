@@ -8,10 +8,12 @@ comments: true
 
 ## 预计目录（部分）
 
+注：已完成✅ 已建立页面☑️ 未完成❎
+
 |序号 | <center>标题</center> | 是否已完成|
 |:----:|----------------------------------------------------------|:----:|
-| 01A | 有限自动机和正则语言 Finite Automata and Regular Languages | ☑️ |
-| 01B | 范畴化的自动机 Automata in Category Context | ❎ |
+| 01A | [有限自动机和正则语言 Finite Automata and Regular Languages](01A) | ☑️ |
+| 01B | [范畴化的自动机 Automata in Category Context](01B) | ☑️ |
 | 02A | 线性语言及其机器实现 Linear Languages and Correspounding Machine | ❎ |
 | 02B | 更多（简单的）自动机和拓扑化 More Simple Automata, Finite Topology | ❎ |
 | 03A | 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages | ❎ |
