@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/">
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/math/toc-notes/03A/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>03 Image Matching & Motion Estimation - FFox's Notes</title>
+        <title>03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages - FFox's Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#detection" class="md-skip">
+        <a href="#basic-definitions" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              03 Image Matching & Motion Estimation
+              03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
             
           </span>
         </div>
@@ -207,13 +207,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../math/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Mathematics
       </a>
     </li>
@@ -239,15 +241,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../qnotes/" class="md-tabs__link">
         Quick Notes
       </a>
     </li>
@@ -501,12 +501,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -522,7 +524,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../math/">Mathematics</a>
+          <a href="../../">Mathematics</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -543,12 +545,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -568,7 +572,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../math/toc-notes/">Theory of Computation Overview</a>
+          <a href="../">Theory of Computation Overview</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -591,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../math/toc-notes/01A/" class="md-nav__link">
+      <a href="../01A/" class="md-nav__link">
         01A 有限自动机和正则语言 Finite Automata & Regular Languages
       </a>
     </li>
@@ -605,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../math/toc-notes/01B/" class="md-nav__link">
+      <a href="../01B/" class="md-nav__link">
         01B 范畴化的自动机 Automata in Category Context
       </a>
     </li>
@@ -617,11 +621,124 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../math/toc-notes/03A/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-definitions" class="md-nav__link">
+    Basic Definitions 基本定义
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Definitions 基本定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-systems" class="md-nav__link">
+    Linear Systems 线性系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-forms" class="md-nav__link">
+    Normal Forms 标准型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-of-greibach-normal-form-greibach" class="md-nav__link">
+    Applications of Greibach Normal Form Greibach 标准型的应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pumping-lemma" class="md-nav__link">
+    Pumping Lemma 泵引理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-algebraic-view" class="md-nav__link">
+    An Algebraic View 代数刻画
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-down-automata" class="md-nav__link">
+    Push-down Automata 下推自动机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-as-memory" class="md-nav__link">
+    Group As Memory 作为内存的群
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algebraic-applications" class="md-nav__link">
+    Algebraic Applications 代数应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -690,14 +807,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
@@ -715,7 +830,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Quick Notes</a>
+          <a href="../../../qnotes/">Quick Notes</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -738,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../theorem_proving_in_lean_4/" class="md-nav__link">
+      <a href="../../../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
         Theorem Proving in Lean 4
       </a>
     </li>
@@ -750,14 +865,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
       
       
       
@@ -787,7 +900,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Computer Vision</a>
+          <a href="../../../qnotes/computer_vision/">Computer Vision</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -810,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01%20Image%20Formation/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
         01 Image Formation
       </a>
     </li>
@@ -822,48 +935,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          03 Image Matching & Motion Estimation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
         03 Image Matching & Motion Estimation
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#detection" class="md-nav__link">
-    检测（detection）
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -875,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05%20Structure%20from%20Motion/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
         05 Structure from Motion
       </a>
     </li>
@@ -889,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
         06 Depth Estimation & Dense Reconstruction
       </a>
     </li>
@@ -903,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07%20Recognition/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
         07 Recognition
       </a>
     </li>
@@ -917,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08%203D%20Deep%20Learning/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
         08 3D Deep Learning
       </a>
     </li>
@@ -931,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09%20Computational%20Photography/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
         09 Computational Photography
       </a>
     </li>
@@ -945,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10%20Image-based%20Rendering/" class="md-nav__link">
+      <a href="../../../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
         10 Image-based Rendering
       </a>
     </li>
@@ -991,8 +1067,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#detection" class="md-nav__link">
-    检测（detection）
+  <a href="#basic-definitions" class="md-nav__link">
+    Basic Definitions 基本定义
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Definitions 基本定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-systems" class="md-nav__link">
+    Linear Systems 线性系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-forms" class="md-nav__link">
+    Normal Forms 标准型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-of-greibach-normal-form-greibach" class="md-nav__link">
+    Applications of Greibach Normal Form Greibach 标准型的应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pumping-lemma" class="md-nav__link">
+    Pumping Lemma 泵引理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-algebraic-view" class="md-nav__link">
+    An Algebraic View 代数刻画
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-down-automata" class="md-nav__link">
+    Push-down Automata 下推自动机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-as-memory" class="md-nav__link">
+    Group As Memory 作为内存的群
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algebraic-applications" class="md-nav__link">
+    Algebraic Applications 代数应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参考资料
   </a>
   
 </li>
@@ -1012,91 +1164,111 @@
                   
 
 
-  <h1>03 Image Matching & Motion Estimation</h1>
+  <h1>03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages</h1>
 
-<p>我们说，所有计算机视觉的问题都可以被转化为对应关系的问题。我们所说的对应关系的典型例子就是两张图中点与点的对应关系。找点与点之间的对应关系被称为特征匹配（feature matching）问题，它的应用是非常广泛的，在后续的课程中也会一遍又一遍地出现。</p>
-<p>特征匹配主要分以下三步：
-1. 检测（detection），检测一些特征点（feature points / interest points）。
-2. 描述（description），对每个特征点给出一个描述子（descriptor）。
-3. 匹配（matching），确定描述子之间的对应关系。
-我们来逐一讨论这些过程。</p>
-<h2 id="detection">检测（detection）<a class="headerlink" href="#detection" title="Permanent link">&para;</a></h2>
-<p>显然，匹配一张图片中的所有像素是不现实的，而且很多像素的辨识度（唯一性，uniqueness）也不够强。因此，我们要使用唯一性比较好的特征点。如何去描述一个像素的唯一性？这是我们需要讨论的问题。</p>
-<p>首先，我们考虑局部的唯一性。对于每个点，我们想要匹配的事实上是一个邻域。对于下图中的这样一个小方框，我们要求，随便怎么移动这个窗口，其中的内容都会发生显著的改变。因此，自然而然地我们就想到角点作为一个很好的特征，也就是其中的第三种。</p>
-<p><img alt="uniqueness.png" src="uniqueness.png" /></p>
-<p>我们来观察一下怎么定量计算，很自然地我们想到梯度向量作为标准。将每个梯度向量画在二维平面上，我们得到这样的结果：</p>
-<p><img alt="grad_distrib.png" src="grad_distrib.png" /></p>
-<p>那么我们会自然而然地想到一种数学工具，也就是主成分分析（principal component analysis, PCA）。二维图像中的主成分指的就是图像中分布比较散的方向和它的垂直方向，我们计算三种情形的主成分：</p>
-<p><img alt="principal_components.png" src="principal_components.png" /></p>
-<p>当两个主成分都很大的时候，我们就发现它是一个角点。那么，我们就得到了一个计算方法：
-1. 对数据点进行中心化；
-2. 计算协方差矩阵；
-3. 进行特征值分解；
-4. 考虑特征值的大小，得到：</p>
-<p><img alt="classify_by_eigenvalue.png" src="classify_by_eigenvalue.png" /></p>
-<p>但是，这种方式还是显得有点复杂，我们直接考虑 Harris 角点检测器（Harris corner detector）</p>
-<div class="arithmatex">\[
-f = \frac{\lambda_1\lambda_2}{\lambda_1 + \lambda_2} = \frac{\det \mathrm{Cov}}{\mathrm{Tr\ }\mathrm{Cov}}
-\]</div>
-<p>其中 <span class="arithmatex">\(\mathrm{Cov}\)</span> 为协方差矩阵，<span class="arithmatex">\(f\)</span> 被称为角点响应（corner response）。</p>
-<p>这样的话，我们就可以计算角点的响应值图，对这个图做二值化，就可以得到可能的角点，从而计算出特征点。</p>
-<p>我们的另一个要求是，特征点需要有可重复性（repeatability）。我们需要做的是匹配两个图，而我们检测的两组点是在两个图上分别检测的。因此，我们需要保证检测出来的点在另外一张图上也能被一样地检测出来。如何衡量可重复性？我们只要要求响应值在图像变换之后保持不变。在这里，我们指的图像变换可能是光度（photometric）变换，例如亮度变化以及几何（geometric）变换，例如旋转和放缩。</p>
-<details class="error" open="open">
-<summary>Error</summary>
-<p>未完成！</p>
-</details>
+<p>让我们从正则语言往上走一大步。如果说正则语言和有理性（rationality）紧密联系，那么上下文无关语言（context-free language, CFL）就是与代数性（algebraicity）紧密联系的。但是，这里它的代数性质事实上会麻烦很多，我们也会看到，上下文无关语言的充要条件不再来自于代数，而是来自于形式语言相关的内容。</p>
+<p>在本文中将继续弱化机器刻画的内容而强化代数相关的刻画，因此，我们将尝试从语法到代数刻画再到自动机的方式。需要指出，事实上正则语言也应当可以采取这样的形式进行介绍，只要将正则语法给定，就可以推出大部分结论。</p>
+<h2 id="basic-definitions">Basic Definitions 基本定义<a class="headerlink" href="#basic-definitions" title="Permanent link">&para;</a></h2>
+<p>在第一节中我们已经提到了语法的概念，在此直接表述上下文无关语法的版本：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一个上下文无关语法（context-free grammar） <span class="arithmatex">\(G\)</span> 是一个四元组 <span class="arithmatex">\((V, \Sigma, S, R)\)</span> ，其中：</p>
+<ul>
+<li><span class="arithmatex">\(V\)</span> 是一个有限集，称为符号集（set of symbols）；</li>
+<li><span class="arithmatex">\(\Sigma \subseteq V\)</span> ，其中的元素称为终止符（terminals），事实上，它就是这个语法生成的语言的字母表；</li>
+<li><span class="arithmatex">\(S \in V - \Sigma\)</span>，称为起始符（start symbol）；</li>
+<li><span class="arithmatex">\(R \subseteq (V - \Sigma) \times V^\ast\)</span>，是一个有限集（这由定义显然），称为生成规则（production），其中的元素记为 <span class="arithmatex">\(A \rightarrow u\)</span>，若 <span class="arithmatex">\((A, u) \in R\)</span>。</li>
+</ul>
+</div>
+<p>事实上，我们通常将 <span class="arithmatex">\(S\)</span> 称为公理（axioms）而将剩下三个分离开来，在下一节中，这样操作的动机会显得更加充分：语言事实上描述了一套逻辑系统，<span class="arithmatex">\(R\)</span> 作为它的演绎过程而存在，而公理事实上超脱在演绎过程之外。</p>
+<div class="admonition warning">
+<p class="admonition-title">记号</p>
+<p>我们称一步演绎/推导（derivation）为一个从字符串 <span class="arithmatex">\(xAy \in V^\ast\)</span> 到达 <span class="arithmatex">\(xuy \in V^\ast\)</span> 的过程，其中 <span class="arithmatex">\(A \to u \in R\)</span>，<span class="arithmatex">\(A \in V - \Sigma\)</span>，记作 <span class="arithmatex">\(xAy \Rightarrow_G xuy\)</span>。</p>
+</div>
+<p>形式上将，这就是一步替换，将非终止符继续推导下去的过程。</p>
+<div class="admonition warning">
+<p class="admonition-title">记号</p>
+<p>如果经过一串长为 <span class="arithmatex">\(n\)</span> 的演绎可以将 <span class="arithmatex">\(w \in V^\ast\)</span> 转变为 <span class="arithmatex">\(u \in V^\ast\)</span>，则我们将其记为 <span class="arithmatex">\(w \Rightarrow^\ast_G u\)</span>。</p>
+</div>
+<p>这样，<span class="arithmatex">\(G\)</span> 生成的语言就可以被定义了：<span class="arithmatex">\(L(G) = \{w: S \Rightarrow_G^\ast w\}\)</span>。可见，生成规则往往是最核心的部分，因此我们很多时候只给出生成规则，其他部分都省略。</p>
+<p>注意，在这里定义的生成规则 <span class="arithmatex">\(R\)</span> 与一般语法的差别在于，箭头左侧的符号一定是<strong>一个</strong>非终止符。而在无限制的语法（unrestricted grammar，或 free grammar）中，我们对左侧和右侧的符号都仅限制为 <span class="arithmatex">\(V^\ast\)</span>，在上下文相关语法（context-sensitive grammar）中，我们要求生成规则的形式为 <span class="arithmatex">\(xAy \rightarrow xuy\)</span>，其中 <span class="arithmatex">\(x, u, y \in V^\ast\)</span>，<span class="arithmatex">\(A\)</span> 为非终止符。也就是说，只有在特定上下文中（即 <span class="arithmatex">\(x, y\)</span>）<span class="arithmatex">\(A\)</span> 才可被如此推导。这样的比较应该能更加明确“上下文无关”的含义：无论何时何地看到了非终止符，它都能作此推导。</p>
+<p>而正则语法，如前所述，只包含 <span class="arithmatex">\(X \rightarrow a, X \rightarrow aY, X \rightarrow \varepsilon\)</span> 三种形式，其中 <span class="arithmatex">\(X, Y\)</span> 为非终止符，<span class="arithmatex">\(a\)</span> 为终止符。很容易看出，根据我们的定义，正则语法包含于 CFG 当中。事实上，存在这样一个层级关系（hierachy）：</p>
+<ul>
+<li>无限制的语法（Type 0）</li>
+<li>上下文相关语法（Type 1）</li>
+<li>上下文无关语法（Type 2）</li>
+<li>正则语法（Type 3）</li>
+</ul>
+<p>这个层级关系被归为 N. Chomsky 的成果，称为 Chomsky 层级。这个名字会在我们此后的讨论中一次又一次地出现。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>如果存在 <span class="arithmatex">\(A \in V - \Sigma\)</span>，有 <span class="arithmatex">\(A \rightarrow x\)</span> 和 <span class="arithmatex">\(A \rightarrow y\)</span> 两条生成规则，且 <span class="arithmatex">\(x \neq y\)</span>，那么我们就称这个语法是两可的（ambiguous）。如果没有 <span class="arithmatex">\(X \rightarrow Y\)</span> 或 <span class="arithmatex">\(X \rightarrow \varepsilon\)</span> 这样的规则，其中 <span class="arithmatex">\(X, Y\)</span> 为非终止符，那么我们就称它是真的（proper）。</p>
+</div>
+<p>以下一个结论对于读者来说应当不难证明：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>可以找到一个等价的上下文无关语法 <span class="arithmatex">\(G^\prime\)</span> 使得 <span class="arithmatex">\(L(G) = L(G^\prime)\)</span>，且：</p>
+<ul>
+<li>若 <span class="arithmatex">\(\varepsilon \in L(G)\)</span> 则 <span class="arithmatex">\(G^\prime\)</span> 中只有一条规则 <span class="arithmatex">\(S \rightarrow \varepsilon\)</span> 是形如 <span class="arithmatex">\(X \rightarrow \varepsilon\)</span> 的；</li>
+<li>反之，则 <span class="arithmatex">\(G^\prime\)</span> 是真的。</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个语言 <span class="arithmatex">\(L\)</span> 为上下文无关语言，若存在上下文无关语法 <span class="arithmatex">\(G\)</span> 使得 <span class="arithmatex">\(L(G) = L\)</span>。</p>
+</div>
+<p>当然，这样的语法可能有很多种，在下一节中，我们将会讨论怎样标准化上下文无关语法，将其化简成统一的形式。</p>
+<p>下面给出几个上下文无关语言的例子，它们都是相当重要的：</p>
+<ul>
+<li>Dyck 语言，设 <span class="arithmatex">\(A\)</span> 为一字母表，<span class="arithmatex">\(\bar A\)</span> 是它的一个复制（即一个与之无交但元素一一对应的集合），<span class="arithmatex">\(A\)</span> 中的元素与 <span class="arithmatex">\(\bar A\)</span> 对应，<span class="arithmatex">\(a \in A\)</span> 被对应到 <span class="arithmatex">\(\bar a \in \bar A\)</span>。推广到 <span class="arithmatex">\((A \cup \bar A)^\ast\)</span> 中，我们有 <span class="arithmatex">\(\bar{xy} = \bar y \bar x\)</span>。由生成规则 <span class="arithmatex">\(S \rightarrow TS|\varepsilon\)</span> 和 <span class="arithmatex">\(S \rightarrow aS\bar a\)</span> 生成的语言被称为 Dyck 语言。事实上，很容易看出，它可以被视为“括号配对”的语言，<span class="arithmatex">\(|A|\)</span> 指的就是括号的种类数。</li>
+<li>Lukasiewicz 语言，字母表为 <span class="arithmatex">\(\{a, b\}\)</span>，生成规则为 <span class="arithmatex">\(S \rightarrow aSS|b\)</span>。</li>
+</ul>
+<h3 id="_1">练习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>在这里，证明非上下文无关语言事实上并不容易，因为我们需要证明，不存在一个上下文无关语法能够表出这种语言。因此，本节只要求证明“是”，最简单的方法就是构造上下文无关语法。</p>
+<ol>
+<li>证明 <span class="arithmatex">\(a^nb^n, n \geqslant 1\)</span> 的字符串构成的语言为 CFL 并构造其正则语法；</li>
+<li>证明不是所有上下文无关语法都可以化为非两可的上下文无关语法（提示：考虑 <span class="arithmatex">\(\{a^nb^mc^md^n: m, n &gt; 0\} \cup \{a^nb^nc^md^m: m, n &gt; 0\}\)</span> 对应的上下文无关语法）；</li>
+<li>证明上面提到的等价性；</li>
+<li>证明正则语言的部分闭包性质：并、衔接、翻转、Kleene 星，同态的像及其原像；</li>
+<li>表明 Lukasiewicz 语言事实上就是 <span class="arithmatex">\(A\)</span> 为单元素集 <span class="arithmatex">\(\{a\}\)</span> 的 Dyck 语言与 <span class="arithmatex">\(\{b\}\)</span> 的衔接；</li>
+<li>计算 Dyck 语言的句法幺半群，事实上，它被称为双循环半群（bicyclic semigroup）。</li>
+</ol>
+<h2 id="linear-systems">Linear Systems 线性系统<a class="headerlink" href="#linear-systems" title="Permanent link">&para;</a></h2>
+<p>在正则语言那里已经给出了线性方程的概念，当时我们考虑的是形如 <span class="arithmatex">\(X = KX + L\)</span> 的结构。但是在这里，因为衔接不是交换的，线性方程就必须变成 <span class="arithmatex">\(X = KXK^\prime + L\)</span>。</p>
+<blockquote>
+<p>TODO: 线性方程的解法和格性质，Parikh 定理以及 Ginsberg-Spanier 对它的推广</p>
+</blockquote>
+<h2 id="normal-forms">Normal Forms 标准型<a class="headerlink" href="#normal-forms" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: Greibach 标准型和算子标准型，以及关于统一的标准型的介绍</p>
+</blockquote>
+<h2 id="applications-of-greibach-normal-form-greibach">Applications of Greibach Normal Form Greibach 标准型的应用<a class="headerlink" href="#applications-of-greibach-normal-form-greibach" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: Shamir 定理，Chomsky-Schützenberger 定理以及 Wechler 定理</p>
+</blockquote>
+<h2 id="pumping-lemma">Pumping Lemma 泵引理<a class="headerlink" href="#pumping-lemma" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: Ogden 引理，交换引理以及各种变体，"Di-lemma"，<a href="https://reader.elsevier.com/reader/sd/pii/0304397588901387?token=C64FC8D658F7D39FFEE21B181139780956B516B1EEA7AE37226CD48917E2DC78E93380CCA1B436879267BE250294B6A6&amp;originRegion=eu-west-1&amp;originCreation=20230215113338">PII: 0304-3975(88)90138-7 | Elsevier Enhanced Reader</a>，强泵引理（D. S. Wise）</p>
+</blockquote>
+<h2 id="an-algebraic-view">An Algebraic View 代数刻画<a class="headerlink" href="#an-algebraic-view" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: 代数级数、余代数刻画、Chomsky 代数、公理化与方程、上下文无关代数</p>
+</blockquote>
+<h2 id="push-down-automata">Push-down Automata 下推自动机<a class="headerlink" href="#push-down-automata" title="Permanent link">&para;</a></h2>
+<h2 id="group-as-memory">Group As Memory 作为内存的群<a class="headerlink" href="#group-as-memory" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO <a href="https://arxiv.org/pdf/math/0601061.pdf">0601061.pdf (arxiv.org)</a> 第四节</p>
+</blockquote>
+<h2 id="algebraic-applications">Algebraic Applications 代数应用<a class="headerlink" href="#algebraic-applications" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: 使用 CFL 研究有限展示代数、分次代数以及 Hilbert 级数</p>
+</blockquote>
+<h2 id="_2">参考资料<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>M. Blattner and S. Ginsburg. Canonical forms of context-free grammars and position restricted grammars. In Karpinski, editor, <em>Fundamentals of Computing Theory</em>, volume 56 of <em>Lect. Notes Comp. Sci.</em>, 1977</p>
 
 
 
 
-
-  <h2 id="__comments">评论</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-        data-repo="frightenedfoxcn/notes"
-        data-repo-id="R_kgDOI23RIA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOI23RIM4CUEOA"
-        data-mapping="pathname"
-        data-strict="1"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
               </article>
@@ -1118,7 +1290,7 @@ f = \frac{\lambda_1\lambda_2}{\lambda_1 + \lambda_2} = \frac{\det \mathrm{Cov}}{
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../01%20Image%20Formation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 01 Image Formation" rel="prev">
+        <a href="../01B/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 01B 范畴化的自动机 Automata in Category Context" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1127,20 +1299,20 @@ f = \frac{\lambda_1\lambda_2}{\lambda_1 + \lambda_2} = \frac{\det \mathrm{Cov}}{
               <span class="md-footer__direction">
                 上一页
               </span>
-              01 Image Formation
+              01B 范畴化的自动机 Automata in Category Context
             </div>
           </div>
         </a>
       
       
         
-        <a href="../05%20Structure%20from%20Motion/" class="md-footer__link md-footer__link--next" aria-label="下一页: 05 Structure from Motion" rel="next">
+        <a href="../../../exercises/" class="md-footer__link md-footer__link--next" aria-label="下一页: Exercises" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              05 Structure from Motion
+              Exercises
             </div>
           </div>
           <div class="md-footer__button md-icon">
