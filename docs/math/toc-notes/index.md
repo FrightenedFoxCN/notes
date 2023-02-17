@@ -16,7 +16,7 @@ comments: true
 | 01B | [范畴化的自动机 Automata in Category Context](01B) | ☑️ |
 | 02A | 线性语言及其机器实现 Linear Languages and Correspounding Machine | ❎ |
 | 02B | 更多（简单的）自动机和拓扑化 More Simple Automata, Finite Topology | ❎ |
-| 03A | 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages | ❎ |
+| 03A | 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages | ☑️ |
 | 03B | 语言、逻辑和推理 Languages, Logic and Deduction | ❎ |
 | 04A | 随机自动机、量子自动机概述 Stochastic Automata, Quantum Automata | ❎ |
 | 04B | 物理相关的杂谈：信息熵和可逆性 Physics-related Topics: Entropy and Reversibility | ❎ |

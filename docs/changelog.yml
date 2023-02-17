@@ -1,8 +1,15 @@
 - "2023":
+  - "2023-02-17":
+    - newpage:
+        text: 增加计算理论 03A
+        href: /notes/math/toc-notes/03A
+    - pageupdate:
+        text: 更新计算理论 01A ，优化了格式，添加一点练习
+        href: /notes/math/toc-notes/01A
   - "2023-02-10":
     - newpage:
-      - text: 增加计算理论第二节前言，以备感兴趣的读者预先参考
-      - href: /notes/math/toc-notes/01B
+        text: 增加计算理论第二节前言，以备感兴趣的读者预先参考
+        href: /notes/math/toc-notes/01B
   - "2023-02-08":
     - function: 更新 KaTeX 版本以优化分数线显示
     - function: 添加了评论功能
