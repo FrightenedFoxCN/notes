@@ -61,6 +61,7 @@ extra_javascript:
 plugins:
   - changelog
   - search
+  - mathenv
 
 nav:
   - Home:

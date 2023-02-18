@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-02-18":
+    - function:
+        text: 增加数学写作环境支持
+        href: https://frightenedfoxcn.github.io/mkdocs-mathenv-plugin/
   - "2023-02-17":
     - newpage:
         text: 增加计算理论 03A
