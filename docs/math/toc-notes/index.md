@@ -14,13 +14,14 @@ comments: true
 |:----:|----------------------------------------------------------|:----:|
 | 01A | [有限自动机和正则语言 Finite Automata and Regular Languages](01A) | ☑️ |
 | 01B | [范畴化的自动机 Automata in Category Context](01B) | ☑️ |
+| 01C | 更多自动机：序、拓扑和半群的类 More Automata: Orders, Topology & Varieties of Semigroup | ❎ |
 | 02A | 线性语言及其机器实现 Linear Languages and Correspounding Machine | ❎ |
-| 02B | 更多（简单的）自动机和拓扑化 More Simple Automata, Finite Topology | ❎ |
-| 03A | 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages | ☑️ |
+| 02B | Kleene 机 Kleene Machines | ❎ |
+| 03A | [下推自动机和上下文无关语言 Push-down Automata and Context-free Languages](03A) | ☑️ |
 | 03B | 语言、逻辑和推理 Languages, Logic and Deduction | ❎ |
 | 04A | 随机自动机、量子自动机概述 Stochastic Automata, Quantum Automata | ❎ |
 | 04B | 物理相关的杂谈：信息熵和可逆性 Physics-related Topics: Entropy and Reversibility | ❎ |
-| 05A | 图灵机 Turing Machines | ❎ | 
+| 05A | [图灵机与规约 Turing Machines & Reduction](05A) | ☑️ | 
 | 05B | lambda 演算和 Curry-Howard 同构 Lambda Calculus and Curry-Howard Isomorphism | ❎ |
 | 06A | 可计算函数 Computable Functions | ❎ |
 | 06B | 结构化不动点定理 Structural Fixed Point Theorem | ❎ |

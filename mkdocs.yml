@@ -60,8 +60,11 @@ extra_javascript:
 
 plugins:
   - changelog
+  - statistics
   - search
-  - mathenv
+  - mathenv:
+      tikzcd:
+        enable: false
 
 nav:
   - Home:
@@ -81,6 +84,7 @@ nav:
       - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
       - 01B 范畴化的自动机 Automata in Category Context: math/toc-notes/01B.md
       - 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages: math/toc-notes/03A.md
+      - 05A 图灵机与规约 Turing Machines & Reduction: math/toc-notes/05A.md
   - Exercises:
     - exercises/index.md
     # - 李文威《代数学方法》卷一：基本架构: 
