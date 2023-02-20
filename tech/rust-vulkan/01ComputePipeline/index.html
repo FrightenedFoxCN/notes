@@ -33,6 +33,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../css/svg.css">
+    
       <link rel="stylesheet" href="../../../css/timeline.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -673,6 +675,8 @@
         
           
         
+          
+        
       
       
         
@@ -731,6 +735,20 @@
     <li class="md-nav__item">
       <a href="../../../math/toc-notes/03A/" class="md-nav__link">
         03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/toc-notes/05A/" class="md-nav__link">
+        05A 图灵机与规约 Turing Machines & Reduction
       </a>
     </li>
   
@@ -1280,6 +1298,9 @@
 <p>Talk is cheap. Let's see the codes. 好，下面我们首先来写 GLSL 代码。这里我们要写的是一个计算着色器（compute shader），应该说这才是这篇文章的重点实现部分。但是我们不会过度深挖 GLSL 代码的写法，可以参考 OpenGL SuperBible 之类的参考书，当然，对于需要使用到的内容我们都会边写边做解释，如果不能插入正文的，会像上面对 Rust 的提示一样用小方块来做简要说明。</p>
 <p>GLSL 代码的起手式就是要先表明它的版本。计算着色器是在 4.0 版本之后才被引入的，而为了符合时代要求，我们使用 4.60.7 的最新版本来进行介绍，它的版本号是 460，因此我们写：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp"># version 460 core</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="n">markdown</span><span class="o">=</span><span class="err">&quot;</span><span class="mi">1</span><span class="err">&quot;</span><span class="w"> </span><span class="n">style</span><span class="o">=</span><span class="err">&quot;</span><span class="n">margin</span><span class="o">-</span><span class="n">top</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mi">30</span><span class="n">px</span><span class="p">;</span><span class="w"> </span><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span><span class="w"> </span><span class="mf">0.75</span><span class="n">em</span><span class="p">;</span><span class="w"> </span><span class="n">opacity</span><span class="o">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">;</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">:</span><span class="n">material</span><span class="o">-</span><span class="n">circle</span><span class="o">-</span><span class="n">edit</span><span class="o">-</span><span class="n">outline</span><span class="o">:</span><span class="w"> </span><span class="err">约</span><span class="w"> </span><span class="mi">8167</span><span class="w"> </span><span class="err">个字</span><span class="w"> </span><span class="o">:</span><span class="n">fontawesome</span><span class="o">-</span><span class="n">solid</span><span class="o">-</span><span class="n">code</span><span class="o">:</span><span class="w"> </span><span class="mi">164</span><span class="w"> </span><span class="err">行代码</span><span class="w"> </span><span class="o">:</span><span class="n">material</span><span class="o">-</span><span class="n">clock</span><span class="o">-</span><span class="n">time</span><span class="o">-</span><span class="n">two</span><span class="o">-</span><span class="n">outline</span><span class="o">:</span><span class="w"> </span><span class="err">预计阅读时间</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="err">分钟</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w"></span>
 </code></pre></div>
 <p>跟在版本号后面的 <code>core</code> 可有可无，它与 <code>compatibility</code> 相对，后者会支持更多的过时的固定管线相关函数，关于管线（pipeline）的内容我们会在后面介绍。下面的代码基本上是抄的 vulkano 官方教程，接下来是布局（layout）的规定：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">layout</span><span class="p">(</span><span class="n">local_size_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">local_size_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">local_size_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="p">;</span><span class="w"></span>

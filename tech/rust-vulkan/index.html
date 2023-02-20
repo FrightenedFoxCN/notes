@@ -33,6 +33,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/svg.css">
+    
       <link rel="stylesheet" href="../../css/timeline.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
@@ -567,6 +569,8 @@
         
           
         
+          
+        
       
       
         
@@ -625,6 +629,20 @@
     <li class="md-nav__item">
       <a href="../../math/toc-notes/03A/" class="md-nav__link">
         03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/toc-notes/05A/" class="md-nav__link">
+        05A 图灵机与规约 Turing Machines & Reduction
       </a>
     </li>
   
@@ -963,6 +981,9 @@
 
 
 <h1 id="rust-vulkan">使用 Rust 语言的 Vulkan 教程<a class="headerlink" href="#rust-vulkan" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 461 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 2 分钟</p>
+</div>
 <p>在这里，我们将使用 Rust 作为主要的编程语言开始对 Vulkan API (<a href="https://www.vulkan.org/">Home | Vulkan | Cross platform 3D Graphics</a>) 的介绍。当然，许多其他语言都是可用的，例如更古老的 C++ + OpenGL/Vulkan 等等， Python + ModernGL 也是一个非常常见且易学的组合。这里之所以使用 Rust 是因为我喜欢，而且它的许多语言特性使得我们可以更少被语言本身的表达方式所限制，同时减少出错的可能。关于 Rust 的资料不多，可供参考的有 <a href="https://doc.rust-lang.org/book/title-page.html">The Rust Programming Language - The Rust Programming Language (rust-lang.org)</a> 以及 <a href="https://web.stanford.edu/class/cs110l/">CS 110L: Safety in Systems Programming (stanford.edu)</a> 等。在前几篇文章中，我们将首先使用 Vulkano 库 (<a href="https://docs.rs/vulkano/0.32.3/vulkano/index.html">vulkano - Rust (docs.rs)</a>) 来引入对基本流程的介绍，并且完成两个小例子作为开胃小菜。然后，我们将从 Vulkano 库深挖下去，一方面分析它的原始代码，另一方面尝试引入更多图形学的概念来实现更加复杂的任务。前者更加偏向于底层架构，而后者更加偏向于上层的代码实现。</p>
 <p>接下来，我们将假定读者已经对 Rust 的基础语法有所了解，并且已经完成了对 Vulkan SDK 的安装。我们使用的 rustc 版本为 1.66.2，Vulkano 版本为 0.32.3，Vulkan SDK 版本为 1.3.236，均为笔者写作时的最新版本。</p>
 <details class="warning" open="open">

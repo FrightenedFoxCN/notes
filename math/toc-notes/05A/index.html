@@ -1,0 +1,1468 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/math/toc-notes/05A/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>05A 图灵机与规约 Turing Machines & Reduction - FFox's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/svg.css">
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deterministic-turing-machine-recursively-enumerable-languages-recursive-languages" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FFox's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05A 图灵机与规约 Turing Machines & Reduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tech/" class="md-tabs__link">
+        Technology
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Mathematics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../exercises/" class="md-tabs__link">
+        Exercises
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../qnotes/" class="md-tabs__link">
+        Quick Notes
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    FFox's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        更新记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../links/" class="md-nav__link">
+        友链
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../todo/" class="md-nav__link">
+        待办事项
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/">Technology</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Technology" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Technology
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../tech/rust-vulkan/">Vulkan Tutorial with Rust</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Vulkan Tutorial with Rust" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Vulkan Tutorial with Rust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+        01 计算流水线 Compute Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Mathematics</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Mathematics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mathematics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Theory of Computation Overview</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Theory of Computation Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Theory of Computation Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01A/" class="md-nav__link">
+        01A 有限自动机和正则语言 Finite Automata & Regular Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01B/" class="md-nav__link">
+        01B 范畴化的自动机 Automata in Category Context
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03A/" class="md-nav__link">
+        03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          05A 图灵机与规约 Turing Machines & Reduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        05A 图灵机与规约 Turing Machines & Reduction
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deterministic-turing-machine-recursively-enumerable-languages-recursive-languages" class="md-nav__link">
+    确定性图灵机、递归可枚举语言和递归语言 Deterministic Turing Machine, Recursively Enumerable Languages &amp; Recursive Languages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-equivalence-to-algorithm" class="md-nav__link">
+    一些例子，其与算法的等价性 Examples &amp; Equivalence to Algorithm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-failed-attempt-to-extend-the-model" class="md-nav__link">
+    （失败的）模型推广 (A Failed Attempt to) Extend the Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#halting-problem" class="md-nav__link">
+    停机问题 Halting Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduction" class="md-nav__link">
+    归约 Reduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrestricted-grammar" class="md-nav__link">
+    不受限的语法 Unrestricted Grammar
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../exercises/">Exercises</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Exercises" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../qnotes/">Quick Notes</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Quick Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Quick Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
+        Theorem Proving in Lean 4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../qnotes/computer_vision/">Computer Vision</a>
+          
+            <label for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Computer Vision" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Computer Vision
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
+        01 Image Formation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
+        03 Image Matching & Motion Estimation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
+        05 Structure from Motion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
+        06 Depth Estimation & Dense Reconstruction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
+        07 Recognition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
+        08 3D Deep Learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
+        09 Computational Photography
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
+        10 Image-based Rendering
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deterministic-turing-machine-recursively-enumerable-languages-recursive-languages" class="md-nav__link">
+    确定性图灵机、递归可枚举语言和递归语言 Deterministic Turing Machine, Recursively Enumerable Languages &amp; Recursive Languages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-equivalence-to-algorithm" class="md-nav__link">
+    一些例子，其与算法的等价性 Examples &amp; Equivalence to Algorithm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-failed-attempt-to-extend-the-model" class="md-nav__link">
+    （失败的）模型推广 (A Failed Attempt to) Extend the Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#halting-problem" class="md-nav__link">
+    停机问题 Halting Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduction" class="md-nav__link">
+    归约 Reduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrestricted-grammar" class="md-nav__link">
+    不受限的语法 Unrestricted Grammar
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>05A 图灵机与规约 Turing Machines & Reduction</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6660 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 22 分钟</p>
+</div>
+<p>之前我们花了很多时间讨论各种计算模型，但是这些模型似乎都不符合对计算机的普遍认知。有限自动机似乎受制于失忆的可能，下推自动机的记忆则只有一个受限的栈。唯一引人遐思的是 Kleene 机的模型，它似乎通过代数的方式给出了一个相当广泛的可计算性定义。在这里我们要引入图灵机，计算理论历史上最经典、最引人注目的概念之一，它将成为现代计算机的一种模板，同时也会成为后续讨论的重要基石：虽然“不如” Kleene 机广泛，但是它足以成为一种形象化的模型来讨论可计算性。</p>
+<p>当然，图灵机事实上也是相当受限的。因为高阶（higher-order，例如函数，在下一节会给出明确的定义）的对象通常被编码为实数（考虑将 <span class="arithmatex">\(\mathbb{N}^{\mathbb{N}}\)</span> 的函数往实数建立一一对应，这种函数被称为类型 1 的对象，type 1 object，这种对应的一个例子是 Kohlenbach 的“帽子”，在后面介绍高阶可计算性的时候会对这些东西给出更加详尽的表达），这会导致很多不同的结果，例如 D. Normann 等人对几乎处处连续的函数的讨论。</p>
+<h2 id="deterministic-turing-machine-recursively-enumerable-languages-recursive-languages">确定性图灵机、递归可枚举语言和递归语言 Deterministic Turing Machine, Recursively Enumerable Languages &amp; Recursive Languages<a class="headerlink" href="#deterministic-turing-machine-recursively-enumerable-languages-recursive-languages" title="Permanent link">&para;</a></h2>
+<p>可以从两种方式抽象出图灵机的模型。一者，考虑以往的模型何以不充分，进而给出增添式的改进；二者，考虑现存的计算机如何存在，进而抽丝剥茧去除其中不重要的部分。</p>
+<p>对于前者，引言中业已表明前述部分模型的缺陷，它们要么没有记忆，要么记忆受限。因此，不妨以一条纸带作为记忆，构建一个可以任意读写的模型。对于后者，现代的计算机无不具备内存，甚至具备内存层次结构，这在计算中是非常有意义的。因此，纸带不过是一种对复杂的内存系统的抽象。无论如何，我们都可以得到类似如下的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一台图灵机（Turing machine） <span class="arithmatex">\(M\)</span> 是一个五元组 <span class="arithmatex">\((K, \Sigma, \delta, s, H)\)</span>：</p>
+<ul>
+<li><span class="arithmatex">\(K\)</span> 是一个有限的状态集；</li>
+<li><span class="arithmatex">\(\Sigma\)</span> 是一个字母表，这里要求它包含左端记号（left end symbol） <span class="arithmatex">\(\triangleright\)</span> 和空格符 （blank symbol） <span class="arithmatex">\(\sqcup\)</span>；</li>
+<li><span class="arithmatex">\(s \in K\)</span> 为初始状态；</li>
+<li><span class="arithmatex">\(H \subseteq K\)</span> 为停机状态集；</li>
+<li>
+<p><span class="arithmatex">\(\delta\)</span> 为状态转移函数 <span class="arithmatex">\((K - H) \times \Sigma \to K \times (\Sigma \cup \{\leftarrow, \rightarrow\})\)</span>，需做如下限制：</p>
+<ol>
+<li><span class="arithmatex">\(\forall q \in K - H, \exists p, \delta(q, \triangleright) = (p, \rightarrow)\)</span> （左端永远右移）</li>
+<li><span class="arithmatex">\(\forall q \in K - H, \forall a, b \in \Sigma, \delta(q, a) \neq (p, \triangleright)\)</span> （不会写左端记号）</li>
+</ol>
+</li>
+</ul>
+<p>由于 <span class="arithmatex">\(\delta\)</span> 是一个一一映射，像对前面的各种机器一样，也称之为确定性的图灵机（deterministic Turing machine, DTM）。</p>
+</div>
+<p>这样的定义看起来非常抽象，但用纸带的方式来解释它并不困难。既然有纸带用作记忆，那么显然就有以下几种可能：</p>
+<ol>
+<li>读写头在纸带上左移；</li>
+<li>读写头在纸带上右移；</li>
+<li>读写头向纸带上写；</li>
+</ol>
+<p>之所以读不重要，是因为操作的过程中我们都默认读写头是可以读的，也就是说，它永远知道它读写头下面的符号是什么。因此，状态转移函数中添加的 <span class="arithmatex">\(\{\leftarrow, \rightarrow\}\)</span> 就表征了读写的过程；<span class="arithmatex">\(\triangleleft\)</span> 表征纸带的最左端，<span class="arithmatex">\(\sqcup\)</span> 则表示纸带在这个位置是一片空白。两个要求也不难理解，一方面，图灵机不应该把左端符号写坏掉；另一方面，图灵机也不能随便将某个位置标记为纸带的左端。</p>
+<p>接下来我们就可以定义图灵机的格局（configuration），它指的就是图灵机在某时刻所处的状态。它是下面这个集合的成员：</p>
+<div class="arithmatex">\[
+K \times \triangleright(\Sigma - \{\triangleright\})^\ast \times ((\Sigma - \{\triangleright\})^\ast(\Sigma - \{\triangleright, \sqcup\}) \cup \{e\})
+\]</div>
+<p>看起来很吓人？实际上可以把它拆成三部分理解：</p>
+<ol>
+<li>它当前处于哪个状态；</li>
+<li>它从最左端往后到读写头位置（包含读写头）的字符串内容；</li>
+<li>它从读写头往后的字符串，直到全是空格为止；</li>
+</ol>
+<p>在实际情形中，我们通常使用下划线来表达读写头的位置。例如：</p>
+<div class="arithmatex">\[
+(q, \triangleright a \sqcup b, a \sqcup \sqcup b) \equiv (q, \triangleright a \sqcup \underline b a \sqcup \sqcup b)
+\]</div>
+<p>因此，形象地定义它的一步操作就是：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称图灵机 <span class="arithmatex">\(M\)</span> 能从格局 <span class="arithmatex">\((q_1, \triangleright w_1 \underline a_1 u_1)\)</span> 转变为 <span class="arithmatex">\((q_2, \triangleright w_2\underline a_2 u_2)\)</span>，若它满足以下几个条件：</p>
+<ol>
+<li>（写入）<span class="arithmatex">\(\delta(q_1, a_1) = (q_2, a_2), w_2 = w_1, u_2 = u_1\)</span>；</li>
+<li>（左移）<span class="arithmatex">\(\delta(q_1, a_1) = (q_2, \leftarrow), w_1 = w_2a_2, u_2 = a_1u_1 \text{\;or\;} e \text{\;if\;} a_1 = \sqcup, u_1 = e\)</span></li>
+<li>（右移）<span class="arithmatex">\(\delta(q_1, a_1) = (q_2, \leftarrow), w_2 = w_1a_1, u_1 = a_2u_2 \text{\;or\;} e \text{\;if\;} a_2 = \sqcup, u_2 = e\)</span></li>
+</ol>
+<p>记作 <span class="arithmatex">\((q_1, \triangleright w_1 \underline a_1 u_1) \vdash_M (q_2, \triangleright w_2\underline a_2 u_2)\)</span>。</p>
+<p>如果它可以在有限步（包括 0 步）内完成这样的转换，那么将其记为 <span class="arithmatex">\((q_1, \triangleright w_1 \underline a_1 u_1) \vdash_M^\ast (q_2, \triangleright w_2\underline a_2 u_2)\)</span></p>
+</div>
+<p>如果图灵机能够从起始状态和某个格局到达 <span class="arithmatex">\(H\)</span> 中的状态，就称这个图灵机停机（halts）。利用这个概念，它就能做出一个 0/1 判断，这就等价于计算一个示性函数。因此，就有了半判定的概念：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个图灵机 <span class="arithmatex">\(M\)</span> 半判定（semidecide）一个语言 <span class="arithmatex">\(L\)</span> 如果：</p>
+<ul>
+<li>（充分性） <span class="arithmatex">\(\forall w \in L, \exists h \in H, (s, \triangleright \underline \sqcup w) \vdash_M^\ast (h, \cdots)\)</span>；</li>
+<li>（必要性） <span class="arithmatex">\(\forall w \not \in L, \lnot (\exists h \in H, (s, \triangleright \underline \sqcup w) \vdash_M^\ast (h, \cdots))\)</span>；</li>
+</ul>
+<p>记 <span class="arithmatex">\(L(M) = L\)</span>。</p>
+</div>
+<p>这里的定义看起来稍微有点冗长。但是考虑到以后复杂性理论讨论的需要，这样的麻烦也是必须的。充分性和必要性在概率复杂度类相关的讨论中将成为标准定义之一；事实上，它和 PCP 定理息息相关。</p>
+<p>这样事实上就给出了递归可枚举语言的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个语言是递归可枚举的（recursively enumerable），如果存在一个图灵机半判定这个语言。</p>
+</div>
+<p>但是，这样的限制似乎不够强：判断一台图灵机停不停机会耗费无限长的时间，哪怕你等了充分长的时间，它也可能明天就停机，或者永远也不再停机。因此，如果要在有限时间内知道一个字符串是否属于某个语言，那么就不得不给出一个必然停机的结果。鉴于停机状态集合是一个集合，我们不妨假定它为 <span class="arithmatex">\(\{y, n\}\)</span>，接下来同样做出如下定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个图灵机 <span class="arithmatex">\(M\)</span> 判定（decide）一个语言 <span class="arithmatex">\(L\)</span>， 如果：</p>
+<ul>
+<li>（充分性） <span class="arithmatex">\(\forall w \in L, \exists h \in H, (s, \triangleright \underline \sqcup w) \vdash_M^\ast (y, \cdots)\)</span>；</li>
+<li>（必要性） <span class="arithmatex">\(\forall w \not \in L, \exists h \in H, (s, \triangleright \underline \sqcup w) \vdash_M^\ast (n, \cdots)\)</span>；</li>
+</ul>
+<p>称一个语言是递归的（recursive），如果存在一个图灵机判定这个语言。</p>
+</div>
+<p>接下来的结果看上去是显然的：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>递归语言一定是递归可枚举语言。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>只需考虑，如何使得这两种状态中的一种无限循环。对于所有到达状态 <span class="arithmatex">\(n\)</span> 的图灵机，使得它的状态转移函数为不断空转，即</p>
+<div class="arithmatex">\[
+\delta(n, \cdots) = (n, \cdots)
+\]</div>
+<p>这样就自然使得新的图灵机就是一个半判定此语言的图灵机。</p>
+</details>
+<p>下一个问题也就很自然了：递归可枚举语言和递归语言之间是否夹着什么东西？递归可枚举语言和全体语言之间是否也夹着什么东西？我们很快就会给出相应的构造，但是在这里，对于后者给出一个肯定的回答并不困难。</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>存在一个语言不能被图灵机半判定。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>注意到，定义图灵机的五元组当中每一个集合都是有限的，因此，所有图灵机构成的集合是可数的；而所有语言的集合是不可数的，这可以由对角线法（diagonalization）轻松地论证：</p>
+<p>假设存在一个从自然数到语言的一一映射 <span class="arithmatex">\(L\)</span>，则考虑 <span class="arithmatex">\(\{L(i)\} = 2^{\Sigma^\ast}\)</span>。接下来试构造一个语言使得它不在 <span class="arithmatex">\(\{L(i)\}\)</span> 之中。由于 <span class="arithmatex">\(\Sigma^\ast\)</span> 是可数的，将每个字符串赋予一函数 <span class="arithmatex">\(f: \mathbb N \to \Sigma^\ast\)</span>。考虑由以下方式定义的语言：</p>
+<div class="arithmatex">\[
+L^\prime = \{s_i: s_i \not \in L(i)\}
+\]</div>
+<p>因为对于任意 <span class="arithmatex">\(L \in \{L(i)\}\)</span>，都存在 <span class="arithmatex">\(s_i \in L^\prime\)</span> 使得 <span class="arithmatex">\(s \not \in L\)</span>，<span class="arithmatex">\(L^\prime \not \in \{L(i)\}\)</span>。这与上面的假设矛盾。</p>
+<p>事实上，这个结论可以看成 Lawvere 不动点定理的一个推论，在后面关于结构性不动点的一节中会重点说明。从集合论的角度看，这也是 Cantor 定理的必然推论。</p>
+</details>
+<p>这个论证同时表明，若在所有语言的集合上赋予恰当的测度，则递归可枚举语言事实上是零测的：随便构造一个语言它是递归可枚举的概率就是 <span class="arithmatex">\(0\)</span>。直观的说，图灵机面对所有语言来说渺如沧海一粟。但在下面，我们又会看到，对于人类的智识活动而言，图灵机竟又是一道不可逾越的鸿沟，多少还是有些引人深思的意味。</p>
+<p>递归可枚举语言和递归语言的闭包性质对于读者来说应当不难自己证明：</p>
+<ul>
+<li>递归可枚举语言对并、交、衔接和星封闭，对差不封闭；</li>
+<li>递归语言对并、交、差、衔接和星都封闭。</li>
+</ul>
+<p>最后，不妨给出图灵机计算某个函数的定义。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个函数 <span class="arithmatex">\(f: \mathbb \Sigma^\ast \to \mathbb \Sigma^\ast\)</span> 是可计算的（computable，或递归的，recursive），如果存在一个图灵机 <span class="arithmatex">\(M\)</span>，使得：</p>
+<div class="arithmatex">\[
+\exists h \in H, (s, \triangleright \underline \sqcup w) \vdash_M^\ast (h, \triangleright \underline \sqcup f(w))
+\]</div>
+</div>
+<p>不难发现它和判定一个语言殊途同归。判定一个语言附加一步写入 0/1 和填掉其它非空字符的操作就是一个计算示性函数的过程，当然，在这里这样的表述尚且不够严谨，需要用下一节的手法来让它包装成一个好的叙述。</p>
+<h2 id="examples-equivalence-to-algorithm">一些例子，其与算法的等价性 Examples &amp; Equivalence to Algorithm<a class="headerlink" href="#examples-equivalence-to-algorithm" title="Permanent link">&para;</a></h2>
+<p>为了理解图灵机，不妨考虑一些例子。这些例子在标准教材中也应当相当充分，但在这里，因为笔者希望读者更多着眼于理论框架而非细枝末节，故只会给出一些具备理论意义的例子以备讨论。</p>
+<ul>
+<li>三种很自然的图灵机对应于上节界定的三种操作：写、左移和右移。构造其对应的图灵机应当不难，只是无论在何处都执行一步此操作然后停机。</li>
+<li>分支：根据读到的内容决定下一步运行某个图灵机的操作。这应当也不难，和有限状态机旨趣相同。这样也就建立了循环的概念。</li>
+</ul>
+<p>因此，用图示表示图灵机变得可能了：分支和循环被建立，基本操作和基本操作的级联（cascade）也毫无困难。因此，可以直接宣称，描述一种算法事实上和描述图灵机别无二致，只是算法的每一步都应当有一个对应的图灵机来完成。这样的陈述使得我们对图灵机的描述更加简单了：输入、分支和执行构成了整个描述的所有基本操作，它们等价于编程语言的读取、判断（循环）和跳转过程。下面我们都将用形似自然语言的伪代码来描述图灵机。</p>
+<h2 id="a-failed-attempt-to-extend-the-model">（失败的）模型推广 (A Failed Attempt to) Extend the Model<a class="headerlink" href="#a-failed-attempt-to-extend-the-model" title="Permanent link">&para;</a></h2>
+<p>在构造反例之前，我们将首先考察更多更丰富的图灵机模型。这些模型往往看上去比原来的机器更加强大，但它们并不能给出更强的结果。这事实上说明了图灵机模型的强大之处：似乎它就是一个计算能力的上界。</p>
+<p>这一节中的证明异常多而繁琐，在标准教材中通常也不吝笔墨。但是这不是标准教材，且笔者认为这些模型事实上难以起到什么重要意义，因此在此只给出简单的思想方法，若读者有兴趣，自可参考标准教材，也可自行丰满其内容。</p>
+<p>第一种推广是随机存取的图灵机，将左移、右移操作替换成移至某个位置。看上去这似乎使得它变强了，但细想之下就会发觉，这只是“加速”了它的运算过程。任意有限步移动都可以靠对状态机的简单修改表征，因此它并不能提升图灵机的计算能力。</p>
+<p>第二、三、四种推广分别是两端无限长、多带图灵机和二维平面上的图灵机。细想就会发现，无论怎么推广，纸带的长度还是可数格，因此，编号的想法就已经足够了。当然，对于两端无限长和多带的情形，也可以通过在同一格填充多个符号来处理，这就等价于编号的思路。</p>
+<p>第五种推广是多头图灵机。多个读写头事实上只要能记下多个头的位置就可以模拟。通过对读写头的位置加下划线标记，补充字母表即可。</p>
+<p>最后一种推广，非确定性图灵机是值得仔细考察的一种，它在后面讨论复杂度理论时会发挥几乎不可替代的作用。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一台非确定性图灵机（non-deterministic Turing machine，NTM）是一个五元组 <span class="arithmatex">\((K, \Sigma, \Delta, s, H)\)</span>，其中其它四项都与 DTM 相同，但是 <span class="arithmatex">\(\Delta\)</span> 是以下集合的有限子集：</p>
+<div class="arithmatex">\[
+((K - H) \times \Sigma) \times (K \times (\Sigma \cup \{\leftarrow, \rightarrow\}))
+\]</div>
+</div>
+<p>容易看出，这个形态就是和 NFA 一致的。格局的定义是和 DTM 一致的。而我们定义它半判定一种语言的方式和 DTM 也是完全一致的。注意，这样我们声明的是，存在某个分支停机，而不是任意分支停机。</p>
+<p>当然，判定一种语言的定义方式也是一样的。也就是说，任意属于 <span class="arithmatex">\(L\)</span> 的字串，存在一个分支接受它；任何不属于 <span class="arithmatex">\(L\)</span> 的字串，任何分支都不接受它。</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>任何一个 NTM 都可以被一个 DTM 模拟。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>直观地，可以把一个 NTM 看作一个树状结构，而 DTM 是一个链式的运行过程。因此需要考虑的就是一个树的遍历任务。当然，在 DFS 和 BFS 需要做出一种选择：DFS 是不行的，因为它搜索到一个无穷的分支就会无限搜索；BFS 则可以搜索到一个有穷的分支则停止搜索。因而我们考虑 BFS。</p>
+<p>为了方便起见，下面考虑三带图灵机，这种形式会更有利于下面的表述。第一条纸带用来存储输入，第二条纸带用来模拟 NTM 的运行，第三条纸带用来记录遍历到了哪个位置。每一次模拟几步运行，然后停下，将第二条纸带用第一条纸带来覆写掉，再改写第三条纸带的内容，重新模拟。</p>
+</details>
+<p>NTM 的意涵事实上是十分丰富的，在后面会介绍的 <span class="arithmatex">\(\sharp P\)</span> 函数，以及关于几个经典概率复杂度类的证明都会利用 NTM 实现。</p>
+<p>在这些尝试之后，丘奇-图灵论题（Church-Turing thesis）的导出也就显得有些理所应当了：</p>
+<div class="admonition question">
+<p class="admonition-title">Church-Turing 论题</p>
+<p>图灵机表征最强的可计算性，即任何问题如果可被物理系统计算，则一定能被图灵机计算。</p>
+</div>
+<p>哪怕到了今天，这个论题也没有被打破，反而延伸出了新的意蕴。例如，在经典物理的层面，Gandy 给出了一个合理假设下的证明。P. Arrighi 等人则将其推广到了量子层面，将理论物理的对称性充分地应用于可计算性层面，这些话题在物理相关的杂谈一节中将会得到尽可能充分的展现。</p>
+<h2 id="halting-problem">停机问题 Halting Problem<a class="headerlink" href="#halting-problem" title="Permanent link">&para;</a></h2>
+<p>接下来需要做的是构造递归可枚举而非递归的语言以及非递归可枚举的语言。核心的想法就是停机问题：</p>
+<div class="arithmatex">\[
+H = \{"M""w": M \text{\;is\;a\;TM\;that\;halts\;on\;} w\}
+\]</div>
+<p>其中 <span class="arithmatex">\("M"\)</span> 指的是图灵机 <span class="arithmatex">\(M\)</span> 的编码：毕竟图灵机是可数的，它当然也可以被编码出来。</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p><span class="arithmatex">\(H\)</span> 是递归可枚举的。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>只需要使用一个通用图灵机来模拟这个图灵机，直接在 <span class="arithmatex">\(w\)</span> 上运行 <span class="arithmatex">\(M\)</span>，如果它停机，那这个图灵机也停机。这个语言就被这个通用图灵机所半判定了。</p>
+</details>
+<p>下一步欲证它不是递归的。为了证明这一点，需要用到另一个语言作为中介，它事实上就是这个语言的对角线化：</p>
+<div class="arithmatex">\[
+H_d = \{"M": M \text{\;is\;a\;TM\;that\;does\;not\;halt\;on\;} "M"\}
+\]</div>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p><span class="arithmatex">\(H_d\)</span> 不是递归可枚举的。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>使用反证法。如果 <span class="arithmatex">\(H_d\)</span> 是递归可枚举的，那么存在图灵机 <span class="arithmatex">\(D\)</span> 半判定 <span class="arithmatex">\(H_d\)</span>，也就是说，如果 <span class="arithmatex">\("M" \in H_d\)</span>，则 <span class="arithmatex">\(D\)</span> 停机，反之不停机。接下来考虑 <span class="arithmatex">\("D"\)</span> 与 <span class="arithmatex">\(H_d\)</span> 的关系。根据 <span class="arithmatex">\(H_d\)</span> 的定义，如果 <span class="arithmatex">\(D\)</span> 在 <span class="arithmatex">\("D"\)</span> 上不停机，则它属于 <span class="arithmatex">\(H_d\)</span>，因此根据半判定的定义，<span class="arithmatex">\(D\)</span> 应该在 <span class="arithmatex">\("D"\)</span> 上停机，矛盾。</p>
+</details>
+<p>目光如炬的读者当不难发现这个证明与对角线化论证的旨趣大抵相同。通过取对角线的方法引出矛盾自 Cantor 以来就成为了一种几乎固定的方法论。至于如何形式化这套方法论以及如何明确它的应用，在结构性不动点定理一节将给出足够严格的论述，在复杂性理论中，这会成为不可或缺的一套方法。</p>
+<p>上面的引理为下面的命题做好了准备：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p><span class="arithmatex">\(H\)</span> 不是递归的。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>注意到，因为 <span class="arithmatex">\(H_d\)</span> 不是递归可枚举的，所以它一定不是递归的。因此，下面将使用这样的命题导出矛盾：如果 <span class="arithmatex">\(H\)</span> 是递归的，那么 <span class="arithmatex">\(H_d\)</span> 就是递归的。</p>
+<p>这个结果几乎是显而易见的。如果考虑 <span class="arithmatex">\(H\)</span> 是递归的，那么存在图灵机 <span class="arithmatex">\(M_H\)</span> 判定这种语言。给 <span class="arithmatex">\(M_H\)</span> 以输入 <span class="arithmatex">\("M""M"\)</span> 就能判定 <span class="arithmatex">\(H_d\)</span>。因此，若 <span class="arithmatex">\(H\)</span> 是递归的，那么 <span class="arithmatex">\(H_d\)</span> 也是递归的，前文业已表明 <span class="arithmatex">\(H_d\)</span> 不是递归的，这就表明 <span class="arithmatex">\(H\)</span> 不是递归的。</p>
+</details>
+<p>复盘一下这一节的内容，虽然稍微有点绕，但笔者希望这个构造的精妙之处在这里能够得以体现。当然，在后面的几章中，更重要的事情是表明这个构造不是神来之笔，它本身有相当深的范畴论意涵和更加合适的解读。</p>
+<p>首先，我们证明了 <span class="arithmatex">\(H\)</span> 是递归可枚举的，然后，为了表明它不可递归，构造了一种不是递归可枚举的语言 <span class="arithmatex">\(H_d\)</span>，然后证明了如果 <span class="arithmatex">\(H\)</span> 递归则 <span class="arithmatex">\(H_d\)</span> 递归，利用它的逆否命题做演绎，证明了 <span class="arithmatex">\(H\)</span> 不是递归的。</p>
+<p>下面请将目光聚焦到后半部分，在表明 <span class="arithmatex">\(H\)</span> 不是递归的时候，我们事实上用到了归约（reduction）的思想。如果解决 A 问题相当于解决 B 问题，那么解决 B 问题事实上比解决 A 问题更难——乍一看可能有点反直觉，因为解决 A 问题需要多经历一次转化。但是注意，这不是解决 A 问题的唯一方法。当然它可以相当于解决 C 问题，解决 D 问题，但是如果你能够解决 B 问题，它就迎刃而解了。因此，A 问题事实上<strong>不难于</strong>解决 B 问题（而不是比 B 问题简单）。这种想法就是下一节讨论的主题，事实上也是计算理论发展过程中的一大主要手法。</p>
+<h2 id="reduction">归约 Reduction<a class="headerlink" href="#reduction" title="Permanent link">&para;</a></h2>
+<p>为了形式化地解释上面的问题，不妨给出以下定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一个从语言 <span class="arithmatex">\(A\)</span> 到语言 <span class="arithmatex">\(B\)</span> 的 Turing 归约（Turing reduction，在常规语境中省称规约）是一个可计算函数 <span class="arithmatex">\(f: \Sigma_A^\ast \to \Sigma_B^\ast\)</span> 使得：</p>
+<div class="arithmatex">\[
+\forall x \in \Sigma_A^\ast, x \in A \iff f(x) \in B
+\]</div>
+<p>记作 <span class="arithmatex">\(A \leqslant_T B\)</span></p>
+</div>
+<p>这个记号事实上就暗示了上一节末费尽心思讲明的问题：<span class="arithmatex">\(A\)</span> 不会比 <span class="arithmatex">\(B\)</span> 更难计算。因此，可以说归约确定了一个问题难度的界。现在提及一下等价定义或许是合适的：给定解决 <span class="arithmatex">\(B\)</span> 问题的谕示机（oracle），即现在任何问题 <span class="arithmatex">\(B\)</span> 的求解都可以在一步内完成，则存在一个带此谕示机的图灵机能够求解 <span class="arithmatex">\(A\)</span> 问题。关于谕示机的问题，在后面会有专文述及。</p>
+<p>当然，有不等号就能有等号：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<div class="arithmatex">\[
+A =_T B \iff A \leqslant_T B \wedge B \leqslant_T A
+\]</div>
+</div>
+<p>很容易发现这是一个等价关系。基于这一点继续给出 Turing 度和 Turing 跳跃的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>由上面等价关系对 <span class="arithmatex">\(2^{\Sigma^\ast}\)</span> 划分得到的等价类称为 Turing 度（Turing degree）；Turing 度 A 中的停机问题的图灵度为 A^\prime，称为 A 的 Turing 跳跃（Turing jump）。</p>
+</div>
+<p>现在引入这些定义或许过于抽象，在后面介绍了谕示机之后，我们将可以给它更加容易理解的描述，Kleene 和 Post 等人对这些概念做了相当丰富的研究，很多结果则在上世纪末刚刚建立。当然，这是应当另开专文讨论的内容。</p>
+<p>接下来不妨看几个例子来更好地理解这个概念。总得来说，除了 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(H_d\)</span> 的构造因为不动点的特殊性而变得如同神来之笔，其它关于非递归可枚举、非递归的证明几乎都需要把 <span class="arithmatex">\(H\)</span> 或 <span class="arithmatex">\(H_d\)</span> 归约到待考察的问题。例如，我们将表明下面这个语言不是递归的：</p>
+<div class="arithmatex">\[
+H_e = \{"M", M \text{\;is\;a\;TM\;that\;halts\;on\;} e\}
+\]</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>再次提醒需要把 <span class="arithmatex">\(H\)</span> 规约到 <span class="arithmatex">\(A\)</span>。等价定义或许更好理解：如果给出了一个解决 <span class="arithmatex">\(A\)</span> 的图灵机，那么就有一个解决 <span class="arithmatex">\(H\)</span> 的图灵机。考虑构造一个图灵机，它不论输入如何，都会在 <span class="arithmatex">\(w\)</span> 上运行 <span class="arithmatex">\(M\)</span>。那么解决 <span class="arithmatex">\(A\)</span> 的图灵机将会表明这个图灵机是否会在 <span class="arithmatex">\(e\)</span> 上停机，那就是表明 <span class="arithmatex">\(M\)</span> 是否会在 <span class="arithmatex">\(w\)</span> 上停机。</p>
+</details>
+<p>这个构造是相当常见的，准此思想，同样可以证明以下语言都不是递归的：</p>
+<div class="arithmatex">\[\begin{array}{l}
+H_{\text{some}} &amp;= \{"M", M \text{\;is\;a\;TM\;that\;halts\;on\;some\;input}\}\\
+H_{\text{all}} &amp;= \{"M", M \text{\;is\;a\;TM\;that\;halts\;on\;every\;input}\}\\
+\end{array}\]</div>
+<p>下一个结果也是重要的：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p><span class="arithmatex">\(\{"M_1""M_2": M_1, M_2 \text{\;are\;TMs\;and\;}L(M_1) = L(M_2)\}\)</span> 不是递归的。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>这次我们做从 <span class="arithmatex">\(H_{\text{all}}\)</span> 到它的规约。不妨构造图灵机 <span class="arithmatex">\(M^\ast\)</span>，它不管输入为何值都直接停机。因此，如果我们可以求解此语言，那么只要输入 <span class="arithmatex">\("M""M^\ast"\)</span> 就可以获得一个 <span class="arithmatex">\(M\)</span> 是否属于 <span class="arithmatex">\(H_\text{all}\)</span> 的结果。</p>
+</details>
+<p>最后再来一个命题：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p><span class="arithmatex">\(R_{\text{TM}} = \{"M": "M" \text{\;is\;a\;TM\;and\;} L(M) \text{\;is\;regular}\}\)</span> 不是递归的。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>前已声明递归语言对差封闭，因此它也对补封闭。接下来的尝试是将 <span class="arithmatex">\(H\)</span> 归约到 <span class="arithmatex">\(\bar R_{\text{TM}}\)</span>。为此，不妨构造这样一个图灵机，它首先在 <span class="arithmatex">\(w\)</span> 上运行 <span class="arithmatex">\(M\)</span>，然后在 <span class="arithmatex">\(v\)</span> 上运行通用图灵机 <span class="arithmatex">\(U\)</span>。如果第一步的过程可以停机，那么它半判定的语言就是 <span class="arithmatex">\(H\)</span>，而 <span class="arithmatex">\(H\)</span> 不是正则的；如果第一步的过程不能停机，那么它半判定的语言就是 <span class="arithmatex">\(\varphi\)</span>，它是正则的。因此，对这个图灵机的编码运行 <span class="arithmatex">\(\bar R_{\text{TM}}\)</span>，如果它停机了，那么 <span class="arithmatex">\(H\)</span> 也就被判定了。</p>
+</details>
+<p>这样的构造与正则性其实无关。注意到，<span class="arithmatex">\(H\)</span> 事实上不是上下文无关的，也不是递归的，因此类似的性质对应的图灵机也可以被证明是非递归的。更进一步地，我们可以给出 Rice 定理，以上的所有结果都是它的一个推论：</p>
+<div class="admonition success">
+<p class="admonition-title">定理</p>
+<p>形如 <span class="arithmatex">\(\{"M": M \text{\;is\;a\;TM\;and\;}L(M) \in L\}\)</span> 的语言都是非递归的，若 <span class="arithmatex">\(L\)</span> 为所有递归可枚举语言的集合的一个非空真子集。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>首先考虑 <span class="arithmatex">\(\varphi \not \in L\)</span> 的情形。存在语言 <span class="arithmatex">\(A \in L\)</span> 为递归可枚举的，记半判定它的图灵机为 <span class="arithmatex">\(M_A\)</span>。那么构造一个对输入 <span class="arithmatex">\(v\)</span>，首先在 <span class="arithmatex">\(w\)</span> 上运行 <span class="arithmatex">\(M\)</span>，然后在 <span class="arithmatex">\(v\)</span> 上运行 <span class="arithmatex">\(M_A\)</span>。这样的话，这个图灵机半判定的语言在 <span class="arithmatex">\(M\)</span> 在 <span class="arithmatex">\(w\)</span> 上停机时为 <span class="arithmatex">\(A \in L\)</span>，它被判定这种语言的图灵机所判定，因此，判定它就相当于判定了 <span class="arithmatex">\(H\)</span>。</p>
+<p>对于 <span class="arithmatex">\(\varphi \in L\)</span> 的情形，注意到 <span class="arithmatex">\(\varphi \not \in \bar L\)</span>，故如上命题的构造方式即可得出结果。</p>
+</details>
+<p>直观地说，这个证明就是充分利用了 <span class="arithmatex">\(\varphi\)</span> 和 <span class="arithmatex">\(H\)</span> 的性质将其“压”在了空集和递归可枚举语言构成的集合之中。在更高阶的情形下，这种思想也由其用武之地。</p>
+<h2 id="unrestricted-grammar">不受限的语法 Unrestricted Grammar<a class="headerlink" href="#unrestricted-grammar" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../03A/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../exercises/" class="md-footer__link md-footer__link--next" aria-label="下一页: Exercises" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Exercises
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+    
+  </body>
+</html>
