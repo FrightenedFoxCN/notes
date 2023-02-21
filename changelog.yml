@@ -1,7 +1,11 @@
 - "2023":
+  - "2023-02-21":
+    - pageupdate:
+        text: 补充计算理论 05A
+        href: /notes/math/toc-notes/05A
   - "2023-02-20":
     - function:
-        text: 添加字数统计（但是好像有 bug）
+        text: 添加字数统计（但是好像有 bug ）
         href: https://github.com/TonyCrane/mkdocs-statistics-plugin
     - newpage:
         text: 增加计算理论 05A

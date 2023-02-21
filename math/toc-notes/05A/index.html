@@ -706,8 +706,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enumerator" class="md-nav__link">
+    枚举器 Enumerator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#unrestricted-grammar" class="md-nav__link">
-    不受限的语法 Unrestricted Grammar
+    不受限语法 Unrestricted Grammar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turing-turing-turing-equivalence-turing-complete" class="md-nav__link">
+    Turing 等价和 Turing 完备 Turing Equivalence &amp; Turing Complete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primitive-recursive-functions" class="md-nav__link">
+    原始递归函数 Primitive Recursive Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weakened-cases" class="md-nav__link">
+    弱化情形 Weakened Cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mu-strengthening-mu-recursive-functions" class="md-nav__link">
+    强化：\(\mu\)-递归函数 Strengthening: \(\mu\)-recursive Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program-algebra" class="md-nav__link">
+    程序代数 Program Algebra
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blum-shub-smale-extending-turing-machines-blum-shub-smale-model" class="md-nav__link">
+    推广图灵机：Blum-Shub-Smale 模型 Extending Turing Machines: Blum-Shub-Smale Model
   </a>
   
 </li>
@@ -1079,8 +1128,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enumerator" class="md-nav__link">
+    枚举器 Enumerator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#unrestricted-grammar" class="md-nav__link">
-    不受限的语法 Unrestricted Grammar
+    不受限语法 Unrestricted Grammar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turing-turing-turing-equivalence-turing-complete" class="md-nav__link">
+    Turing 等价和 Turing 完备 Turing Equivalence &amp; Turing Complete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primitive-recursive-functions" class="md-nav__link">
+    原始递归函数 Primitive Recursive Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weakened-cases" class="md-nav__link">
+    弱化情形 Weakened Cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mu-strengthening-mu-recursive-functions" class="md-nav__link">
+    强化：\(\mu\)-递归函数 Strengthening: \(\mu\)-recursive Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#program-algebra" class="md-nav__link">
+    程序代数 Program Algebra
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blum-shub-smale-extending-turing-machines-blum-shub-smale-model" class="md-nav__link">
+    推广图灵机：Blum-Shub-Smale 模型 Extending Turing Machines: Blum-Shub-Smale Model
   </a>
   
 </li>
@@ -1103,7 +1201,7 @@
   <h1>05A 图灵机与规约 Turing Machines & Reduction</h1>
 
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6660 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 22 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 9533 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 32 分钟</p>
 </div>
 <p>之前我们花了很多时间讨论各种计算模型，但是这些模型似乎都不符合对计算机的普遍认知。有限自动机似乎受制于失忆的可能，下推自动机的记忆则只有一个受限的栈。唯一引人遐思的是 Kleene 机的模型，它似乎通过代数的方式给出了一个相当广泛的可计算性定义。在这里我们要引入图灵机，计算理论历史上最经典、最引人注目的概念之一，它将成为现代计算机的一种模板，同时也会成为后续讨论的重要基石：虽然“不如” Kleene 机广泛，但是它足以成为一种形象化的模型来讨论可计算性。</p>
 <p>当然，图灵机事实上也是相当受限的。因为高阶（higher-order，例如函数，在下一节会给出明确的定义）的对象通常被编码为实数（考虑将 <span class="arithmatex">\(\mathbb{N}^{\mathbb{N}}\)</span> 的函数往实数建立一一对应，这种函数被称为类型 1 的对象，type 1 object，这种对应的一个例子是 Kohlenbach 的“帽子”，在后面介绍高阶可计算性的时候会对这些东西给出更加详尽的表达），这会导致很多不同的结果，例如 D. Normann 等人对几乎处处连续的函数的讨论。</p>
@@ -1200,6 +1298,11 @@ K \times \triangleright(\Sigma - \{\triangleright\})^\ast \times ((\Sigma - \{\t
 \]</div>
 <p>这样就自然使得新的图灵机就是一个半判定此语言的图灵机。</p>
 </details>
+<p>下面这个命题也给出了一个对递归语言的刻画，其证明不难不妨留给读者。但是，这个命题在构造数学（constructive mathematics）中并不是逻辑上合法的，称为 Markov 原理，这些问题是逻辑上重要的，然而本文不会予以展开。</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>如果 <span class="arithmatex">\(L\)</span> 和 <span class="arithmatex">\(\bar L\)</span> 都是递归可枚举的，那么 <span class="arithmatex">\(L\)</span> 是递归的。</p>
+</div>
 <p>下一个问题也就很自然了：递归可枚举语言和递归语言之间是否夹着什么东西？递归可枚举语言和全体语言之间是否也夹着什么东西？我们很快就会给出相应的构造，但是在这里，对于后者给出一个肯定的回答并不困难。</p>
 <div class="admonition success">
 <p class="admonition-title">命题</p>
@@ -1320,6 +1423,11 @@ H_d = \{"M": M \text{\;is\;a\;TM\;that\;does\;not\;halt\;on\;} "M"\}
 <p>记作 <span class="arithmatex">\(A \leqslant_T B\)</span></p>
 </div>
 <p>这个记号事实上就暗示了上一节末费尽心思讲明的问题：<span class="arithmatex">\(A\)</span> 不会比 <span class="arithmatex">\(B\)</span> 更难计算。因此，可以说归约确定了一个问题难度的界。现在提及一下等价定义或许是合适的：给定解决 <span class="arithmatex">\(B\)</span> 问题的谕示机（oracle），即现在任何问题 <span class="arithmatex">\(B\)</span> 的求解都可以在一步内完成，则存在一个带此谕示机的图灵机能够求解 <span class="arithmatex">\(A\)</span> 问题。关于谕示机的问题，在后面会有专文述及。</p>
+<p>不难发现：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p><span class="arithmatex">\(A \leqslant_T B \Rightarrow \bar A \leqslant_T \bar B\)</span></p>
+</div>
 <p>当然，有不等号就能有等号：</p>
 <div class="admonition info">
 <p class="admonition-title">定义</p>
@@ -1375,7 +1483,211 @@ H_{\text{all}} &amp;= \{"M", M \text{\;is\;a\;TM\;that\;halts\;on\;every\;input}
 <p>对于 <span class="arithmatex">\(\varphi \in L\)</span> 的情形，注意到 <span class="arithmatex">\(\varphi \not \in \bar L\)</span>，故如上命题的构造方式即可得出结果。</p>
 </details>
 <p>直观地说，这个证明就是充分利用了 <span class="arithmatex">\(\varphi\)</span> 和 <span class="arithmatex">\(H\)</span> 的性质将其“压”在了空集和递归可枚举语言构成的集合之中。在更高阶的情形下，这种思想也由其用武之地。</p>
-<h2 id="unrestricted-grammar">不受限的语法 Unrestricted Grammar<a class="headerlink" href="#unrestricted-grammar" title="Permanent link">&para;</a></h2>
+<h2 id="enumerator">枚举器 Enumerator<a class="headerlink" href="#enumerator" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="unrestricted-grammar">不受限语法 Unrestricted Grammar<a class="headerlink" href="#unrestricted-grammar" title="Permanent link">&para;</a></h2>
+<p>前面已经多次引入了语法的概念，兹再次呈现不受限语法的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一个不受限语法（unrestricted grammar） <span class="arithmatex">\(G\)</span> 是一个四元组 <span class="arithmatex">\((V, \Sigma, S, R)\)</span> ，其中：</p>
+<ul>
+<li><span class="arithmatex">\(V\)</span> 是一个有限集，称为符号集（set of symbols）；</li>
+<li><span class="arithmatex">\(\Sigma \subseteq V\)</span> ，其中的元素称为终止符（terminals）；</li>
+<li><span class="arithmatex">\(S \in V - \Sigma\)</span>，称为起始符（start symbol）；</li>
+<li><span class="arithmatex">\(R \subseteq V^\ast(V - \Sigma)V^\ast \times V^\ast\)</span>，是一个有限集，称为生成规则，其中的元素记为 <span class="arithmatex">\(A \rightarrow u\)</span>，若 <span class="arithmatex">\((A, u) \in R\)</span>。</li>
+</ul>
+</div>
+<p>其它相关定义不再赘述。这里的重点在于以下定理：</p>
+<div class="admonition success">
+<p class="admonition-title">定理</p>
+<p>一个语言由不受限语法生成当且仅当它被一个图灵机半判定。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>首先表明，不受限语法生成的语言一定能被图灵机半判定。注意到，如前在 CFG 处的视角，可以将语法生成语言的过程看成一棵树生长的过程。从起始符 <span class="arithmatex">\(S\)</span> 出发，逐层以 BFS 的方法遍历这棵树；或者直接用 NTM 表达这棵树即可。这里隐含的一件事是，需要说明每一步生成都可以由图灵机所完成，在算法视域下理解这点并不困难。</p>
+<p>其次，需要对一个图灵机半判定的语言构造不受限语法。不失一般性地，假设图灵机定义五元组中 <span class="arithmatex">\(K \cap \Sigma = \varnothing\)</span>，停机状态 <span class="arithmatex">\(H\)</span> 为单元素集 <span class="arithmatex">\(\{h\}\)</span> 且停机时的格局总是 <span class="arithmatex">\((h, \triangleright \underline \sqcup)\)</span>。注意到，图灵机半判定一个语言的过程就是存在一个从 <span class="arithmatex">\(w\)</span> 到 <span class="arithmatex">\((h, \triangleright \underline \sqcup)\)</span> 的转换，在生成的过程中则需要将其反转：</p>
+<p>构造语法 <span class="arithmatex">\(G = (V, \Sigma^\prime, S, R)\)</span>，其中符号集 <span class="arithmatex">\(V = K \cup \Sigma \cup \{S, \triangleleft\}\)</span>，新字母表 <span class="arithmatex">\(\Sigma^\prime = \Sigma - \{\triangleright, \sqcup\}\)</span>，起始符 <span class="arithmatex">\(S\)</span> 就是起始状态 <span class="arithmatex">\(S\)</span>，接下来要构造的就是生成规则，将其分成五种情形：</p>
+<ol>
+<li><span class="arithmatex">\(S \rightarrow \triangleright \sqcup h \triangleright\)</span>。它表示停机时的格局；</li>
+<li><span class="arithmatex">\(\triangleright \sqcup S \rightarrow e, \triangleleft \rightarrow e\)</span>，是从任一起始格局到其对应字符串的转换；</li>
+<li>写入操作：如果图灵机有 <span class="arithmatex">\(\delta(q, a) = (p, b), a, b \in \Sigma\)</span>，则 <span class="arithmatex">\(bp \rightarrow ap\)</span>，即向读写头处做了一次生成；</li>
+<li>右移操作：如果图灵机有 <span class="arithmatex">\(\delta(q, a) = (p, \rightarrow)\)</span>，则 <span class="arithmatex">\(abp \rightarrow aqb, \forall b \in \Sigma\)</span>，这象征读写头的移位；注意，对于已经在最右端的情形，因为右端可以随意添加东西，考虑 <span class="arithmatex">\(a\sqcup p \triangleleft \rightarrow aq\triangleleft\)</span>；</li>
+<li>左移操作：如果图灵机有 <span class="arithmatex">\(\delta(q, a) = (p, \leftarrow)\)</span>，则 <span class="arithmatex">\(pa \rightarrow aq\)</span>，<span class="arithmatex">\(p\triangleright \rightarrow \sqcup q \triangleleft\)</span>。</li>
+</ol>
+<p>再次强调，这里定义的语法是倒叙的。从停机状态出发给出任意字符串，这就是图灵机计算的逆向过程，生成规则正好把图灵机的每一步操作都倒过来，就得到了可以生成与图灵机半判定的语言相同的语言的语法。</p>
+</details>
+<p>因此，很自然地声称，不受限语法生成的语言就是递归可枚举语言，这在语法和计算模型之间建立了一个相当标准的模型。这种“计算能力”的衡量将很自然地引入 Turing 等价和 Turing 完备的概念。</p>
+<h2 id="turing-turing-turing-equivalence-turing-complete">Turing 等价和 Turing 完备 Turing Equivalence &amp; Turing Complete<a class="headerlink" href="#turing-turing-turing-equivalence-turing-complete" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: 定义，逻辑电路和图灵机，为电路复杂性做铺垫</p>
+</blockquote>
+<h2 id="primitive-recursive-functions">原始递归函数 Primitive Recursive Functions<a class="headerlink" href="#primitive-recursive-functions" title="Permanent link">&para;</a></h2>
+<p>在前面已经给出了图灵机计算一个函数的定义，那么计算数值函数的可能也是显然的：鉴于 <span class="arithmatex">\(\Sigma^\ast\)</span> 的可数性，可以建立它和 <span class="arithmatex">\(\mathbb N\)</span> 的一一对应，因而也就能用 <span class="arithmatex">\(\Sigma^\ast\)</span> 编码 <span class="arithmatex">\(\mathbb N\)</span>，甚至编码 <span class="arithmatex">\(\mathbb N^k\)</span> 中的对象。这给了我们一种最低阶的函数的刻画：<span class="arithmatex">\(f: \mathbb N^k \rightarrow \mathbb N\)</span>，或者 <span class="arithmatex">\(f: \mathbb N \rightarrow \mathbb N\)</span>，它们从可计算性的角度上看没什么区别，为了普遍性起见，我们考虑前者，但必须记住，这两者是可以相互归约的。在本章中，我们只会讨论一些简单的情形，更加复杂和深远的理论将在可计算函数一章中单独讨论。</p>
+<p>下面的定义很直观的来源是 Peano 公理体系：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个函数是原始递归函数（primitive recursive function），如果它满足以下条件之一：</p>
+<ol>
+<li>它是基本函数（basic functions），即以下三者之一：<ol>
+<li>零函数 <span class="arithmatex">\(z_k(n_1, \cdots, n_k) = 0, \forall n_1, \cdots, n_k \in \mathbb N\)</span>；</li>
+<li>投影函数 <span class="arithmatex">\(p_{k, j}(n_1, \cdots, n_k) = n_j, k \geqslant j\)</span>；</li>
+<li>后继函数 <span class="arithmatex">\(\text{succ\;}(n) = n + 1\)</span>；</li>
+</ol>
+</li>
+<li>它是原始递归函数的复合：设 <span class="arithmatex">\(g: \mathbb N^k \to \mathbb N, h_i: \mathbb N^t \to \mathbb N, i = 1, \cdots, k\)</span>，它们的复合 <span class="arithmatex">\(f: N^t \to N\)</span> 定义为 <span class="arithmatex">\((n_1, \cdots, n_t) \mapsto g(h_1(n_1, \cdots, n_t), \cdots, h_k(n_1, \cdots, n_t))\)</span>；</li>
+<li>它是由原始递归函数递归定义的：设 <span class="arithmatex">\(g: \mathbb N^k \to \mathbb N, h: \mathbb N^{k+2} \to \mathbb N\)</span>，则由 <span class="arithmatex">\(g\)</span> 和 <span class="arithmatex">\(h\)</span> 递归定义的函数是一个 <span class="arithmatex">\(\mathbb N^{k + 1} \to \mathbb N\)</span> 的函数：</li>
+</ol>
+<div class="arithmatex">\[
+f(n_1, \cdots, n_k, t) = \begin{cases}
+g(n_1, \cdots, n_k), t = 0\\
+h(n_1, \cdots, n_k, t, f(n_1, \cdots, n_k, t - 1)), t \geqslant 1
+\end{cases}
+\]</div>
+</div>
+<p>当然，这样的例子非常充足，简单的情形列举如下，读者不妨自行验证之：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>以下函数都是原始递归函数：</p>
+<ol>
+<li><span class="arithmatex">\(\text{plus\;}(m, n) = m + n\)</span>；</li>
+<li><span class="arithmatex">\(\text{mult\;}(m, n) = m \cdot n\)</span>；</li>
+<li><span class="arithmatex">\(\text{exp\;}(m, n) = m^n\)</span>；</li>
+<li><span class="arithmatex">\(\text{c\;}(n_1, n_2, \cdots n_k) = c\)</span>；</li>
+<li><span class="arithmatex">\(\text{sgn\;}(n) = 1\text{\;if\;} n \geqslant 1\text{\;else\;}0\)</span>；</li>
+<li><span class="arithmatex">\(\text{pred\;}(n) = n - 1 \text{\;if\;} n &gt; 0 \text{\;else\;}0\)</span>；</li>
+<li><span class="arithmatex">\(m \sim n \equiv \text{tminus}(m, n) = \max\{m - n, 0\}\)</span></li>
+</ol>
+</div>
+<div class="admonition success">
+<p class="admonition-title">推论</p>
+<p>原始递归函数对和、积和上述 7 中的减法封闭。</p>
+</div>
+<p>注意上面的第五个例子。它的值为 0/1，这当然有一些特殊的意义，在逻辑那一节事实上已经论及：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个 0/1 值的函数为一个谓词（predicate），一个谓词是原始递归的，即指这个谓词对应的函数是原始递归的。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<ol>
+<li>若谓词 <span class="arithmatex">\(p\)</span> 是原始递归的，则 <span class="arithmatex">\(\lnot p\)</span> 也是原始递归的。</li>
+<li>若谓词 <span class="arithmatex">\(p, q\)</span> 都是原始递归的，则 <span class="arithmatex">\(p \wedge q, p \vee q\)</span> 也是原始递归的。</li>
+<li>若谓词 <span class="arithmatex">\(p\)</span> 是原始递归的，函数 <span class="arithmatex">\(f, g\)</span> 也是原始递归的，则 <span class="arithmatex">\(p\dot g + \lnot p \dot h\)</span> 也是原始递归的。</li>
+</ol>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<ol>
+<li>只需注意到 <span class="arithmatex">\(\lnot p = 1 \sim p\)</span> 即可；</li>
+<li>注意到 <span class="arithmatex">\(p \wedge q = p \cdot q\)</span>，然后用 de Morgan 律即可；</li>
+<li>可由上述结论自然得出；</li>
+</ol>
+</details>
+<p>注意到，3 规定了 cases 的可能性，现在分段函数也可以更轻松地表达出来了，因此有：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>以下函数或谓词也是原始递归的：</p>
+<ol>
+<li><span class="arithmatex">\(\text{divisiblep\;}(m, n)\)</span>；</li>
+<li><span class="arithmatex">\(\text{rem\;}(m, n) = m \% n\)</span>；</li>
+<li><span class="arithmatex">\(\text{div\;}(m, n) = \text{floor\;}(m/n)\)</span>；</li>
+<li>有限个原始递归函数之和与积；</li>
+<li>有限个原始递归谓词之合取与析取；</li>
+</ol>
+</div>
+<p>最后我们给出原始递归函数与图灵机计算的函数的关系：</p>
+<div class="admonition success">
+<p class="admonition-title">定理</p>
+<p>任一原始递归函数都是可计算的。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>只要证明基本的函数可计算，且两种操作也可计算即可。参照级联图灵机构成算法的想法应当不难。</p>
+</details>
+<p>但是，不是所有的可计算函数都是原始递归函数，为了说明这件事情，首先给出这样一个引理：</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>存在一个可计算函数 <span class="arithmatex">\(f(m, n)\)</span> 使得：</p>
+<ol>
+<li>对任意原始递归函数 <span class="arithmatex">\(g\)</span> 和自然数 <span class="arithmatex">\(n\)</span>，存在自然数 <span class="arithmatex">\(m\)</span> 令 <span class="arithmatex">\(f(m, n) = g(n)\)</span>；</li>
+<li>对于任意自然数 <span class="arithmatex">\(m\)</span>，<span class="arithmatex">\(h(n) = f(m, n)\)</span> 是原始递归的。</li>
+</ol>
+</div>
+<p>这个引理就意味着原始递归函数是可以枚举的，也就是说，原始递归函数有可数个，它们构成的集合是递归可枚举的。</p>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>因为只有有限种基本函数和复合、递归两种产生新函数的手段，故可以采用遍历树的方式遍历之。</p>
+</details>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>如上构造的 <span class="arithmatex">\(f\)</span> 不是原始递归函数。</p>
+</div>
+<p>这个命题的证明和停机问题的构造又是一致的，使用了对角线化的想法。读者在看到这里的时候应已经可以自行给出证明。</p>
+<p>在这个夹层中，最传统的具体例子就是：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>定义 Ackermann-Péter 函数如下：</p>
+<div class="arithmatex">\[
+A(i, j) = \begin{cases}
+j + 1, \text{if\;} i = 0\\
+A(i - 1, 1), \text{if\;} i \neq 0 \wedge j = 0\\
+A(i - 1, A(i, j - 1)), \text{otherwise}
+\end{cases}
+\]</div>
+</div>
+<p>但是关于这个函数的性质还需要再铺垫一些内容之后再做介绍。另有一些更加丰富的例子，如 Paris-Harrington 定理构造的结果，Sudan 函数和 Goodstein 函数，等等。</p>
+<blockquote>
+<p>TODO: p. r. function 的增长速率，用 Ackermann 函数来刻画 p. r. function 作为 t. r. function 的子集的限度；</p>
+</blockquote>
+<p>在强化这种构造使得它可以覆盖可计算函数之前，首先考察一些弱化情形，它们往往有一些理论上的趣味。</p>
+<h2 id="weakened-cases">弱化情形 Weakened Cases<a class="headerlink" href="#weakened-cases" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: weak p. r. &amp; iterative functions</p>
+</blockquote>
+<h2 id="mu-strengthening-mu-recursive-functions">强化：<span class="arithmatex">\(\mu\)</span>-递归函数 Strengthening: <span class="arithmatex">\(\mu\)</span>-recursive Functions<a class="headerlink" href="#mu-strengthening-mu-recursive-functions" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(\mu\)</span>-算子看起来是一个非常无理由的构造：Kleene 似乎无缘无故就弄出了这样一个奇怪的东西，而且它有很好地刻画了递归函数的性质。从数理逻辑角度这事实上有一个好的动机，与前述 Markov 原理的关系也是明显的，但是本文不会从这个角度引申，故而我们采用一种直觉性的讲法：因为递归函数本身是一组递归方程系统的解，所以最小化是必须的。当然，这样看起来肯定是非常生硬的，也不知道后面是否有机会另开专栏讨论构造数学和逆数学、元数学相关的内容，有兴趣的读者不妨自寻 Kleene(1952) 一读。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>如果 <span class="arithmatex">\(\exists m \in \mathbb{N}, \forall n_1, n_2, \cdots, n_k, g(n_1, \cdots, n_k, m) = 1\)</span>，则称可计算函数 <span class="arithmatex">\(g: \mathbb N^{k+1} \to \mathbb N\)</span> 是可最小化的（minimizable）且 <span class="arithmatex">\(m\)</span> 最小化了 <span class="arithmatex">\(g\)</span>。定义：</p>
+<div class="arithmatex">\[
+\mu m [g(n_1, \cdots, n_k, m) = 1] = \begin{cases}
+m, \text{where\;} g \text{\;is\;minimizable\;and \;} m \text{\;minimizes\;} g\\
+0, \text{otherwise}
+\end{cases}
+\]</div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>如果 <span class="arithmatex">\(g\)</span> 可最小化，那么 <span class="arithmatex">\(\mu m [g(n_1, \cdots, n_k, m) = 1]\)</span> 可计算。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>给定可计算函数 <span class="arithmatex">\(g\)</span>，它是否可最小化是不可判定的。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>称一个函数是 <span class="arithmatex">\(\mu\)</span>-递归函数（<span class="arithmatex">\(\mu\)</span>-recursive function），如果它满足以下条件之一：</p>
+<ol>
+<li>它是基本函数（basic functions）之一；</li>
+<li>它是 <span class="arithmatex">\(\mu\)</span>-递归函数的复合；</li>
+<li>它是由 <span class="arithmatex">\(\mu\)</span>-递归函数递归定义的；</li>
+<li>它是可极小化的 <span class="arithmatex">\(\mu\)</span>-递归函数的极小化。</li>
+</ol>
+</div>
+<div class="admonition success">
+<p class="admonition-title">定理</p>
+<p>一个数值函数可计算当且仅当它是 <span class="arithmatex">\(\mu\)</span>-递归的。</p>
+</div>
+<h2 id="program-algebra">程序代数 Program Algebra<a class="headerlink" href="#program-algebra" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: 介绍 1901.08840 的结果</p>
+</blockquote>
+<h2 id="blum-shub-smale-extending-turing-machines-blum-shub-smale-model">推广图灵机：Blum-Shub-Smale 模型 Extending Turing Machines: Blum-Shub-Smale Model<a class="headerlink" href="#blum-shub-smale-extending-turing-machines-blum-shub-smale-model" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>TODO: 在更大数域上的图灵机、Mandelbrot 集不可判定</p>
+</blockquote>
 
 
 
