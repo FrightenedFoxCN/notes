@@ -2,6 +2,8 @@
 comments: true
 ---
 
+# 01 计算流水线 Compute Pipeline 
+
 在这一节教程中，我们将尝试建立一个计算流水线。本文的主要参考资料来自 Vulkano 的官方文档：[Vulkano](https://vulkano.rs/guide/introduction)，将涉及到下图中所有画了蓝色方框的部分。
 
 <p align="center"><img src="overview.png" width="300" /></p>
@@ -21,10 +23,10 @@ vulkano = "0.32.3"
 use vulkano::VulkanLibrary;
 
 fn main() {
-    let library = VulkanLibrary::new().expect("no local Vulkan library/DLL");
-    for layer in library.layer_properties().unwrap() {
-        println!("Available layer: {}", layer.name());
-    }
+    let library = VulkanLibrary::new().expect("no local Vulkan library/DLL");
+    for layer in library.layer_properties().unwrap() {
+        println!("Available layer: {}", layer.name());
+    }
 }
 ```
 
@@ -94,10 +96,10 @@ Device "Intel(R) UHD Graphics" found
 
 ```rust
 let phy_device = instance
-	.enumerate_physical_devices()
-	.expect("could not enumerate devices")
-	.next()
-	.expect("device not found");
+    .enumerate_physical_devices()
+    .expect("could not enumerate devices")
+    .next()
+    .expect("device not found");
 
 println!("Device {:?} chosen", phy_device.properties().device_name);
 ```
@@ -108,8 +110,8 @@ println!("Device {:?} chosen", phy_device.properties().device_name);
 
 ```rust
 for family in phy_device.queue_family_properties() {
-	println!("Find a queue family with {:?} queues with characteristic {:?}",
-		family.queue_count, family.queue_flags);
+    println!("Find a queue family with {:?} queues with characteristic {:?}",
+        family.queue_count, family.queue_flags);
 }
 ```
 
@@ -127,11 +129,11 @@ Find a queue family with 8 queues with characteristic QueueFlags { graphics: fal
 
 ```rust
 let queue_family_index = phy_device
-	.queue_family_properties()
-	.iter()
-	.enumerate()
-	.position(|(_, q)| q.queue_flags.graphics)
-	.expect("couldn't find a graphical queue family") as u32;
+    .queue_family_properties()
+    .iter()
+    .enumerate()
+    .position(|(_, q)| q.queue_flags.graphics)
+    .expect("couldn't find a graphical queue family") as u32;
 
 println!("Find queue family {:?} with graphics", queue_family_index);
 ```
@@ -140,20 +142,20 @@ println!("Find queue family {:?} with graphics", queue_family_index);
 
 ```rust
 let (device, mut queues) = Device::new(
-	phy_device, 
-	DeviceCreateInfo {
-		queue_create_infos: vec![
-			QueueCreateInfo {
-				queue_family_index,
-				..Default::default()
-			},
-		],
-		..Default::default()
-	}
+    phy_device, 
+    DeviceCreateInfo {
+        queue_create_infos: vec![
+            QueueCreateInfo {
+                queue_family_index,
+                ..Default::default()
+            },
+        ],
+        ..Default::default()
+    }
 ).expect("fail to create device");
 
 println!("Device created on {:?}, with {:?} queues", 
-	device.physical_device().properties().device_name, queues.count());
+    device.physical_device().properties().device_name, queues.count());
 ```
 
 啊，当然，物理设备很明显，队列数也显然是 1。这里逻辑设备的队列和我们前面讲的物理设备的队列有一点差别，我们在后面会看到，我们是通过逻辑设备的队列向物理设备发放任务的，这个队列在物理设备上的意义暂且不必深究。为了方便我们就直接把它提取出来了：
@@ -207,21 +209,21 @@ layout(set = 0, binding = 0, rgba8) uniform writeonly image2D img;
 
 ```GLSL
 void main() {
-	vec2 norm_coordinates = (gl_GlobalInvocationID.xy + vec2(0.5)) / vec2(imageSize(img));
-    vec2 c = (norm_coordinates - vec2(0.5)) * 2.0 - vec2(1.0, 0.0);
-    vec2 z = vec2(0.0, 0.0);
-    float i;
-    for (i = 0.0; i < 1.0; i += 0.005) {
-        z = vec2(
-            z.x * z.x - z.y * z.y + c.x,
-            z.y * z.x + z.x * z.y + c.y
-        );
-        if (length(z) > 4.0) {
-            break;
-        }
-    }
-    vec4 to_write = vec4(vec3(i), 1.0);
-    imageStore(img, ivec2(gl_GlobalInvocationID.xy), to_write);
+    vec2 norm_coordinates = (gl_GlobalInvocationID.xy + vec2(0.5)) / vec2(imageSize(img));
+    vec2 c = (norm_coordinates - vec2(0.5)) * 2.0 - vec2(1.0, 0.0);
+    vec2 z = vec2(0.0, 0.0);
+    float i;
+    for (i = 0.0; i < 1.0; i += 0.005) {
+        z = vec2(
+            z.x * z.x - z.y * z.y + c.x,
+            z.y * z.x + z.x * z.y + c.y
+        );
+        if (length(z) > 4.0) {
+            break;
+        }
+    }
+    vec4 to_write = vec4(vec3(i), 1.0);
+    imageStore(img, ivec2(gl_GlobalInvocationID.xy), to_write);
 }
 ```
 
@@ -243,10 +245,10 @@ vulkano-shaders = "0.32.0"
 
 ```rust
 mod cs {
-	vulkano_shaders::shader!{
-		ty: "compute",
-		path: "shaders/cshader.comp"
-	}
+    vulkano_shaders::shader!{
+        ty: "compute",
+        path: "shaders/cshader.comp"
+    }
 }
 
 let shader = cs::load(device.clone()).expect("failed to create shader module");
@@ -264,11 +266,11 @@ Pipeline 这个词想必读者都不陌生。一般的翻译是流水线，或�
 
 ```rust
 let compute_pipeline = ComputePipeline::new(
-	device.clone(),
-	shader.entry_point("main").expect("shader entry point not found"),
-	&(),
-	None,
-	|_| {}
+    device.clone(),
+    shader.entry_point("main").expect("shader entry point not found"),
+    &(),
+    None,
+    |_| {}
 ).expect("fail to create pipeline");
 ```
 
@@ -280,7 +282,7 @@ let compute_pipeline = ComputePipeline::new(
 let shader_entry = shader.entry_point("main").expect("shader entry point not found");
 let shader_layout_req = shader_entry.descriptor_requirements();
 for req in shader_layout_req {
-	println!("Shader requirement {:?}", req);
+    println!("Shader requirement {:?}", req);
 }
 ```
 
@@ -312,14 +314,14 @@ let mem_alloc = StandardMemoryAllocator::new_default(device.clone());
 
 ```rust
 let image = StorageImage::new(
-	&mem_alloc,
-	ImageDimensions::Dim2d { 
-		width: 1024, 
-		height: 1024, 
-		array_layers: 1 
-	},
-	Format::R8G8B8A8_UNORM,
-	Some(queue.queue_family_index()),
+    &mem_alloc,
+    ImageDimensions::Dim2d { 
+        width: 1024, 
+        height: 1024, 
+        array_layers: 1 
+    },
+    Format::R8G8B8A8_UNORM,
+    Some(queue.queue_family_index()),
 ).expect("fail to create image");
 ```
 
@@ -337,13 +339,13 @@ let view = ImageView::new_default(image.clone()).unwrap();
 
 ```rust
 let buf = CpuAccessibleBuffer::from_iter(
-	&mem_alloc,
-	BufferUsage {
-		transfer_dst: true,
-		..Default::default()
-	}, 
-	false, 
-	(0..1024 * 1024 * 4).map(|_| 0u8),
+    &mem_alloc,
+    BufferUsage {
+        transfer_dst: true,
+        ..Default::default()
+    }, 
+    false, 
+    (0..1024 * 1024 * 4).map(|_| 0u8),
 ).expect("fail to create buffer");
 ```
 
@@ -361,9 +363,9 @@ let descriptor_set_alloc = StandardDescriptorSetAllocator::new(device.clone());
 let layout = compute_pipeline.layout().set_layouts().get(0).unwrap();
 
 let set = PersistentDescriptorSet::new(
-	&descriptor_set_alloc,
-	layout.clone(),
-	[WriteDescriptorSet::image_view(0, view.clone())],
+    &descriptor_set_alloc,
+    layout.clone(),
+    [WriteDescriptorSet::image_view(0, view.clone())],
 ).expect("fail to create persistent descriptor set");
 ```
 
@@ -381,18 +383,18 @@ let set = PersistentDescriptorSet::new(
 
 ```rust
 let command_alloc = StandardCommandBufferAllocator::new(device.clone(), StandardCommandBufferAllocatorCreateInfo {
-        ..Default::default()
-    });
+        ..Default::default()
+    });
 ```
 
 嗯，全是默认值。然后用它来创建一个命令缓冲区：
 
 ```rust
 let mut builder = AutoCommandBufferBuilder::primary(
-        &command_alloc,
-        queue.queue_family_index(),
-        CommandBufferUsage::OneTimeSubmit
-    ).expect("fail to create command buffer");
+        &command_alloc,
+        queue.queue_family_index(),
+        CommandBufferUsage::OneTimeSubmit
+    ).expect("fail to create command buffer");
 ```
 
 看最上面的图，我们要给它绑定管线和描述子集，然后往里面填东西。Vulkano 的解决方案是使用一个 builder 类来构造它：
@@ -400,17 +402,17 @@ let mut builder = AutoCommandBufferBuilder::primary(
 ```rust
 builder.bind_pipeline_compute(compute_pipeline.clone())
     .bind_descriptor_sets(
-		PipelineBindPoint::Compute,
-		compute_pipeline.layout().clone(),
-		0,
-		set,
-	)
-	.dispatch([1024 / 8, 1024 / 8, 1])
-	.unwrap()
-	.copy_image_to_buffer(CopyImageToBufferInfo::image_buffer(
-		image.clone(),
-		buf.clone(),
-	)
+        PipelineBindPoint::Compute,
+        compute_pipeline.layout().clone(),
+        0,
+        set,
+    )
+    .dispatch([1024 / 8, 1024 / 8, 1])
+    .unwrap()
+    .copy_image_to_buffer(CopyImageToBufferInfo::image_buffer(
+        image.clone(),
+        buf.clone(),
+    )
 ).expect("fail to set up the command buffer");
 
 let command_buffer = builder.build().expect("fail to build the command buffer");
@@ -420,10 +422,10 @@ let command_buffer = builder.build().expect("fail to build the command buffer");
 
 ```rust
 let future = sync::now(device.clone())
-	.then_execute(queue.clone(), command_buffer)
-	.unwrap()
-	.then_signal_fence_and_flush()
-	.unwrap();
+    .then_execute(queue.clone(), command_buffer)
+    .unwrap()
+    .then_signal_fence_and_flush()
+    .unwrap();
 
 future.wait(None).unwrap();
 ```
