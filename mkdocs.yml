@@ -103,3 +103,6 @@ nav:
       - 08 3D Deep Learning: qnotes/computer_vision/08 3D Deep Learning.md
       - 09 Computational Photography: qnotes/computer_vision/09 Computational Photography.md
       - 10 Image-based Rendering: qnotes/computer_vision/10 Image-based Rendering.md
+    - Lie Groups and Lie Algebras:
+      - qnotes/lie_groups/index.md
+      - 01 李代数的基本性质，可解性和幂零性: qnotes/lie_groups/w01.md
