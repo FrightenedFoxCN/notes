@@ -106,3 +106,5 @@ nav:
     - Lie Groups and Lie Algebras:
       - qnotes/lie_groups/index.md
       - 01 李代数的基本性质，可解性和幂零性: qnotes/lie_groups/w01.md
+    - Natural Language Processing: qnotes/natural_language_processing/index.md
+    - AI Security: qnotes/ai_security/index.md
