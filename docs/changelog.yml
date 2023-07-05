@@ -3,6 +3,9 @@
     - pageupdate:
         text: 清理了不会再填坑的页面
         href: /notes
+    - newpage:
+        text: 增加了写给了计算机系学生的代数系列
+        href: /notes/series/alg-for-cs
   - "2023-03-09":
     - newpage:
         text: 增加人工智能安全和自然语言处理的笔记

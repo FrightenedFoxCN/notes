@@ -25,6 +25,7 @@ markdown_extensions:
   - def_list
   - attr_list
   - md_in_html
+  - footnotes
   - sane_lists
   - admonition
   - pymdownx.keys
@@ -64,7 +65,8 @@ plugins:
   - search
   - mathenv:
       tikzcd:
-        enable: false
+        enable: true
+        cachefile: true
 
 nav:
   - Home:
@@ -85,6 +87,12 @@ nav:
       # - 01B 范畴化的自动机 Automata in Category Context: math/toc-notes/01B.md
       # - 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages: math/toc-notes/03A.md
       # - 05A 图灵机与规约 Turing Machines & Reduction: math/toc-notes/05A.md
+  - Series:
+    - series/index.md
+    - 写给计算机系学生的代数:
+        - series/alg-for-cs/index.md
+        - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
+        - 01 引入：群、环、域及其他: series/alg-for-cs/01.md
   # - Exercises:
     # - exercises/index.md
     # - 李文威《代数学方法》卷一：基本架构: 
