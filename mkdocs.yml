@@ -72,21 +72,21 @@ nav:
     - 更新记录: changelog.md
     - 友链: links.md
     - 待办事项: todo.md
-  - Technology:
-    - tech/index.md
-    - Vulkan Tutorial with Rust:
-      - tech/rust-vulkan/index.md
-      - 01 计算流水线 Compute Pipeline: tech/rust-vulkan/01ComputePipeline.md
-  - Mathematics:
-    - math/index.md
-    - Theory of Computation Overview:
-      - math/toc-notes/index.md
-      - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
-      - 01B 范畴化的自动机 Automata in Category Context: math/toc-notes/01B.md
-      - 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages: math/toc-notes/03A.md
-      - 05A 图灵机与规约 Turing Machines & Reduction: math/toc-notes/05A.md
-  - Exercises:
-    - exercises/index.md
+  # - Technology:
+    # - tech/index.md
+    # - Vulkan Tutorial with Rust:
+      # - tech/rust-vulkan/index.md
+      # - 01 计算流水线 Compute Pipeline: tech/rust-vulkan/01ComputePipeline.md
+  # - Mathematics:
+    # - math/index.md
+    # - Theory of Computation Overview:
+      # - math/toc-notes/index.md
+      # - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
+      # - 01B 范畴化的自动机 Automata in Category Context: math/toc-notes/01B.md
+      # - 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages: math/toc-notes/03A.md
+      # - 05A 图灵机与规约 Turing Machines & Reduction: math/toc-notes/05A.md
+  # - Exercises:
+    # - exercises/index.md
     # - 李文威《代数学方法》卷一：基本架构: 
     #   - exercises/wwli-aljabr-1/index.md
     #   - 第四章：群论: exercises/wwli-aljabr-1/ch4.md
@@ -103,8 +103,8 @@ nav:
       - 08 3D Deep Learning: qnotes/computer_vision/08 3D Deep Learning.md
       - 09 Computational Photography: qnotes/computer_vision/09 Computational Photography.md
       - 10 Image-based Rendering: qnotes/computer_vision/10 Image-based Rendering.md
-    - Lie Groups and Lie Algebras:
-      - qnotes/lie_groups/index.md
-      - 01 李代数的基本性质，可解性和幂零性: qnotes/lie_groups/w01.md
-    - Natural Language Processing: qnotes/natural_language_processing/index.md
-    - AI Security: qnotes/ai_security/index.md
+    # - Lie Groups and Lie Algebras:
+      # - qnotes/lie_groups/index.md
+      # - 01 李代数的基本性质，可解性和幂零性: qnotes/lie_groups/w01.md
+    # - Natural Language Processing: qnotes/natural_language_processing/index.md
+    # - AI Security: qnotes/ai_security/index.md

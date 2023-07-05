@@ -16,6 +16,3 @@ comments: true
 
 - [ ] [计算机视觉导论](computer_vision)
 - [ ] 操作系统
-- [ ] [李群和李代数引论](lie_groups)
-- [ ] [自然语言处理导论](natural_language_processing)
-- [ ] [人工智能安全](ai_security)
