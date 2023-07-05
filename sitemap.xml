@@ -141,6 +141,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://frightenedfoxcn.github.io/notes/series/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://frightenedfoxcn.github.io/notes/series/alg-for-cs/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://frightenedfoxcn.github.io/notes/series/alg-for-cs/00/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://frightenedfoxcn.github.io/notes/series/alg-for-cs/01/</loc>
+         <lastmod>2023-07-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://frightenedfoxcn.github.io/notes/tech/</loc>
          <lastmod>2023-07-05</lastmod>
          <changefreq>daily</changefreq>
