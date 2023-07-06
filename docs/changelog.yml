@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-07-06":
+    - newpage:
+        text: 增加 1.1 节半群及其性质：基本的研究方法
+        href: /notes/series/alg-for-cs/01/1
   - "2023-07-05":
     - pageupdate:
         text: 清理了不会再填坑的页面
