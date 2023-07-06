@@ -90,9 +90,11 @@ nav:
   - Series:
     - series/index.md
     - 写给计算机系学生的代数:
-        - series/alg-for-cs/index.md
-        - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
-        - 01 引入：群、环、域及其他: series/alg-for-cs/01.md
+      - series/alg-for-cs/index.md
+      - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
+      - 01 引入：群、环、域及其他: 
+        - series/alg-for-cs/01/index.md
+        - 1.1 半群及其性质: series/alg-for-cs/01/1.md
   # - Exercises:
     # - exercises/index.md
     # - 李文威《代数学方法》卷一：基本架构: 
