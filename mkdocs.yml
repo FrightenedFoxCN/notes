@@ -94,7 +94,15 @@ nav:
       - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
       - 01 引入：群、环、域及其他: 
         - series/alg-for-cs/01/index.md
-        - 1.1 半群及其性质：基本的研究方法: series/alg-for-cs/01/1.md
+        - 1.1 半群及其性质：基本的研究方法: series/alg-for-cs/01/01.md
+        - 1.2 幺半群：Green 关系、分次幺半群和 Grothendieck 群: series/alg-for-cs/01/02.md
+        # - 1.A 幺半群与自动机：正则语言的并行解析: series/alg-for-cs/01/Areg.md
+        # - 1.B 幺半群的展示：算法专题: series/alg-for-cs/01/Bpre.md
+  # - Miscellany:
+  #   - miscellany/index.md
+  #   - 衰败的美学: 
+  #     - miscellany/aesthetic-decay/index.md
+  #     - 引言: miscellany/aesthetic-decay/00intro.md
   # - Exercises:
     # - exercises/index.md
     # - 李文威《代数学方法》卷一：基本架构: 
