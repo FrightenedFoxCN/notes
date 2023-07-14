@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-07-14":
+    - newpage:
+        text: 增加今天看了点啥系列：单子论和 Beck 单子性定理
+        href: /notes/dnotes/0714monad
   - "2023-07-06":
     - newpage:
         text: 增加 1.1 节半群及其性质：基本的研究方法
