@@ -130,4 +130,5 @@ nav:
     - dnotes/index.md
     - 7/14 单子论和 Beck 单子性定理: dnotes/0714monad.md
     - 7/15 格论，Birkhoff 对偶和 Heyting 代数: dnotes/0715birkhoff_duality.md
+    - 7/16 用格论研究拓扑空间：Locale and Frame: dnotes/0716locale_frame.md
 

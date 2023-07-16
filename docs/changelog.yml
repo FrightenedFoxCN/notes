@@ -1,6 +1,10 @@
 - "2023":
   - "2023-07-15":
     - newpage:
+        text: 增加今天看了点啥系列：用格论研究拓扑空间：Locale and Frame
+        href: /notes/dnotes/0716locale_frame
+  - "2023-07-15":
+    - newpage:
         text: 增加今天看了点啥系列：格论和 Birkhoff 对偶
         href: /notes/dnotes/0715birkhoff_duality
   - "2023-07-14":
