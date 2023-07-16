@@ -946,7 +946,87 @@
 
 <h1 id="locale-and-frame">用格论研究拓扑空间：Locale and Frame<a class="headerlink" href="#locale-and-frame" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 12 个字 </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1591 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 5 分钟</p>
+</div>
+<p>今天我们接着往 Stone 对偶进发，这里要引入的是宇象（locale）和宙象（frame）<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>的概念，顺便回顾一下拓扑空间的各种东西。当然，这些翻译都是笔者编的，如果有标准翻译还请告知。主要的参考资料来自于 Johnstone 的 <em>Stone Spaces</em> 、 <a href="https://link.springer.com/book/10.1007/978-3-0348-0154-6">Picado 的 <em>Frames and Locales</em></a> 和 <a href="http://www.paultaylor.eu/ASD/sobsc/sobsc.pdf">P. Taylor 的论文</a>。</p>
+<p>第一个问题是：什么是拓扑空间？一个点集，以及它的一个满足一些性质的开集族，这是一般的定义。但是，这个点集真的是必须的吗？我们当然会发现，似乎开性才是最根本的东西，我们在上面定义连续性、层等等东西。因此，我们产生了研究无点拓扑（pointless topology）的动机，而宇象和宙象的概念就是在这样的研究中产生的。</p>
+<p>首先，考虑拓扑空间的定义。开集族的要求包含任意并和有限交，它当然是一个分配格，其上的偏序关系就是集合的属于关系，我们将其记作 <span class="arithmatex">\(\Omega(X)\)</span>。它是完备的，且具备无限项的分配律。因此，我们首先写出宙象的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>宙象（frame）范畴（<span class="arithmatex">\(\mathsf{Frm}\)</span>）的对象是满足无限项的分配律的完备格，其上的态射为保有限交和任意并的函数。</p>
+</div>
+<p>宇象的定义与之对偶：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>宇象（locale）范畴 <span class="arithmatex">\(\mathsf{Loc} = \mathsf{Frm}^\mathrm{op}\)</span>。</p>
+</div>
+<p>为什么需要用对偶的方式定义？注意连续性的定义中，我们用一个映射的<strong>逆映射</strong>将开集映到开集。因此，这里的定义也就变得直观了。</p>
+<p>上面的 <span class="arithmatex">\(\Omega: \mathsf{Top} \to \mathsf{Loc}\)</span> 的函子性是显见的。</p>
+<p>当然，我们的宇象定义的范围似乎要比拓扑空间广，它上面只考虑了开集的问题而没有考虑点的问题。下面我们要想，怎么从这样的定义中把点恢复出来。</p>
+<p>不妨先反思一下，一个点到底是个什么东西？我们会先想象一个很小片的区域，然后变小、再变小。于是，这就给出了一个比较直观的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一个宙象（宇象）<span class="arithmatex">\(L\)</span> 中的点就是其中的一个完备素滤子。将它们的集合记作 <span class="arithmatex">\(\mathrm{pt}(L)\)</span>。</p>
+</div>
+<p>好吧，这直观吗？不一定。为了理解这个定义，我们需要先把几个概念理一下，然后引入一点跟拓扑空间相关的观察。</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一个格 <span class="arithmatex">\(L\)</span> 中的滤子（filter）<span class="arithmatex">\(F\)</span> 就是它的序理想的对偶，也就是说，它是一个满足以下条件的非空子集：</p>
+<ol>
+<li>如果 <span class="arithmatex">\(A \leqslant B, A \in F\)</span> 则 <span class="arithmatex">\(B \in F\)</span>；</li>
+<li>如果 <span class="arithmatex">\(A \in F, B \in F\)</span> 则存在 <span class="arithmatex">\(C \in F\)</span> 满足 <span class="arithmatex">\(C \leqslant A, C \leqslant B\)</span>。</li>
+</ol>
+<p>一个滤子 <span class="arithmatex">\(F\)</span> 是素的（prime），如果 <span class="arithmatex">\(\perp \not \in F\)</span> 且 <span class="arithmatex">\(x \vee y \in F \implies x \in F \ \mathrm{or}\ y \in F\)</span>。</p>
+<p>它是完备素的（completely prime）如果上面定义里的并被改写成任意并：任意指标集 <span class="arithmatex">\(I\)</span>，<span class="arithmatex">\(\vee_{i \in I} x_i \in F \implies \exists k \in I, x_k \in F\)</span>。</p>
+</div>
+<p>以下观察是自然的：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>一个点 <span class="arithmatex">\(x\)</span> 的所有开邻域构成的集合 <span class="arithmatex">\(\mathcal U(x) = \{U: x \in U\}\)</span> 是一个完备素滤子。</p>
+</div>
+<p>下面我们来处理一点跟拓扑空间相关的观察。鉴于上面提到的动机，我们希望由 <span class="arithmatex">\(\Omega(X)\)</span> 能够唯一确定其中的点。对此，我们先给出 Grothendieck 应用闭集写就的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>一个拓扑空间被称为素净的（sober），如果对于其中的任意并不可约的闭子集 <span class="arithmatex">\(A\)</span>，都存在唯一 <span class="arithmatex">\(x \in X\)</span> 使得 <span class="arithmatex">\(A = \overline{\{x\}}\)</span>。</p>
+</div>
+<p>下面的命题将证实我们前面对点的定义：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>一个拓扑空间 <span class="arithmatex">\(X\)</span> 是素净的，当且仅当所有的完备素滤子都是形如 <span class="arithmatex">\(\mathcal U(x)\)</span> 的集合。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>我们首先要对素净性（sobriety）的定义做一点改写，取其对偶命题：任意交不可约的开子集 <span class="arithmatex">\(U\)</span>，都存在唯一 <span class="arithmatex">\(x \in X\)</span> 使得 <span class="arithmatex">\(U = X \setminus \overline{\{x\}}\)</span>。</p>
+<p>先证 <span class="arithmatex">\(\Rightarrow\)</span> 方向。设 <span class="arithmatex">\(X\)</span> 是素净的，<span class="arithmatex">\(\mathcal F\)</span> 为 <span class="arithmatex">\(\Omega(X)\)</span> 中的完备素滤子，那么 <span class="arithmatex">\(W = \cup\{U \in \Omega(X): U \not \in \mathcal F\}\)</span> 是交不可约的。为了看出这点，我们只要注意到 <span class="arithmatex">\(W\)</span> 的补恰为 <span class="arithmatex">\(\mathcal F\)</span> 的交在 <span class="arithmatex">\(\mathcal F\)</span> 中，而<span class="arithmatex">\(\mathcal F\)</span> 是完备素的即可。这样，我们就能由素净性得到 <span class="arithmatex">\(W = X \setminus \overline{\{x\}}\)</span>。因此，我们就得到 <span class="arithmatex">\(U \not \in F \iff U \subseteq W \iff x \not \in U\)</span>。因此 <span class="arithmatex">\(\mathcal F = \mathcal U(x)\)</span>。</p>
+<p>接下来证 <span class="arithmatex">\(\Leftarrow\)</span> 方向。如果 <span class="arithmatex">\(X\)</span> 不是素净的，那么存在一个 <span class="arithmatex">\(W\)</span> 为交不可约的开集，不能表为形如 <span class="arithmatex">\(X \setminus \overline{\{x\}}\)</span> 的形式。设 <span class="arithmatex">\(\mathcal F = \{U \in \Omega(X): U \not\subseteq W\}\)</span>。这是一个完备素滤子但是 <span class="arithmatex">\(\mathcal F\)</span> 并不是形如 <span class="arithmatex">\(\mathcal U(x)\)</span> 的集族。</p>
+</details>
+<p>这个命题往往比对素净性原来的定义更好用，因此后面我们不妨将其作为对素净性的定义。再反思一下，这样一个性质事实上表明，我们之前对点的定义就等价于定义了以它为中心的一串开集族为宇象中的点，这就是那个“越来越小”的直觉的用武之地。</p>
+<p>当然，既然对拓扑空间给出了素净性的限制，那么我们不妨稍微讨论一下这个限制有多强。下面两个命题在此不做证明，但它们能够给出关于其限制的一个直观理解：</p>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>任一素净的拓扑空间都是 <span class="arithmatex">\(T_0\)</span> 的。</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">命题</p>
+<p>任一 Hausdorff 空间都是素净的。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+</div>
+<p>当然，这样的限制自然引发了下面的结果：</p>
+<div class="admonition success">
+<p class="admonition-title">引理</p>
+<p>任意宇象 <span class="arithmatex">\(L\)</span>，<span class="arithmatex">\(\mathrm{pt}(L)\)</span> 都是素净的。</p>
+</div>
+<p>还可以注意到，<span class="arithmatex">\(\mathrm{pt}\)</span> 是具备函子性的，而且很舒服的是，它是 <span class="arithmatex">\(\Omega\)</span> 的右伴随。</p>
+<p>本来打算再补点啥的，比如用单子性定义素净性，但是既然都这个点了，想想再展开讲什么东西都会变得很长，而且要用到不少范畴语义不补充又有悖本系列的精神，那就摸了，争取明天先写范畴语义好了（遁）。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>为什么这么翻译？因为 locale 事实上抽象了 space 的概念，自然地就带有空间性，frame 与之对偶，这个概念本意也带点时间因素。另外，出于与一些奇怪的翻译统一的心态（anima 心象，topos 意象），就有了这样一个奇怪的翻译。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>需要用到排中律。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
 
