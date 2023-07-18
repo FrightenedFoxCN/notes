@@ -98,6 +98,9 @@ nav:
         - 1.2 幺半群：Green 关系、分次幺半群和 Grothendieck 群: series/alg-for-cs/01/02.md
         # - 1.A 幺半群与自动机：正则语言的并行解析: series/alg-for-cs/01/Areg.md
         # - 1.B 幺半群的展示：算法专题: series/alg-for-cs/01/Bpre.md
+      - 03 一点拓扑:
+        - series/alg-for-cs/03/index.md
+        - 3.1 拓扑空间的定义和例子: series/alg-for-cs/03/01.md
   # - Miscellany:
   #   - miscellany/index.md
   #   - 衰败的美学: 
@@ -129,6 +132,6 @@ nav:
   - Daily Notes:
     - dnotes/index.md
     - 7/14 单子论和 Beck 单子性定理: dnotes/0714monad.md
-    - 7/15 格论，Birkhoff 对偶和 Heyting 代数: dnotes/0715birkhoff_duality.md
+    - 7/15 格论和 Birkhoff 对偶: dnotes/0715birkhoff_duality.md
     - 7/16 用格论研究拓扑空间：Locale and Frame: dnotes/0716locale_frame.md
 

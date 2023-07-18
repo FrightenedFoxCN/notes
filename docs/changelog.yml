@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-07-18":
+    - newpage:
+        text: 增加 3.1 拓扑空间的定义和例子
+        href: /notes/series/alg-for-cs/03/01
   - "2023-07-15":
     - newpage:
         text: 增加今天看了点啥系列：用格论研究拓扑空间：Locale and Frame
