@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-07-31":
+    - newpage:
+        text: 增加 4.1 范畴、函子、自然变换
+        href: /notes/series/alg-for-cs/04/01
   - "2023-07-18":
     - newpage:
         text: 增加 3.1 拓扑空间的定义和例子
