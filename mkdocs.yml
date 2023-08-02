@@ -137,4 +137,5 @@ nav:
     - 7/14 单子论和 Beck 单子性定理: dnotes/0714monad.md
     - 7/15 格论和 Birkhoff 对偶: dnotes/0715birkhoff_duality.md
     - 7/16 用格论研究拓扑空间：Locale and Frame: dnotes/0716locale_frame.md
+    - 8/1 一个简单的 Coq 车祸课程：一阶逻辑: dnotes/0801coq.md
 
