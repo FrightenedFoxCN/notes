@@ -1,12 +1,19 @@
 - "2023":
+  - "2023-08-11":
+    - pageupdate:
+        text: 对代数系列进行了重构
+        href: /notes/series/alg-for-cs
+    - newpage:
+        text: 增加 1.2.1 鸟迹：基本架构
+        href: /notes/series/alg-for-cs/01/02/01
   - "2023-07-31":
     - newpage:
         text: 增加 4.1 范畴、函子、自然变换
-        href: /notes/series/alg-for-cs/04/01
+        href: /notes/series/alg-for-cs/04/01/01
   - "2023-07-18":
     - newpage:
         text: 增加 3.1 拓扑空间的定义和例子
-        href: /notes/series/alg-for-cs/03/01
+        href: /notes/series/alg-for-cs/03/01/01
   - "2023-07-15":
     - newpage:
         text: 增加今天看了点啥系列：用格论研究拓扑空间：Locale and Frame
@@ -22,7 +29,7 @@
   - "2023-07-06":
     - newpage:
         text: 增加 1.1 节半群及其性质：基本的研究方法
-        href: /notes/series/alg-for-cs/01/1
+        href: /notes/series/alg-for-cs/01/01/01
   - "2023-07-05":
     - pageupdate:
         text: 清理了不会再填坑的页面

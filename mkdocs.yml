@@ -92,18 +92,36 @@ nav:
     - 写给计算机系学生的代数:
       - series/alg-for-cs/index.md
       - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
-      - 01 引入：群、环、域及其他: 
+      - 01 代数：古典之旅:
         - series/alg-for-cs/01/index.md
-        - 1.1 半群及其性质：基本的研究方法: series/alg-for-cs/01/01.md
-        - 1.2 幺半群：Green 关系、分次幺半群和 Grothendieck 群: series/alg-for-cs/01/02.md
+        - 1.1 太极：群之前的故事:  
+          - series/alg-for-cs/01/01/index.md
+          - 1.1.1 结合性：半群: series/alg-for-cs/01/01/01.md
+          # - 1.1.2 幺元：幺半群: series/alg-for-cs/01/01/02.md
+          # - 1.1.3 计数：幺半群的组合学，或字符串学:
+          # - 1.1.4 局部化：从幺半群到群: 
+        - 1.2 乾坤：群论之初:  
+          - series/alg-for-cs/01/02/index.md
+          - 1.2.1 鸟迹：基本架构: series/alg-for-cs/01/02/01.md
+          # - 1.2.2 有限：对称群和群的组合学: 
+          # - 1.2.3 同调：追寻交换图:
+        # - 1.3 九序：偏序、格:
+        # - 1.4 英华：多项式、环:
+        # - 1.5 精义：模、代数和表示:
+        # - 1.5 玄圣：域、Galois 理论
         # - 1.A 幺半群与自动机：正则语言的并行解析: series/alg-for-cs/01/Areg.md
         # - 1.B 幺半群的展示：算法专题: series/alg-for-cs/01/Bpre.md
-      - 03 一点拓扑:
+      - 03 无穷：拓扑学方法:
         - series/alg-for-cs/03/index.md
-        - 3.1 拓扑空间的定义和例子: series/alg-for-cs/03/01.md
-      - 04 范畴论：一些抽象废话:
+        - 3.1 对象：拓扑空间: 
+          # - series/alg-for-cs/03/01/index.md
+          - 3.1.1 定义：一次闪光: series/alg-for-cs/03/01/01.md
+      - 04 符号：范畴论的抽象废话:
         - series/alg-for-cs/04/index.md
-        - 4.1 范畴、函子、自然变换: series/alg-for-cs/04/01.md
+        - 4.1 导向：范畴、函子、自然变换: 
+          - series/alg-for-cs/04/01/index.md
+          - 4.1.1 宏观：基本定义: series/alg-for-cs/04/01/01.md
+          - 4.1.2 中观：描述性质: series/alg-for-cs/04/01/02.md
   # - Miscellany:
   #   - miscellany/index.md
   #   - 衰败的美学: 
