@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/series/alg-for-cs/04/01/">
+        <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/series/alg-for-cs/04/01/01/">
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>4.1 范畴、函子、自然变换 - FFox's Notes</title>
+        <title>4.1.1 宏观：基本定义 - FFox's Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -33,9 +33,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../css/svg.css">
+      <link rel="stylesheet" href="../../../../../css/svg.css">
     
-      <link rel="stylesheet" href="../../../../css/timeline.css">
+      <link rel="stylesheet" href="../../../../../css/timeline.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -43,9 +43,9 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="../../../../css/stylesheet.css">
+      <link rel="stylesheet" href="../../../../../css/stylesheet.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -88,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+    <a href="../../../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.1 范畴、函子、自然变换
+              4.1.1 宏观：基本定义
             
           </span>
         </div>
@@ -183,7 +183,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -201,7 +201,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../" class="md-tabs__link md-tabs__link--active">
         Series
       </a>
     </li>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../qnotes/" class="md-tabs__link">
+      <a href="../../../../../qnotes/" class="md-tabs__link">
         Quick Notes
       </a>
     </li>
@@ -233,7 +233,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../dnotes/" class="md-tabs__link">
+      <a href="../../../../../dnotes/" class="md-tabs__link">
         Daily Notes
       </a>
     </li>
@@ -261,7 +261,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
+    <a href="../../../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -303,7 +303,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../..">Home</a>
+          <a href="../../../../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -326,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../changelog/" class="md-nav__link">
+      <a href="../../../../../changelog/" class="md-nav__link">
         更新记录
       </a>
     </li>
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../links/" class="md-nav__link">
+      <a href="../../../../../links/" class="md-nav__link">
         友链
       </a>
     </li>
@@ -354,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../todo/" class="md-nav__link">
+      <a href="../../../../../todo/" class="md-nav__link">
         待办事项
       </a>
     </li>
@@ -397,7 +397,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">Series</a>
+          <a href="../../../../">Series</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -447,7 +447,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">写给计算机系学生的代数</a>
+          <a href="../../../">写给计算机系学生的代数</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -470,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../00/" class="md-nav__link">
+      <a href="../../../00/" class="md-nav__link">
         00 前言：关于代数、数学和计算科学
       </a>
     </li>
@@ -505,7 +505,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../01/">01 引入：群、环、域及其他</a>
+          <a href="../../../01/">01 代数：古典之旅</a>
           
             <label for="__nav_2_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -513,10 +513,52 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="01 引入：群、环、域及其他" data-md-level="3">
+      <nav class="md-nav" aria-label="01 代数：古典之旅" data-md-level="3">
         <label class="md-nav__title" for="__nav_2_2_3">
           <span class="md-nav__icon md-icon"></span>
-          01 引入：群、环、域及其他
+          01 代数：古典之旅
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3_2" type="checkbox" id="__nav_2_2_3_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../01/01/">1.1 太极：群之前的故事</a>
+          
+            <label for="__nav_2_2_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="1.1 太极：群之前的故事" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          1.1 太极：群之前的故事
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -528,9 +570,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01/01/" class="md-nav__link">
-        1.1 半群及其性质：基本的研究方法
+      <a href="../../../01/01/01/" class="md-nav__link">
+        1.1.1 结合性：半群
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -541,10 +590,59 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3_3" type="checkbox" id="__nav_2_2_3_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../01/02/">1.2 乾坤：群论之初</a>
+          
+            <label for="__nav_2_2_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="1.2 乾坤：群论之初" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          1.2 乾坤：群论之初
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../01/02/" class="md-nav__link">
-        1.2 幺半群：Green 关系、分次幺半群和 Grothendieck 群
+      <a href="../../../01/02/01/" class="md-nav__link">
+        1.2.1 鸟迹：基本架构
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -582,7 +680,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../03/">03 一点拓扑</a>
+          <a href="../../../03/">03 无穷：拓扑学方法</a>
           
             <label for="__nav_2_2_4">
               <span class="md-nav__icon md-icon"></span>
@@ -590,10 +688,10 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="03 一点拓扑" data-md-level="3">
+      <nav class="md-nav" aria-label="03 无穷：拓扑学方法" data-md-level="3">
         <label class="md-nav__title" for="__nav_2_2_4">
           <span class="md-nav__icon md-icon"></span>
-          03 一点拓扑
+          03 无穷：拓扑学方法
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -604,10 +702,47 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4_2" type="checkbox" id="__nav_2_2_4_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_4_2">
+          3.1 对象：拓扑空间
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="3.1 对象：拓扑空间" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          3.1 对象：拓扑空间
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../03/01/" class="md-nav__link">
-        3.1 拓扑空间的定义和例子
+      <a href="../../../03/01/01/" class="md-nav__link">
+        3.1.1 定义：一次闪光
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -647,7 +782,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">04 范畴论：一些抽象废话</a>
+          <a href="../../">04 符号：范畴论的抽象废话</a>
           
             <label for="__nav_2_2_5">
               <span class="md-nav__icon md-icon"></span>
@@ -655,13 +790,63 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="04 范畴论：一些抽象废话" data-md-level="3">
+      <nav class="md-nav" aria-label="04 符号：范畴论的抽象废话" data-md-level="3">
         <label class="md-nav__title" for="__nav_2_2_5">
           <span class="md-nav__icon md-icon"></span>
-          04 范畴论：一些抽象废话
+          04 符号：范畴论的抽象废话
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2" type="checkbox" id="__nav_2_2_5_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_5_2">
+          4.1 导向：范畴、函子、自然变换
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="4.1 导向：范畴、函子、自然变换" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          4.1 导向：范畴、函子、自然变换
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -680,9 +865,30 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        4.1 范畴、函子、自然变换
+        4.1.1 宏观：基本定义
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02/" class="md-nav__link">
+        4.1.2 中观：描述性质
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -737,7 +943,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../qnotes/">Quick Notes</a>
+          <a href="../../../../../qnotes/">Quick Notes</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -760,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
+      <a href="../../../../../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
         Theorem Proving in Lean 4
       </a>
     </li>
@@ -807,7 +1013,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../qnotes/computer_vision/">Computer Vision</a>
+          <a href="../../../../../qnotes/computer_vision/">Computer Vision</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -830,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
         01 Image Formation
       </a>
     </li>
@@ -844,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
         03 Image Matching & Motion Estimation
       </a>
     </li>
@@ -858,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
         05 Structure from Motion
       </a>
     </li>
@@ -872,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
         06 Depth Estimation & Dense Reconstruction
       </a>
     </li>
@@ -886,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
         07 Recognition
       </a>
     </li>
@@ -900,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
         08 3D Deep Learning
       </a>
     </li>
@@ -914,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
         09 Computational Photography
       </a>
     </li>
@@ -928,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
+      <a href="../../../../../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
         10 Image-based Rendering
       </a>
     </li>
@@ -982,7 +1188,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../dnotes/">Daily Notes</a>
+          <a href="../../../../../dnotes/">Daily Notes</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1005,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../dnotes/0714monad/" class="md-nav__link">
+      <a href="../../../../../dnotes/0714monad/" class="md-nav__link">
         7/14 单子论和 Beck 单子性定理
       </a>
     </li>
@@ -1019,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../dnotes/0715birkhoff_duality/" class="md-nav__link">
+      <a href="../../../../../dnotes/0715birkhoff_duality/" class="md-nav__link">
         7/15 格论和 Birkhoff 对偶
       </a>
     </li>
@@ -1033,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../dnotes/0716locale_frame/" class="md-nav__link">
+      <a href="../../../../../dnotes/0716locale_frame/" class="md-nav__link">
         7/16 用格论研究拓扑空间：Locale and Frame
       </a>
     </li>
@@ -1047,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../dnotes/0801coq/" class="md-nav__link">
+      <a href="../../../../../dnotes/0801coq/" class="md-nav__link">
         8/1 一个简单的 Coq 车祸课程：一阶逻辑
       </a>
     </li>
@@ -1096,10 +1302,11 @@
 
 <h1 id="_1">范畴、函子、自然变换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1840 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 6 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1962 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 7 分钟</p>
 </div>
 <blockquote>
 <p>有一瞬间，妈妈看到了山而没有想到伐木，没有想到滑雪胜地和雪崩，被驯服的野生动物，板块构造地质学，微气候，雨影，或阴阳的位置。她看到了没有语言框架的山。没有联想的牢笼。她看到了山，但不是通过她所知的一切关于山的真实事物的透镜。她在那一瞬间看到的甚至不是一座“山”。它不是一个自然资源。它没有名字。（C. Palahniuk, <em>Choke</em>）</p>
+<p>帕拉尼克在本段中所描绘的“山”，抛却了一切山与外部世界的关系。当我们谈论范畴时，我们尝试探讨的东西与之恰好相反：抛弃那些东西的本来面目，只留下其间的关系和几个轮廓性的框架。限制它“是什么”的性质用以将其与其它东西区分，而它的内容则不再重要。这就是本文想要传达的基本框架。</p>
 </blockquote>
 <p>本文大概是一切介绍范畴学之著作避不开的老生常谈，但笔者希望能使它变得更有意思一点。因此，我们首先排除掉 MacLane 为表述此花费的众多元语言笔墨，直面范畴的定义。在有必要的时候，我们将重返那些更加 meta 的话题。</p>
 <div class="admonition info">
@@ -1248,7 +1455,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 范畴论：一些抽象废话" rel="prev">
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 范畴论：一些抽象废话" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1264,13 +1471,13 @@
       
       
         
-        <a href="../../../../qnotes/" class="md-footer__link md-footer__link--next" aria-label="下一页: Quick Notes" rel="next">
+        <a href="../02/" class="md-footer__link md-footer__link--next" aria-label="下一页: 4.1.2 中观：描述性质" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              Quick Notes
+              4.1.2 中观：描述性质
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1301,14 +1508,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
       
-        <script src="../../../../js/katex.js"></script>
+        <script src="../../../../../js/katex.js"></script>
       
     
   </body>
