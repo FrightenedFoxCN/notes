@@ -103,6 +103,7 @@ nav:
         - 1.2 乾坤：群论之初:  
           - series/alg-for-cs/01/02/index.md
           - 1.2.1 鸟迹：基本架构: series/alg-for-cs/01/02/01.md
+          - 1.2.2 阶：从 Lagrange 到 Sylow: series/alg-for-cs/01/02/02.md
           # - 1.2.2 有限：对称群和群的组合学: 
           # - 1.2.3 同调：追寻交换图:
         # - 1.3 九序：偏序、格:
