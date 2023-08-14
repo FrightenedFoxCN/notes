@@ -123,11 +123,15 @@ nav:
           - series/alg-for-cs/04/01/index.md
           - 4.1.1 宏观：基本定义: series/alg-for-cs/04/01/01.md
           - 4.1.2 中观：描述性质: series/alg-for-cs/04/01/02.md
-  # - Miscellany:
-  #   - miscellany/index.md
+  - Miscellany:
+    - miscellany/index.md
   #   - 衰败的美学: 
   #     - miscellany/aesthetic-decay/index.md
   #     - 引言: miscellany/aesthetic-decay/00intro.md
+    - Francis Bouceux - Some flavours of topos theory:
+      - miscellany/bouceux-informal-topos/index.md
+      - 第四讲 拓扑斯的内逻辑: miscellany/bouceux-informal-topos/04logic.md
+      - 参考文献: miscellany/bouceux-informal-topos/06refs.md
   # - Exercises:
     # - exercises/index.md
     # - 李文威《代数学方法》卷一：基本架构: 
