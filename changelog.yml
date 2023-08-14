@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-08-14":
+    - newpage:
+        text: 开了个 F. Bouceux 的讲义翻译的坑
+        href: /notes/miscellany/bouceux-informal-topos
   - "2023-08-12":
     - pageupdate:
         text: 更新 1.2.1 鸟迹：基本架构，补充了一些习题
