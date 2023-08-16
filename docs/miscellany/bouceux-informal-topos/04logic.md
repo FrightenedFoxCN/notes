@@ -24,8 +24,8 @@ $$
 
 [^1]: “多产的叉子搅拌黄色的数学。”一个典型的符合语法但是不知所云的句子。——译者注
 
-\definition
-    （4.1）考虑拓扑斯 $\mathcal E$，对每个元素 $A \in \mathcal E$ 它的语言给定：
+!!! info "定义 4.1"
+    考虑拓扑斯 $\mathcal E$，对每个元素 $A \in \mathcal E$ 它的语言给定：
 
     - 对每个箭头 $1 \to A$，一个符号，称为一个类型 $A$ 的常元。
     - 一个符号组成的可列集，称为类型 $A$ 的变元。
@@ -42,8 +42,8 @@ $$
 
 为了避免下面这些定义的核心被一些不必要的关于自由变元的细节掩盖，我们在此省略了这些细节，读者可以参考文献 [4] 的定义 6.1.1，那里有更为精确的定义。
 
-\definition
-    （4.2）在拓扑斯 $\mathcal E$ 中，内语言的项被递归地定义如下：
+!!! info "定义 4.2"
+    在拓扑斯 $\mathcal E$ 中，内语言的项被递归地定义如下：
 
     1. 类型 $A$ 的常元是类型 $A$ 的项；
     2. 类型 $A$ 的变元是类型 $A$ 的项；
@@ -52,8 +52,8 @@ $$
     5. 如果 $\tau$ 是一个类型 $A$ 的项，带有类型分别为 $A_1, \cdots, A_n$ 的自由变元 $a_1, \cdots, a_n$；$\sigma_1, \cdots, \sigma_n$ 是类型分别为 $A_1, \cdots, A_n$ 的不含 $\tau$ 中的受限变元的项，则 $\tau(\sigma_1, \cdots, \sigma_n)$ 仍然是类型 $A$ 的一个项；
     6. 如果 $\varphi$ 是一个带有自由变元 $a_1, \cdots, a_n, b_1, \cdots, b_m$ 的公式，类型分别为 $A_1, \cdots, A_n, B_1, \cdots, B_m$，则 $\{(a_1, \cdots, a_n) | \varphi(a_1, \cdots, a_n, b_1, \cdots, b_m)\}$ 是一个类型 $\Omega^{A_1 \times \cdots \times A_n}$ 的项。
 
-\definition
-    （4.3）在拓扑斯 $\mathcal E$ 中，内语言的公式被递归地定义如下：
+!!! info "定义 4.3"
+    在拓扑斯 $\mathcal E$ 中，内语言的公式被递归地定义如下：
 
     1. 符号 $\mathsf{true}$ 和 $\mathsf{false}$ 是公式；
     2. 如果 $\tau$ 和 $\sigma$ 都是类型 $A$ 的项，那么 $\tau = \sigma$ 是一个公式；
@@ -99,8 +99,8 @@ $$
 
 同样的，定义依然是递归的。为了简短起见，我们直接继承定义 4.2 中的符号和计数：
 
-\definition
-    （4.4）在拓扑斯 $\mathcal E$ 中，继承定义 4.2 中的记号和标号，项 $\tau$ 的实现 $\lceil \tau \rceil$ 被递归地定义如下：
+!!! info "定义 4.4"
+    在拓扑斯 $\mathcal E$ 中，继承定义 4.2 中的记号和标号，项 $\tau$ 的实现 $\lceil \tau \rceil$ 被递归地定义如下：
 
     1. 常元的实现是它自身；
     2. 类型 $A$ 的变元的实现是 $A$ 上的恒同态射；
@@ -133,8 +133,8 @@ $$
 
 我们的定义依然是递归地进行的，这次不仅仅要诉诸定义 4.3 的符号和标号：
 
-\definition
-    （4.5）在拓扑斯 $\mathcal E$ 中，继承定义 4.3 的符号和编号，应用定义 2.5、定义 2.5、定理 2.23、定义 2.12 的各种构造，公式 $\varphi$ 的真值表 $\lceil \varphi \rceil$ 被递归地定义为：
+!!! info "定义 4.5"
+    在拓扑斯 $\mathcal E$ 中，继承定义 4.3 的符号和编号，应用定义 2.5、定义 2.5、定理 2.23、定义 2.12 的各种构造，公式 $\varphi$ 的真值表 $\lceil \varphi \rceil$ 被递归地定义为：
 
     1. $\lceil \mathsf{true} \rceil = t$，$\lceil \mathsf{false}\rceil = f$；
     2. $\lceil \tau = \sigma \rceil = (=_A) \circ (\lceil \tau \rceil, \lceil \sigma \rceil)$；
@@ -154,8 +154,8 @@ $$
 
 最后，我们以一个显然但有用的观察作为这一节的尾声：
 
-\proposition
-    （4.6）在拓扑斯 $\mathcal E$ 中，考虑两个具备相同的类型为 $A_1, \cdots, A_n$ 的自由变元 $a_1, \cdots, a_n$ 的公式 $\varphi$ 和 $\psi$，将由 $\lceil \varphi \rceil$ 和 $\lceil \psi \rceil$ 分类的 $A_1 \times \cdots \times A_n$ 中的子对象分别记作 $[\varphi]$ 和 $[\psi]$，则由
+!!! success "命题 4.6"
+    在拓扑斯 $\mathcal E$ 中，考虑两个具备相同的类型为 $A_1, \cdots, A_n$ 的自由变元 $a_1, \cdots, a_n$ 的公式 $\varphi$ 和 $\psi$，将由 $\lceil \varphi \rceil$ 和 $\lceil \psi \rceil$ 分类的 $A_1 \times \cdots \times A_n$ 中的子对象分别记作 $[\varphi]$ 和 $[\psi]$，则由
 
     $$
     \lceil \mathsf{true} \rceil, \quad \lceil \mathsf{false} \rceil, \quad \lceil \varphi \wedge \psi \rceil, \quad \lceil \varphi \vee \psi \rceil, \quad \lceil \varphi \implies \psi \rceil, \quad \lceil \lnot \varphi \rceil
@@ -174,11 +174,11 @@ $$
 
 下面我们需要说明，什么叫某个公式是真的，并且推断出拓扑斯的内逻辑中有效的推理规则。
 
-\definition
+!!! info "定义 4.7"
     （4.7）在拓扑斯 $\mathcal E$ 中，设 $\varphi$ 是一个带有类型分别为 $A_1, \cdots, A_n$ 的变元 $a_1, \cdots, a_n$ 的公式，我们说这个公式为真当且仅当 $\lceil \varphi \rceil = \lceil \mathsf{true} \rceil$，记作 $\models \varphi$。这也就是说，$\lceil \varphi \rceil$ 分类的子对象就是 $A_1 \times \cdots \times A_n$ 本身。
 
-\theorem
-    （4.8）在拓扑斯 $\mathcal E$ 中，直觉主义谓词逻辑的公理全部成立。也就是说，给定三个带有相同自由变元的公式 $\varphi, \psi, \theta$，以下性质成立：
+!!! success "定理 4.8"
+    在拓扑斯 $\mathcal E$ 中，直觉主义谓词逻辑的公理全部成立。也就是说，给定三个带有相同自由变元的公式 $\varphi, \psi, \theta$，以下性质成立：
 
     \begin{aligned}
     (P1) & \models \varphi \implies (\psi \implies \varphi)\\
@@ -229,8 +229,8 @@ $$
 
 下面的命题强调了它与经典逻辑的第一个重大区别；亦见例子 4.11。
 
-\proposition
-    （4.9）在拓扑斯 $\mathcal E$ 中，令 $\varphi$ 和 $\psi$ 为两个带有相同自由变元的公式：
+!!! success "命题 4.9"
+    在拓扑斯 $\mathcal E$ 中，令 $\varphi$ 和 $\psi$ 为两个带有相同自由变元的公式：
 
     - 若 $\models \varphi \wedge \psi$，则 $\models \varphi$ **且** $\models \psi$；
     - 但若 $\models \varphi \vee \psi$，在通常情况下，$\models \varphi$ **或** $\models \psi$ 并不成立。
@@ -250,8 +250,8 @@ $$
 
 下面我们考虑包含量词的额外逻辑规则
 
-\theorem
-    （4.10）在拓扑斯 $\mathcal E$ 中，所有直觉主义谓词逻辑的公理也成立。明确地说，考虑两个带有相同自由变元的公式 $\varphi$ 和 $\psi$，以及项 $\tau$，以下性质成立：
+!!! success "定理 4.10"
+    在拓扑斯 $\mathcal E$ 中，所有直觉主义谓词逻辑的公理也成立。明确地说，考虑两个带有相同自由变元的公式 $\varphi$ 和 $\psi$，以及项 $\tau$，以下性质成立：
 
     \begin{aligned}
     (P12) & \models (\forall x\ (\varphi \implies \psi)) \implies ((\forall x \ \varphi) \implies \forall x \ \psi)\\
@@ -314,8 +314,8 @@ $$
 
 接下来，我们用一个例子来表明在命题 4.9 中提到过的其与经典逻辑的不同。
 
-!!! info "例子"
-    （4.11）考虑实直线上的层拓扑斯。连续函数层（参见 1.2 节）满足以下命题：
+!!! info "例 4.11"
+    考虑实直线上的层拓扑斯。连续函数层（参见 1.2 节）满足以下命题：
 
     $$
     \models (\exists g\ f \times g = 1) \vee (\exists g\ (1 - f) \times g = 1)
@@ -346,8 +346,8 @@ $$
 
 [^4]: 比利时巧克力在欧洲非常有名，大概相当于在内地说高邮咸鸭蛋……？——译者注
 
-\proposition
-    （4.12）在拓扑斯 $\mathcal E$ 中，考虑：
+!!! success "命题 4.12"
+    在拓扑斯 $\mathcal E$ 中，考虑：
 
     - 对象 $A$ 和 $B$；
     - 态射 $f, g: A \rightrightarrows B$ 和 $h: B \to C$；
@@ -368,3 +368,159 @@ $$
     10. $\mathrm{Ker}\ (f, g) = \{a | f(a) = g(a)\}$；
     11. $f \times_B h = \{(a, c) | f(a) = h(c)\}$，指 $f$ 和 $h$ 的拉回。
 
+\proof
+    我们先证明第一个命题。根据态射 $=$ 的定义，子对象 $[f(a) = g(a)]$ 是 $B$ 沿 $(f, g)$ 的对角线的原像，即等化子 $\mathrm{Ker}\ (f, g)$。当然，$\mathrm{Ker}\ (f, g) = A$ 等价于 $f = g$。
+
+    满射的情形也需要单独拿出来强调一下。由存在量词的定义，我们有如下交换图：
+
+    \tikzcd
+        \mathrm{Im} \ar[dd, rightarrowtail, "i"]\ (f) & A \ar[l, twoheadrightarrow, "q"] \ar[r, "f"] \ar[ldd, "f"] \ar[dd, rightarrowtail, "{(\mathrm{id}_A, f)}"] & B \ar[r, ""] \ar[dd, rightarrowtail, "\Delta_B"] & 1 \ar[dd, rightarrowtail, "t"] \\\\
+        B & A \times B \ar[l, "p_B"] \ar[r, "f \times \mathrm{id}_B"] & B \times B \ar[r, "=_B"] & \Omega
+
+    中间的和右边的方块都是拉回，由此可以将：
+
+    $$
+    (\mathrm{id}_A, f): A \rightarrowtail A \times B
+    $$
+
+    写成
+
+    $$
+    \{a | f(a) = b\} \cong \{(a, b) | f(a) = b\} \rightarrowtail A \times B
+    $$
+
+    根据存在量词的定义，有：
+
+    $$
+    \{b | \exists a\ f(a) = b\} = \mathrm{Im}\ (p_b \circ (\mathrm{id}_A, f)) = \mathrm{Im}\ f
+    $$
+
+    当然，$\mathrm{Im}\ f = B$ 当且仅当 $f$ 是一个满射。
+
+    其它陈述的证明，参见参考文献 [4] 的命题 6.10.2。
+
+满射的情形还需要做一个补充：
+
+!!! success "命题 4.13"
+    在宇象 $L$ 上的层拓扑斯中，态射 $f: A \to B$ 是一个满射当且仅当任取 $u \in L$，$b \in B(u)$，都有一个覆盖 $u = \bigvee_{i \in I} u_i$ 和 $a_i \in A(u_i)$ 使得对任意 $i \in I$，$f_{u_i}(a_i) = b |_{u_i}$。
+
+\proof
+    延续命题中的记号，给定 $g, h: B \rightrightarrows C$ 满足 $gf = hf$，则 $g$ 和 $h$ 在所有 $b_{u_i}$ 上相等，因为 $C$ 是一个层，所以它们也在胶合 $b$ 上相等。
+
+    反过来，如果 $f$ 是 $\mathsf{Sh}(L)$ 上的一个满射，考虑其在预层拓扑斯 $\mathsf{Psh}(L)$[^5] 上的像分解 $ip$，应用层函子 $a$，就有 $B \cong a(I)$ 为 $I$ 构造出的层。回顾 3.2 节，我们会发现 $B$ 无外乎 $I$ 在定义层时的 Lawvere-Tierney 拓扑下的完备化，于是由例 3.8 即可得出结论。
+
+[^5]: 原文用的记号是 $\mathsf{Pr}(L)$，这里为了与常用的记号统一起见，使用 $\mathsf{Psh}$，虽然这个记号本来就五花八门。——译者注
+
+!!! info "反例 4.14"
+    存在一个宇性拓扑斯，其中满态射不一定在每个点上都是满射。
+
+\proof
+    考虑由三元素集 $\{x, y, z\}$ 给定的拓扑空间 $X$，其上的开集定义为 $\{x, y\}$，$\{y, z\}$ 和 $\{y\}$。显然，置
+
+    $$
+    A(\{x, y, z\}) = \varnothing, \quad A(\{x, y\}) = \{a\}, \quad A(\{y, z\}) = \{a'\}, \quad A(\{y\}) = \{a, a'\}
+    $$
+
+    能够得到 $X$ 上的一个层，胶合条件完全无关紧要。根据命题 4.13，态射 $A \to 1$ 是一个层拓扑斯中的满态射，但是在顶层并非满射。
+
+类似的考虑也可以在任意的 Grothendieck 拓扑斯中进行。这表明宇性拓扑斯或者 Grothendieck 拓扑斯的内逻辑中，存在量词并不能被翻译成逐点的存在性：它毋宁说是一种局部的存在，在一个覆盖的所有部分中存在，在空性拓扑斯中，这也等同于说，在每个点的邻域中存在。但是在一个任意的拓扑斯中，当我们用其内逻辑写出证明的时候，命题 4.12 却告诉我们，可以直接用通常描述满射的公式描述满态射。这是一个很大的简化，尤其时当你需要处理各种满态射的组合的时候。
+
+!!! info "拓展阅读"
+    下面是另外一个很有趣的性质，例 4.11 当我们用拓扑斯的内逻辑表述的时候也会出现，也就是说，每个环都是一个局部环……如果选择了一个够大的拓扑斯！回顾一下，一个局部环指的是对于任意元素 $r$，$r$ 和 $1 - r$ 中至少有一个是可逆的。举个例子，每个域都是一个局部环。
+
+    给定交换环 $R$，在其 Zariski 谱上的层拓扑斯中，存在一个环 $\hat R$，它在这个拓扑斯的内逻辑中是局部环，并且将原环实现为常元。见参考文献 [4] 的 2.11 节。
+
+## 4.6 内极限和余极限
+
+许多习惯于在 Grothendieck 拓扑斯中工作的人往往觉得初等拓扑斯的结构太差以至于百无一用，因为它们不能处理那些要求无穷极限和余极限的深刻结果。他们错的一塌糊涂。首先，他们就没有意识到 Grothendieck 拓扑斯在由对象集合和箭头集合构成的图的极限和余极限之外还有更多得多的东西：它们有由对象层和箭头层构成的的内图表的极限和余极限。对于这些更加复杂而广泛的内极限和余极限的考察有助于我们构建简单而优雅的证明，而且它们在每个初等拓扑斯中都存在。
+
+当然，一个初等拓扑斯只是有限完备、有限余完备的。因此，任意子对象的交和并、或者任意小极限或小余极限都不总是存在。但是，拓扑斯的内逻辑容许我们处理“任意的内构造”，不需要外加什么有限性条件。
+
+例如，对象 $A$ 的子对象格是一个 Heyting 代数，但不是一个宇象，因为子对象的任意并不存在于其中。我们也已经发现，$\Omega^A$ 这个对象，也就是“A 中的对象的子对象”自己是一个内 Heyting 代数，实际的子对象作为这个内 Heyting 代数 $\Omega^A$ 中的常元存在。事实上，我们还可以进一步推广：
+
+!!! success "命题 4.15"
+    在一个初等拓扑斯 $\mathcal E$ 中，对于任意对象 $A$，Heyting 代数 $\Omega^A$ 都有一个内宇象结构。
+
+\proof
+    如前所述，$\Omega^A$ 应当被认为是 A 的“对象的子对象”，因此一个子对象 $S \rightarrowtail \Omega^A$，即一个 $\Omega^{\Omega^A}$ 类型的常元，可以被视作是 $A$ 中的一族子对象，下面两个表达式在拓扑斯的内逻辑中成立：
+
+    $$
+    \bigcap S = \{a | \forall \sigma(\sigma \in S \implies a \in \sigma)\} \subseteq A
+    $$
+
+    $$
+    \bigcup S = \{a | \exists \sigma(\sigma \in S \wedge a \in \sigma)\} \subseteq A
+    $$
+
+    其中 $a$ 为类型 $A$ 的变元，$\sigma$ 为类型 $\Omega^A$ 的变元，它们定义了 $A$ 事实上的子对象。
+
+    这些子对象当然是内子对象的内部族的内交和内并。稍微改写一下这两个式子，用一个类型为 $\Omega^{\Omega^A}$ 的变元 $S$ 来表达，就给出了态射：
+
+    \begin{aligned}
+     \bigcup & : & \Omega^{\Omega^A} \to \Omega^A \\
+     \bigcap & : & \Omega^{\Omega^A} \to \Omega^A \\
+    \end{aligned}
+
+    其中 $\bigcup$ 就表达了 $\Omega^A$ 的内宇象结构。事实上，由于笛卡尔闭性，这个态射一定对应了态射：
+
+    $$
+    A \times \Omega^{\Omega^A} \to \Omega 
+    $$
+
+    因此也就对应于 $A \times \Omega^{\Omega^A}$ 的一个子对象
+
+    $$
+    \{(a, S) | \exists \sigma\ (\sigma \in S \wedge a \in \sigma)\}
+    $$
+
+    细节可参见参考文献 [4] 的定理 6.1.9。
+
+下面来考虑极限和余极限。给定范畴 $\mathcal E$ 和小范畴 $\mathcal D$，所有 $\mathcal D$-极限和 $\mathcal D$-余极限的存在性就相当于是下面这个函子右伴随或左伴随的存在性：
+
+$$
+\Delta_{\mathcal D}: \mathcal E \to [\mathcal D, \mathcal E], X \mapsto \Delta_X
+$$
+
+其中 $\Delta_X$ 表示 $X$ 上的所有常函子（见参考文献 [3] 中的命题 3.2.3）。
+
+仍然取小范畴 $\mathcal D$，记其对象为 $\mathsf{Ob}(\mathcal D)$，态射为 $\mathsf{Mor}(\mathcal D)$[^6]。每个函子 $F: \mathcal D \to \mathsf{Set}$ 都给出了一个集族 $(F(D))_{D \in \mathsf{Ob}(\mathcal D)}$ 和 $\mathsf{Mor}(\mathcal D)$ 在这个集族上的作用。我们知道，这也可以被认为是一个态射 $\coprod_{D \in \mathsf{Ob}(\mathcal D)} F(D) \to \mathsf{Ob}(\mathcal D)$ 和 $\mathsf{Mor}(\mathcal D)$ 在其上的作用。
+
+[^6]: 原文为 $\mathsf{Ar}(\mathcal D)$，修改理由同上。——译者注
+
+现在给定一个拓扑斯 $\mathcal E$ 的内范畴 $\mathbb D$（参看 [2] 中的定义 8.1.1），记对象的对象为 $D_0$，态射的对象为 $D_1$，一个内基值函子（internal based valued functor）$F: \mathbb D \to \mathcal E$ 被定义为有序对 $(F, \varphi)$ 以及 $D_1$ 在 $F$ 上的一个作用，其中 $\varphi: F \to D_0$（见 [2] 中的定义 8.2.1）。给出对象 $X \in \mathcal E$，$X$ 上的常值内函子就是投影 $D_0 \times X \to D_0$ 以及 $D_1$ 的恒同作用。很直接地，也可以定义内自然变换并给出一个实际的函子
+
+$$
+\Delta_{\mathbb{D}}: \mathcal E \to [\mathbb D, \mathcal E]
+$$
+
+映到内基值函子的范畴上去。（见 [3] 的 8.3 节）
+
+!!! success "命题 4.16"
+    一个初等拓扑斯是内完备、内余完备的，也就是说，上述定义的每个函子 $\Delta_{\mathbb{D}}$ 都有右伴随和左伴随。
+
+\proof
+    作为一个有趣的练习，读者不妨尝试自行证明，经典的对于集合中的极限和余极限的描述用初等拓扑斯 $\mathcal E$ 的内逻辑进行解读就能得到所需的结果。
+
+现在给定位形 $(\mathcal C, \mathcal T)$，如下的复合当然是保有限极限的，因为两个函子都是如此：
+
+$$
+\mathsf{Set} \stackrel {\Delta_{\mathcal C}} \to \mathsf{Psh}(\mathcal C) \stackrel a \to \mathsf{Sh}(\mathcal C, \mathcal T)
+$$
+
+其中 $a$ 为相应的层函子。它将任意小范畴 $\mathcal D$，即 $\mathsf{Set}$ 的任意内范畴转变成了 $\mathsf{Sh}(\mathcal C, \mathcal T)$ 的一个内范畴 $\mathbb D$。事实上，是一个相当平凡的内范畴，因为
+
+$$
+D_0 = a \Delta(\mathsf{Ob}(\mathcal D)) = \coprod_{\mathsf{Ob}(\mathcal D)} 1, \quad D_1 = a \Delta(\mathsf{Mor}(\mathcal D)) = \coprod_{\mathsf{Mor}(\mathcal D)} 1
+$$
+
+由于在 `\mathsf{Set}` 中就是如此，而且 $\Delta$ 和 $a$ 都保余极限，因为它们有右伴随。
+
+另外，函子 $F: \mathcal D \to \mathsf{Sh}(\mathcal C, \mathcal T)$ 也能直接给出一个内基值函子
+
+$$
+\coprod_{D \in \mathcal D} F(D) \stackrel {\coprod \xi_{\mathcal D}} \longrightarrow \coprod_{\mathsf{Ob}(\mathcal D)} \mathbf 1 \cong D_0
+$$
+
+其中 $\xi_D: F(D) \to \mathbf 1$。容易验证，这个内基值函子的内极限或余极限相当于对原函子 $F$ 的小极限或余极限的重建。
+
+因此，在一个 Grothendieck 拓扑斯中，小极限和小余极限无非是内极限和内余极限的特例。当然，在 Grothendieck 拓扑斯中，内完备性和内余完备性的性质比小完备性和小余完备性的性质丰富得多。正如命题 4.16 所数，这些更丰富的性质在每个初等拓扑斯中都是成立的。
