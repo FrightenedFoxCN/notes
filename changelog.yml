@@ -1,5 +1,9 @@
 - "2023":
-  - "2023-08-14":
+  - "2023-08-16":
+    - pageupdate:
+        text: 完成第四章翻译
+        href: /notes/miscellany/bouceux-informal-topos/04logic
+  - "2023-08-15":
     - pageupdate:
         text: 更新翻译 4.2-4.5 节前半
         href: /notes/miscellany/bouceux-informal-topos/04logic
