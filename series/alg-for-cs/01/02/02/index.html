@@ -723,6 +723,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#burnside-polya" class="md-nav__link">
+    组合学：Burnside, Pólya 和循环指标
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1520,6 +1527,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#burnside-polya" class="md-nav__link">
+    组合学：Burnside, Pólya 和循环指标
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1537,7 +1551,7 @@
 
 <h1 id="lagrange-sylow">阶：从 Lagrange 到 Sylow<a class="headerlink" href="#lagrange-sylow" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1855 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 6 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3194 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 11 分钟</p>
 </div>
 <blockquote>
 <p>通过少数几例枚举武断地下结论往往会将我们引入歧途。（Bertrand Russell）</p>
@@ -1659,7 +1673,69 @@ Y = \{E \subseteq G: |E| = p^m\}
 <p>个，这个数不能被 <span class="arithmatex">\(p\)</span> 整除（用二项式定理证明它！）。考虑群 <span class="arithmatex">\(G\)</span> 在 <span class="arithmatex">\(Y\)</span> 上的左作用将 <span class="arithmatex">\((g, E)\)</span> 映到 <span class="arithmatex">\(gE\)</span>，那么由前面的轨道分解公式，存在 <span class="arithmatex">\(E \in Y\)</span> 使得 <span class="arithmatex">\(p \not \vert\ [G : \mathrm{Stab}_G(E)]\)</span>。我们断言，<span class="arithmatex">\(H = \mathrm{Stab}_G(E)\)</span> 就是我们要找的 Sylow <span class="arithmatex">\(p\)</span>-子群。</p>
 <p>因为 <span class="arithmatex">\(p \not \vert \ [G : H]\)</span>，所以当然 <span class="arithmatex">\(p^m \vert \ |H|\)</span>。由稳定化子的性质，<span class="arithmatex">\(\forall g \in E, Hg \subseteq E\)</span>，而且 <span class="arithmatex">\(|H| = |Hg|\)</span>，故 <span class="arithmatex">\(H \leqslant p^m\)</span>，<span class="arithmatex">\(|H| = p^m\)</span>，明所欲证。</p>
 </details>
-<p>接下来我们要表明这个 Sylow <span class="arithmatex">\(p\)</span> 子群何时正规，为此，首先需要对内自同构做一些考察，因为这是正规子群定义之源。</p>
+<p>接下来我们要表明这个 Sylow <span class="arithmatex">\(p\)</span> 子群何时正规，为此，首先需要对内自同构做一些考察，因为这是正规子群定义之源。回顾群作用一节最后一道习题做的事，给出的交换图已经暗示了，<span class="arithmatex">\(\mathrm{ad}_g\)</span> 也是群 <span class="arithmatex">\(G\)</span> 上的一个作用，它一般被称为共轭作用。我们因此可以推广得到这样的定义：</p>
+<div class="admonition info">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(S, T\)</span> 为 <span class="arithmatex">\(G\)</span> 的两个子集，称 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span> 共轭，如果：</p>
+<div class="arithmatex">\[
+\exists g, S = gTg^{-1}
+\]</div>
+</div>
+<p>既然这是个同构，那么很自然的推论就是，两个共轭的集合具备相同的元素个数，这是不言自明的。</p>
+<p>事实上，现在我们相当于在 <span class="arithmatex">\(\mathcal{P}(G)\)</span>[^3] 上给出了一个作用 <span class="arithmatex">\(\mathrm{ad}_g\)</span>，自然的，所有与集合 <span class="arithmatex">\(S\)</span> 共轭的子集就构成了轨道 <span class="arithmatex">\(GS\)</span>，其上的稳定化子当然也就是：</p>
+<div class="arithmatex">\[
+\mathrm{Stab}_G(S) = \{g \in G: gSg^{-1} = S\} = \{g \in G: gS = Sg\}
+\]</div>
+<p>[^3] 指 <span class="arithmatex">\(G\)</span> 的幂集，即其所有子集构成的集合。</p>
+<p>因为它和正规子群之间显见的联系，这也被称为是正规化子（normalizer），记作 <span class="arithmatex">\(N_G(S)\)</span>。显然，正规子群的正规化子就是整个群 <span class="arithmatex">\(G\)</span>，可以说，它就是一个子群（子集）距离正规子群“有多少距离”的度量。更简单的视角是注意到群作用的第二个习题，<span class="arithmatex">\(G / N_G(S) \cong GS\)</span>，当 <span class="arithmatex">\(S\)</span> 是正规子群时，轨道 <span class="arithmatex">\(GS\)</span> 事实上就是平凡的。</p>
+<p>接下来，对 Sylow 第二定理的证明就顺理成章了：</p>
+<div class="admonition success">
+<p class="admonition-title">定理</p>
+<p>令 <span class="arithmatex">\(G\)</span> 为有限群，<span class="arithmatex">\(p\)</span> 为素数，<span class="arithmatex">\(G\)</span> 中存在正规的 Sylow <span class="arithmatex">\(p\)</span>-子群当且仅当 <span class="arithmatex">\(G\)</span> 有唯一的 Sylow <span class="arithmatex">\(p\)</span> 子群。</p>
+</div>
+<details class="info" open="open">
+<summary>证明</summary>
+<p>Sylow 第一定理业已表明 Sylow <span class="arithmatex">\(p\)</span>-子群的存在性。在此，我们先选定 Sylow <span class="arithmatex">\(p\)</span>-子群 <span class="arithmatex">\(H\)</span>，其在共轭作用下的轨道 <span class="arithmatex">\(GH\)</span> 中的每个元素都是 Sylow <span class="arithmatex">\(p\)</span>-子群。如果 Sylow <span class="arithmatex">\(p\)</span>-子群唯一，则当然就说明 <span class="arithmatex">\(H\)</span> 是正规的。</p>
+<p>反过来，我们发现，这些 Sylow <span class="arithmatex">\(p\)</span>-子群的稳定化子群都是相同的。而且 <span class="arithmatex">\(H \subseteq N_G(H)\)</span> 也成立。另取 <span class="arithmatex">\(Q \subseteq N_G(H)\)</span>，则由第二同构定理（见上节补充习题），有 <span class="arithmatex">\(QH / H \cong Q / Q \cap H\)</span>。因此 <span class="arithmatex">\(QH\)</span> 仍然是 <span class="arithmatex">\(p\)</span>-群。又因为 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(Q\)</span> 都是 Sylow <span class="arithmatex">\(p\)</span>-子群，则 <span class="arithmatex">\(HQ = Q = H\)</span> 成立。</p>
+</details>
+<p>事实上，准反向的推导之精要，就可以得到 Sylow 第三定理：</p>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明以下结果：</p>
+<ol>
+<li>如果 <span class="arithmatex">\(G\)</span> 是非平凡 <span class="arithmatex">\(p\)</span>-群，则任意 <span class="arithmatex">\(G\)</span>-集 <span class="arithmatex">\(X\)</span> 都满足 <span class="arithmatex">\(|X| \equiv |X^G|\ \mathrm{mod}\ p\)</span>；</li>
+<li>任意 <span class="arithmatex">\(p\)</span>-子群 <span class="arithmatex">\(H\)</span> 都含于某个 Sylow <span class="arithmatex">\(p\)</span>-子群；</li>
+<li>（Sylow 第三定理）<span class="arithmatex">\(G\)</span> 中 Sylow <span class="arithmatex">\(p\)</span>-子群的个数模 <span class="arithmatex">\(p\)</span> 余 <span class="arithmatex">\(1\)</span>。</li>
+</ol>
+</div>
+<p>这里我们的思路基本上沿用了李文威老师的书，但是做了一些改写。在一般的教科书中，对 Sylow 定理的介绍往往还会啰嗦一点，下面我们给出的几个命题亦常用于讨论之中，在此留做习题。</p>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<ol>
+<li>考虑 <span class="arithmatex">\(\mathrm{ad}_g\)</span> 的不动点集是什么？</li>
+<li>前已述及，<span class="arithmatex">\(G/Z(G) \cong \mathrm{Inn}(G)\)</span>，从上述共轭作用的视角解释这个命题；</li>
+<li>证明，若 <span class="arithmatex">\(G\)</span> 为非平凡的 <span class="arithmatex">\(p\)</span>-群，则 <span class="arithmatex">\(Z_G\)</span> 亦非平凡；</li>
+<li>设 <span class="arithmatex">\(G\)</span> 为 <span class="arithmatex">\(p\)</span>-群，<span class="arithmatex">\(H \subsetneq G\)</span>，则 <span class="arithmatex">\(H \subsetneq N_G(H)\)</span>；</li>
+<li>承 4，<span class="arithmatex">\((G: H) = p\)</span> 蕴含 <span class="arithmatex">\(H \triangleleft G\)</span>；（提示：应用 3 的结果进行递推）</li>
+<li>（Cauchy）设 <span class="arithmatex">\(G\)</span> 为有限群，<span class="arithmatex">\(p\ |\ |G|\)</span>，则存在 <span class="arithmatex">\(x \in G\)</span> 使得 <span class="arithmatex">\(|x| = p\)</span>。</li>
+</ol>
+</div>
+<p>作为这一节的收尾，我们考虑怎么用 Sylow 定理及其相关的思路来研究群的结构。</p>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<ol>
+<li>证明，一个 <span class="arithmatex">\(pq\)</span> 阶的交换群一定是循环群，其中 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 均为素数；（提示：Cauchy 或者 Sylow，Cauchy 写出来更简洁）</li>
+<li>证明，<span class="arithmatex">\(p^2\)</span> 阶群一定是交换群；（提示：反证法）</li>
+<li>证明，<span class="arithmatex">\(2p\)</span> 阶群只有两种；（提示：有一个二阶子群，有一个正规的 <span class="arithmatex">\(p\)</span> 阶子群，那么怎么构造它们“乘”起来的结果呢？）</li>
+<li>求所有可能的 <span class="arithmatex">\(8\)</span> 阶群；（提示：一共五个）</li>
+<li>求所有非交换的 <span class="arithmatex">\(12\)</span> 阶群；（提示：一共三个）</li>
+</ol>
+</div>
+<p>这部分习题比较困难，但确实可以做。需要的背景除了已经介绍的以外，可能还需要群直积和群的半直积的相关知识。这些东西为了内容的连贯性我们会置于群结构基本定理处进行介绍，读者不妨自己先尝试查找一下资料，或者干脆将这些习题中的后三道题搁置到那之后。</p>
+<p>这些习题当然就是这么困难。因为群结构过于简单，关于它的研究反而长期以来都不容易。对于一些特殊阶群，这样的组合方法当然还是可以的，但是对于一些高阶的奇怪东西，处理起来就会非常麻烦。这时，群表示论的工具就会派上用场——等待并心怀期待吧，直到那里，现代的群论工作才真正拉开帷幕。</p>
+<h2 id="burnside-polya">组合学：Burnside, Pólya 和循环指标<a class="headerlink" href="#burnside-polya" title="Permanent link">&para;</a></h2>
+<p>这一部分并不是群论的重点。但是，如前所述，群作用自然给出了一个很好的进行组合学操作（事实上，还有几何学操作）的平台。因此，对于对称的东西，应用群论的计数方法也是常见的。在这里，笔者仅以习题的方式给出主要结论和一些应用，供有兴趣的读者参考。</p>
+<p>在以下的习题中，<span class="arithmatex">\(G\)</span> 指的均为有限群。</p>
 <div class="footnote">
 <hr />
 <ol>
