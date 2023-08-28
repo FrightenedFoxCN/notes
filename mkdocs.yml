@@ -130,6 +130,7 @@ nav:
   #     - 引言: miscellany/aesthetic-decay/00intro.md
     - Francis Bouceux - Some flavours of topos theory:
       - miscellany/bouceux-informal-topos/index.md
+      # - 第一讲 层拓扑斯: miscellany/bouceux-informal-topos/01sheaf.md
       - 第四讲 拓扑斯的内逻辑: miscellany/bouceux-informal-topos/04logic.md
       - 参考文献: miscellany/bouceux-informal-topos/06refs.md
   # - Exercises:

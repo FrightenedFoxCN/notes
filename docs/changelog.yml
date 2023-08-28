@@ -1,4 +1,8 @@
 - "2023":
+  - "2023-08-28":
+    - pageupdate:
+        text: 更新 1.2.2 阶，完成了 Sylow 定理的证明和应用
+        href: /notes/series/alg-for-cs/01/02/02
   - "2023-08-16":
     - pageupdate:
         text: 完成第四章翻译
