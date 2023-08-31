@@ -458,6 +458,8 @@
         
           
         
+          
+        
       
       
         
@@ -627,6 +629,8 @@
         
           
         
+          
+        
       
       
         
@@ -730,10 +734,31 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    补充习题
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03/" class="md-nav__link">
+        1.2.3 扩张：从群构造群
+      </a>
     </li>
   
 
@@ -973,6 +998,69 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_6" type="checkbox" id="__nav_2_2_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../solution/">参考答案</a>
+          
+            <label for="__nav_2_2_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="参考答案" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          参考答案
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/01/02/01/" class="md-nav__link">
+        1.2.1 鸟迹：基本架构
+      </a>
     </li>
   
 
@@ -1534,6 +1622,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    补充习题
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1551,7 +1646,7 @@
 
 <h1 id="lagrange-sylow">阶：从 Lagrange 到 Sylow<a class="headerlink" href="#lagrange-sylow" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3194 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 11 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3881 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 13 分钟</p>
 </div>
 <blockquote>
 <p>通过少数几例枚举武断地下结论往往会将我们引入歧途。（Bertrand Russell）</p>
@@ -1682,11 +1777,10 @@ Y = \{E \subseteq G: |E| = p^m\}
 \]</div>
 </div>
 <p>既然这是个同构，那么很自然的推论就是，两个共轭的集合具备相同的元素个数，这是不言自明的。</p>
-<p>事实上，现在我们相当于在 <span class="arithmatex">\(\mathcal{P}(G)\)</span>[^3] 上给出了一个作用 <span class="arithmatex">\(\mathrm{ad}_g\)</span>，自然的，所有与集合 <span class="arithmatex">\(S\)</span> 共轭的子集就构成了轨道 <span class="arithmatex">\(GS\)</span>，其上的稳定化子当然也就是：</p>
+<p>事实上，现在我们相当于在 <span class="arithmatex">\(\mathcal{P}(G)\)</span><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> 上给出了一个作用 <span class="arithmatex">\(\mathrm{ad}_g\)</span>，自然的，所有与集合 <span class="arithmatex">\(S\)</span> 共轭的子集就构成了轨道 <span class="arithmatex">\(GS\)</span>，其上的稳定化子当然也就是：</p>
 <div class="arithmatex">\[
 \mathrm{Stab}_G(S) = \{g \in G: gSg^{-1} = S\} = \{g \in G: gS = Sg\}
 \]</div>
-<p>[^3] 指 <span class="arithmatex">\(G\)</span> 的幂集，即其所有子集构成的集合。</p>
 <p>因为它和正规子群之间显见的联系，这也被称为是正规化子（normalizer），记作 <span class="arithmatex">\(N_G(S)\)</span>。显然，正规子群的正规化子就是整个群 <span class="arithmatex">\(G\)</span>，可以说，它就是一个子群（子集）距离正规子群“有多少距离”的度量。更简单的视角是注意到群作用的第二个习题，<span class="arithmatex">\(G / N_G(S) \cong GS\)</span>，当 <span class="arithmatex">\(S\)</span> 是正规子群时，轨道 <span class="arithmatex">\(GS\)</span> 事实上就是平凡的。</p>
 <p>接下来，对 Sylow 第二定理的证明就顺理成章了：</p>
 <div class="admonition success">
@@ -1724,8 +1818,8 @@ Y = \{E \subseteq G: |E| = p^m\}
 <div class="admonition question">
 <p class="admonition-title">习题</p>
 <ol>
-<li>证明，一个 <span class="arithmatex">\(pq\)</span> 阶的交换群一定是循环群，其中 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 均为素数；（提示：Cauchy 或者 Sylow，Cauchy 写出来更简洁）</li>
-<li>证明，<span class="arithmatex">\(p^2\)</span> 阶群一定是交换群；（提示：反证法）</li>
+<li>证明，一个 <span class="arithmatex">\(pq\)</span> 阶的交换群一定是循环群，其中 <span class="arithmatex">\(p\)</span> 和 <span class="arithmatex">\(q\)</span> 均为素数 <span class="arithmatex">\(q &gt; p\)</span>，且 <span class="arithmatex">\(q \not \equiv 1 \ \mathrm{mod}\ p\)</span> ；（提示：Cauchy 或者 Sylow，Cauchy 写出来更简洁）</li>
+<li>证明，<span class="arithmatex">\(p^2\)</span> 阶群一定是交换群，而且只有两种；（提示：反证法）</li>
 <li>证明，<span class="arithmatex">\(2p\)</span> 阶群只有两种；（提示：有一个二阶子群，有一个正规的 <span class="arithmatex">\(p\)</span> 阶子群，那么怎么构造它们“乘”起来的结果呢？）</li>
 <li>求所有可能的 <span class="arithmatex">\(8\)</span> 阶群；（提示：一共五个）</li>
 <li>求所有非交换的 <span class="arithmatex">\(12\)</span> 阶群；（提示：一共三个）</li>
@@ -1736,6 +1830,68 @@ Y = \{E \subseteq G: |E| = p^m\}
 <h2 id="burnside-polya">组合学：Burnside, Pólya 和循环指标<a class="headerlink" href="#burnside-polya" title="Permanent link">&para;</a></h2>
 <p>这一部分并不是群论的重点。但是，如前所述，群作用自然给出了一个很好的进行组合学操作（事实上，还有几何学操作）的平台。因此，对于对称的东西，应用群论的计数方法也是常见的。在这里，笔者仅以习题的方式给出主要结论和一些应用，供有兴趣的读者参考。</p>
 <p>在以下的习题中，<span class="arithmatex">\(G\)</span> 指的均为有限群。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>这里还没写完</p>
+</div>
+<h2 id="_2">补充习题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>这也是一些还蛮重要的结果。因为群论的教材可谓汗牛充栋，其结果也众多，笔者亦并非在写一本完全关于群论的专著。所以，总会有一些东西放在习题当中。其中的部分习题可能会相当困难，如果读者写不出来，不妨看看 <a href="https://github.com/floatshadow">@floatshadow</a> 贡献的参考答案，我们将其附在全书末尾。</p>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：记 <span class="arithmatex">\(|G|\)</span> 的最小素因数为 <span class="arithmatex">\(p\)</span>，则群 <span class="arithmatex">\(G\)</span> 中的任意 <span class="arithmatex">\(p\)</span> 阶子群都是正规子群</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：设 <span class="arithmatex">\(H\)</span> 为 <span class="arithmatex">\(G\)</span> 的子群，<span class="arithmatex">\(1 &lt; [G: H] \leqslant 4\)</span>。则除非 <span class="arithmatex">\(|G| \leqslant 3\)</span>，否则 <span class="arithmatex">\(G\)</span> 不可能是单群。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：<span class="arithmatex">\(p\)</span>-群中的 <span class="arithmatex">\(p\)</span>-阶正规子群一定含于其中心。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：设 <span class="arithmatex">\(G\)</span> 为有限群，<span class="arithmatex">\(H\)</span> 为其子群，<span class="arithmatex">\(P\)</span> 为 <span class="arithmatex">\(H\)</span> 的一个 Sylow <span class="arithmatex">\(p\)</span>-子群，则存在 <span class="arithmatex">\(G\)</span> 的 Sylow <span class="arithmatex">\(p\)</span>-子群 <span class="arithmatex">\(Q\)</span> 满足 <span class="arithmatex">\(P = Q \cap H\)</span>。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：设 <span class="arithmatex">\(G\)</span> 为有限群，<span class="arithmatex">\(N \triangleleft G\)</span>，如果 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(G\)</span> 的一个 Sylow <span class="arithmatex">\(p\)</span>-子群，则 <span class="arithmatex">\(P \cap N\)</span> 也是 <span class="arithmatex">\(N\)</span> 的一个 Sylow <span class="arithmatex">\(p\)</span>-子群。举反例表明当 <span class="arithmatex">\(N\)</span> 不是正规子群时，此命题不成立。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：没有小于六十阶的单群。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>证明：<span class="arithmatex">\(p^2 q\)</span> 阶群中存在一个正规的 Sylow <span class="arithmatex">\(p\)</span>-子群，其中 <span class="arithmatex">\(p\)</span>，<span class="arithmatex">\(q\)</span> 为相异素数。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>考虑 <span class="arithmatex">\(H\)</span> 为 <span class="arithmatex">\(G\)</span> 的子群。称 <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(H\)</span> 在 <span class="arithmatex">\(G\)</span> 中的一个截线（transversal），如果 <span class="arithmatex">\(S\)</span> 包含 <span class="arithmatex">\(H\)</span> 的每个人陪集中的恰一个元素。证明：若 <span class="arithmatex">\(G = HS\)</span> 且 <span class="arithmatex">\(H \cap S = 1\)</span>，则 <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(H\)</span> 在 <span class="arithmatex">\(G\)</span> 中的一个截线。称满足这个条件的子群 <span class="arithmatex">\(S\)</span> 为 <span class="arithmatex">\(H\)</span> 在 <span class="arithmatex">\(G\)</span> 中的补（complement）<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>（Frattini）设 <span class="arithmatex">\(N \triangleleft G\)</span> 且 <span class="arithmatex">\(P\)</span> 为 <span class="arithmatex">\(N\)</span> 的 Sylow p-子群，则 <span class="arithmatex">\(G = N_G(P)N\)</span>。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>（Schur-Zassenhaus）设 <span class="arithmatex">\(K\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个交换的正规子群，则 <span class="arithmatex">\(K\)</span> 在 <span class="arithmatex">\(G\)</span> 中存在补，且所有的补集都共轭。（提示：无非是 Sylow 定理的推广，应用类似上述 Frattini 定理的群作用即可）</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>（Gaschütz）设 <span class="arithmatex">\(K\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个交换正规子群，<span class="arithmatex">\(H\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个子群，满足 <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(H\)</span> 的子群且 <span class="arithmatex">\(|K|\)</span> 和 <span class="arithmatex">\([G: H]\)</span> 互素，则：</p>
+<ol>
+<li>如果 <span class="arithmatex">\(K\)</span> 在 <span class="arithmatex">\(H\)</span> 中有补，则 <span class="arithmatex">\(K\)</span> 在 <span class="arithmatex">\(G\)</span> 中也有补；</li>
+<li>如果 <span class="arithmatex">\(H_0\)</span> 和 <span class="arithmatex">\(H_1\)</span> 都是 <span class="arithmatex">\(K\)</span> 在 <span class="arithmatex">\(G\)</span> 中的补，满足 <span class="arithmatex">\(H_0 \cap H = H_1 \cap H\)</span>，则 <span class="arithmatex">\(H_0\)</span> 和 <span class="arithmatex">\(H_1\)</span> 在 <span class="arithmatex">\(G\)</span> 中共轭。</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">习题</p>
+<p>记 <span class="arithmatex">\(O_p(G)\)</span> 为 <span class="arithmatex">\(G\)</span> 的所有 Sylow <span class="arithmatex">\(p\)</span>-子群的交，则：</p>
+<ol>
+<li>设 <span class="arithmatex">\(S\)</span> 为 <span class="arithmatex">\(G\)</span> 的非平凡子群且 <span class="arithmatex">\([G: S] = p + 1\)</span>，则 <span class="arithmatex">\(O_p(G)\)</span> 非平凡或者 <span class="arithmatex">\(p + 1 = q^r\)</span>，<span class="arithmatex">\(q\)</span> 为素数。</li>
+<li>（Brodkey）设 <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(G\)</span> 的交换子群，<span class="arithmatex">\(O_p(G)\)</span> 是平凡的，则存在 <span class="arithmatex">\(g \in G\)</span> 使得 <span class="arithmatex">\(S \cap g^{-1}Sg = 1\)</span>。</li>
+</ol>
+</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -1745,12 +1901,66 @@ Y = \{E \subseteq G: |E| = p^m\}
 <li id="fn:2">
 <p>右作用当然与左作用对称咯，当然，注意结合律的时候它是右结合的。这里我们特意把它写成了 <span class="arithmatex">\(G\)</span> 上的映射的形式，方便读者后续和内自同态的定义进行比较。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
+<li id="fn:3">
+<p>指 <span class="arithmatex">\(G\)</span> 的幂集，即其所有子集构成的集合。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>这里没有与补集混淆之虞，因为集合意义上子群的补不可能是子群。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
 </ol>
 </div>
 
 
 
 
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="frightenedfoxcn/notes"
+        data-repo-id="R_kgDOI23RIA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOI23RIM4CUEOA"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -1788,13 +1998,13 @@ Y = \{E \subseteq G: |E| = p^m\}
       
       
         
-        <a href="../../../03/" class="md-footer__link md-footer__link--next" aria-label="下一页: 一点拓扑" rel="next">
+        <a href="../03/" class="md-footer__link md-footer__link--next" aria-label="下一页: 1.2.3 扩张：从群构造群" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              一点拓扑
+              1.2.3 扩张：从群构造群
             </div>
           </div>
           <div class="md-footer__button md-icon">
