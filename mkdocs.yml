@@ -104,6 +104,8 @@ nav:
           - series/alg-for-cs/01/02/index.md
           - 1.2.1 鸟迹：基本架构: series/alg-for-cs/01/02/01.md
           - 1.2.2 阶：从 Lagrange 到 Sylow: series/alg-for-cs/01/02/02.md
+          - 1.2.3 扩张：从群构造群: series/alg-for-cs/01/02/03.md
+
           # - 1.2.2 有限：对称群和群的组合学: 
           # - 1.2.3 同调：追寻交换图:
         # - 1.3 九序：偏序、格:
@@ -123,6 +125,9 @@ nav:
           - series/alg-for-cs/04/01/index.md
           - 4.1.1 宏观：基本定义: series/alg-for-cs/04/01/01.md
           - 4.1.2 中观：描述性质: series/alg-for-cs/04/01/02.md
+      - 参考答案:
+        - series/alg-for-cs/solution/index.md
+        - 1.2.1 鸟迹：基本架构: series/alg-for-cs/solution/01/02/01.md
   - Miscellany:
     - miscellany/index.md
   #   - 衰败的美学: 
