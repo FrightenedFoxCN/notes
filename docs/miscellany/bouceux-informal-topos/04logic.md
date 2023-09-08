@@ -513,7 +513,7 @@ $$
 D_0 = a \Delta(\mathsf{Ob}(\mathcal D)) = \coprod_{\mathsf{Ob}(\mathcal D)} 1, \quad D_1 = a \Delta(\mathsf{Mor}(\mathcal D)) = \coprod_{\mathsf{Mor}(\mathcal D)} 1
 $$
 
-由于在 `\mathsf{Set}` 中就是如此，而且 $\Delta$ 和 $a$ 都保余极限，因为它们有右伴随。
+由于在 $\mathsf{Set}$ 中就是如此，而且 $\Delta$ 和 $a$ 都保余极限，因为它们有右伴随。
 
 另外，函子 $F: \mathcal D \to \mathsf{Sh}(\mathcal C, \mathcal T)$ 也能直接给出一个内基值函子
 
