@@ -10,8 +10,18 @@
       
         <link rel="canonical" href="https://frightenedfoxcn.github.io/notes/series/alg-for-cs/01/02/02/">
       
+      
+        <link rel="prev" href="../01/">
+      
+      
+        <link rel="next" href="../03/">
+      
+      
+        
+      
+      
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -19,15 +29,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.08040f6c.min.css">
-        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -45,11 +57,10 @@
     
       <link rel="stylesheet" href="../../../../../css/stylesheet.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -62,11 +73,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -91,11 +99,12 @@
     <a href="../../../../.." title="FFox&#39;s Notes" class="md-header__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -114,50 +123,62 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
         <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
+      
     
     
   </nav>
@@ -171,88 +192,140 @@
           
             
 <nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
-
-
   
   
-  
-    <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
-        Home
-      </a>
-    </li>
-  
-
-      
-        
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../.." class="md-tabs__link">
+          
   
   
     
   
+  Home
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../../" class="md-tabs__link md-tabs__link--active">
-        Series
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../tech/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Technology
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../../../miscellany/" class="md-tabs__link">
-        Miscellany
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../../../qnotes/" class="md-tabs__link">
-        Quick Notes
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Series
 
+        </a>
+      </li>
+    
+  
 
+      
+        
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../../../../dnotes/" class="md-tabs__link">
-        Daily Notes
-      </a>
-    </li>
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../miscellany/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Miscellany
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../qnotes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quick Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../dnotes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Daily Notes
+
+        </a>
+      </li>
+    
   
 
       
@@ -272,6 +345,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -280,7 +354,7 @@
     <a href="../../../../.." title="FFox&#39;s Notes" class="md-nav__button md-logo" aria-label="FFox's Notes" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
 
     </a>
     FFox's Notes
@@ -290,405 +364,844 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../..">Home</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
           
-            <label for="__nav_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Home" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
-          Home
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../changelog/" class="md-nav__link">
-        更新记录
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    更新记录
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../links/" class="md-nav__link">
-        友链
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    友链
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../todo/" class="md-nav__link">
-        待办事项
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    待办事项
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
       
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../tech/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technology
+  
 
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
   
   
     
-  
-  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-        
-          
-            
-          
         
           
         
       
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../">Series</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
           
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Series" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Series
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../tech/rust-vulkan/" class="md-nav__link ">
               
   
   
+  <span class="md-ellipsis">
+    
+  
+    Vulkan Tutorial with Rust
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vulkan Tutorial with Rust
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../tech/rust-vulkan/01ComputePipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 计算流水线 Compute Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Series
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Series
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">写给计算机系学生的代数</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
           
-            <label for="__nav_2_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="写给计算机系学生的代数" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          写给计算机系学生的代数
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    写给计算机系学生的代数
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    写给计算机系学生的代数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../00/" class="md-nav__link">
-        00 前言：关于代数、数学和计算科学
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 前言：关于代数、数学和计算科学
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
   
   
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">01 代数：古典之旅</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
+        
           
-            <label for="__nav_2_2_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="01 代数：古典之旅" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          01 代数：古典之旅
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 代数：古典之旅
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 代数：古典之旅
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3_2" type="checkbox" id="__nav_2_2_3_2" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../01/">1.1 太极：群之前的故事</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3_2" >
+        
           
-            <label for="__nav_2_2_3_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="1.1 太极：群之前的故事" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          1.1 太极：群之前的故事
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../01/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 太极：群之前的故事
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2_3_2" id="__nav_3_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.1 太极：群之前的故事
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../01/01/" class="md-nav__link">
-        1.1.1 结合性：半群
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1.1 结合性：半群
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
   
   
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3_3" type="checkbox" id="__nav_2_2_3_3" checked>
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">1.2 乾坤：群论之初</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3_3" checked>
+        
           
-            <label for="__nav_2_2_3_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="1.2 乾坤：群论之初" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          1.2 乾坤：群论之初
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 乾坤：群论之初
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2_3_3" id="__nav_3_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.2 乾坤：群论之初
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../01/" class="md-nav__link">
-        1.2.1 鸟迹：基本架构
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.1 鸟迹：基本架构
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          1.2.2 阶：从 Lagrange 到 Sylow
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.2 阶：从 Lagrange 到 Sylow
+  
+
+    
+  </span>
+  
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        1.2.2 阶：从 Lagrange 到 Sylow
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.2 阶：从 Lagrange 到 Sylow
+  
+
+    
+  </span>
+  
+  
+
       </a>
       
         
@@ -708,35 +1221,55 @@
       
         <li class="md-nav__item">
   <a href="#lagrange" class="md-nav__link">
-    Lagrange 定理
+    <span class="md-ellipsis">
+      
+        Lagrange 定理
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    群作用，及其组合应用
+    <span class="md-ellipsis">
+      
+        群作用，及其组合应用
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#p-sylow" class="md-nav__link">
-    \(p\)-群的结构和 Sylow 定理
+    <span class="md-ellipsis">
+      
+        \(p\)-群的结构和 Sylow 定理
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#burnside-polya" class="md-nav__link">
-    组合学：Burnside, Pólya 和循环指标
+    <span class="md-ellipsis">
+      
+        组合学：Burnside, Pólya 和循环指标
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    补充习题
+    <span class="md-ellipsis">
+      
+        补充习题
+      
+    </span>
   </a>
   
 </li>
@@ -748,838 +1281,1402 @@
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../03/" class="md-nav__link">
-        1.2.3 扩张：从群构造群
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.3 扩张：从群构造群
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" type="checkbox" id="__nav_2_2_4" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../03/">03 无穷：拓扑学方法</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
+        
           
-            <label for="__nav_2_2_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="03 无穷：拓扑学方法" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          03 无穷：拓扑学方法
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 无穷：拓扑学方法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2_4" id="__nav_3_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 无穷：拓扑学方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4_2" type="checkbox" id="__nav_2_2_4_2" >
-      
-      
-      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_2" >
         
           
+          <label class="md-nav__link" for="__nav_3_2_4_2" id="__nav_3_2_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1 对象：拓扑空间
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_4_2">
-          3.1 对象：拓扑空间
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="3.1 对象：拓扑空间" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_4_2">
-          <span class="md-nav__icon md-icon"></span>
-          3.1 对象：拓扑空间
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3.1 对象：拓扑空间
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../03/01/01/" class="md-nav__link">
-        3.1.1 定义：一次闪光
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.1.1 定义：一次闪光
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5" type="checkbox" id="__nav_2_2_5" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../04/">04 符号：范畴论的抽象废话</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
           
-            <label for="__nav_2_2_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="04 符号：范畴论的抽象废话" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_5">
-          <span class="md-nav__icon md-icon"></span>
-          04 符号：范畴论的抽象废话
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 符号：范畴论的抽象废话
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 符号：范畴论的抽象废话
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2" type="checkbox" id="__nav_2_2_5_2" >
-      
-      
-      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5_2" >
         
           
+          <label class="md-nav__link" for="__nav_3_2_5_2" id="__nav_3_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1 导向：范畴、函子、自然变换
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2">
-          4.1 导向：范畴、函子、自然变换
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="4.1 导向：范畴、函子、自然变换" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          4.1 导向：范畴、函子、自然变换
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4.1 导向：范畴、函子、自然变换
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../04/01/index.md" class="md-nav__link">
-        None
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../04/01/01/" class="md-nav__link">
-        4.1.1 宏观：基本定义
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.1 宏观：基本定义
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../04/01/02/" class="md-nav__link">
-        4.1.2 中观：描述性质
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.2 中观：描述性质
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_6" type="checkbox" id="__nav_2_2_6" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../solution/">参考答案</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
+        
           
-            <label for="__nav_2_2_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="参考答案" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_6">
-          <span class="md-nav__icon md-icon"></span>
-          参考答案
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../solution/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考答案
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考答案
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../solution/01/02/01/" class="md-nav__link">
-        1.2.1 鸟迹：基本架构
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.1 鸟迹：基本架构
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../miscellany/">Miscellany</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
           
-            <label for="__nav_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Miscellany" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Miscellany
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../miscellany/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellany
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Miscellany
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../miscellany/bouceux-informal-topos/">Francis Bouceux - Some flavours of topos theory</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
           
-            <label for="__nav_3_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Francis Bouceux - Some flavours of topos theory" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          Francis Bouceux - Some flavours of topos theory
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../miscellany/bouceux-informal-topos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Francis Bouceux - Some flavours of topos theory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Francis Bouceux - Some flavours of topos theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../miscellany/bouceux-informal-topos/01sheaf/" class="md-nav__link">
-        第一讲 层拓扑斯
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一讲 层拓扑斯
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../miscellany/bouceux-informal-topos/04logic/" class="md-nav__link">
-        第四讲 拓扑斯的内逻辑
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四讲 拓扑斯的内逻辑
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../miscellany/bouceux-informal-topos/06refs/" class="md-nav__link">
-        参考文献
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考文献
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../qnotes/">Quick Notes</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
           
-            <label for="__nav_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Quick Notes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Quick Notes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../qnotes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Notes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quick Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/theorem_proving_in_lean_4/" class="md-nav__link">
-        Theorem Proving in Lean 4
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theorem Proving in Lean 4
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../qnotes/computer_vision/">Computer Vision</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
           
-            <label for="__nav_4_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Computer Vision" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_3">
-          <span class="md-nav__icon md-icon"></span>
-          Computer Vision
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../qnotes/computer_vision/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Vision
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/01%20Image%20Formation/" class="md-nav__link">
-        01 Image Formation
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 Image Formation
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/03%20Image%20Matching%20%26%20Motion%20Estimation/" class="md-nav__link">
-        03 Image Matching & Motion Estimation
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 Image Matching & Motion Estimation
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/05%20Structure%20from%20Motion/" class="md-nav__link">
-        05 Structure from Motion
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Structure from Motion
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/06%20Depth%20Estimation%20%26%20Dense%20Reconstruction/" class="md-nav__link">
-        06 Depth Estimation & Dense Reconstruction
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 Depth Estimation & Dense Reconstruction
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/07%20Recognition/" class="md-nav__link">
-        07 Recognition
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Recognition
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/08%203D%20Deep%20Learning/" class="md-nav__link">
-        08 3D Deep Learning
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 3D Deep Learning
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/09%20Computational%20Photography/" class="md-nav__link">
-        09 Computational Photography
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 Computational Photography
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../qnotes/computer_vision/10%20Image-based%20Rendering/" class="md-nav__link">
-        10 Image-based Rendering
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 Image-based Rendering
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
       
-
-  
-  
-  
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../dnotes/">Daily Notes</a>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
           
-            <label for="__nav_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Daily Notes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Daily Notes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../dnotes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Daily Notes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
               
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Daily Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../dnotes/0714monad/" class="md-nav__link">
-        7/14 单子论和 Beck 单子性定理
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7/14 单子论和 Beck 单子性定理
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../dnotes/0715birkhoff_duality/" class="md-nav__link">
-        7/15 格论和 Birkhoff 对偶
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7/15 格论和 Birkhoff 对偶
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../dnotes/0716locale_frame/" class="md-nav__link">
-        7/16 用格论研究拓扑空间：Locale and Frame
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7/16 用格论研究拓扑空间：Locale and Frame
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../dnotes/0801coq/" class="md-nav__link">
-        8/1 一个简单的 Coq 车祸课程：一阶逻辑
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8/1 一个简单的 Coq 车祸课程：一阶逻辑
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1612,35 +2709,55 @@
       
         <li class="md-nav__item">
   <a href="#lagrange" class="md-nav__link">
-    Lagrange 定理
+    <span class="md-ellipsis">
+      
+        Lagrange 定理
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    群作用，及其组合应用
+    <span class="md-ellipsis">
+      
+        群作用，及其组合应用
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#p-sylow" class="md-nav__link">
-    \(p\)-群的结构和 Sylow 定理
+    <span class="md-ellipsis">
+      
+        \(p\)-群的结构和 Sylow 定理
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#burnside-polya" class="md-nav__link">
-    组合学：Burnside, Pólya 和循环指标
+    <span class="md-ellipsis">
+      
+        组合学：Burnside, Pólya 和循环指标
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    补充习题
+    <span class="md-ellipsis">
+      
+        补充习题
+      
+    </span>
   </a>
   
 </li>
@@ -1655,14 +2772,16 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
+
 <h1 id="lagrange-sylow">阶：从 Lagrange 到 Sylow<a class="headerlink" href="#lagrange-sylow" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3881 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 13 分钟</p>
+<p>:material-circle-edit-outline: 约 3881 个字 :material-clock-time-two-outline: 预计阅读时间 13 分钟</p>
 </div>
 <blockquote>
 <p>通过少数几例枚举武断地下结论往往会将我们引入歧途。（Bertrand Russell）</p>
@@ -1697,7 +2816,7 @@
 </div>
 <details class="info" open="open">
 <summary>证明</summary>
-<p>素数阶群的子群要么是单元素群，要么还是素数阶群。考虑元素 <span class="arithmatex">\(g \neq e\)</span>，则它的生成的循环群<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>一定与原群同阶，也就是说，这个循环群就是原群。</p>
+<p>素数阶群的子群要么是单元素群，要么还是素数阶群。考虑元素 <span class="arithmatex">\(g \neq e\)</span>，则它的生成的循环群<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup>一定与原群同阶，也就是说，这个循环群就是原群。</p>
 </details>
 <p>而且：</p>
 <div class="admonition question">
@@ -1736,7 +2855,7 @@ f(g.x) = g.f(x), \forall g \in G, x \in X
 </ul>
 </div>
 <p>我们可以想象一个集合 <span class="arithmatex">\(X\)</span> 在 <span class="arithmatex">\(G\)</span> 的作用下发生某种变换，其中在各种变换下保持不动的点就是不动点，某个点在各种变换下所能抵达的所有位置就是轨道，在一个轨道中，那些没有使代表元发生变化的变换就是轨道上的稳定化子。还有一个比较方便的看法是把它柯里化：作用无非是一族从 <span class="arithmatex">\(G\)</span> 到 <span class="arithmatex">\(X \to X\)</span> 的映射的映射，而不动点集和轨道正是这样一族映射的映射的两种截面。注意到，稳定化子正好是一个子群。</p>
-<p>那么，如何理解它和陪集的关系呢？我们考虑子集 <span class="arithmatex">\(H\)</span> 在群 <span class="arithmatex">\(G\)</span> 上的右作用<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>：</p>
+<p>那么，如何理解它和陪集的关系呢？我们考虑子集 <span class="arithmatex">\(H\)</span> 在群 <span class="arithmatex">\(G\)</span> 上的右作用<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">1</a></sup>：</p>
 <div class="arithmatex">\[
 h \mapsto m_h, m_h(g) = gh, \forall h \in H, g \in G
 \]</div>
@@ -1753,8 +2872,8 @@ h \mapsto m_h, m_h(g) = gh, \forall h \in H, g \in G
 <div class="admonition question">
 <p class="admonition-title">习题</p>
 <p>证明：<span class="arithmatex">\(\mathrm{Stab}_G(gx) = g\mathrm{Stab}_G(x)g^{-1}\)</span>，即下图交换：</p>
-<p><center><!-- This file was generated by dvisvgm 2.9.1 --><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='223.06pt' height='54.08pt' viewBox='0 -54.08 223.06 54.08'><g id='page1'><g transform='matrix(1 0 0 -1 0 0)'><path d='M28.10615 44.42847C28.16584 44.68722 28.3949 45.60379 29.09209 45.60379C29.14209 45.60379 29.38115 45.60379 29.59022 45.4741C29.31147 45.42441 29.11209 45.17535 29.11209 44.93629C29.11209 44.77691 29.22178 44.58785 29.49053 44.58785C29.7099 44.58785 30.02865 44.76691 30.02865 45.16535C30.02865 45.68347 29.44084 45.82285 29.10209 45.82285C28.52428 45.82285 28.17584 45.29504 28.05615 45.06597C27.80709 45.72316 27.26928 45.82285 26.98053 45.82285C25.94428 45.82285 25.376779 44.53785 25.376779 44.28879C25.376779 44.18941 25.476154 44.18941 25.496154 44.18941C25.575842 44.18941 25.605842 44.2091 25.625529 44.29879C25.96428 45.35472 26.62178 45.60379 26.96053 45.60379C27.14959 45.60379 27.49834 45.5141 27.49834 44.93629C27.49834 44.62754 27.32897 43.96004 26.96053 42.56566C26.80115 41.94785 26.4524 41.529725 26.01428 41.529725C25.95428 41.529725 25.725217 41.529725 25.516154 41.6591C25.765217 41.708787 25.98428 41.918162 25.98428 42.196912C25.98428 42.46597 25.765217 42.54566 25.615842 42.54566C25.316779 42.54566 25.067717 42.2866 25.067717 41.96785C25.067717 41.509725 25.565842 41.31035 26.00428 41.31035C26.66178 41.31035 27.02022 42.00785 27.05022 42.067537C27.16959 41.6991 27.52834 41.31035 28.12584 41.31035C29.15209 41.31035 29.71959 42.59535 29.71959 42.84441C29.71959 42.9441 29.63022 42.9441 29.60022 42.9441C29.51053 42.9441 29.49053 42.90441 29.47084 42.83441C29.14209 41.768787 28.46459 41.529725 28.14584 41.529725C27.7574 41.529725 27.59803 41.848475 27.59803 42.186912C27.59803 42.406287 27.65772 42.62535 27.7674 43.06379L28.10615 44.42847Z'/><path d='M101.99891 45.17535C102.00859 45.23504 102.02859 45.28504 102.02859 45.35472C102.02859 45.5241 101.90922 45.62379 101.73984 45.62379C101.64016 45.62379 101.37109 45.55379 101.33141 45.19535C101.15203 45.56379 100.80328 45.82285 100.40484 45.82285C99.26953 45.82285 98.03422 44.42847 98.03422 42.99379C98.03422 42.00785 98.64172 41.420037 99.35891 41.420037C99.94672 41.420037 100.41484 41.888162 100.51453 41.99785L100.52453 41.98785C100.31547 41.101287 100.19578 40.69285 100.19578 40.67285C100.15609 40.583162 99.81734 39.59722 98.76141 39.59722C98.57203 39.59722 98.243282 39.60722 97.964532 39.6966C98.263282 39.78629 98.37297 40.04535 98.37297 40.21472C98.37297 40.3741 98.263282 40.563475 97.99422 40.563475C97.775157 40.563475 97.456407 40.3841 97.456407 39.98566C97.456407 39.57722 97.825157 39.37785 98.78141 39.37785C100.02641 39.37785 100.74359 40.15504 100.89297 40.752537L101.99891 45.17535ZM100.70391 42.69504C100.64391 42.43597 100.41484 42.186912 100.19578 41.99785C99.98672 41.818475 99.67766 41.6391 99.38891 41.6391C98.89078 41.6391 98.74141 42.157225 98.74141 42.55566C98.74141 43.03379 99.03047 44.2091 99.29922 44.71722C99.56828 45.20535 99.99641 45.60379 100.41484 45.60379C101.07234 45.60379 101.21172 44.79691 101.21172 44.74722C101.21172 44.69722 101.19203 44.63754 101.18203 44.59754L100.70391 42.69504Z'/><path d='M105.72508 44.42847C105.78477 44.68722 106.01383 45.60379 106.71102 45.60379C106.76102 45.60379 107.00008 45.60379 107.20914 45.4741C106.93039 45.42441 106.73102 45.17535 106.73102 44.93629C106.73102 44.77691 106.8407 44.58785 107.10945 44.58785C107.3288 44.58785 107.6476 44.76691 107.6476 45.16535C107.6476 45.68347 107.05977 45.82285 106.72102 45.82285C106.1432 45.82285 105.79477 45.29504 105.67508 45.06597C105.42602 45.72316 104.8882 45.82285 104.59945 45.82285C103.5632 45.82285 102.9957 44.53785 102.9957 44.28879C102.9957 44.18941 103.09508 44.18941 103.11508 44.18941C103.19477 44.18941 103.22477 44.2091 103.24445 44.29879C103.5832 45.35472 104.2407 45.60379 104.57945 45.60379C104.76852 45.60379 105.11727 45.5141 105.11727 44.93629C105.11727 44.62754 104.94789 43.96004 104.57945 42.56566C104.42008 41.94785 104.07133 41.529725 103.6332 41.529725C103.5732 41.529725 103.34414 41.529725 103.13508 41.6591C103.38414 41.708787 103.6032 41.918162 103.6032 42.196912C103.6032 42.46597 103.38414 42.54566 103.23477 42.54566C102.9357 42.54566 102.68664 42.2866 102.68664 41.96785C102.68664 41.509725 103.18477 41.31035 103.6232 41.31035C104.2807 41.31035 104.63914 42.00785 104.66914 42.067537C104.78852 41.6991 105.14727 41.31035 105.74477 41.31035C106.77102 41.31035 107.3385 42.59535 107.3385 42.84441C107.3385 42.9441 107.24914 42.9441 107.21914 42.9441C107.12945 42.9441 107.10945 42.90441 107.08977 42.83441C106.76102 41.768787 106.08352 41.529725 105.76477 41.529725C105.37633 41.529725 105.21695 41.848475 105.21695 42.186912C105.21695 42.406287 105.27664 42.62535 105.38633 43.06379L105.72508 44.42847Z'/><path d='M11.08655 10.00599L9.81155 10.31474C9.19374 10.46412 8.8053 11.00193 8.8053 11.57974C8.8053 12.27724 9.34311 12.88474 10.1203 12.88474C11.78374 12.88474 12.0028 11.25099 12.0628 10.80287C12.07249 10.74318 12.07249 10.68318 12.18218 10.68318C12.31155 10.68318 12.31155 10.73318 12.31155 10.92224V12.92443C12.31155 13.09381 12.31155 13.1638 12.20218 13.1638C12.13249 13.1638 12.12249 13.1538 12.0528 13.03412L11.70405 12.4663C11.4053 12.75537 10.99686 13.1638 10.1103 13.1638C9.00468 13.1638 8.1678 12.28693 8.1678 11.2313C8.1678 10.40443 8.69561 9.67724 9.4728 9.40818C9.58218 9.36849 10.0903 9.24881 10.78749 9.07943C11.05655 9.00974 11.3553 8.94005 11.63436 8.57162C11.84343 8.31256 11.94311 7.9838 11.94311 7.65505C11.94311 6.947867 11.44499 6.23068 10.60843 6.23068C10.31936 6.23068 9.56249 6.280367 9.03436 6.768492C8.45655 7.3063 8.426862 7.94412 8.416862 8.30256C8.406862 8.40224 8.327175 8.40224 8.297175 8.40224C8.1678 8.40224 8.1678 8.33256 8.1678 8.15318V6.160992C8.1678 5.991617 8.1678 5.92193 8.277488 5.92193C8.347175 5.92193 8.357175 5.941617 8.426862 6.051305C8.426862 6.061305 8.45655 6.091305 8.7853 6.619117C9.09436 6.280367 9.73186 5.92193 10.61842 5.92193C11.78374 5.92193 12.58061 6.89818 12.58061 7.9938C12.58061 8.99006 11.92311 9.80662 11.08655 10.00599ZM14.86264 10.12537H16.28702V10.43443H14.86264V12.26724H14.61358C14.60358 11.45037 14.30452 10.38443 13.32858 10.34474V10.12537H14.17514V7.3763C14.17514 6.150992 15.10171 6.031305 15.46014 6.031305C16.16733 6.031305 16.44639 6.738805 16.44639 7.3763V7.94412H16.19733V7.39599C16.19733 6.659117 15.89858 6.280367 15.52983 6.280367C14.86264 6.280367 14.86264 7.18693 14.86264 7.3563V10.12537ZM20.3219 6.89818C20.3615 6.499742 20.6306 6.081305 21.0987 6.081305C21.3078 6.081305 21.9156 6.22068 21.9156 7.027555V7.58537H21.6666V7.027555C21.6666 6.449742 21.4175 6.390055 21.3078 6.390055C20.9791 6.390055 20.9394 6.83818 20.9394 6.88818V8.88037C20.9394 9.2988 20.9394 9.68724 20.5806 10.05568C20.1922 10.44412 19.6941 10.60349 19.2159 10.60349C18.3994 10.60349 17.7119 10.13537 17.7119 9.47787C17.7119 9.17912 17.9112 9.00974 18.17 9.00974C18.4491 9.00974 18.6284 9.20912 18.6284 9.46818C18.6284 9.58755 18.5784 9.91631 18.1203 9.92631C18.3894 10.27474 18.8775 10.38443 19.1962 10.38443C19.6844 10.38443 20.2522 9.99599 20.2522 9.10943V8.74099C19.7441 8.71099 19.0469 8.68099 18.419 8.38224C17.6722 8.04349 17.42311 7.52568 17.42311 7.087242C17.42311 6.280367 18.3894 6.031305 19.0169 6.031305C19.6744 6.031305 20.1325 6.429742 20.3219 6.89818ZM20.2522 8.53162V7.53568C20.2522 6.589117 19.5347 6.25068 19.0866 6.25068C18.5984 6.25068 18.19 6.599117 18.19 7.097242C18.19 7.64505 18.6084 8.47193 20.2522 8.53162ZM23.6994 9.89631V13.05412L22.265 12.94443V12.63568C22.9622 12.63568 23.0419 12.56599 23.0419 12.07787V6.140992H23.2909C23.3009 6.150992 23.3806 6.290367 23.6494 6.758492C23.7987 6.52943 24.2172 6.031305 24.9544 6.031305C26.1397 6.031305 27.1756 7.007555 27.1756 8.29256C27.1756 9.55755 26.1997 10.5438 25.0641 10.5438C24.2869 10.5438 23.8587 10.07568 23.6994 9.89631ZM23.729 7.27662V9.32849C23.729 9.51787 23.729 9.52787 23.8387 9.68724C24.2272 10.24505 24.775 10.32474 25.0141 10.32474C25.4625 10.32474 25.8209 10.06568 26.06 9.68724C26.319 9.2788 26.349 8.71099 26.349 8.30256C26.349 7.93412 26.329 7.3363 26.04 6.88818C25.8309 6.57943 25.4525 6.25068 24.9147 6.25068C24.4662 6.25068 24.1078 6.489742 23.8687 6.85818C23.729 7.067242 23.729 7.097242 23.729 7.27662Z'/><path d='M32.73125 6.01316C32.73125 6.32003 32.80125 6.32003 33.26844 6.32003V6.57097C33.21969 6.57097 32.71032 6.54316 32.36875 6.54316C31.99907 6.54316 31.46875 6.54316 31.10625 6.57097V6.32003H31.37125C32.06875 6.32003 32.06875 6.22941 32.06875 5.9991V5.552846C32.06875 5.399408 32.06875 5.127221 31.67125 4.931908C31.32938 4.757533 30.93875 4.757533 30.84813 4.757533C30.06 4.757533 28.76969 5.210971 28.76969 7.03128C28.76969 8.88691 30.09469 9.29816 30.78532 9.29816C31.46188 9.29816 32.29907 8.84503 32.48032 7.63816C32.49438 7.55441 32.55688 7.55441 32.60594 7.55441C32.73125 7.55441 32.73125 7.59628 32.73125 7.73597V9.36816C32.73125 9.4866 32.73125 9.54941 32.63375 9.54941C32.60594 9.54941 32.57094 9.54941 32.515 9.46566L32.14563 8.93566C31.80375 9.28441 31.30844 9.54941 30.69469 9.54941C29.24375 9.54941 28.023128 8.42628 28.023128 7.03128C28.023128 5.65035 29.20907 4.506596 30.71563 4.506596C31.09938 4.506596 31.87344 4.576283 32.20125 5.064408C32.32 4.883158 32.57782 4.645971 32.64782 4.645971C32.73125 4.645971 32.73125 4.722846 32.73125 4.827221V6.01316Z'/><path d='M37.49521 3.75037C37.49521 3.78006 37.49521 3.80005 37.32584 3.96943C36.08084 5.22443 35.76209 7.107242 35.76209 8.6313C35.76209 10.36443 36.14052 12.09787 37.36584 13.34287C37.49521 13.46256 37.49521 13.48256 37.49521 13.51224C37.49521 13.58193 37.45521 13.61193 37.39552 13.61193C37.29584 13.61193 36.39959 12.93443 35.81177 11.66943C35.30365 10.57381 35.184274 9.46818 35.184274 8.6313C35.184274 7.85443 35.29365 6.649117 35.84177 5.523492C36.43927 4.29818 37.29584 3.65068 37.39552 3.65068C37.45521 3.65068 37.49521 3.68068 37.49521 3.75037Z'/><path d='M41.39915 9.14943C41.45884 9.40818 41.6879 10.32474 42.38509 10.32474C42.43509 10.32474 42.67415 10.32474 42.88322 10.19505C42.60447 10.14537 42.40509 9.89631 42.40509 9.65724C42.40509 9.49787 42.51478 9.3088 42.78353 9.3088C43.0029 9.3088 43.32165 9.48787 43.32165 9.88631C43.32165 10.40443 42.73384 10.5438 42.39509 10.5438C41.81728 10.5438 41.46884 10.01599 41.34915 9.78693C41.10009 10.44412 40.56228 10.5438 40.27353 10.5438C39.23728 10.5438 38.669779 9.25881 38.669779 9.00974C38.669779 8.91037 38.769154 8.91037 38.789154 8.91037C38.868841 8.91037 38.898841 8.93005 38.918529 9.01974C39.25728 10.07568 39.91478 10.32474 40.25353 10.32474C40.44259 10.32474 40.79134 10.23506 40.79134 9.65724C40.79134 9.34849 40.62197 8.68099 40.25353 7.28662C40.09415 6.668805 39.7454 6.25068 39.30728 6.25068C39.24728 6.25068 39.018216 6.25068 38.809154 6.380055C39.058216 6.429742 39.27728 6.639117 39.27728 6.917867C39.27728 7.18693 39.058216 7.26662 38.908841 7.26662C38.609779 7.26662 38.360716 7.007555 38.360716 6.688805C38.360716 6.23068 38.858841 6.031305 39.29728 6.031305C39.95478 6.031305 40.31322 6.728805 40.34322 6.788492C40.46259 6.420055 40.82134 6.031305 41.41884 6.031305C42.44509 6.031305 43.01259 7.3163 43.01259 7.56537C43.01259 7.66506 42.92322 7.66506 42.89322 7.66506C42.80353 7.66506 42.78353 7.62537 42.76384 7.55537C42.43509 6.489742 41.75759 6.25068 41.43884 6.25068C41.0504 6.25068 40.89103 6.56943 40.89103 6.907867C40.89103 7.127242 40.95072 7.3463 41.0604 7.78474L41.39915 9.14943Z'/><path d='M46.64474 8.6313C46.64474 9.40818 46.53537 10.61349 45.98724 11.73912C45.38974 12.96443 44.532867 13.61193 44.433492 13.61193C44.373492 13.61193 44.333805 13.57193 44.333805 13.51224C44.333805 13.48256 44.333805 13.46256 44.52318 13.28318C45.49912 12.29693 46.06693 10.71318 46.06693 8.6313C46.06693 6.927867 45.69849 5.174742 44.46318 3.91974C44.333805 3.80005 44.333805 3.78006 44.333805 3.75037C44.333805 3.69068 44.373492 3.65068 44.433492 3.65068C44.532867 3.65068 45.42943 4.32818 46.01724 5.59318C46.52537 6.688805 46.64474 7.79443 46.64474 8.6313Z'/><path d='M83.6156 10.00599L82.3406 10.31474C81.72278 10.46412 81.33435 11.00193 81.33435 11.57974C81.33435 12.27724 81.87216 12.88474 82.64935 12.88474C84.31278 12.88474 84.53185 11.25099 84.59185 10.80287C84.60153 10.74318 84.60153 10.68318 84.71122 10.68318C84.8406 10.68318 84.8406 10.73318 84.8406 10.92224V12.92443C84.8406 13.09381 84.8406 13.1638 84.73122 13.1638C84.66153 13.1638 84.65153 13.1538 84.58185 13.03412L84.2331 12.4663C83.93435 12.75537 83.52591 13.1638 82.63935 13.1638C81.53372 13.1638 80.696845 12.28693 80.696845 11.2313C80.696845 10.40443 81.22466 9.67724 82.00185 9.40818C82.11122 9.36849 82.61935 9.24881 83.31653 9.07943C83.5856 9.00974 83.88435 8.94005 84.16341 8.57162C84.37247 8.31256 84.47216 7.9838 84.47216 7.65505C84.47216 6.947867 83.97403 6.23068 83.13747 6.23068C82.84841 6.23068 82.09153 6.280367 81.56341 6.768492C80.985595 7.3063 80.955908 7.94412 80.945908 8.30256C80.935908 8.40224 80.85622 8.40224 80.82622 8.40224C80.696845 8.40224 80.696845 8.33256 80.696845 8.15318V6.160992C80.696845 5.991617 80.696845 5.92193 80.806533 5.92193C80.87622 5.92193 80.88622 5.941617 80.955908 6.051305C80.955908 6.061305 80.985595 6.091305 81.31435 6.619117C81.62341 6.280367 82.26091 5.92193 83.14747 5.92193C84.31278 5.92193 85.10966 6.89818 85.10966 7.9938C85.10966 8.99006 84.45216 9.80662 83.6156 10.00599ZM87.39169 10.12537H88.81606V10.43443H87.39169V12.26724H87.14263C87.13263 11.45037 86.83356 10.38443 85.85763 10.34474V10.12537H86.70419V7.3763C86.70419 6.150992 87.63075 6.031305 87.98919 6.031305C88.69638 6.031305 88.97544 6.738805 88.97544 7.3763V7.94412H88.72638V7.39599C88.72638 6.659117 88.42763 6.280367 88.05888 6.280367C87.39169 6.280367 87.39169 7.18693 87.39169 7.3563V10.12537ZM92.8509 6.89818C92.8906 6.499742 93.1597 6.081305 93.6278 6.081305C93.8368 6.081305 94.4447 6.22068 94.4447 7.027555V7.58537H94.1956V7.027555C94.1956 6.449742 93.9465 6.390055 93.8368 6.390055C93.5081 6.390055 93.4684 6.83818 93.4684 6.88818V8.88037C93.4684 9.2988 93.4684 9.68724 93.1097 10.05568C92.7212 10.44412 92.2231 10.60349 91.745 10.60349C90.9284 10.60349 90.2409 10.13537 90.2409 9.47787C90.2409 9.17912 90.4403 9.00974 90.699 9.00974C90.9781 9.00974 91.1575 9.20912 91.1575 9.46818C91.1575 9.58755 91.1075 9.91631 90.6493 9.92631C90.9184 10.27474 91.4065 10.38443 91.7253 10.38443C92.2134 10.38443 92.7812 9.99599 92.7812 9.10943V8.74099C92.2731 8.71099 91.5759 8.68099 90.9481 8.38224C90.2012 8.04349 89.95216 7.52568 89.95216 7.087242C89.95216 6.280367 90.9184 6.031305 91.5459 6.031305C92.2034 6.031305 92.6615 6.429742 92.8509 6.89818ZM92.7812 8.53162V7.53568C92.7812 6.589117 92.0637 6.25068 91.6156 6.25068C91.1275 6.25068 90.719 6.599117 90.719 7.097242C90.719 7.64505 91.1375 8.47193 92.7812 8.53162ZM96.2284 9.89631V13.05412L94.794 12.94443V12.63568C95.4912 12.63568 95.5709 12.56599 95.5709 12.07787V6.140992H95.82C95.83 6.150992 95.9097 6.290367 96.1784 6.758492C96.3278 6.52943 96.7462 6.031305 97.4834 6.031305C98.6687 6.031305 99.7047 7.007555 99.7047 8.29256C99.7047 9.55755 98.7287 10.5438 97.5931 10.5438C96.8159 10.5438 96.3878 10.07568 96.2284 9.89631ZM96.2581 7.27662V9.32849C96.2581 9.51787 96.2581 9.52787 96.3678 9.68724C96.7562 10.24505 97.304 10.32474 97.5431 10.32474C97.9915 10.32474 98.35 10.06568 98.589 9.68724C98.8481 9.2788 98.8781 8.71099 98.8781 8.30256C98.8781 7.93412 98.8581 7.3363 98.569 6.88818C98.36 6.57943 97.9815 6.25068 97.4437 6.25068C96.9953 6.25068 96.6368 6.489742 96.3978 6.85818C96.2581 7.067242 96.2581 7.097242 96.2581 7.27662Z'/><path d='M105.26022 6.01316C105.26022 6.32003 105.33022 6.32003 105.79741 6.32003V6.57097C105.74866 6.57097 105.23928 6.54316 104.89772 6.54316C104.52803 6.54316 103.99772 6.54316 103.63522 6.57097V6.32003H103.90022C104.59772 6.32003 104.59772 6.22941 104.59772 5.9991V5.552846C104.59772 5.399408 104.59772 5.127221 104.20022 4.931908C103.85835 4.757533 103.46772 4.757533 103.3771 4.757533C102.58897 4.757533 101.29866 5.210971 101.29866 7.03128C101.29866 8.88691 102.62366 9.29816 103.31428 9.29816C103.99085 9.29816 104.82803 8.84503 105.00928 7.63816C105.02334 7.55441 105.08584 7.55441 105.13491 7.55441C105.26022 7.55441 105.26022 7.59628 105.26022 7.73597V9.36816C105.26022 9.4866 105.26022 9.54941 105.16272 9.54941C105.13491 9.54941 105.09991 9.54941 105.04397 9.46566L104.6746 8.93566C104.33272 9.28441 103.83741 9.54941 103.22366 9.54941C101.77272 9.54941 100.552095 8.42628 100.552095 7.03128C100.552095 5.65035 101.73803 4.506596 103.2446 4.506596C103.62835 4.506596 104.40241 4.576283 104.73022 5.064408C104.84897 4.883158 105.10678 4.645971 105.17678 4.645971C105.26022 4.645971 105.26022 4.722846 105.26022 4.827221V6.01316Z'/><path d='M110.02418 3.75037C110.02418 3.78006 110.02418 3.80005 109.8548 3.96943C108.6098 5.22443 108.29105 7.107242 108.29105 8.6313C108.29105 10.36443 108.66949 12.09787 109.8948 13.34287C110.02418 13.46256 110.02418 13.48256 110.02418 13.51224C110.02418 13.58193 109.98418 13.61193 109.92449 13.61193C109.8248 13.61193 108.92855 12.93443 108.34074 11.66943C107.83262 10.57381 107.713241 9.46818 107.713241 8.6313C107.713241 7.85443 107.82262 6.649117 108.37074 5.523492C108.96824 4.29818 109.8248 3.65068 109.92449 3.65068C109.98418 3.65068 110.02418 3.68068 110.02418 3.75037Z'/><path d='M115.29289 9.89631C115.30257 9.95599 115.32257 10.00599 115.32257 10.07568C115.32257 10.24505 115.2032 10.34474 115.03382 10.34474C114.93414 10.34474 114.66507 10.27474 114.62539 9.91631C114.44601 10.28474 114.09726 10.5438 113.69882 10.5438C112.56351 10.5438 111.328199 9.14943 111.328199 7.71474C111.328199 6.728805 111.9357 6.140992 112.65289 6.140992C113.2407 6.140992 113.70882 6.609117 113.80851 6.718805L113.81851 6.708805C113.60945 5.822242 113.48976 5.413805 113.48976 5.393805C113.45007 5.304117 113.11132 4.31818 112.05539 4.31818C111.86601 4.31818 111.537262 4.32818 111.258512 4.41755C111.557262 4.50724 111.66695 4.7663 111.66695 4.93568C111.66695 5.09505 111.557262 5.28443 111.288199 5.28443C111.069137 5.28443 110.750387 5.10505 110.750387 4.70662C110.750387 4.29818 111.119137 4.0988 112.07539 4.0988C113.32039 4.0988 114.03757 4.87599 114.18695 5.473492L115.29289 9.89631ZM113.99789 7.41599C113.93789 7.15693 113.70882 6.907867 113.48976 6.718805C113.2807 6.53943 112.97164 6.360055 112.68289 6.360055C112.18476 6.360055 112.03539 6.87818 112.03539 7.27662C112.03539 7.75474 112.32445 8.93005 112.5932 9.43818C112.86226 9.92631 113.29039 10.32474 113.70882 10.32474C114.36632 10.32474 114.5057 9.51787 114.5057 9.46818C114.5057 9.41818 114.48601 9.35849 114.47601 9.31849L113.99789 7.41599Z'/><path d='M119.01906 9.14943C119.07875 9.40818 119.30781 10.32474 120.005 10.32474C120.055 10.32474 120.29406 10.32474 120.50312 10.19505C120.22437 10.14537 120.025 9.89631 120.025 9.65724C120.025 9.49787 120.13468 9.3088 120.40343 9.3088C120.6228 9.3088 120.9416 9.48787 120.9416 9.88631C120.9416 10.40443 120.35375 10.5438 120.015 10.5438C119.43718 10.5438 119.08875 10.01599 118.96906 9.78693C118.72 10.44412 118.18218 10.5438 117.89343 10.5438C116.85718 10.5438 116.28968 9.25881 116.28968 9.00974C116.28968 8.91037 116.38906 8.91037 116.40906 8.91037C116.48875 8.91037 116.51875 8.93005 116.53843 9.01974C116.87718 10.07568 117.53468 10.32474 117.87343 10.32474C118.0625 10.32474 118.41125 10.23506 118.41125 9.65724C118.41125 9.34849 118.24187 8.68099 117.87343 7.28662C117.71406 6.668805 117.36531 6.25068 116.92718 6.25068C116.86718 6.25068 116.63812 6.25068 116.42906 6.380055C116.67812 6.429742 116.89718 6.639117 116.89718 6.917867C116.89718 7.18693 116.67812 7.26662 116.52875 7.26662C116.22968 7.26662 115.98062 7.007555 115.98062 6.688805C115.98062 6.23068 116.47875 6.031305 116.91718 6.031305C117.57468 6.031305 117.93312 6.728805 117.96312 6.788492C118.0825 6.420055 118.44125 6.031305 119.03875 6.031305C120.065 6.031305 120.6325 7.3163 120.6325 7.56537C120.6325 7.66506 120.54312 7.66506 120.51312 7.66506C120.42343 7.66506 120.40343 7.62537 120.38375 7.55537C120.055 6.489742 119.3775 6.25068 119.05875 6.25068C118.67031 6.25068 118.51093 6.56943 118.51093 6.907867C118.51093 7.127242 118.57062 7.3463 118.68031 7.78474L119.01906 9.14943Z'/><path d='M124.28272 8.6313C124.28272 9.40818 124.17334 10.61349 123.62522 11.73912C123.02772 12.96443 122.170842 13.61193 122.071467 13.61193C122.011467 13.61193 121.97178 13.57193 121.97178 13.51224C121.97178 13.48256 121.97178 13.46256 122.161155 13.28318C123.13709 12.29693 123.7049 10.71318 123.7049 8.6313C123.7049 6.927867 123.33647 5.174742 122.101155 3.91974C121.97178 3.80005 121.97178 3.78006 121.97178 3.75037C121.97178 3.69068 122.011467 3.65068 122.071467 3.65068C122.170842 3.65068 123.0674 4.32818 123.65522 5.59318C124.16334 6.688805 124.28272 7.79443 124.28272 8.6313Z'/><path d='M162.46888 9.89631C162.47857 9.95599 162.49857 10.00599 162.49857 10.07568C162.49857 10.24505 162.37919 10.34474 162.20982 10.34474C162.11013 10.34474 161.84107 10.27474 161.80138 9.91631C161.62201 10.28474 161.27326 10.5438 160.87482 10.5438C159.73951 10.5438 158.504194 9.14943 158.504194 7.71474C158.504194 6.728805 159.11169 6.140992 159.82888 6.140992C160.41669 6.140992 160.88482 6.609117 160.98451 6.718805L160.99451 6.708805C160.78544 5.822242 160.66576 5.413805 160.66576 5.393805C160.62607 5.304117 160.28732 4.31818 159.23138 4.31818C159.04201 4.31818 158.713257 4.32818 158.434507 4.41755C158.733257 4.50724 158.84294 4.7663 158.84294 4.93568C158.84294 5.09505 158.733257 5.28443 158.464194 5.28443C158.245132 5.28443 157.926382 5.10505 157.926382 4.70662C157.926382 4.29818 158.295132 4.0988 159.25138 4.0988C160.49638 4.0988 161.21357 4.87599 161.36294 5.473492L162.46888 9.89631ZM161.17388 7.41599C161.11388 7.15693 160.88482 6.907867 160.66576 6.718805C160.45669 6.53943 160.14763 6.360055 159.85888 6.360055C159.36076 6.360055 159.21138 6.87818 159.21138 7.27662C159.21138 7.75474 159.50044 8.93005 159.76919 9.43818C160.03826 9.92631 160.46638 10.32474 160.88482 10.32474C161.54232 10.32474 161.68169 9.51787 161.68169 9.46818C161.68169 9.41818 161.66201 9.35849 161.65201 9.31849L161.17388 7.41599Z'/><path d='M166.36258 10.00599L165.08758 10.31474C164.46976 10.46412 164.08133 11.00193 164.08133 11.57974C164.08133 12.27724 164.61914 12.88474 165.39633 12.88474C167.05976 12.88474 167.27883 11.25099 167.33883 10.80287C167.34851 10.74318 167.34851 10.68318 167.4582 10.68318C167.58758 10.68318 167.58758 10.73318 167.58758 10.92224V12.92443C167.58758 13.09381 167.58758 13.1638 167.4782 13.1638C167.40851 13.1638 167.39851 13.1538 167.32883 13.03412L166.98008 12.4663C166.68133 12.75537 166.27289 13.1638 165.38633 13.1638C164.2807 13.1638 163.443827 12.28693 163.443827 11.2313C163.443827 10.40443 163.97164 9.67724 164.74883 9.40818C164.8582 9.36849 165.36633 9.24881 166.06351 9.07943C166.33258 9.00974 166.63133 8.94005 166.91039 8.57162C167.11945 8.31256 167.21914 7.9838 167.21914 7.65505C167.21914 6.947867 166.72101 6.23068 165.88445 6.23068C165.59539 6.23068 164.83851 6.280367 164.31039 6.768492C163.732577 7.3063 163.702889 7.94412 163.692889 8.30256C163.682889 8.40224 163.603202 8.40224 163.573202 8.40224C163.443827 8.40224 163.443827 8.33256 163.443827 8.15318V6.160992C163.443827 5.991617 163.443827 5.92193 163.553514 5.92193C163.623202 5.92193 163.633202 5.941617 163.702889 6.051305C163.702889 6.061305 163.732577 6.091305 164.06133 6.619117C164.37039 6.280367 165.00789 5.92193 165.89445 5.92193C167.05976 5.92193 167.85664 6.89818 167.85664 7.9938C167.85664 8.99006 167.19914 9.80662 166.36258 10.00599ZM170.13867 10.12537H171.56305V10.43443H170.13867V12.26724H169.88961C169.87961 11.45037 169.58055 10.38443 168.60461 10.34474V10.12537H169.45117V7.3763C169.45117 6.150992 170.37773 6.031305 170.73617 6.031305C171.44336 6.031305 171.72242 6.738805 171.72242 7.3763V7.94412H171.47336V7.39599C171.47336 6.659117 171.17461 6.280367 170.80586 6.280367C170.13867 6.280367 170.13867 7.18693 170.13867 7.3563V10.12537ZM175.5979 6.89818C175.6376 6.499742 175.9066 6.081305 176.3748 6.081305C176.5838 6.081305 177.1916 6.22068 177.1916 7.027555V7.58537H176.9426V7.027555C176.9426 6.449742 176.6935 6.390055 176.5838 6.390055C176.2551 6.390055 176.2154 6.83818 176.2154 6.88818V8.88037C176.2154 9.2988 176.2154 9.68724 175.8566 10.05568C175.4682 10.44412 174.9701 10.60349 174.492 10.60349C173.6754 10.60349 172.9879 10.13537 172.9879 9.47787C172.9879 9.17912 173.1873 9.00974 173.446 9.00974C173.7251 9.00974 173.9045 9.20912 173.9045 9.46818C173.9045 9.58755 173.8545 9.91631 173.3963 9.92631C173.6654 10.27474 174.1535 10.38443 174.4723 10.38443C174.9604 10.38443 175.5282 9.99599 175.5282 9.10943V8.74099C175.0201 8.71099 174.3229 8.68099 173.6951 8.38224C172.9482 8.04349 172.69914 7.52568 172.69914 7.087242C172.69914 6.280367 173.6654 6.031305 174.2929 6.031305C174.9504 6.031305 175.4085 6.429742 175.5979 6.89818ZM175.5282 8.53162V7.53568C175.5282 6.589117 174.8107 6.25068 174.3626 6.25068C173.8745 6.25068 173.466 6.599117 173.466 7.097242C173.466 7.64505 173.8845 8.47193 175.5282 8.53162ZM178.9754 9.89631V13.05412L177.541 12.94443V12.63568C178.2382 12.63568 178.3179 12.56599 178.3179 12.07787V6.140992H178.567C178.577 6.150992 178.6566 6.290367 178.9254 6.758492C179.0748 6.52943 179.4932 6.031305 180.2304 6.031305C181.4157 6.031305 182.4516 7.007555 182.4516 8.29256C182.4516 9.55755 181.4757 10.5438 180.3401 10.5438C179.5629 10.5438 179.1348 10.07568 178.9754 9.89631ZM179.0051 7.27662V9.32849C179.0051 9.51787 179.0051 9.52787 179.1148 9.68724C179.5032 10.24505 180.051 10.32474 180.2901 10.32474C180.7385 10.32474 181.097 10.06568 181.336 9.68724C181.5951 9.2788 181.6251 8.71099 181.6251 8.30256C181.6251 7.93412 181.6051 7.3363 181.316 6.88818C181.107 6.57943 180.7285 6.25068 180.1907 6.25068C179.7423 6.25068 179.3838 6.489742 179.1448 6.85818C179.0051 7.067242 179.0051 7.097242 179.0051 7.27662Z'/><path d='M188.69103 9.45878C188.69103 9.49347 188.67009 9.54941 188.6004 9.54941C188.55134 9.54941 188.53759 9.53535 188.47478 9.46566L187.96541 8.92847C187.90291 9.01222 187.51228 9.54941 186.65415 9.54941C184.95947 9.54941 183.299155 8.04972 183.299155 6.47347C183.299155 5.392221 184.12228 4.506596 185.46165 4.506596C186.07541 4.506596 186.72415 4.666908 187.08665 5.057533C187.15634 4.904096 187.34478 4.652846 187.42853 4.652846C187.49134 4.652846 187.50509 4.680971 187.54009 4.827221L187.67259 5.364408C187.70759 5.490033 187.80509 5.90847 187.82603 5.99222C187.90978 6.30597 187.91665 6.31285 188.32822 6.32003C188.37697 6.32003 188.48165 6.32003 188.48165 6.4666C188.48165 6.53628 188.4329 6.57097 188.37697 6.57097C188.14697 6.57097 187.85384 6.54316 187.60978 6.54316C187.4354 6.54316 187.2054 6.54316 187.03103 6.55003C186.85665 6.55722 186.65415 6.57097 186.47978 6.57097C186.43103 6.57097 186.32634 6.57097 186.32634 6.41753C186.32634 6.32003 186.40322 6.32003 186.57759 6.32003C186.71009 6.32003 186.84947 6.32003 186.98197 6.30597C187.2054 6.28503 187.21228 6.25722 187.21228 6.17347C187.21228 6.14566 187.21228 6.1316 187.16353 5.95035C187.11447 5.75503 187.0379 5.440971 187.01009 5.371283C186.80759 4.945971 186.15916 4.757533 185.61509 4.757533C184.91759 4.757533 184.00384 5.092221 184.00384 6.27128C184.00384 7.01753 184.35259 7.95222 184.86853 8.47535C185.58697 9.1866 186.33353 9.29816 186.72415 9.29816C187.53322 9.29816 188.00728 8.71253 188.00728 7.93128C188.00728 7.73597 187.98634 7.68722 187.98634 7.64535C187.98634 7.55441 188.07728 7.55441 188.11197 7.55441C188.22353 7.55441 188.22353 7.57535 188.25853 7.70785L188.69103 9.45878Z'/><path d='M192.80918 3.75037C192.80918 3.78006 192.80918 3.80005 192.63981 3.96943C191.39481 5.22443 191.07606 7.107242 191.07606 8.6313C191.07606 10.36443 191.45449 12.09787 192.67981 13.34287C192.80918 13.46256 192.80918 13.48256 192.80918 13.51224C192.80918 13.58193 192.76918 13.61193 192.70949 13.61193C192.60981 13.61193 191.71356 12.93443 191.12574 11.66943C190.61762 10.57381 190.498244 9.46818 190.498244 8.6313C190.498244 7.85443 190.60762 6.649117 191.15574 5.523492C191.75324 4.29818 192.60981 3.65068 192.70949 3.65068C192.76918 3.65068 192.80918 3.68068 192.80918 3.75037Z'/><path d='M196.7132 9.14943C196.77289 9.40818 197.00195 10.32474 197.69914 10.32474C197.74914 10.32474 197.9882 10.32474 198.19726 10.19505C197.91851 10.14537 197.71914 9.89631 197.71914 9.65724C197.71914 9.49787 197.82883 9.3088 198.09758 9.3088C198.31695 9.3088 198.6357 9.48787 198.6357 9.88631C198.6357 10.40443 198.04789 10.5438 197.70914 10.5438C197.13133 10.5438 196.78289 10.01599 196.6632 9.78693C196.41414 10.44412 195.87633 10.5438 195.58758 10.5438C194.55133 10.5438 193.983827 9.25881 193.983827 9.00974C193.983827 8.91037 194.083202 8.91037 194.103202 8.91037C194.18289 8.91037 194.21289 8.93005 194.232577 9.01974C194.57133 10.07568 195.22883 10.32474 195.56758 10.32474C195.75664 10.32474 196.10539 10.23506 196.10539 9.65724C196.10539 9.34849 195.93601 8.68099 195.56758 7.28662C195.4082 6.668805 195.05945 6.25068 194.62133 6.25068C194.56133 6.25068 194.332265 6.25068 194.123202 6.380055C194.372265 6.429742 194.59133 6.639117 194.59133 6.917867C194.59133 7.18693 194.372265 7.26662 194.22289 7.26662C193.923827 7.26662 193.674765 7.007555 193.674765 6.688805C193.674765 6.23068 194.17289 6.031305 194.61133 6.031305C195.26883 6.031305 195.62726 6.728805 195.65726 6.788492C195.77664 6.420055 196.13539 6.031305 196.73289 6.031305C197.75914 6.031305 198.32664 7.3163 198.32664 7.56537C198.32664 7.66506 198.23726 7.66506 198.20726 7.66506C198.11758 7.66506 198.09758 7.62537 198.07789 7.55537C197.74914 6.489742 197.07164 6.25068 196.75289 6.25068C196.36445 6.25068 196.20508 6.56943 196.20508 6.907867C196.20508 7.127242 196.26476 7.3463 196.37445 7.78474L196.7132 9.14943Z'/><path d='M201.95871 8.6313C201.95871 9.40818 201.84934 10.61349 201.30121 11.73912C200.70371 12.96443 199.846838 13.61193 199.747463 13.61193C199.687463 13.61193 199.647775 13.57193 199.647775 13.51224C199.647775 13.48256 199.647775 13.46256 199.83715 13.28318C200.81309 12.29693 201.3809 10.71318 201.3809 8.6313C201.3809 6.927867 201.01246 5.174742 199.77715 3.91974C199.647775 3.80005 199.647775 3.78006 199.647775 3.75037C199.647775 3.69068 199.687463 3.65068 199.747463 3.65068C199.846838 3.65068 200.7434 4.32818 201.33121 5.59318C201.83934 6.688805 201.95871 7.79443 201.95871 8.6313Z'/><path d='M207.64684 9.89631C207.65653 9.95599 207.67653 10.00599 207.67653 10.07568C207.67653 10.24505 207.55715 10.34474 207.38778 10.34474C207.28809 10.34474 207.01903 10.27474 206.97934 9.91631C206.79996 10.28474 206.45121 10.5438 206.05278 10.5438C204.91746 10.5438 203.68215 9.14943 203.68215 7.71474C203.68215 6.728805 204.28965 6.140992 205.00684 6.140992C205.59465 6.140992 206.06278 6.609117 206.16246 6.718805L206.17246 6.708805C205.9634 5.822242 205.84371 5.413805 205.84371 5.393805C205.80403 5.304117 205.46528 4.31818 204.40934 4.31818C204.21996 4.31818 203.891213 4.32818 203.612463 4.41755C203.911213 4.50724 204.0209 4.7663 204.0209 4.93568C204.0209 5.09505 203.911213 5.28443 203.64215 5.28443C203.423088 5.28443 203.104338 5.10505 203.104338 4.70662C203.104338 4.29818 203.473088 4.0988 204.42934 4.0988C205.67434 4.0988 206.39153 4.87599 206.5409 5.473492L207.64684 9.89631ZM206.35184 7.41599C206.29184 7.15693 206.06278 6.907867 205.84371 6.718805C205.63465 6.53943 205.32559 6.360055 205.03684 6.360055C204.53871 6.360055 204.38934 6.87818 204.38934 7.27662C204.38934 7.75474 204.6784 8.93005 204.94715 9.43818C205.21621 9.92631 205.64434 10.32474 206.06278 10.32474C206.72028 10.32474 206.85965 9.51787 206.85965 9.46818C206.85965 9.41818 206.83996 9.35849 206.82996 9.31849L206.35184 7.41599Z'/><path d='M213.25334 11.33229C213.36491 11.33229 213.53241 11.33229 213.53241 11.49979C213.53241 11.67416 213.37209 11.67416 213.25334 11.67416H209.09616C208.984595 11.67416 208.817408 11.67416 208.817408 11.50666C208.817408 11.33229 208.97772 11.33229 209.09616 11.33229H213.25334Z'/><path d='M216.62752 14.19229C216.62752 14.38041 216.61377 14.38729 216.41846 14.38729C215.9719 13.94791 215.33721 13.94104 215.051274 13.94104V13.68979C215.218774 13.68979 215.67909 13.68979 216.06252 13.8851V10.327911C216.06252 10.097911 216.06252 10.007286 215.36502 10.007286H215.100024V9.756036C215.225649 9.762911 216.08346 9.783849 216.34159 9.783849C216.55784 9.783849 217.43659 9.762911 217.59002 9.756036V10.007286H217.32502C216.62752 10.007286 216.62752 10.097911 216.62752 10.327911V14.19229Z'/><path d='M35.2656 43.9102H92.418' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10'/><path d='M35.164058 42.27733V45.54296' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round'/><path d='M90.54297 46.30077C90.92188 44.867178 91.76563 44.191396 92.617192 43.910146C91.76563 43.632803 90.92188 42.953115 90.54297 41.51952' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/><path d='M61.23559 50.18676C61.26372 50.29144 61.26372 50.32613 61.26372 50.33332C61.26372 50.48676 61.13809 50.55644 61.02653 50.55644C60.86591 50.55644 60.73341 50.42394 60.70559 50.29144C60.58684 50.47988 60.34997 50.68894 59.98716 50.68894C59.11528 50.68894 58.201531 49.75426 58.201531 48.75676C58.201531 48.038631 58.68966 47.613006 59.26184 47.613006C59.58247 47.613006 59.88934 47.773318 60.13372 47.989568L59.98028 47.361756C59.90341 47.068943 59.85466 46.880506 59.58966 46.643631C59.28278 46.38551 58.98278 46.38551 58.80841 46.38551C58.487469 46.38551 58.396844 46.40644 58.271219 46.43426C58.445594 46.51801 58.494344 46.685193 58.494344 46.783006C58.494344 46.950506 58.361844 47.041131 58.222469 47.041131C58.027156 47.041131 57.824969 46.880506 57.824969 46.615506C57.824969 46.19707 58.424656 46.19019 58.81528 46.19019C59.91028 46.19019 60.37778 46.748006 60.47528 47.145818L61.23559 50.18676ZM60.27309 48.540818C60.24528 48.436131 60.24528 48.422068 60.12653 48.282693C59.88247 47.989568 59.54778 47.808318 59.28278 47.808318C58.92684 47.808318 58.75966 48.108318 58.75966 48.470818C58.75966 48.77769 58.94778 49.55894 59.12934 49.86582C59.42216 50.35426 59.74997 50.49363 59.98716 50.49363C60.47528 50.49363 60.60778 49.97051 60.60778 49.90082C60.60778 49.88676 60.60778 49.87301 60.58684 49.79613L60.27309 48.540818Z'/><path d='M63.23536 48.010506C63.23536 48.261756 63.02598 48.415193 62.83755 48.415193C62.60755 48.415193 62.43317 48.226756 62.43317 48.017693C62.43317 47.766443 62.64223 47.613006 62.83067 47.613006C63.06098 47.613006 63.23536 47.801443 63.23536 48.010506Z'/><path d='M69.21834 49.18926C69.3299 49.18926 69.4974 49.18926 69.4974 49.35676C69.4974 49.53113 69.33709 49.53113 69.21834 49.53113H65.06115C64.949592 49.53113 64.782404 49.53113 64.782404 49.36363C64.782404 49.18926 64.942717 49.18926 65.06115 49.18926H69.21834Z'/><path d='M27.625 37.2734V17.85937' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10'/><path d='M25.99222 37.371143H29.25784' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round'/><path d='M30.01566 19.73437C28.582063 19.35547 27.902376 18.511717 27.625032 17.660155C27.347688 18.511717 26.668001 19.35547 25.23441 19.73437' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/><path d='M31.70791 28.50145C31.09416 28.64114 30.905721 29.08051 30.905721 29.37333C30.905721 29.83395 31.33103 30.27333 31.96603 30.27333C32.9076 30.27333 33.31197 29.64552 33.42353 28.91301C33.4376 28.80864 33.44447 28.77364 33.54916 28.77364C33.66791 28.77364 33.66791 28.82239 33.66791 28.95489V30.3152C33.66791 30.43364 33.66791 30.49645 33.5701 30.49645C33.51447 30.49645 33.50041 30.47551 33.45166 30.39864L33.20041 30.00833C32.7401 30.47551 32.16103 30.49645 31.96603 30.49645C31.08697 30.49645 30.459158 29.86864 30.459158 29.16426C30.459158 28.77364 30.633533 28.47364 30.884783 28.23645C31.16385 27.96458 31.39385 27.91583 32.14728 27.74833C32.78197 27.60864 32.92135 27.58083 33.12385 27.38552C33.28416 27.2252 33.43072 27.00208 33.43072 26.68802C33.43072 26.19989 33.02603 25.704577 32.35635 25.704577C31.67978 25.704577 30.745408 25.969577 30.696346 27.02301C30.689471 27.13458 30.689471 27.17645 30.577908 27.17645C30.459158 27.17645 30.459158 27.12739 30.459158 26.98802V25.63489C30.459158 25.51614 30.459158 25.45364 30.556971 25.45364C30.612596 25.45364 30.626658 25.474577 30.668533 25.537077C30.731346 25.620828 30.870721 25.844265 30.926658 25.93489C31.36603 25.55114 31.90322 25.45364 32.35635 25.45364C33.27728 25.45364 33.87697 26.143952 33.87697 26.88333C33.87697 27.51114 33.4376 28.10395 32.7401 28.26458L31.70791 28.50145ZM35.76635 28.34801H36.85447V28.59926H35.76635V29.8827H35.52916C35.52228 29.25489 35.23635 28.56427 34.56666 28.54333V28.34801H35.21541V26.46489C35.21541 25.68364 35.80135 25.523328 36.19197 25.523328C36.65916 25.523328 36.9801 25.920827 36.9801 26.471765V26.85551H36.74291V26.478952C36.74291 26.004577 36.51978 25.746452 36.2476 25.746452C35.76635 25.746452 35.76635 26.33239 35.76635 26.458015V28.34801ZM40.5857 27.46239C40.5857 27.83208 40.5857 28.09708 40.2648 28.3552C39.9788 28.59239 39.64416 28.70395 39.2326 28.70395C38.56978 28.70395 38.1026 28.4527 38.1026 28.02739C38.1026 27.80395 38.25603 27.68551 38.43728 27.68551C38.62572 27.68551 38.7651 27.82489 38.7651 28.01333C38.7651 28.13176 38.70947 28.27833 38.52103 28.33427C38.77228 28.50864 39.17666 28.50864 39.21853 28.50864C39.60916 28.50864 40.0345 28.25052 40.0345 27.66458V27.44833C39.65103 27.43426 39.19072 27.41364 38.68135 27.2252C38.05385 26.99489 37.85853 26.61145 37.85853 26.29739C37.85853 25.697702 38.58385 25.523328 39.07916 25.523328C39.63697 25.523328 39.96478 25.837077 40.1113 26.109265C40.1392 25.823327 40.3276 25.558015 40.6485 25.558015C40.6623 25.558015 41.3388 25.558015 41.3388 26.220827V26.60427H41.1017V26.227703C41.1017 26.158015 41.1017 25.823327 40.8438 25.823327C40.5857 25.823327 40.5857 26.15114 40.5857 26.241765V27.46239ZM40.0345 26.576452C40.0345 25.906765 39.44885 25.71864 39.13478 25.71864C38.77916 25.71864 38.44416 25.955827 38.44416 26.29739C38.44416 26.68114 38.77916 27.21833 40.0345 27.26708V26.576452ZM42.831 30.43364L41.7847 30.35708V30.10583C42.2588 30.10583 42.3078 30.04989 42.3078 29.70114V25.593015H42.545L42.7891 26.01864C43.0541 25.66989 43.4378 25.523328 43.8072 25.523328C44.7281 25.523328 45.5163 26.21364 45.5163 27.09958C45.5163 27.95052 44.7978 28.66895 43.8841 28.66895C43.4656 28.66895 43.0819 28.50145 42.831 28.25052V30.43364ZM42.8588 27.92958C43.0541 28.25052 43.4306 28.47364 43.8491 28.47364C44.2397 28.47364 44.5188 28.25052 44.6585 28.04114C44.7978 27.83895 44.8816 27.56708 44.8816 27.10645C44.8816 26.94614 44.8816 26.423015 44.5956 26.095203C44.3166 25.781452 43.9747 25.71864 43.7725 25.71864C43.2144 25.71864 42.9353 26.158015 42.8588 26.304577V27.92958Z'/><path d='M50.13568 25.563576C50.13568 25.71795 50.13568 25.76295 50.46943 25.76295H50.56911V25.98201C50.27505 25.96701 49.9613 25.96201 49.81693 25.96201C49.54786 25.96201 49.07943 25.96201 48.83036 25.98201V25.76295H49.07943C49.60755 25.76295 49.60755 25.70795 49.60755 25.553576V25.244826C49.60755 25.130138 49.60755 24.925763 49.2688 24.801388C49.01974 24.706701 48.71568 24.706701 48.65099 24.706701C47.81411 24.706701 46.92224 25.155138 46.92224 26.30076C46.92224 27.4867 47.8538 27.89014 48.5763 27.89014C49.02474 27.89014 49.75693 27.64608 49.9163 26.72451C49.9263 26.66451 49.9863 26.66451 50.02599 26.66451C50.13568 26.66451 50.13568 26.69951 50.13568 26.8042V27.96983C50.13568 28.05451 50.13568 28.10951 50.05599 28.10951C50.00599 28.10951 49.9913 28.08951 49.9613 28.04951L49.66724 27.66608C49.43318 27.86045 49.06943 28.10951 48.48661 28.10951C47.28599 28.10951 46.339114 27.27733 46.339114 26.30076C46.339114 25.359201 47.22599 24.487326 48.5163 24.487326C48.70068 24.487326 48.96474 24.497326 49.2188 24.567013C49.58755 24.666701 49.71724 24.846076 49.73224 24.871076C49.85161 24.716701 50.02599 24.597013 50.06599 24.597013C50.13568 24.597013 50.13568 24.661701 50.13568 24.736388V25.563576Z'/><path d='M102.7109 35.3359V17.85937' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10'/><path d='M101.07382 35.433622H104.34335' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round'/><path d='M105.10117 19.73437C103.663666 19.35547 102.987885 18.511717 102.710541 17.660155C102.429291 18.511717 101.75351 19.35547 100.31992 19.73437' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/><path d='M106.79285 27.53344C106.1791 27.67313 105.990661 28.1125 105.990661 28.40531C105.990661 28.86594 106.41597 29.30531 107.05097 29.30531C107.99254 29.30531 108.39691 28.6775 108.50847 27.945C108.52254 27.84063 108.52941 27.80562 108.6341 27.80562C108.75285 27.80562 108.75285 27.85437 108.75285 27.98688V29.34719C108.75285 29.46562 108.75285 29.52844 108.65504 29.52844C108.59941 29.52844 108.58535 29.5075 108.5366 29.43062L108.28535 29.04031C107.82504 29.5075 107.24597 29.52844 107.05097 29.52844C106.17191 29.52844 105.544099 28.90063 105.544099 28.19625C105.544099 27.80562 105.718474 27.50563 105.969724 27.26844C106.24879 26.99656 106.47879 26.94781 107.23222 26.78031C107.86691 26.64063 108.00629 26.61281 108.20879 26.4175C108.3691 26.25719 108.51566 26.03406 108.51566 25.72C108.51566 25.231875 108.11097 24.736562 107.44129 24.736562C106.76472 24.736562 105.830349 25.001563 105.781286 26.055C105.774411 26.16656 105.774411 26.20844 105.662849 26.20844C105.544099 26.20844 105.544099 26.15937 105.544099 26.02V24.666875C105.544099 24.548125 105.544099 24.485625 105.641911 24.485625C105.697536 24.485625 105.711599 24.506563 105.753474 24.569063C105.816286 24.652812 105.955661 24.87625 106.011599 24.966875C106.45097 24.583125 106.98816 24.485625 107.44129 24.485625C108.36222 24.485625 108.96191 25.175937 108.96191 25.91531C108.96191 26.54313 108.52254 27.13594 107.82504 27.29656L106.79285 27.53344ZM110.85129 27.38H111.93941V27.63125H110.85129V28.91469H110.6141C110.60722 28.28688 110.32129 27.59625 109.6516 27.57531V27.38H110.30035V25.496875C110.30035 24.715625 110.88629 24.555312 111.27691 24.555312C111.7441 24.555312 112.06504 24.952812 112.06504 25.50375V25.8875H111.82785V25.510938C111.82785 25.036563 111.60472 24.778437 111.33254 24.778437C110.85129 24.778437 110.85129 25.364375 110.85129 25.49V27.38ZM115.6707 26.49437C115.6707 26.86406 115.6707 27.12906 115.3497 27.38719C115.0638 27.62438 114.7291 27.73594 114.31754 27.73594C113.65472 27.73594 113.18754 27.48469 113.18754 27.05938C113.18754 26.83594 113.34097 26.7175 113.52222 26.7175C113.71066 26.7175 113.85004 26.85687 113.85004 27.04531C113.85004 27.16375 113.79441 27.31031 113.60597 27.36625C113.85722 27.54063 114.2616 27.54063 114.30347 27.54063C114.6941 27.54063 115.1194 27.2825 115.1194 26.69656V26.48031C114.73597 26.46625 114.27566 26.44562 113.76629 26.25719C113.13879 26.02688 112.94347 25.64344 112.94347 25.329375C112.94347 24.729687 113.66879 24.555312 114.1641 24.555312C114.72191 24.555312 115.04972 24.869062 115.1963 25.14125C115.2241 24.855312 115.4125 24.59 115.7335 24.59C115.7472 24.59 116.4238 24.59 116.4238 25.252813V25.63625H116.1866V25.259687C116.1866 25.19 116.1866 24.855312 115.9288 24.855312C115.6707 24.855312 115.6707 25.183125 115.6707 25.27375V26.49437ZM115.1194 25.608437C115.1194 24.93875 114.53379 24.750625 114.21972 24.750625C113.8641 24.750625 113.5291 24.987812 113.5291 25.329375C113.5291 25.71312 113.8641 26.25031 115.1194 26.29906V25.608437ZM117.9159 29.46562L116.8696 29.38906V29.13781C117.3437 29.13781 117.3928 29.08187 117.3928 28.73313V24.625H117.63L117.874 25.050625C118.139 24.701875 118.5228 24.555312 118.8921 24.555312C119.8131 24.555312 120.6012 25.245625 120.6012 26.13156C120.6012 26.9825 119.8828 27.70094 118.969 27.70094C118.5506 27.70094 118.1668 27.53344 117.9159 27.2825V29.46562ZM117.9437 26.96156C118.139 27.2825 118.5156 27.50563 118.934 27.50563C119.3246 27.50563 119.6037 27.2825 119.7434 27.07312C119.8828 26.87094 119.9665 26.59906 119.9665 26.13844C119.9665 25.97812 119.9665 25.455 119.6806 25.127187C119.4015 24.813438 119.0596 24.750625 118.8575 24.750625C118.2993 24.750625 118.0203 25.19 117.9437 25.336563V26.96156Z'/><path d='M125.2207 24.595561C125.2207 24.74994 125.2207 24.79494 125.55445 24.79494H125.65413V25.014C125.36007 24.999 125.04632 24.994 124.90195 24.994C124.63288 24.994 124.16445 24.994 123.91538 25.014V24.79494H124.16445C124.69257 24.79494 124.69257 24.73994 124.69257 24.585561V24.276811C124.69257 24.162123 124.69257 23.957748 124.35382 23.833373C124.10476 23.738686 123.8007 23.738686 123.73601 23.738686C122.89913 23.738686 122.00726 24.187123 122.00726 25.33275C122.00726 26.51869 122.93882 26.92212 123.66132 26.92212C124.10976 26.92212 124.84195 26.67806 125.00132 25.7565C125.01132 25.6965 125.07132 25.6965 125.11101 25.6965C125.2207 25.6965 125.2207 25.7315 125.2207 25.83619V27.00181C125.2207 27.0865 125.2207 27.1415 125.14101 27.1415C125.09101 27.1415 125.07632 27.1215 125.04632 27.0815L124.75226 26.69806C124.5182 26.89244 124.15445 27.1415 123.57163 27.1415C122.37101 27.1415 121.424133 26.30931 121.424133 25.33275C121.424133 24.391186 122.31101 23.519311 123.60132 23.519311C123.7857 23.519311 124.04976 23.529311 124.30382 23.598998C124.67257 23.698686 124.80226 23.878061 124.81726 23.903061C124.93663 23.748686 125.11101 23.628998 125.15101 23.628998C125.2207 23.628998 125.2207 23.693686 125.2207 23.768373V24.595561Z'/><path d='M52.4336 8.6328H75.2461' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10'/><path d='M52.331986 6.99609V10.26562' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round'/><path d='M73.37495 11.02344C73.75386 9.585937 74.597609 8.910156 75.445266 8.632812C74.597609 8.351562 73.75386 7.675781 73.37495 6.24219' stroke='#000' fill='none' stroke-width='.39848' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/><path d='M60.73194 14.81234C60.73194 15.18203 60.73194 15.44703 60.411 15.70516C60.12506 15.94234 59.79038 16.05391 59.37881 16.05391C58.716 16.05391 58.248814 15.80266 58.248814 15.37734C58.248814 15.15391 58.402252 15.03547 58.583502 15.03547C58.77194 15.03547 58.91131 15.17484 58.91131 15.36328C58.91131 15.48172 58.85569 15.62828 58.66725 15.68422C58.9185 15.85859 59.32288 15.85859 59.36475 15.85859C59.75538 15.85859 60.18069 15.60047 60.18069 15.01453V14.79828C59.79725 14.78422 59.33694 14.76359 58.82756 14.57516C58.200064 14.34484 58.004752 13.96141 58.004752 13.647343C58.004752 13.047656 58.73006 12.873281 59.22538 12.873281C59.78319 12.873281 60.111 13.187031 60.25756 13.459218C60.28538 13.173281 60.47381 12.907968 60.79475 12.907968C60.8085 12.907968 61.48506 12.907968 61.48506 13.570781V13.95422H61.24788V13.577656C61.24788 13.507968 61.24788 13.173281 60.99006 13.173281C60.73194 13.173281 60.73194 13.501093 60.73194 13.591718V14.81234ZM60.18069 13.926406C60.18069 13.256718 59.59506 13.068593 59.281 13.068593C58.92538 13.068593 58.590377 13.305781 58.590377 13.647343C58.590377 14.03109 58.92538 14.56828 60.18069 14.61703V13.926406ZM64.07217 17.70703V17.45578C64.53936 17.45578 64.5953 17.40703 64.5953 17.06516V15.62141C64.33717 15.87234 64.00249 16.01891 63.61874 16.01891C62.69124 16.01891 61.90999 15.32141 61.90999 14.44266C61.90999 13.570781 62.64936 12.873281 63.53499 12.873281C64.10717 12.873281 64.44874 13.180156 64.56749 13.305781V12.873281L65.64155 12.942968V13.194218C65.17405 13.194218 65.11842 13.242968 65.11842 13.584531V17.78359L64.07217 17.70703ZM64.56749 13.675468C64.38592 13.347656 64.0303 13.068593 63.57686 13.068593C63.18624 13.068593 62.90717 13.298593 62.7678 13.501093C62.62842 13.710156 62.54467 13.98922 62.54467 14.43547C62.54467 14.59609 62.54467 15.11922 62.83061 15.44703C63.10967 15.76078 63.45124 15.82359 63.65374 15.82359C63.98842 15.82359 64.28842 15.67016 64.48374 15.41922C64.56749 15.30734 64.56749 15.30047 64.56749 15.16797V13.675468Z'/><path d='M69.13173 13.7604C69.15673 13.85009 69.15673 13.86009 69.15673 13.87509C69.15673 13.95978 69.09173 14.04947 68.97236 14.04947C68.87267 14.04947 68.76298 13.97978 68.7233 13.85509C68.55892 14.07447 68.34455 14.14915 68.12548 14.14915C67.44267 14.14915 66.740171 13.50134 66.740171 12.798841C66.740171 12.275716 67.13892 11.946966 67.61205 11.946966C67.93111 11.946966 68.20017 12.121341 68.31455 12.216029C68.30455 12.166029 68.21517 11.827279 68.19517 11.742591C68.15017 11.563216 68.11548 11.413841 67.88611 11.254466C67.65205 11.095091 67.43267 11.095091 67.2883 11.095091C67.24861 11.095091 66.884859 11.100091 66.884859 11.129779L66.904859 11.144779C66.99455 11.224466 67.01923 11.334154 67.01923 11.383841C67.01923 11.468529 66.959546 11.588216 66.795171 11.588216C66.635796 11.588216 66.486109 11.448841 66.486109 11.259466C66.486109 10.92572 66.99455 10.92572 67.2933 10.92572C67.9758 10.92572 68.48392 11.154779 68.60361 11.638216L69.13173 13.7604ZM68.42423 12.654466C68.40423 12.574779 68.39923 12.554779 68.30455 12.455091C68.12048 12.270716 67.89111 12.116341 67.63205 12.116341C67.43767 12.116341 67.18861 12.221029 67.18861 12.614466C67.18861 12.808841 67.2783 13.28228 67.46767 13.57103C67.60236 13.7904 67.86142 13.97978 68.12548 13.97978C68.53892 13.97978 68.64361 13.59103 68.64361 13.54634C68.64361 13.53634 68.63861 13.50134 68.62861 13.47165L68.42423 12.654466Z'/><path d='M129.7734 9.6289H153.2852' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10'/><path d='M129.7734 7.6367H153.2852' stroke='#000' fill='none' stroke-width='.3985' stroke-miterlimit='10'/></g></g></svg></center></p>
-<p>这预示着 <span class="arithmatex">\(\mathrm{Stab}_G\)</span> 具备某种意义上的“函子性”。</p>
+<p><center><!-- This file was generated by dvisvgm 3.4.3 --><svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='219.737813pt' height='54.076633pt' viewBox='-68.682443 -72.000005 219.737813 54.076633'><defs><path id='g3-103' d='M3.138232-1.8132C3.163138-1.902864 3.163138-1.912827 3.163138-1.927771C3.163138-2.012453 3.098381-2.102117 2.978829-2.102117C2.879203-2.102117 2.769614-2.032379 2.729763-1.907846C2.56538-2.127024 2.351183-2.201743 2.132005-2.201743C1.449564-2.201743 .747198-1.554172 .747198-.851806C.747198-.328767 1.145704 0 1.618929 0C1.937733 0 2.206725-.174346 2.321295-.268991C2.311333-.219178 2.221669 .119552 2.201743 .204234C2.156912 .383562 2.122042 .533001 1.892902 .692403C1.65878 .851806 1.439601 .851806 1.295143 .851806C1.255293 .851806 .891656 .846824 .891656 .816936L.911582 .801993C1.001245 .722291 1.026152 .612702 1.026152 .562889C1.026152 .478207 .966376 .358655 .801993 .358655C.64259 .358655 .493151 .498132 .493151 .687422C.493151 1.021171 1.001245 1.021171 1.300125 1.021171C1.982565 1.021171 2.49066 .79203 2.610212 .308842L3.138232-1.8132ZM2.430884-.707347C2.410959-.627646 2.405978-.607721 2.311333-.508095C2.127024-.323786 1.897883-.169365 1.638854-.169365C1.444583-.169365 1.195517-.273973 1.195517-.667497C1.195517-.861768 1.285181-1.334994 1.474471-1.62391C1.608966-1.843088 1.867995-2.032379 2.132005-2.032379C2.545455-2.032379 2.650062-1.643836 2.650062-1.599004C2.650062-1.589041 2.645081-1.554172 2.635118-1.524284L2.430884-.707347Z'/><path id='g6-71' d='M4.278954-.966376C4.278954-1.120797 4.278954-1.165629 4.612702-1.165629H4.712329V-1.384807C4.418431-1.369863 4.104608-1.364882 3.960149-1.364882C3.691158-1.364882 3.222914-1.364882 2.973848-1.384807V-1.165629H3.222914C3.750934-1.165629 3.750934-1.110834 3.750934-.956413V-.647572C3.750934-.533001 3.750934-.328767 3.412204-.204234C3.163138-.109589 2.859278-.109589 2.794521-.109589C1.957659-.109589 1.066002-.557908 1.066002-1.703611C1.066002-2.889166 1.997509-3.292653 2.719801-3.292653C3.16812-3.292653 3.900374-3.048568 4.059776-2.127024C4.069738-2.067248 4.129514-2.067248 4.169365-2.067248C4.278954-2.067248 4.278954-2.102117 4.278954-2.206725V-3.372354C4.278954-3.457036 4.278954-3.511831 4.199253-3.511831C4.14944-3.511831 4.134496-3.491905 4.104608-3.452055L3.81071-3.068493C3.576588-3.262765 3.212951-3.511831 2.630137-3.511831C1.429639-3.511831 .483188-2.67995 .483188-1.703611C.483188-.762142 1.369863 .109589 2.660025 .109589C2.844334 .109589 3.108344 .099626 3.362391 .029888C3.731009-.069738 3.860523-.249066 3.875467-.273973C3.995019-.119552 4.169365 0 4.209215 0C4.278954 0 4.278954-.064757 4.278954-.139477V-.966376Z'/><path id='g4-40' d='M3.297634 2.391034C3.297634 2.361146 3.297634 2.34122 3.128269 2.171856C1.882939 .916563 1.564134-.966376 1.564134-2.49066C1.564134-4.224159 1.942715-5.957659 3.16812-7.202989C3.297634-7.32254 3.297634-7.342466 3.297634-7.372354C3.297634-7.442092 3.257783-7.47198 3.198007-7.47198C3.098381-7.47198 2.201743-6.794521 1.613948-5.529265C1.105853-4.433375 .986301-3.327522 .986301-2.49066C.986301-1.713574 1.09589-.508095 1.643836 .617684C2.241594 1.843088 3.098381 2.49066 3.198007 2.49066C3.257783 2.49066 3.297634 2.460772 3.297634 2.391034Z'/><path id='g4-41' d='M2.879203-2.49066C2.879203-3.267746 2.769614-4.473225 2.221669-5.599004C1.62391-6.824408 .767123-7.47198 .667497-7.47198C.607721-7.47198 .56787-7.43213 .56787-7.372354C.56787-7.342466 .56787-7.32254 .757161-7.143213C1.733499-6.156912 2.30137-4.572852 2.30137-2.49066C2.30137-.787049 1.932752 .966376 .697385 2.221669C.56787 2.34122 .56787 2.361146 .56787 2.391034C.56787 2.450809 .607721 2.49066 .667497 2.49066C.767123 2.49066 1.663761 1.8132 2.251557 .547945C2.759651-.547945 2.879203-1.653798 2.879203-2.49066Z'/><path id='g4-83' d='M3.476961-3.865504L2.201743-4.174346C1.58406-4.323786 1.195517-4.861768 1.195517-5.439601C1.195517-6.136986 1.733499-6.744707 2.510585-6.744707C4.174346-6.744707 4.393524-5.110834 4.4533-4.662516C4.463263-4.60274 4.463263-4.542964 4.572852-4.542964C4.702366-4.542964 4.702366-4.592777 4.702366-4.782067V-6.784558C4.702366-6.953923 4.702366-7.023661 4.592777-7.023661C4.523039-7.023661 4.513076-7.013699 4.443337-6.894147L4.094645-6.326276C3.795766-6.615193 3.387298-7.023661 2.500623-7.023661C1.39477-7.023661 .557908-6.146949 .557908-5.090909C.557908-4.26401 1.085928-3.536737 1.863014-3.267746C1.972603-3.227895 2.480697-3.108344 3.178082-2.938979C3.447073-2.86924 3.745953-2.799502 4.024907-2.430884C4.234122-2.171856 4.333748-1.843088 4.333748-1.514321C4.333748-.806974 3.835616-.089664 2.998755-.089664C2.709838-.089664 1.952677-.139477 1.424658-.627646C.846824-1.165629 .816936-1.803238 .806974-2.161893C.797011-2.261519 .71731-2.261519 .687422-2.261519C.557908-2.261519 .557908-2.191781 .557908-2.012453V-.019925C.557908 .14944 .557908 .219178 .667497 .219178C.737235 .219178 .747198 .199253 .816936 .089664C.816936 .079701 .846824 .049813 1.175592-.478207C1.484433-.139477 2.122042 .219178 3.008717 .219178C4.174346 .219178 4.971357-.757161 4.971357-1.853051C4.971357-2.849315 4.313823-3.666252 3.476961-3.865504Z'/><path id='g4-97' d='M3.317559-.757161C3.35741-.358655 3.626401 .059776 4.094645 .059776C4.303861 .059776 4.911582-.079701 4.911582-.886675V-1.444583H4.662516V-.886675C4.662516-.308842 4.41345-.249066 4.303861-.249066C3.975093-.249066 3.935243-.697385 3.935243-.747198V-2.739726C3.935243-3.158157 3.935243-3.5467 3.576588-3.915318C3.188045-4.303861 2.689913-4.463263 2.211706-4.463263C1.39477-4.463263 .707347-3.995019 .707347-3.337484C.707347-3.038605 .9066-2.86924 1.165629-2.86924C1.444583-2.86924 1.62391-3.068493 1.62391-3.327522C1.62391-3.447073 1.574097-3.775841 1.115816-3.785803C1.384807-4.134496 1.872976-4.244085 2.191781-4.244085C2.67995-4.244085 3.247821-3.855542 3.247821-2.968867V-2.600249C2.739726-2.570361 2.042341-2.540473 1.414695-2.241594C.667497-1.902864 .418431-1.384807 .418431-.946451C.418431-.139477 1.384807 .109589 2.012453 .109589C2.669988 .109589 3.128269-.288917 3.317559-.757161ZM3.247821-2.391034V-1.39477C3.247821-.448319 2.530511-.109589 2.082192-.109589C1.594022-.109589 1.185554-.458281 1.185554-.956413C1.185554-1.504359 1.603985-2.331258 3.247821-2.391034Z'/><path id='g4-98' d='M1.713574-3.755915V-6.914072L.278954-6.804483V-6.495641C.976339-6.495641 1.05604-6.425903 1.05604-5.937733V0H1.305106C1.315068-.009963 1.39477-.14944 1.663761-.617684C1.8132-.388543 2.231631 .109589 2.968867 .109589C4.154421 .109589 5.190535-.86675 5.190535-2.15193C5.190535-3.417186 4.214197-4.403487 3.078456-4.403487C2.30137-4.403487 1.872976-3.935243 1.713574-3.755915ZM1.743462-1.135741V-3.188045C1.743462-3.377335 1.743462-3.387298 1.853051-3.5467C2.241594-4.104608 2.789539-4.184309 3.028643-4.184309C3.476961-4.184309 3.835616-3.92528 4.07472-3.5467C4.333748-3.138232 4.363636-2.570361 4.363636-2.161893C4.363636-1.793275 4.343711-1.195517 4.054795-.747198C3.845579-.438356 3.466999-.109589 2.929016-.109589C2.480697-.109589 2.122042-.348692 1.882939-.71731C1.743462-.926526 1.743462-.956413 1.743462-1.135741Z'/><path id='g4-116' d='M1.723537-3.985056H3.148194V-4.293898H1.723537V-6.127024H1.474471C1.464508-5.310087 1.165629-4.244085 .18929-4.204234V-3.985056H1.036115V-1.235367C1.036115-.009963 1.96264 .109589 2.321295 .109589C3.028643 .109589 3.307597-.597758 3.307597-1.235367V-1.803238H3.058531V-1.255293C3.058531-.518057 2.759651-.139477 2.391034-.139477C1.723537-.139477 1.723537-1.046077 1.723537-1.215442V-3.985056Z'/><path id='g0-0' d='M5.188543-1.57609C5.300125-1.57609 5.467497-1.57609 5.467497-1.743462C5.467497-1.917808 5.307098-1.917808 5.188543-1.917808H1.03213C.920548-1.917808 .753176-1.917808 .753176-1.750436C.753176-1.57609 .913574-1.57609 1.03213-1.57609H5.188543Z'/><path id='g1-103' d='M4.692403-3.755915C4.702366-3.815691 4.722291-3.865504 4.722291-3.935243C4.722291-4.104608 4.60274-4.204234 4.433375-4.204234C4.333748-4.204234 4.064757-4.134496 4.024907-3.775841C3.845579-4.144458 3.496887-4.403487 3.098381-4.403487C1.96264-4.403487 .727273-3.008717 .727273-1.574097C.727273-.587796 1.334994 0 2.052304 0C2.6401 0 3.108344-.468244 3.20797-.577833L3.217933-.56787C3.008717 .318804 2.889166 .727273 2.889166 .747198C2.849315 .836862 2.510585 1.823163 1.454545 1.823163C1.265255 1.823163 .936488 1.8132 .657534 1.723537C.956413 1.633873 1.066002 1.374844 1.066002 1.205479C1.066002 1.046077 .956413 .856787 .687422 .856787C.468244 .856787 .14944 1.036115 .14944 1.43462C.14944 1.843088 .518057 2.042341 1.474471 2.042341C2.719801 2.042341 3.437111 1.265255 3.58655 .667497L4.692403-3.755915ZM3.39726-1.275218C3.337484-1.016189 3.108344-.767123 2.889166-.577833C2.67995-.398506 2.371108-.219178 2.082192-.219178C1.58406-.219178 1.43462-.737235 1.43462-1.135741C1.43462-1.613948 1.723537-2.789539 1.992528-3.297634C2.261519-3.785803 2.689913-4.184309 3.108344-4.184309C3.765878-4.184309 3.905355-3.377335 3.905355-3.327522S3.88543-3.217933 3.875467-3.178082L3.39726-1.275218Z'/><path id='g1-120' d='M3.327522-3.008717C3.387298-3.267746 3.616438-4.184309 4.313823-4.184309C4.363636-4.184309 4.60274-4.184309 4.811955-4.054795C4.533001-4.004981 4.333748-3.755915 4.333748-3.516812C4.333748-3.35741 4.443337-3.16812 4.712329-3.16812C4.931507-3.16812 5.250311-3.347447 5.250311-3.745953C5.250311-4.26401 4.662516-4.403487 4.323786-4.403487C3.745953-4.403487 3.39726-3.875467 3.277709-3.646326C3.028643-4.303861 2.49066-4.403487 2.201743-4.403487C1.165629-4.403487 .597758-3.118306 .597758-2.86924C.597758-2.769614 .697385-2.769614 .71731-2.769614C.797011-2.769614 .826899-2.789539 .846824-2.879203C1.185554-3.935243 1.843088-4.184309 2.181818-4.184309C2.371108-4.184309 2.719801-4.094645 2.719801-3.516812C2.719801-3.20797 2.550436-2.540473 2.181818-1.145704C2.022416-.52802 1.673724-.109589 1.235367-.109589C1.175592-.109589 .946451-.109589 .737235-.239103C.986301-.288917 1.205479-.498132 1.205479-.777086C1.205479-1.046077 .986301-1.125778 .836862-1.125778C.537983-1.125778 .288917-.86675 .288917-.547945C.288917-.089664 .787049 .109589 1.225405 .109589C1.882939 .109589 2.241594-.587796 2.271482-.647572C2.391034-.278954 2.749689 .109589 3.347447 .109589C4.373599 .109589 4.941469-1.175592 4.941469-1.424658C4.941469-1.524284 4.851806-1.524284 4.821918-1.524284C4.732254-1.524284 4.712329-1.484433 4.692403-1.414695C4.363636-.348692 3.686177-.109589 3.367372-.109589C2.978829-.109589 2.819427-.428394 2.819427-.767123C2.819427-.986301 2.879203-1.205479 2.988792-1.643836L3.327522-3.008717Z'/><path id='g5-49' d='M2.336239-4.435367C2.336239-4.623661 2.322291-4.630635 2.127024-4.630635C1.680697-4.191283 1.046077-4.184309 .760149-4.184309V-3.93325C.927522-3.93325 1.387796-3.93325 1.771357-4.128518V-.571856C1.771357-.341719 1.771357-.251059 1.073973-.251059H.808966V0C.934496-.006974 1.792279-.027895 2.050311-.027895C2.266501-.027895 3.145205-.006974 3.29863 0V-.251059H3.033624C2.336239-.251059 2.336239-.341719 2.336239-.571856V-4.435367Z'/><path id='g5-71' d='M5.195517-1.366874C5.195517-1.673724 5.265255-1.673724 5.732503-1.673724V-1.924782C5.683686-1.924782 5.174595-1.896887 4.832877-1.896887C4.463263-1.896887 3.93325-1.896887 3.57061-1.924782V-1.673724H3.835616C4.533001-1.673724 4.533001-1.583064 4.533001-1.352927V-.9066C4.533001-.753176 4.533001-.481196 4.135492-.285928C3.793773-.111582 3.403238-.111582 3.312578-.111582C2.524533-.111582 1.234371-.564882 1.234371-2.385056C1.234371-4.2401 2.559402-4.651557 3.249813-4.651557C3.926276-4.651557 4.763138-4.198257 4.944458-2.991781C4.958406-2.908095 5.021171-2.908095 5.069988-2.908095C5.195517-2.908095 5.195517-2.949938 5.195517-3.089415V-4.721295C5.195517-4.839851 5.195517-4.902615 5.097883-4.902615C5.069988-4.902615 5.035118-4.902615 4.979328-4.818929L4.609714-4.288917C4.267995-4.637609 3.772852-4.902615 3.159153-4.902615C1.708593-4.902615 .488169-3.779826 .488169-2.385056C.488169-1.004234 1.673724 .139477 3.180075 .139477C3.563636 .139477 4.337733 .069738 4.665504-.418431C4.78406-.237111 5.042092 0 5.111831 0C5.195517 0 5.195517-.076712 5.195517-.18132V-1.366874Z'/><path id='g5-83' d='M1.736488-2.908095C1.12279-3.047572 .934496-3.486924 .934496-3.779826C.934496-4.2401 1.3599-4.679452 1.994521-4.679452C2.93599-4.679452 3.340473-4.051806 3.452055-3.319552C3.466002-3.214944 3.472976-3.180075 3.577584-3.180075C3.696139-3.180075 3.696139-3.228892 3.696139-3.361395V-4.721295C3.696139-4.839851 3.696139-4.902615 3.598506-4.902615C3.542715-4.902615 3.528767-4.881694 3.47995-4.804981L3.228892-4.414446C2.768618-4.881694 2.189788-4.902615 1.994521-4.902615C1.115816-4.902615 .488169-4.274969 .488169-3.57061C.488169-3.180075 .662516-2.880199 .913574-2.643088C1.192528-2.371108 1.422665-2.322291 2.175841-2.154919C2.810461-2.015442 2.949938-1.987547 3.152179-1.792279C3.312578-1.63188 3.459029-1.408717 3.459029-1.094894C3.459029-.606725 3.054545-.111582 2.385056-.111582C1.708593-.111582 .774097-.376588 .72528-1.429639C.718306-1.54122 .718306-1.583064 .606725-1.583064C.488169-1.583064 .488169-1.534247 .488169-1.39477V-.041843C.488169 .076712 .488169 .139477 .585803 .139477C.641594 .139477 .655542 .118555 .697385 .055791C.760149-.027895 .899626-.251059 .955417-.341719C1.39477 .041843 1.931756 .139477 2.385056 .139477C3.305604 .139477 3.905355-.550934 3.905355-1.290162C3.905355-1.917808 3.466002-2.510585 2.768618-2.670984L1.736488-2.908095Z'/><path id='g5-97' d='M3.110336-1.868991C3.110336-2.238605 3.110336-2.503611 2.789539-2.761644C2.503611-2.998755 2.168867-3.110336 1.75741-3.110336C1.094894-3.110336 .627646-2.859278 .627646-2.433873C.627646-2.21071 .781071-2.092154 .962391-2.092154C1.150685-2.092154 1.290162-2.231631 1.290162-2.419925C1.290162-2.538481 1.234371-2.684932 1.046077-2.740722C1.297136-2.915068 1.701619-2.915068 1.743462-2.915068C2.133998-2.915068 2.559402-2.657036 2.559402-2.071233V-1.855044C2.175841-1.841096 1.715567-1.820174 1.206476-1.63188C.578829-1.401743 .383562-1.018182 .383562-.704359C.383562-.104608 1.108842 .069738 1.603985 .069738C2.161893 .069738 2.489664-.244085 2.636115-.516065C2.66401-.230137 2.852304 .034869 3.173101 .034869C3.187049 .034869 3.863512 .034869 3.863512-.627646V-1.011208H3.626401V-.63462C3.626401-.564882 3.626401-.230137 3.368369-.230137S3.110336-.557908 3.110336-.648568V-1.868991ZM2.559402-.983313C2.559402-.313823 1.973599-.125529 1.659776-.125529C1.30411-.125529 .969365-.36264 .969365-.704359C.969365-1.08792 1.30411-1.624907 2.559402-1.673724V-.983313Z'/><path id='g5-98' d='M1.387796-4.839851L.341719-4.763138V-4.51208C.81594-4.51208 .864757-4.456289 .864757-4.107597V0H1.101868L1.345953-.425405C1.610959-.076712 1.994521 .069738 2.364134 .069738C3.284682 .069738 4.072727-.620672 4.072727-1.506351C4.072727-2.357161 3.354421-3.075467 2.440847-3.075467C2.022416-3.075467 1.638854-2.908095 1.387796-2.657036V-4.839851ZM1.415691-2.336239C1.610959-2.657036 1.987547-2.880199 2.405978-2.880199C2.796513-2.880199 3.075467-2.657036 3.214944-2.447821C3.354421-2.245579 3.438107-1.973599 3.438107-1.513325C3.438107-1.352927 3.438107-.829888 3.152179-.502117C2.873225-.188294 2.531507-.125529 2.329265-.125529C1.771357-.125529 1.492403-.564882 1.415691-.711333V-2.336239Z'/><path id='g5-100' d='M2.48269-4.763138V-4.51208C2.949938-4.51208 3.005729-4.463263 3.005729-4.121544V-2.677958C2.747696-2.929016 2.412951-3.075467 2.02939-3.075467C1.101868-3.075467 .320797-2.378082 .320797-1.499377C.320797-.627646 1.060025 .069738 1.945704 .069738C2.517559 .069738 2.859278-.237111 2.977833-.36264V.069738L4.051806 0V-.251059C3.584558-.251059 3.528767-.299875 3.528767-.641594V-4.839851L2.48269-4.763138ZM2.977833-.732254C2.796513-.404483 2.440847-.125529 1.987547-.125529C1.597011-.125529 1.318057-.355666 1.17858-.557908C1.039103-.767123 .955417-1.046077 .955417-1.492403C.955417-1.652802 .955417-2.175841 1.241345-2.503611C1.520299-2.817435 1.862017-2.880199 2.064259-2.880199C2.399004-2.880199 2.698879-2.726775 2.894147-2.475716C2.977833-2.364134 2.977833-2.357161 2.977833-2.224658V-.732254Z'/><path id='g5-116' d='M1.401743-2.75467H2.489664V-3.005729H1.401743V-4.288917H1.164633C1.157659-3.66127 .871731-2.970859 .202242-2.949938V-2.75467H.850809V-.871731C.850809-.09066 1.436613 .069738 1.827148 .069738C2.294396 .069738 2.615193-.327771 2.615193-.878705V-1.262267H2.378082V-.885679C2.378082-.411457 2.154919-.153425 1.882939-.153425C1.401743-.153425 1.401743-.739228 1.401743-.864757V-2.75467Z'/><path id='g2-58' d='M1.583064-.397509C1.583064-.648568 1.373848-.801993 1.185554-.801993C.955417-.801993 .781071-.613699 .781071-.404483C.781071-.153425 .990286 0 1.17858 0C1.408717 0 1.583064-.188294 1.583064-.397509Z'/><path id='g2-71' d='M5.878954-4.811955C5.878954-4.846824 5.858032-4.902615 5.788294-4.902615C5.739477-4.902615 5.725529-4.888667 5.662765-4.818929L5.153674-4.281943C5.090909-4.365629 4.700374-4.902615 3.84259-4.902615C2.147945-4.902615 .488169-3.403238 .488169-1.827148C.488169-.746202 1.311083 .139477 2.650062 .139477C3.263761 .139477 3.912329-.020922 4.274969-.411457C4.344707-.258032 4.533001-.006974 4.616687-.006974C4.679452-.006974 4.6934-.034869 4.728269-.18132L4.860772-.718306C4.895641-.843836 4.993275-1.262267 5.014197-1.345953C5.097883-1.659776 5.104857-1.66675 5.516314-1.673724C5.565131-1.673724 5.669738-1.673724 5.669738-1.820174C5.669738-1.889913 5.620922-1.924782 5.565131-1.924782C5.334994-1.924782 5.042092-1.896887 4.798007-1.896887C4.623661-1.896887 4.393524-1.896887 4.219178-1.903861S3.84259-1.924782 3.668244-1.924782C3.619427-1.924782 3.514819-1.924782 3.514819-1.771357C3.514819-1.673724 3.591532-1.673724 3.765878-1.673724C3.898381-1.673724 4.037858-1.673724 4.170361-1.659776C4.393524-1.638854 4.400498-1.610959 4.400498-1.527273C4.400498-1.499377 4.400498-1.48543 4.351681-1.30411C4.302864-1.108842 4.226152-.795019 4.198257-.72528C3.996015-.299875 3.347447-.111582 2.803487-.111582C2.106102-.111582 1.192528-.446326 1.192528-1.624907C1.192528-2.371108 1.54122-3.305604 2.057285-3.828643C2.775592-4.539975 3.521793-4.651557 3.912329-4.651557C4.721295-4.651557 5.195517-4.065753 5.195517-3.284682C5.195517-3.089415 5.174595-3.040598 5.174595-2.998755C5.174595-2.908095 5.265255-2.908095 5.300125-2.908095C5.411706-2.908095 5.411706-2.929016 5.446575-3.061519L5.878954-4.811955Z'/><path id='g2-103' d='M3.710087-2.57335C3.737983-2.677958 3.737983-2.712827 3.737983-2.719801C3.737983-2.873225 3.612453-2.942964 3.500872-2.942964C3.340473-2.942964 3.20797-2.810461 3.180075-2.677958C3.061519-2.866252 2.824408-3.075467 2.461768-3.075467C1.590037-3.075467 .676463-2.140971 .676463-1.143711C.676463-.425405 1.164633 0 1.736488 0C2.057285 0 2.364134-.160399 2.608219-.376588L2.454795 .251059C2.378082 .54396 2.329265 .732254 2.064259 .969365C1.75741 1.227397 1.457534 1.227397 1.283188 1.227397C.962391 1.227397 .871731 1.206476 .746202 1.17858C.920548 1.094894 .969365 .927522 .969365 .829888C.969365 .662516 .836862 .571856 .697385 .571856C.502117 .571856 .299875 .732254 .299875 .99726C.299875 1.415691 .899626 1.422665 1.290162 1.422665C2.385056 1.422665 2.852304 .864757 2.949938 .467248L3.710087-2.57335ZM2.747696-.927522C2.719801-.822914 2.719801-.808966 2.601245-.669489C2.357161-.376588 2.022416-.195268 1.75741-.195268C1.401743-.195268 1.234371-.495143 1.234371-.857783C1.234371-1.164633 1.422665-1.945704 1.603985-2.252553C1.896887-2.740722 2.224658-2.880199 2.461768-2.880199C2.949938-2.880199 3.082441-2.357161 3.082441-2.287422C3.082441-2.273474 3.082441-2.259527 3.061519-2.182814L2.747696-.927522Z'/></defs><g id='page1'><g stroke-miterlimit='10' transform='translate(41.186463,-42.602858)scale(0.996264,-0.996264)'><g fill='#000' stroke='#000'><g stroke-width='0.4'><g transform='translate(-110.28091,-18.60852)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(41.186463,-42.602858)scale(-1,-1)'><g stroke='#000' stroke-miterlimit='10' transform='translate(65.495633,-77.88206)scale(0.996264,-0.996264)'><g transform='translate(-2.85764,0.0)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(65.495633,-77.88206)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='65.495633' y='-77.88206' xlink:href='#g1-120'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(140.578893,-77.88206)scale(0.996264,-0.996264)'><g transform='translate(-5.42186,0.0)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(140.578893,-77.88206)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='140.578893' y='-77.88206' xlink:href='#g1-103'/><use x='145.688201' y='-77.88206' xlink:href='#g1-120'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(226.138629,-77.88206)scale(0.996264,-0.996264)'/><g stroke='#000' stroke-miterlimit='10' transform='translate(65.495633,-42.602858)scale(0.996264,-0.996264)'><g transform='translate(-20.09033,0.0)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(65.495633,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='65.495633' y='-42.602858' xlink:href='#g4-83'/><use x='71.03045' y='-42.602858' xlink:href='#g4-116'/><use x='74.904824' y='-42.602858' xlink:href='#g4-97'/><use x='79.886163' y='-42.602858' xlink:href='#g4-98'/><use x='85.42098' y='-41.108477' xlink:href='#g5-71'/><use x='92.08352' y='-42.602858' xlink:href='#g4-40'/><use x='95.957894' y='-42.602858' xlink:href='#g1-120'/><use x='101.651826' y='-42.602858' xlink:href='#g4-41'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(140.578893,-42.602858)scale(0.996264,-0.996264)'><g transform='translate(-22.65456,0.0)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(140.578893,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='140.578893' y='-42.602858' xlink:href='#g4-83'/><use x='146.11371' y='-42.602858' xlink:href='#g4-116'/><use x='149.988084' y='-42.602858' xlink:href='#g4-97'/><use x='154.969423' y='-42.602858' xlink:href='#g4-98'/><use x='160.50424' y='-41.108477' xlink:href='#g5-71'/><use x='167.16678' y='-42.602858' xlink:href='#g4-40'/><use x='171.041154' y='-42.602858' xlink:href='#g1-103'/><use x='176.150461' y='-42.602858' xlink:href='#g1-120'/><use x='181.844393' y='-42.602858' xlink:href='#g4-41'/></g></g></g></g></g><g stroke='#000' stroke-miterlimit='10' transform='translate(226.138629,-42.602858)scale(0.996264,-0.996264)'><g transform='translate(-30.6061,0.0)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(226.138629,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='226.138629' y='-42.602858' xlink:href='#g1-103'/><use x='231.247936' y='-42.602858' xlink:href='#g4-83'/><use x='236.782753' y='-42.602858' xlink:href='#g4-116'/><use x='240.657127' y='-42.602858' xlink:href='#g4-97'/><use x='245.638466' y='-42.602858' xlink:href='#g4-98'/><use x='251.173277' y='-41.108477' xlink:href='#g2-71'/><use x='257.874132' y='-42.602858' xlink:href='#g4-40'/><use x='261.748506' y='-42.602858' xlink:href='#g1-120'/><use x='267.442438' y='-42.602858' xlink:href='#g4-41'/><use x='271.316811' y='-42.602858' xlink:href='#g1-103'/><use x='276.426119' y='-46.218222' xlink:href='#g0-0'/><use x='282.652799' y='-46.218222' xlink:href='#g5-49'/></g></g></g></g></g></g></g><g stroke-width='0.39998'><path d='M-78.21298 19.30298H-20.84758' fill='none'/><g transform='matrix(-1.0,0.0,0.0,-1.0,-78.31297,19.30298)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='miter'> <path d='M0 1.63991V-1.63991' fill='none'/> </g> </g> </g></g><g transform='translate(-20.6476,19.30298)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d='M-2.07988 2.39986C-1.69989 .95992-.85313 .27998 0 0C-.85313-.27998-1.69989-.95992-2.07988-2.39986' fill='none'/> </g> </g> </g></g><g transform='translate(-55.86902,23.01904)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(41.186463,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='41.186463' y='-42.602858' xlink:href='#g2-103'/><use x='45.323413' y='-42.602858' xlink:href='#g2-58'/><use x='47.689554' y='-42.602858' xlink:href='#g0-0'/></g></g></g></g></g><g stroke-width='0.39998'><path d='M-85.88058 12.6395V-6.84505' fill='none'/><g transform='matrix(0.0,1.0,-1.0,0.0,-85.88058,12.73949)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='miter'> <path d='M0 1.63991V-1.63991' fill='none'/> </g> </g> </g></g><g transform='matrix(0.0,-1.0,1.0,0.0,-85.88058,-7.04503)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d='M-2.07988 2.39986C-1.69989 .95992-.85313 .27998 0 0C-.85313-.27998-1.69989-.95992-2.07988-2.39986' fill='none'/> </g> </g> </g></g><g transform='translate(-83.5256,0.91669)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(41.186463,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='41.186463' y='-42.602858' xlink:href='#g5-83'/><use x='45.586652' y='-42.602858' xlink:href='#g5-116'/><use x='48.699995' y='-42.602858' xlink:href='#g5-97'/><use x='52.671235' y='-42.602858' xlink:href='#g5-98'/><use x='57.071425' y='-41.606594' xlink:href='#g6-71'/></g></g></g></g></g><g stroke-width='0.39998'><path d='M-10.51576 10.69507V-6.84505' fill='none'/><g transform='matrix(0.0,1.0,-1.0,0.0,-10.51576,10.79506)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='miter'> <path d='M0 1.63991V-1.63991' fill='none'/> </g> </g> </g></g><g transform='matrix(0.0,-1.0,1.0,0.0,-10.51576,-7.04503)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d='M-2.07988 2.39986C-1.69989 .95992-.85313 .27998 0 0C-.85313-.27998-1.69989-.95992-2.07988-2.39986' fill='none'/> </g> </g> </g></g><g transform='translate(-8.16078,-0.05553)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(41.186463,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='41.186463' y='-42.602858' xlink:href='#g5-83'/><use x='45.586652' y='-42.602858' xlink:href='#g5-116'/><use x='48.699995' y='-42.602858' xlink:href='#g5-97'/><use x='52.671235' y='-42.602858' xlink:href='#g5-98'/><use x='57.071425' y='-41.606594' xlink:href='#g6-71'/></g></g></g></g></g><g stroke-width='0.39998'><path d='M-60.98029-16.10852H-38.08028' fill='none'/><g transform='matrix(-1.0,0.0,0.0,-1.0,-61.08028,-16.10852)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='miter'> <path d='M0 1.63991V-1.63991' fill='none'/> </g> </g> </g></g><g transform='translate(-37.8803,-16.10852)'><g stroke-dasharray='none' stroke-dashoffset='0.0'> <g stroke-linecap='round'> <g stroke-linejoin='round'> <path d='M-2.07988 2.39986C-1.69989 .95992-.85313 .27998 0 0C-.85313-.27998-1.69989-.95992-2.07988-2.39986' fill='none'/> </g> </g> </g></g><g transform='translate(-55.77284,-11.78133)'><g stroke='none' transform='scale(-1.00375,1.00375)translate(41.186463,-42.602858)scale(-1,-1)'><g fill='#000'><g stroke='none'><use x='41.186463' y='-42.602858' xlink:href='#g5-97'/><use x='45.157703' y='-42.602858' xlink:href='#g5-100'/><use x='49.557887' y='-41.606594' xlink:href='#g3-103'/></g></g></g></g></g><path d='M16.64877-15.10852H40.24872' fill='none'/><path d='M16.64877-17.10852H40.24872' fill='none'/><g stroke-width='0.39998'><path d='M40.24873-16.10852' fill='none'/></g></g></g></g></g></svg></center>
+这预示着 <span class="arithmatex">\(\mathrm{Stab}_G\)</span> 具备某种意义上的“函子性”。</p>
 </div>
 <p>对于证明 Sylow 定理，即本节的最终目标而言，这两个命题已经足够了。但是，我们会发现将其切到 <span class="arithmatex">\(\mathrm{Stab}_G(x)\)</span> 有点切得太细了，以至于很难指出什么组合学的应用，因为算这个太麻烦了。在解决 Sylow 定理之后，我们会回头来处理一些组合问题，不妨稍作等待。</p>
 <h2 id="p-sylow"><span class="arithmatex">\(p\)</span>-群的结构和 Sylow 定理<a class="headerlink" href="#p-sylow" title="Permanent link">&para;</a></h2>
@@ -1793,7 +2912,7 @@ Y = \{E \subseteq G: |E| = p^m\}
 \]</div>
 </div>
 <p>既然这是个同构，那么很自然的推论就是，两个共轭的集合具备相同的元素个数，这是不言自明的。</p>
-<p>事实上，现在我们相当于在 <span class="arithmatex">\(\mathcal{P}(G)\)</span><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> 上给出了一个作用 <span class="arithmatex">\(\mathrm{ad}_g\)</span>，自然的，所有与集合 <span class="arithmatex">\(S\)</span> 共轭的子集就构成了轨道 <span class="arithmatex">\(GS\)</span>，其上的稳定化子当然也就是：</p>
+<p>事实上，现在我们相当于在 <span class="arithmatex">\(\mathcal{P}(G)\)</span><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">2</a></sup> 上给出了一个作用 <span class="arithmatex">\(\mathrm{ad}_g\)</span>，自然的，所有与集合 <span class="arithmatex">\(S\)</span> 共轭的子集就构成了轨道 <span class="arithmatex">\(GS\)</span>，其上的稳定化子当然也就是：</p>
 <div class="arithmatex">\[
 \mathrm{Stab}_G(S) = \{g \in G: gSg^{-1} = S\} = \{g \in G: gS = Sg\}
 \]</div>
@@ -1911,20 +3030,30 @@ Y = \{E \subseteq G: |E| = p^m\}
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:1">
-<p>由某个元素 <span class="arithmatex">\(a\)</span> 生成的循环群就是指所有形如 <span class="arithmatex">\(a^p, p \in \Z\)</span> 的元素构成的群，记作 <span class="arithmatex">\(\langle a \rangle\)</span>。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="fn:2">
-<p>右作用当然与左作用对称咯，当然，注意结合律的时候它是右结合的。这里我们特意把它写成了 <span class="arithmatex">\(G\)</span> 上的映射的形式，方便读者后续和内自同态的定义进行比较。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>右作用当然与左作用对称咯，当然，注意结合律的时候它是右结合的。这里我们特意把它写成了 <span class="arithmatex">\(G\)</span> 上的映射的形式，方便读者后续和内自同态的定义进行比较。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>指 <span class="arithmatex">\(G\)</span> 的幂集，即其所有子集构成的集合。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>指 <span class="arithmatex">\(G\)</span> 的幂集，即其所有子集构成的集合。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1">
+<p>由某个元素 <span class="arithmatex">\(a\)</span> 生成的循环群就是指所有形如 <span class="arithmatex">\(a^p, p \in \Z\)</span> 的元素构成的群，记作 <span class="arithmatex">\(\langle a \rangle\)</span>。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
 <p>这里没有与补集混淆之虞，因为集合意义上子群的补不可能是子群。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
+
+
+
+
+
+
+
+  
+  
+
 
 
 
@@ -1983,52 +3112,18 @@ Y = \{E \subseteq G: |E| = p^m\}
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            回到页面顶部
-          </a>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="页脚" >
-      
-        
-        <a href="../01/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 1.2.1 鸟迹：基本架构" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              1.2.1 鸟迹：基本架构
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../03/" class="md-footer__link md-footer__link--next" aria-label="下一页: 1.2.3 扩张：从群构造群" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              1.2.3 扩张：从群构造群
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2051,10 +3146,14 @@ Y = \{E \subseteq G: |E| = p^m\}
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
       
