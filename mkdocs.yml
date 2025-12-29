@@ -1,10 +1,10 @@
 site_name: FFox's Notes
 site_url: https://frightenedfoxcn.github.io/notes/
 
-theme: 
-  name: 'material'
-  language: 'zh'
-  icon: 
+theme:
+  name: "material"
+  language: "zh"
+  icon:
     logo: material/notebook-outline
   custom_dir: overrides
   features:
@@ -37,11 +37,8 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.highlight:
@@ -70,101 +67,100 @@ plugins:
 
 nav:
   - Home:
-    - index.md
-    - 更新记录: changelog.md
-    - 友链: links.md
-    - 待办事项: todo.md
-  # - Technology:
-    # - tech/index.md
-    # - Vulkan Tutorial with Rust:
-      # - tech/rust-vulkan/index.md
-      # - 01 计算流水线 Compute Pipeline: tech/rust-vulkan/01ComputePipeline.md
+      - index.md
+      - 更新记录: changelog.md
+      - 友链: links.md
+      - 待办事项: todo.md
+  - Technology:
+      - tech/index.md
+      - Vulkan Tutorial with Rust:
+          - tech/rust-vulkan/index.md
+          - 01 计算流水线 Compute Pipeline: tech/rust-vulkan/01ComputePipeline.md
   # - Mathematics:
-    # - math/index.md
-    # - Theory of Computation Overview:
-      # - math/toc-notes/index.md
-      # - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
-      # - 01B 范畴化的自动机 Automata in Category Context: math/toc-notes/01B.md
-      # - 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages: math/toc-notes/03A.md
-      # - 05A 图灵机与规约 Turing Machines & Reduction: math/toc-notes/05A.md
+  # - math/index.md
+  # - Theory of Computation Overview:
+  # - math/toc-notes/index.md
+  # - 01A 有限自动机和正则语言 Finite Automata & Regular Languages: math/toc-notes/01A.md
+  # - 01B 范畴化的自动机 Automata in Category Context: math/toc-notes/01B.md
+  # - 03A 下推自动机和上下文无关语言 Push-down Automata and Context-free Languages: math/toc-notes/03A.md
+  # - 05A 图灵机与规约 Turing Machines & Reduction: math/toc-notes/05A.md
   - Series:
-    - series/index.md
-    - 写给计算机系学生的代数:
-      - series/alg-for-cs/index.md
-      - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
-      - 01 代数：古典之旅:
-        - series/alg-for-cs/01/index.md
-        - 1.1 太极：群之前的故事:  
-          - series/alg-for-cs/01/01/index.md
-          - 1.1.1 结合性：半群: series/alg-for-cs/01/01/01.md
-          # - 1.1.2 幺元：幺半群: series/alg-for-cs/01/01/02.md
-          # - 1.1.3 计数：幺半群的组合学，或字符串学:
-          # - 1.1.4 局部化：从幺半群到群: 
-        - 1.2 乾坤：群论之初:  
-          - series/alg-for-cs/01/02/index.md
-          - 1.2.1 鸟迹：基本架构: series/alg-for-cs/01/02/01.md
-          - 1.2.2 阶：从 Lagrange 到 Sylow: series/alg-for-cs/01/02/02.md
-          - 1.2.3 扩张：从群构造群: series/alg-for-cs/01/02/03.md
+      - series/index.md
+      - 写给计算机系学生的代数:
+          - series/alg-for-cs/index.md
+          - 00 前言：关于代数、数学和计算科学: series/alg-for-cs/00.md
+          - 01 代数：古典之旅:
+              - series/alg-for-cs/01/index.md
+              - 1.1 太极：群之前的故事:
+                  - series/alg-for-cs/01/01/index.md
+                  - 1.1.1 结合性：半群: series/alg-for-cs/01/01/01.md
+                # - 1.1.2 幺元：幺半群: series/alg-for-cs/01/01/02.md
+                # - 1.1.3 计数：幺半群的组合学，或字符串学:
+                # - 1.1.4 局部化：从幺半群到群:
+              - 1.2 乾坤：群论之初:
+                  - series/alg-for-cs/01/02/index.md
+                  - 1.2.1 鸟迹：基本架构: series/alg-for-cs/01/02/01.md
+                  - 1.2.2 阶：从 Lagrange 到 Sylow: series/alg-for-cs/01/02/02.md
+                  - 1.2.3 扩张：从群构造群: series/alg-for-cs/01/02/03.md
 
-          # - 1.2.2 有限：对称群和群的组合学: 
-          # - 1.2.3 同调：追寻交换图:
-        # - 1.3 九序：偏序、格:
-        # - 1.4 英华：多项式、环:
-        # - 1.5 精义：模、代数和表示:
-        # - 1.5 玄圣：域、Galois 理论
-        # - 1.A 幺半群与自动机：正则语言的并行解析: series/alg-for-cs/01/Areg.md
-        # - 1.B 幺半群的展示：算法专题: series/alg-for-cs/01/Bpre.md
-      - 03 无穷：拓扑学方法:
-        - series/alg-for-cs/03/index.md
-        - 3.1 对象：拓扑空间: 
-          # - series/alg-for-cs/03/01/index.md
-          - 3.1.1 定义：一次闪光: series/alg-for-cs/03/01/01.md
-      - 04 符号：范畴论的抽象废话:
-        - series/alg-for-cs/04/index.md
-        - 4.1 导向：范畴、函子、自然变换: 
-          - series/alg-for-cs/04/01/index.md
-          - 4.1.1 宏观：基本定义: series/alg-for-cs/04/01/01.md
-          - 4.1.2 中观：描述性质: series/alg-for-cs/04/01/02.md
-      - 参考答案:
-        - series/alg-for-cs/solution/index.md
-        - 1.2.1 鸟迹：基本架构: series/alg-for-cs/solution/01/02/01.md
+                # - 1.2.2 有限：对称群和群的组合学:
+                # - 1.2.3 同调：追寻交换图:
+            # - 1.3 九序：偏序、格:
+            # - 1.4 英华：多项式、环:
+            # - 1.5 精义：模、代数和表示:
+            # - 1.5 玄圣：域、Galois 理论
+            # - 1.A 幺半群与自动机：正则语言的并行解析: series/alg-for-cs/01/Areg.md
+            # - 1.B 幺半群的展示：算法专题: series/alg-for-cs/01/Bpre.md
+          - 03 无穷：拓扑学方法:
+              - series/alg-for-cs/03/index.md
+              - 3.1 对象：拓扑空间:
+                  # - series/alg-for-cs/03/01/index.md
+                  - 3.1.1 定义：一次闪光: series/alg-for-cs/03/01/01.md
+          - 04 符号：范畴论的抽象废话:
+              - series/alg-for-cs/04/index.md
+              - 4.1 导向：范畴、函子、自然变换:
+                  - series/alg-for-cs/04/01/index.md
+                  - 4.1.1 宏观：基本定义: series/alg-for-cs/04/01/01.md
+                  - 4.1.2 中观：描述性质: series/alg-for-cs/04/01/02.md
+          - 参考答案:
+              - series/alg-for-cs/solution/index.md
+              - 1.2.1 鸟迹：基本架构: series/alg-for-cs/solution/01/02/01.md
   - Miscellany:
-    - miscellany/index.md
-  #   - 衰败的美学: 
-  #     - miscellany/aesthetic-decay/index.md
-  #     - 引言: miscellany/aesthetic-decay/00intro.md
-    - Francis Bouceux - Some flavours of topos theory:
-      - miscellany/bouceux-informal-topos/index.md
-      - 第一讲 层拓扑斯: miscellany/bouceux-informal-topos/01sheaf.md
-      - 第四讲 拓扑斯的内逻辑: miscellany/bouceux-informal-topos/04logic.md
-      - 参考文献: miscellany/bouceux-informal-topos/06refs.md
+      - miscellany/index.md
+      #   - 衰败的美学:
+      #     - miscellany/aesthetic-decay/index.md
+      #     - 引言: miscellany/aesthetic-decay/00intro.md
+      - Francis Bouceux - Some flavours of topos theory:
+          - miscellany/bouceux-informal-topos/index.md
+          - 第一讲 层拓扑斯: miscellany/bouceux-informal-topos/01sheaf.md
+          - 第四讲 拓扑斯的内逻辑: miscellany/bouceux-informal-topos/04logic.md
+          - 参考文献: miscellany/bouceux-informal-topos/06refs.md
   # - Exercises:
-    # - exercises/index.md
-    # - 李文威《代数学方法》卷一：基本架构: 
-    #   - exercises/wwli-aljabr-1/index.md
-    #   - 第四章：群论: exercises/wwli-aljabr-1/ch4.md
+  # - exercises/index.md
+  # - 李文威《代数学方法》卷一：基本架构:
+  #   - exercises/wwli-aljabr-1/index.md
+  #   - 第四章：群论: exercises/wwli-aljabr-1/ch4.md
   - Quick Notes:
-    - qnotes/index.md
-    - Theorem Proving in Lean 4: qnotes/theorem_proving_in_lean_4.md
-    - Computer Vision: 
-      - qnotes/computer_vision/index.md
-      - 01 Image Formation: qnotes/computer_vision/01 Image Formation.md
-      - 03 Image Matching & Motion Estimation: qnotes/computer_vision/03 Image Matching & Motion Estimation.md
-      - 05 Structure from Motion: qnotes/computer_vision/05 Structure from Motion.md
-      - 06 Depth Estimation & Dense Reconstruction: qnotes/computer_vision/06 Depth Estimation & Dense Reconstruction.md
-      - 07 Recognition: qnotes/computer_vision/07 Recognition.md
-      - 08 3D Deep Learning: qnotes/computer_vision/08 3D Deep Learning.md
-      - 09 Computational Photography: qnotes/computer_vision/09 Computational Photography.md
-      - 10 Image-based Rendering: qnotes/computer_vision/10 Image-based Rendering.md
+      - qnotes/index.md
+      - Theorem Proving in Lean 4: qnotes/theorem_proving_in_lean_4.md
+      - Computer Vision:
+          - qnotes/computer_vision/index.md
+          - 01 Image Formation: qnotes/computer_vision/01 Image Formation.md
+          - 03 Image Matching & Motion Estimation: qnotes/computer_vision/03 Image Matching & Motion Estimation.md
+          - 05 Structure from Motion: qnotes/computer_vision/05 Structure from Motion.md
+          - 06 Depth Estimation & Dense Reconstruction: qnotes/computer_vision/06 Depth Estimation & Dense Reconstruction.md
+          - 07 Recognition: qnotes/computer_vision/07 Recognition.md
+          - 08 3D Deep Learning: qnotes/computer_vision/08 3D Deep Learning.md
+          - 09 Computational Photography: qnotes/computer_vision/09 Computational Photography.md
+          - 10 Image-based Rendering: qnotes/computer_vision/10 Image-based Rendering.md
     # - Lie Groups and Lie Algebras:
-      # - qnotes/lie_groups/index.md
-      # - 01 李代数的基本性质，可解性和幂零性: qnotes/lie_groups/w01.md
+    # - qnotes/lie_groups/index.md
+    # - 01 李代数的基本性质，可解性和幂零性: qnotes/lie_groups/w01.md
     # - Natural Language Processing: qnotes/natural_language_processing/index.md
     # - AI Security: qnotes/ai_security/index.md
   - Daily Notes:
-    - dnotes/index.md
-    - 7/14 单子论和 Beck 单子性定理: dnotes/0714monad.md
-    - 7/15 格论和 Birkhoff 对偶: dnotes/0715birkhoff_duality.md
-    - 7/16 用格论研究拓扑空间：Locale and Frame: dnotes/0716locale_frame.md
-    - 8/1 一个简单的 Coq 车祸课程：一阶逻辑: dnotes/0801coq.md
-
+      - dnotes/index.md
+      - 7/14 单子论和 Beck 单子性定理: dnotes/0714monad.md
+      - 7/15 格论和 Birkhoff 对偶: dnotes/0715birkhoff_duality.md
+      - 7/16 用格论研究拓扑空间：Locale and Frame: dnotes/0716locale_frame.md
+      - 8/1 一个简单的 Coq 车祸课程：一阶逻辑: dnotes/0801coq.md

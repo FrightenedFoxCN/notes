@@ -4,7 +4,10 @@ comments: true
 
 # 01 计算流水线 Compute Pipeline 
 
-在这一节教程中，我们将尝试建立一个计算流水线。本文的主要参考资料来自 Vulkano 的官方文档：[Vulkano](https://vulkano.rs/guide/introduction)，将涉及到下图中所有画了蓝色方框的部分。
+!!! warning
+    这一部分文档年代较为久远，尚未更新到新版本，读者可以去 github 找示例代码库中的新版本代码阅读，思路基本上是一致的。
+
+在这一节教程中，我们将尝试建立一个计算流水线。本文的主要参考资料来自 Vulkano 的官方文档：[Vulkano](https://vulkano.rs)，将涉及到下图中所有画了蓝色方框的部分。
 
 <p align="center"><img src="overview.png" width="300" /></p>
 
@@ -14,7 +17,7 @@ comments: true
 
 ```toml
 [dependencies]
-vulkano = "0.32.3"
+vulkano = "0.34.3"
 ```
 
 接下来就可以在 main.rs 中使用相关的资源了。首先，为了使用 Vulkan API，我们需要载入对应的库。我们首先引入 `vulkano::VulkanLibrary`，这个类的构造函数会直接调用系统中已有的库并返回一个 `Result` 型对象。我们首先测试一下是否成功：
